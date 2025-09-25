@@ -14,6 +14,9 @@ importers:
       '@ui-library/hooks':
         specifier: workspace:^
         version: link:packages/hooks
+      '@ui-library/theme':
+        specifier: workspace:^
+        version: link:packages/theme
       '@ui-library/utils':
         specifier: workspace:^
         version: link:packages/utils
@@ -37,6 +40,8 @@ importers:
   packages/components: {}
 
   packages/hooks: {}
+
+  packages/theme: {}
 
   packages/utils: {}
 

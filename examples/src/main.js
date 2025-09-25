@@ -3,6 +3,10 @@ import './style.css'
 import App from './App.vue'
 // 导入组件库
 import AUi from '../../packages'
+// 全量导入主题包
+import '@ui-library/theme/src/index.scss'
+// 按需导入主题包
+// import '@ui-library/theme/src/button.scss'
 
 const app = createApp(App)
 // 安装组件库插件
