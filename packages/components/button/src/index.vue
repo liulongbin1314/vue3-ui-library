@@ -16,7 +16,7 @@ const ns = useNamespace('button')
 console.log('组件的命名空间是：' + ns.namespace)
 console.log('Button 组件的块类名是：' + ns.b('wrap'))
 console.log(ns.e('item'))
-console.log(ns.m('', 'small'))
+console.log(ns.m('size', 'small'))
 </script>
 
 <style scoped></style>
