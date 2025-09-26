@@ -7,6 +7,17 @@
     <a-button type="warning">警告</a-button>
     <a-button type="error">错误</a-button>
   </div>
+
+  <hr />
+
+  <p>圆角按钮</p>
+  <div class="row-gap">
+    <a-button round>默认</a-button>
+    <a-button type="priamry" round>主要</a-button>
+    <a-button type="success" round>成功</a-button>
+    <a-button type="warning" round>警告</a-button>
+    <a-button type="error" round>错误</a-button>
+  </div>
 </template>
 
 <script setup>

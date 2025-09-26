@@ -25,11 +25,14 @@ export const useNamespace = (block) => {
   // 定义名为 m 的函数，用于生成符合 BEM 规范的“修改器类名”
   const m = (modifier, modifierValue) =>
     modifier ? _bem(namespace, block, '', '', modifier, modifierValue) : ''
+  // 定义一个 is 状态函数，用于根据状态值的 true 或 false，为元素生成 is- 开头的状态类名
+  const is = (activeName, state) => (activeName && state ? `is-${activeName}` : '')
 
   return {
     namespace,
     b,
     e,
-    m
+    m,
+    is
   }
 }
