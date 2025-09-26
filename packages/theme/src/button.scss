@@ -21,3 +21,59 @@
   user-select: none;
   vertical-align: middle;
 }
+
+// 默认按钮的样式
+.a-button--default {
+  background-color: #fff;
+  border-color: #e2e6f1;
+  color: #4d5059;
+  &:hover {
+    background-color: #eaf0ff;
+    border-color: #97b4ff;
+    color: #3069ff;
+  }
+}
+
+// 主要按钮的样式
+.a-button--priamry {
+  background-color: #3069ff;
+  border-color: #3069ff;
+  color: #fff;
+  &:hover {
+    background-color: #6e96ff;
+    border-color: #6e96ff;
+  }
+}
+
+// 成功按钮的样式
+.a-button--success {
+  background-color: #14cd70;
+  border-color: #14cd70;
+  color: #fff;
+  &:hover {
+    background-color: #5bdc9b;
+    border-color: #5bdc9b;
+  }
+}
+
+// 警告按钮的样式
+.a-button--warning {
+  background-color: #ffa81a;
+  border-color: #ffa81a;
+  color: #fff;
+  &:hover {
+    background-color: #ffc25f;
+    border-color: #ffc25f;
+  }
+}
+
+// 错误按钮的样式
+.a-button--error {
+  background-color: #ff4a5b;
+  border-color: #ff4a5b;
+  color: #fff;
+  &:hover {
+    background-color: #ff808c;
+    border-color: #ff808c;
+  }
+}

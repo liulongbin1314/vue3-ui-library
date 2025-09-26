@@ -1,6 +1,6 @@
 <!-- button 按钮组件的 .vue 源代码 -->
 <template>
-  <button :class="[ns.b(), ns.m('primary')]">
+  <button :class="[ns.b(), ns.m(type)]">
     <span v-if="$slots.default">
       <!-- 默认插槽 -->
       <slot></slot>
@@ -11,6 +11,13 @@
 <script setup>
 defineOptions({
   name: 'a-button'
+})
+
+defineProps({
+  type: {
+    type: String,
+    default: 'default'
+  }
 })
 
 import { useNamespace } from '@ui-library/hooks'
