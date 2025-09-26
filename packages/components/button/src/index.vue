@@ -1,6 +1,11 @@
 <!-- button 按钮组件的 .vue 源代码 -->
 <template>
-  <button :class="[ns.b(), ns.m('primary')]">这是测试按钮</button>
+  <button :class="[ns.b(), ns.m('primary')]">
+    <span v-if="$slots.default">
+      <!-- 默认插槽 -->
+      <slot></slot>
+    </span>
+  </button>
 </template>
 
 <script setup>

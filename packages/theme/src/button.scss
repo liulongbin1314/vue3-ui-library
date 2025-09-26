@@ -1,3 +1,23 @@
 .a-button {
-  color: red;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  min-width: 80px;
+  background-color: #fff;
+  border: 2px solid #e2e6f1;
+  font-size: 14px;
+  color: #4d5059;
+
+  padding: 0 16px;
+  box-sizing: border-box;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  transition: 0.3s;
+  outline: none;
+  cursor: pointer;
+  border-radius: 6px;
+  user-select: none;
+  vertical-align: middle;
 }
