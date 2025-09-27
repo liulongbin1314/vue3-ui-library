@@ -1,6 +1,9 @@
 <!-- button 按钮组件的 .vue 源代码 -->
 <template>
-  <button :class="[ns.b(), ns.m(type), ns.is('round', round)]">
+  <button
+    :disabled="disabled"
+    :class="[ns.b(), ns.m(type), ns.is('round', round), ns.is('disabled', disabled)]"
+  >
     <span v-if="$slots.default">
       <!-- 默认插槽 -->
       <slot></slot>
@@ -18,7 +21,8 @@ defineProps({
     type: String,
     default: 'default'
   },
-  round: Boolean
+  round: Boolean,
+  disabled: Boolean
 })
 
 import { useNamespace } from '@ui-library/hooks'
