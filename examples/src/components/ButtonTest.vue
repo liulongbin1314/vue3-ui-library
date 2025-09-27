@@ -72,6 +72,15 @@
     <a-button type="warning" block>警告</a-button>
     <a-button type="error" block>错误</a-button>
   </div>
+
+  <p>按钮尺寸</p>
+  <div class="row-gap">
+    <a-button>默认</a-button>
+    <a-button type="priamry" size="default">主要</a-button>
+    <a-button type="success" size="large">成功</a-button>
+    <a-button type="warning" size="small">警告</a-button>
+    <a-button type="error" size="small">错误</a-button>
+  </div>
 </template>
 
 <script setup>
@@ -83,6 +92,7 @@
 .row-gap {
   display: flex;
   gap: 0 10px;
+  align-items: center;
 }
 
 .col-gap {
