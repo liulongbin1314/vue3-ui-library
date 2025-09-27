@@ -63,6 +63,15 @@
     <a-button type="warning" border dashed>警告</a-button>
     <a-button type="error" border dashed>错误</a-button>
   </div>
+
+  <p>块级按钮</p>
+  <div class="col-gap">
+    <a-button block>默认</a-button>
+    <a-button type="priamry" block>主要</a-button>
+    <a-button type="success" block>成功</a-button>
+    <a-button type="warning" block>警告</a-button>
+    <a-button type="error" block>错误</a-button>
+  </div>
 </template>
 
 <script setup>
@@ -74,5 +83,11 @@
 .row-gap {
   display: flex;
   gap: 0 10px;
+}
+
+.col-gap {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
 }
 </style>

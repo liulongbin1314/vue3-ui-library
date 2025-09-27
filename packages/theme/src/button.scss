@@ -57,6 +57,11 @@
   &.is-dashed {
     border-style: dashed;
   }
+
+  &.is-block {
+    display: block;
+    width: 100%;
+  }
 }
 
 // 默认按钮的样式
