@@ -45,6 +45,24 @@
     <a-button type="warning" link>警告</a-button>
     <a-button type="error" link>错误</a-button>
   </div>
+
+  <p>边框按钮</p>
+  <div class="row-gap">
+    <a-button border>默认</a-button>
+    <a-button type="priamry" border>主要</a-button>
+    <a-button type="success" border>成功</a-button>
+    <a-button type="warning" border>警告</a-button>
+    <a-button type="error" border>错误</a-button>
+  </div>
+
+  <p>虚线边框按钮</p>
+  <div class="row-gap">
+    <a-button border dashed>默认</a-button>
+    <a-button type="priamry" border dashed>主要</a-button>
+    <a-button type="success" border dashed>成功</a-button>
+    <a-button type="warning" border dashed>警告</a-button>
+    <a-button type="error" border dashed>错误</a-button>
+  </div>
 </template>
 
 <script setup>

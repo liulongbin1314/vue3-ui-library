@@ -8,7 +8,9 @@
       ns.is('round', round),
       ns.is('disabled', disabled),
       ns.is('text', text),
-      ns.is('link', link)
+      ns.is('link', link),
+      ns.is('border', border),
+      ns.is('dashed', dashed)
     ]"
   >
     <span v-if="$slots.default">
@@ -31,7 +33,9 @@ defineProps({
   round: Boolean,
   disabled: Boolean,
   text: Boolean,
-  link: Boolean
+  link: Boolean,
+  border: Boolean,
+  dashed: Boolean
 })
 
 import { useNamespace } from '@ui-library/hooks'

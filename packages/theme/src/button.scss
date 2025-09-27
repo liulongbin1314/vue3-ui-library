@@ -46,6 +46,17 @@
       border-color: transparent;
     }
   }
+
+  &.is-border {
+    &,
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &.is-dashed {
+    border-style: dashed;
+  }
 }
 
 // 默认按钮的样式
@@ -84,6 +95,10 @@
       text-decoration-color: #4d5059;
     }
   }
+
+  &.is-border {
+    color: #4d5059;
+  }
 }
 
 // 主要按钮的样式
@@ -119,6 +134,10 @@
     &:hover {
       text-decoration-color: #3069ff;
     }
+  }
+
+  &.is-border {
+    color: #3069ff;
   }
 }
 
@@ -156,6 +175,10 @@
       text-decoration-color: #14cd70;
     }
   }
+
+  &.is-border {
+    color: #14cd70;
+  }
 }
 
 // 警告按钮的样式
@@ -192,6 +215,10 @@
       text-decoration-color: #ffa81a;
     }
   }
+
+  &.is-border {
+    color: #ffa81a;
+  }
 }
 
 // 错误按钮的样式
@@ -227,5 +254,9 @@
     &:hover {
       text-decoration-color: #ff4a5b;
     }
+  }
+
+  &.is-border {
+    color: #ff4a5b;
   }
 }
