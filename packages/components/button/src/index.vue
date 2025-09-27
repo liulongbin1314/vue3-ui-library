@@ -2,7 +2,13 @@
 <template>
   <button
     :disabled="disabled"
-    :class="[ns.b(), ns.m(type), ns.is('round', round), ns.is('disabled', disabled)]"
+    :class="[
+      ns.b(),
+      ns.m(type),
+      ns.is('round', round),
+      ns.is('disabled', disabled),
+      ns.is('text', text)
+    ]"
   >
     <span v-if="$slots.default">
       <!-- 默认插槽 -->
@@ -22,7 +28,8 @@ defineProps({
     default: 'default'
   },
   round: Boolean,
-  disabled: Boolean
+  disabled: Boolean,
+  text: Boolean
 })
 
 import { useNamespace } from '@ui-library/hooks'

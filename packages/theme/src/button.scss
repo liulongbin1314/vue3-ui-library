@@ -25,6 +25,12 @@
   &.is-round {
     border-radius: 100px;
   }
+
+  // 文字按钮的类名
+  &.is-text {
+    background-color: transparent;
+    border-color: transparent;
+  }
 }
 
 // 默认按钮的样式
@@ -48,6 +54,14 @@
       color: #abb1bf;
     }
   }
+
+  &.is-text {
+    color: #4d5059;
+    &:hover {
+      background-color: #f5f6fa;
+      border-color: #f5f6fa;
+    }
+  }
 }
 
 // 主要按钮的样式
@@ -67,6 +81,14 @@
       background-color: #98b4ff;
       border-color: #98b4ff;
       color: #fff;
+    }
+  }
+
+  &.is-text {
+    color: #3069ff;
+    &:hover {
+      background-color: #eaf0ff;
+      border-color: #eaf0ff;
     }
   }
 }
@@ -90,6 +112,14 @@
       color: #fff;
     }
   }
+
+  &.is-text {
+    color: #14cd70;
+    &:hover {
+      background-color: #e8faf1;
+      border-color: #e8faf1;
+    }
+  }
 }
 
 // 警告按钮的样式
@@ -111,6 +141,14 @@
       color: #fff;
     }
   }
+
+  &.is-text {
+    color: #ffa81a;
+    &:hover {
+      background-color: #fff6e8;
+      border-color: #fff6e8;
+    }
+  }
 }
 
 // 错误按钮的样式
@@ -130,6 +168,14 @@
       background-color: #ffa5ad;
       border-color: #ffa5ad;
       color: #fff;
+    }
+  }
+
+  &.is-text {
+    color: #ff4a5b;
+    &:hover {
+      background-color: #ffedef;
+      border-color: #ffedef;
     }
   }
 }
