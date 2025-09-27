@@ -36,6 +36,15 @@
     <a-button type="warning" text>警告</a-button>
     <a-button type="error" text>错误</a-button>
   </div>
+
+  <p>链接按钮</p>
+  <div class="row-gap">
+    <a-button link>默认</a-button>
+    <a-button type="priamry" link>主要</a-button>
+    <a-button type="success" link>成功</a-button>
+    <a-button type="warning" link>警告</a-button>
+    <a-button type="error" link>错误</a-button>
+  </div>
 </template>
 
 <script setup>

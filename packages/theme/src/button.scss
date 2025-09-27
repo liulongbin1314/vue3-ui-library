@@ -31,6 +31,21 @@
     background-color: transparent;
     border-color: transparent;
   }
+
+  // 链接按钮的类名
+  &.is-link {
+    padding: 0;
+    min-width: auto;
+    height: auto;
+    background-color: transparent;
+    border-color: transparent;
+    text-decoration: underline 1px solid transparent;
+    text-underline-offset: 3px;
+    &:hover {
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
 }
 
 // 默认按钮的样式
@@ -62,6 +77,13 @@
       border-color: #f5f6fa;
     }
   }
+
+  &.is-link {
+    color: #4d5059;
+    &:hover {
+      text-decoration-color: #4d5059;
+    }
+  }
 }
 
 // 主要按钮的样式
@@ -89,6 +111,13 @@
     &:hover {
       background-color: #eaf0ff;
       border-color: #eaf0ff;
+    }
+  }
+
+  &.is-link {
+    color: #3069ff;
+    &:hover {
+      text-decoration-color: #3069ff;
     }
   }
 }
@@ -120,6 +149,13 @@
       border-color: #e8faf1;
     }
   }
+
+  &.is-link {
+    color: #14cd70;
+    &:hover {
+      text-decoration-color: #14cd70;
+    }
+  }
 }
 
 // 警告按钮的样式
@@ -149,6 +185,13 @@
       border-color: #fff6e8;
     }
   }
+
+  &.is-link {
+    color: #ffa81a;
+    &:hover {
+      text-decoration-color: #ffa81a;
+    }
+  }
 }
 
 // 错误按钮的样式
@@ -176,6 +219,13 @@
     &:hover {
       background-color: #ffedef;
       border-color: #ffedef;
+    }
+  }
+
+  &.is-link {
+    color: #ff4a5b;
+    &:hover {
+      text-decoration-color: #ff4a5b;
     }
   }
 }
