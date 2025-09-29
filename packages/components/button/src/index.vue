@@ -1,7 +1,7 @@
 <!-- button 按钮组件的 .vue 源代码 -->
 <template>
   <button
-    :disabled="disabled"
+    :disabled="disabled || loading"
     :class="[
       ns.b(),
       ns.m(type),
@@ -13,10 +13,17 @@
       ns.is('dashed', dashed),
       ns.is('block', block),
       ns.m('size', size),
-      ns.is('circle', circle)
+      ns.is('circle', circle),
+      ns.is('loading', loading)
     ]"
   >
     <span v-if="$slots.default" :class="ns.e('inner')">
+      <!-- loading 的 icon 图标 -->
+      <span
+        v-if="loading"
+        class="iconfont icon-loading"
+        :class="ns.is('loading-animate', loading)"
+      ></span>
       <!-- 前置 icon 图标 -->
       <span v-if="icon" class="iconfont" :class="icon"></span>
       <!-- 默认插槽 -->
@@ -56,7 +63,8 @@ defineProps({
   // 是普通按钮的前置图标、圆形按钮的图标
   icon: String,
   // 是普通按钮的后置图标
-  suffixIcon: String
+  suffixIcon: String,
+  loading: Boolean
 })
 
 import { useNamespace } from '@ui-library/hooks'

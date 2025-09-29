@@ -121,7 +121,8 @@
     color: #3069ff;
   }
 
-  &.is-disabled {
+  &.is-disabled,
+  &.is-loading {
     cursor: not-allowed;
     &,
     &:hover {
@@ -161,7 +162,8 @@
     border-color: #6e96ff;
   }
 
-  &.is-disabled {
+  &.is-disabled,
+  &.is-loading {
     cursor: not-allowed;
     &,
     &:hover {
@@ -201,7 +203,8 @@
     border-color: #5bdc9b;
   }
 
-  &.is-disabled {
+  &.is-disabled,
+  &.is-loading {
     cursor: not-allowed;
     &,
     &:hover {
@@ -241,7 +244,8 @@
     border-color: #ffc25f;
   }
 
-  &.is-disabled {
+  &.is-disabled,
+  &.is-loading {
     cursor: not-allowed;
     &,
     &:hover {
@@ -281,7 +285,8 @@
     border-color: #ff808c;
   }
 
-  &.is-disabled {
+  &.is-disabled,
+  &.is-loading {
     cursor: not-allowed;
     &,
     &:hover {
