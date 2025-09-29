@@ -12,7 +12,8 @@
       ns.is('border', border),
       ns.is('dashed', dashed),
       ns.is('block', block),
-      ns.m('size', size)
+      ns.m('size', size),
+      ns.is('circle', circle)
     ]"
   >
     <span v-if="$slots.default">
@@ -42,7 +43,8 @@ defineProps({
   size: {
     type: String,
     default: 'default'
-  }
+  },
+  circle: Boolean
 })
 
 import { useNamespace } from '@ui-library/hooks'
