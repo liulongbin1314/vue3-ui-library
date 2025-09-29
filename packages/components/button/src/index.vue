@@ -16,10 +16,18 @@
       ns.is('circle', circle)
     ]"
   >
-    <span v-if="$slots.default">
+    <span v-if="$slots.default" :class="ns.e('inner')">
+      <!-- 前置 icon 图标 -->
+      <span v-if="icon" class="iconfont" :class="icon"></span>
       <!-- 默认插槽 -->
       <slot></slot>
+      <!-- 后置 icon 图标 -->
+      <span v-if="suffixIcon" class="iconfont" :class="suffixIcon"></span>
     </span>
+
+    <!-- 圆形按钮的 icon 图标 -->
+    <!-- 圆形按钮的图标，必须保证 circle 属性为 true 且 传入了 icon 属性值 -->
+    <span v-if="circle && icon" class="iconfont" :class="icon"></span>
   </button>
 </template>
 
@@ -44,7 +52,11 @@ defineProps({
     type: String,
     default: 'default'
   },
-  circle: Boolean
+  circle: Boolean,
+  // 是普通按钮的前置图标、圆形按钮的图标
+  icon: String,
+  // 是普通按钮的后置图标
+  suffixIcon: String
 })
 
 import { useNamespace } from '@ui-library/hooks'

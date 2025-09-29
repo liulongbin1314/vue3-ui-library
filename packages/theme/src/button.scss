@@ -70,6 +70,9 @@
     &.is-circle {
       width: 24px;
     }
+    .iconfont {
+      font-size: 12px;
+    }
   }
 
   &.a-button--size_large {
@@ -78,11 +81,17 @@
     &.is-circle {
       width: 40px;
     }
+    .iconfont {
+      font-size: 16px;
+    }
   }
 
   &.a-button--size_default {
     &.is-circle {
       width: 32px;
+    }
+    .iconfont {
+      font-size: 14px;
     }
   }
 
@@ -92,6 +101,12 @@
     border-radius: 50%;
     padding: 0;
   }
+}
+
+.a-button__inner {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
 }
 
 // 默认按钮的样式

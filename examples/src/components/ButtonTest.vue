@@ -90,6 +90,22 @@
     <a-button type="warning" size="small" circle>警告</a-button>
     <a-button type="error" size="small" circle>错误</a-button>
   </div>
+  <div class="row-gap">
+    <a-button circle icon="icon-upload"></a-button>
+    <a-button type="priamry" size="default" circle icon="icon-customer-filter"></a-button>
+    <a-button type="success" size="large" circle icon="icon-upper-left-arrow"></a-button>
+    <a-button type="warning" size="small" circle icon="icon-volume-fill"></a-button>
+    <a-button type="error" size="small" circle icon="icon-zoom-out-fill"></a-button>
+  </div>
+
+  <p>图标按钮</p>
+  <div class="row-gap">
+    <a-button icon="icon-upload" suffix-icon="icon-customer">默认</a-button>
+    <a-button type="priamry" size="default" suffix-icon="icon-customer">主要</a-button>
+    <a-button type="success" size="large" icon="icon-assessed-badge">成功</a-button>
+    <a-button type="warning" size="small" icon="icon-assessed-badge">警告</a-button>
+    <a-button type="error" size="small" icon="icon-assessed-badge">错误</a-button>
+  </div>
 </template>
 
 <script setup>
@@ -102,11 +118,13 @@
   display: flex;
   gap: 0 10px;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .col-gap {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+  margin-bottom: 10px;
 }
 </style>
