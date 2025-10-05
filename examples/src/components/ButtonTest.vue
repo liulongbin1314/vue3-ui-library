@@ -117,6 +117,15 @@
     <a-button type="warning" size="small" :loading="loading" @click="changeLoading">警告</a-button>
     <a-button type="error" size="small" :loading="loading" @click="changeLoading">错误</a-button>
   </div>
+
+  <p>自动触发 loading 加载</p>
+  <div class="row-gap">
+    <a-button :before-change="beforeChangeHandler">默认</a-button>
+    <a-button type="priamry" size="default" :before-change="beforeChangeHandler">主要</a-button>
+    <a-button type="success" size="large" :before-change="beforeChangeHandler">成功</a-button>
+    <a-button type="warning" size="small" :before-change="beforeChangeHandler">警告</a-button>
+    <a-button type="error" size="small" :before-change="beforeChangeHandler">错误</a-button>
+  </div>
 </template>
 
 <script setup>
@@ -130,6 +139,15 @@ const changeLoading = () => {
   setTimeout(() => {
     loading.value = false
   }, 2000)
+}
+
+const beforeChangeHandler = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log('ok')
+      resolve()
+    }, 2000)
+  })
 }
 </script>
 

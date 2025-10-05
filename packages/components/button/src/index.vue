@@ -1,7 +1,7 @@
 <!-- button 按钮组件的 .vue 源代码 -->
 <template>
   <button
-    :disabled="disabled || loading"
+    :disabled="disabled || loading || _loading"
     :class="[
       ns.b(),
       ns.m(type),
@@ -14,15 +14,16 @@
       ns.is('block', block),
       ns.m('size', size),
       ns.is('circle', circle),
-      ns.is('loading', loading)
+      ns.is('loading', loading || _loading)
     ]"
+    @click="clickHandler"
   >
     <span v-if="$slots.default" :class="ns.e('inner')">
       <!-- loading 的 icon 图标 -->
       <span
-        v-if="loading"
+        v-if="loading || _loading"
         class="iconfont icon-loading"
-        :class="ns.is('loading-animate', loading)"
+        :class="ns.is('loading-animate', loading || _loading)"
       ></span>
       <!-- 前置 icon 图标 -->
       <span v-if="icon" class="iconfont" :class="icon"></span>
@@ -43,7 +44,7 @@ defineOptions({
   name: 'a-button'
 })
 
-defineProps({
+const props = defineProps({
   type: {
     type: String,
     default: 'default'
@@ -64,18 +65,40 @@ defineProps({
   icon: String,
   // 是普通按钮的后置图标
   suffixIcon: String,
-  loading: Boolean
+  loading: Boolean,
+  beforeChange: Function
 })
 
 import { useNamespace } from '@ui-library/hooks'
+import { ref } from 'vue'
 // 今后在每个组件中，调用 useNamespace 这个 Hook 的时候，
 // 必须传入一个块的名字，否则这个 Hook 无法正常工作
 const ns = useNamespace('button')
+// 内部的 loading 状态
+const _loading = ref(false)
 
-console.log('组件的命名空间是：' + ns.namespace)
-console.log('Button 组件的块类名是：' + ns.b('wrap'))
-console.log(ns.e('item'))
-console.log(ns.m('size', 'small'))
+// console.log('组件的命名空间是：' + ns.namespace)
+// console.log('Button 组件的块类名是：' + ns.b('wrap'))
+// console.log(ns.e('item'))
+// console.log(ns.m('size', 'small'))
+
+const clickHandler = () => {
+  const isFn = typeof props.beforeChange === 'function'
+  if (isFn) {
+    // 说明 props.beforeChange 是一个函数
+    const fnResult = props.beforeChange()
+    if (fnResult instanceof Promise) {
+      // 展示 loading 状态
+      _loading.value = true
+      fnResult.finally(() => {
+        // 隐藏 loading 状态
+        _loading.value = false
+      })
+    }
+  } else {
+    // 说明 props.beforeChange 不是函数
+  }
+}
 </script>
 
 <style scoped></style>
