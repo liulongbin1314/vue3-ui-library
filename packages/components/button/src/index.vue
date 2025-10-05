@@ -14,7 +14,8 @@
       ns.is('block', block),
       ns.m('size', size),
       ns.is('circle', circle),
-      ns.is('loading', loading || _loading)
+      ns.is('loading', loading || _loading),
+      ns.is('button-group', _isGroup)
     ]"
     @click="clickHandler"
   >
@@ -70,12 +71,14 @@ const props = defineProps({
 })
 
 import { useNamespace } from '@ui-library/hooks'
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 // 今后在每个组件中，调用 useNamespace 这个 Hook 的时候，
 // 必须传入一个块的名字，否则这个 Hook 无法正常工作
 const ns = useNamespace('button')
 // 内部的 loading 状态
 const _loading = ref(false)
+// 接收父组件传入的 isGroup 数据，来判断当前按钮是否属于按钮组
+const _isGroup = inject('isGroup', false)
 
 // console.log('组件的命名空间是：' + ns.namespace)
 // console.log('Button 组件的块类名是：' + ns.b('wrap'))
