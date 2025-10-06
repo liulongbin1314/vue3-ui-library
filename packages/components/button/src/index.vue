@@ -12,7 +12,7 @@
       ns.is('border', border),
       ns.is('dashed', dashed),
       ns.is('block', block),
-      ns.m('size', size),
+      ns.m('size', _size),
       ns.is('circle', circle),
       ns.is('loading', loading || _loading),
       ns.is('button-group', _isGroup)
@@ -79,6 +79,10 @@ const ns = useNamespace('button')
 const _loading = ref(false)
 // 接收父组件传入的 isGroup 数据，来判断当前按钮是否属于按钮组
 const _isGroup = inject('isGroup', false)
+// 接收父组件向下传入的数据
+const _groupSize = inject('groupSize', 'default')
+// _size 是计算出来的最终的 size 尺寸
+const _size = props.size === 'default' ? _groupSize : props.size
 
 // console.log('组件的命名空间是：' + ns.namespace)
 // console.log('Button 组件的块类名是：' + ns.b('wrap'))
