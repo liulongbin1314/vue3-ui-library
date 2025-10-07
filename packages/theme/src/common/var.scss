@@ -1,0 +1,69 @@
+@use 'sass:map';
+@use 'sass:color';
+
+// 在 sass 中定义变量使用 $
+// : 用来给变量赋值
+// : 后面的 () 表示这个变量的初始值是空的
+// !default 表示变量有初始值，但是允许被用于重新改写！
+$colors: () !default;
+$types-mix: (black, primary, success, warning, error);
+
+// 在进行 map.deep-merge(参数1, 参数2) 的时候，
+// 永远都是后来者居上，参数2 中的属性会覆盖掉 参数1 中相同属性的值
+$colors: map.deep-merge(
+  (
+    black: (
+      base: #000000
+    ),
+    white: (
+      base: #ffffff
+    ),
+    primary: (
+      base: #3069ff
+    ),
+    success: (
+      base: #14cd70
+    ),
+    warning: (
+      base: #ffa81a
+    ),
+    error: (
+      base: #ff4a5b
+    )
+  ),
+  $colors
+);
+
+// 从 $colors 中取出基础的颜色值
+$color-white: map.get($colors, white, base);
+$color-black: map.get($colors, black, base);
+$color-primary: map.get($colors, primary, base);
+$color-success: map.get($colors, success, base);
+$color-warning: map.get($colors, warning, base);
+$color-error: map.get($colors, error, base);
+
+// 生成主题色对应的层次色
+// 自定义混入
+@mixin set-color-level($type, $number, $mix-color: #ffffff, $mode: light) {
+  $colors: map.deep-merge(
+    (
+      $type: (
+        #{$mode}-#{$number}: color.mix($mix-color, map.get($colors, $type, base), $number * 10 * 1%)
+      )
+    ),
+    $colors
+  ) !global;
+}
+
+// 外层循环使用 @each
+// @each $item in 数组 {}
+@each $type in $types-mix {
+  // 内层循环使用 @for
+  // @for 变量 from 初始值 through 终值 {}
+  @for $i from 1 through 9 {
+    // 通过 @include 调用自定义的 mixin 函数
+    @include set-color-level($type, $i);
+  }
+}
+
+@debug $colors;
