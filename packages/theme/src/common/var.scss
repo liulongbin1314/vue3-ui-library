@@ -66,4 +66,48 @@ $color-error: map.get($colors, error, base);
   }
 }
 
-@debug $colors;
+// 文字的颜色
+$text-color: () !default;
+$text-color: map.deep-merge(
+  (
+    // 文字的主要颜色
+    primary: #4d5059,
+    secondary: #7c808c,
+    disabled: #abb1bf,
+    placeholder: #c9cdd9
+  ),
+  $text-color
+);
+
+// 边框的颜色
+$border-color: () !default;
+$border-color: map.deep-merge(
+  (
+    default: #e2e6f1,
+    disabled: #ebeef5,
+    hover: #c9cdd9
+  ),
+  $border-color
+);
+
+// 文字的大小
+$font-size: () !default;
+$font-size: map.deep-merge(
+  (
+    small: 12px,
+    default: 14px,
+    large: 16px
+  ),
+  $font-size
+);
+
+// 组件的大小
+$component-size: () !default;
+$component-size: map.deep-merge(
+  (
+    small: 24px,
+    default: 32px,
+    large: 40px
+  ),
+  $component-size
+);
