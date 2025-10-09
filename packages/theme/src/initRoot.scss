@@ -10,4 +10,5 @@
   // 调用 mixins 模块中的 set-base-color 函数
   @include mixins.set-base-color();
   @include mixins.set-level-color();
+  @include mixins.set-global-var();
 }

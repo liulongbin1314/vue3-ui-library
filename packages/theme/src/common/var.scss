@@ -112,3 +112,11 @@ $component-size: map.deep-merge(
   ),
   $component-size
 );
+
+// 全局通用的样式
+$global: (
+  'text-color': $text-color,
+  'border-color': $border-color,
+  'font-size': $font-size,
+  'component-size': $component-size
+);
