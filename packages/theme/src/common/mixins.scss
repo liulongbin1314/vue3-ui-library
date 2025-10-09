@@ -30,13 +30,7 @@
   // 注意：如果 @each 遍历的集合中，是键值对结构，则可以拿到 $key 和 $value
   //       如果 @each 遍历的集合中，是列表结构，则仅可以拿到元素 $item
   @each $key, $data in var.$global {
-    @debug $key;
-    @debug $data;
-
     @each $type, $value in $data {
-      @debug $type;
-      @debug $value;
-
       // --a-component-size-small: 24px;
       $name: fn.getVarName($key, $type);
       $val: map.get(var.$global, $key, $type);
