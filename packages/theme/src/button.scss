@@ -167,8 +167,10 @@
 
 // 主要按钮的样式
 .a-button--priamry {
-  background-color: #3069ff;
-  border-color: #3069ff;
+  // 如果要引用 :root 中的 CSS 变量，
+  // 需要使用 var(变量名) 函数进行引用
+  background-color: var(--a-color-primary);
+  border-color: var(--a-color-primary);
   color: #fff;
   &:hover {
     background-color: #6e96ff;
@@ -208,8 +210,8 @@
 
 // 成功按钮的样式
 .a-button--success {
-  background-color: #14cd70;
-  border-color: #14cd70;
+  background-color: var(--a-color-success);
+  border-color: var(--a-color-success);
   color: #fff;
   &:hover {
     background-color: #5bdc9b;

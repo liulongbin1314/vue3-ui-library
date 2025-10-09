@@ -1,0 +1,9 @@
+// 定义 BEM 关键的信息参数
+// a-tabs__item--size_small
+// is-circle
+$namespace: 'a' !default;
+$connect: '-' !default;
+$element-connect: '__' !default;
+$modifier-connect: '--' !default;
+$modifier-value-connect: '_' !default;
+$is-prefix: 'is-' !default;
