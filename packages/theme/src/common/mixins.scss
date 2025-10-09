@@ -1,5 +1,8 @@
 @use 'sass:map';
 @use './var.scss';
+@use './function.scss' as fn;
+
+@debug fn.getVarName('color', 'white');
 
 // 用于给 :root 动态生成基础颜色的 css 变量
 @mixin set-base-color() {
@@ -7,6 +10,6 @@
     // 生成 css 变量
     // --a-color-success: #{$color-success};
     $color: map.get(var.$colors, $type, base);
-    #{'--a-color-' + $type}: #{$color};
+    #{fn.getVarName('color', $type)}: #{$color};
   }
 }

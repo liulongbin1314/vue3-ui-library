@@ -1,0 +1,19 @@
+@use './config.scss';
+
+// 动态拼接并返回 css 变量的名称
+// 通过 形参名... 来定义 Rest 参数
+@function getVarName($list...) {
+  // 最终返回的值，格式为：
+  // --a-color-white
+  $name: '--' + config.$namespace;
+
+  @each $item in $list {
+    @if $item != '' {
+      // 如果当前循环项 $item 不为空字符串，
+      // 才进行变量名称的拼接
+      $name: $name + '-' + $item;
+    }
+  }
+
+  @return $name;
+}
