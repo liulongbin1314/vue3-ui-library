@@ -1,9 +1,13 @@
 @use './common/var.scss' as *;
+@use './common/mixins.scss';
 
 // 通过这个模块，初始化 :root 中的 CSS 变量
 :root {
   // 定义 CSS 变量，语法是：
   // --变量名: 变量值;
-  --a-color-primary: #{$color-primary};
-  --a-color-success: #{$color-success};
+  // --a-color-primary: #{$color-primary};
+  // --a-color-success: #{$color-success};
+
+  // 调用 mixins 模块中的 set-base-color 函数
+  @include mixins.set-base-color();
 }

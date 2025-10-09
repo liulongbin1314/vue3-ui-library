@@ -1,0 +1,12 @@
+@use 'sass:map';
+@use './var.scss';
+
+// 用于给 :root 动态生成基础颜色的 css 变量
+@mixin set-base-color() {
+  @each $type in var.$types {
+    // 生成 css 变量
+    // --a-color-success: #{$color-success};
+    $color: map.get(var.$colors, $type, base);
+    #{'--a-color-' + $type}: #{$color};
+  }
+}
