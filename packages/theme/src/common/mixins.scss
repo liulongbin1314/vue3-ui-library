@@ -2,8 +2,6 @@
 @use './var.scss';
 @use './function.scss' as fn;
 
-@debug fn.getVarName('color', 'white');
-
 // 用于给 :root 动态生成基础颜色的 css 变量
 @mixin set-base-color() {
   @each $type in var.$types {
@@ -11,5 +9,18 @@
     // --a-color-success: #{$color-success};
     $color: map.get(var.$colors, $type, base);
     #{fn.getVarName('color', $type)}: #{$color};
+  }
+}
+
+// 用于给 :root 动态生成层次色的 css 变量
+@mixin set-level-color($mode: 'light') {
+  // --a-color-black-light-3
+  @each $type in var.$types-mix {
+    @for $i from 1 through 9 {
+      $name: fn.getVarName('color', $type, $mode, $i);
+      $color: map.get(var.$colors, $type, #{$mode + '-' + $i});
+      // 变量名: 值;
+      #{$name}: #{$color};
+    }
   }
 }
