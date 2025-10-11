@@ -3,14 +3,27 @@
 
 @function getButtonVar() {
   $button: (
-    border-color: (
-      default: fn.getVarName(border-color, default)
-    ),
+    // 按钮的默认状态（边框色、背景色、文字色）
+    border-color:
+      (
+        default: fn.getVarName(border-color, default)
+      ),
     bg-color: (
       default: fn.getVarName(color, white)
     ),
     text-color: (
       default: fn.getVarName(text-color, primary)
+    ),
+    // 按钮的 hover 状态
+    hover-border-color:
+      (
+        default: fn.getVarName(color, primary, light-5)
+      ),
+    hover-bg-color: (
+      default: fn.getVarName(color, primary, light-9)
+    ),
+    hover-text-color: (
+      default: fn.getVarName(color, primary)
     )
   );
 
