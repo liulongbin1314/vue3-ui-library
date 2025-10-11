@@ -39,6 +39,18 @@
     color: var(#{fn.getVarName(button, hover-text-color)});
   }
 
+  // 按钮禁用和 loading 时候的样式
+  &.is-disabled,
+  &.is-loading {
+    cursor: not-allowed;
+    &,
+    &:hover {
+      background-color: var(#{fn.getVarName(button, disabled-bg-color)});
+      border-color: var(#{fn.getVarName(button, disabled-border-color)});
+      color: var(#{fn.getVarName(button, disabled-text-color)});
+    }
+  }
+
   // 圆角按钮的类名
   &.is-round {
     border-radius: 100px;
@@ -145,17 +157,6 @@
   // background-color: #fff;
   // border-color: #e2e6f1;
   // color: #4d5059;
-
-  &.is-disabled,
-  &.is-loading {
-    cursor: not-allowed;
-    &,
-    &:hover {
-      background-color: #fff;
-      border-color: #ebeef5;
-      color: #abb1bf;
-    }
-  }
 
   &.is-text {
     color: #4d5059;
