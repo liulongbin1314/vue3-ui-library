@@ -1,15 +1,21 @@
 @use './common/function.scss' as fn;
 
+// .a-button 是 button 组件基础类名
 .a-button {
+  // 声明 button 组件的私有变量
+  --a-button-border-color: var(#{fn.getVarName(border-color, default)});
+  --a-button-bg-color: var(#{fn.getVarName(color, white)});
+  --a-button-text-color: var(#{fn.getVarName(text-color, primary)});
+
   display: inline-flex;
   justify-content: center;
   align-items: center;
   height: 32px;
   min-width: 80px;
-  background-color: #fff;
-  border: 2px solid #e2e6f1;
+  background-color: var(--a-button-bg-color);
+  border: 2px solid var(--a-button-border-color);
   font-size: 14px;
-  color: #4d5059;
+  color: var(--a-button-text-color);
 
   padding: 0 16px;
   box-sizing: border-box;
@@ -126,9 +132,9 @@
 
 // 默认按钮的样式
 .a-button--default {
-  background-color: #fff;
-  border-color: #e2e6f1;
-  color: #4d5059;
+  // background-color: #fff;
+  // border-color: #e2e6f1;
+  // color: #4d5059;
 
   &:hover {
     background-color: #eaf0ff;
