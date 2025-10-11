@@ -1,11 +1,14 @@
 @use './common/function.scss' as fn;
+@use './common/mixins.scss';
+@use './common/componentVar.scss' as comVar;
 
 // .a-button 是 button 组件基础类名
 .a-button {
   // 声明 button 组件的私有变量
-  --a-button-border-color: var(#{fn.getVarName(border-color, default)});
-  --a-button-bg-color: var(#{fn.getVarName(color, white)});
-  --a-button-text-color: var(#{fn.getVarName(text-color, primary)});
+  // --a-button-border-color: var(#{fn.getVarName(border-color, default)});
+  // --a-button-bg-color: var(#{fn.getVarName(color, white)});
+  // --a-button-text-color: var(#{fn.getVarName(text-color, primary)});
+  @include mixins.set-component-var(button, comVar.getButtonVar());
 
   display: inline-flex;
   justify-content: center;

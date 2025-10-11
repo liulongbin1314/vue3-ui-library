@@ -1,0 +1,18 @@
+@use './function.scss' as fn;
+// 用于声明每一类组件的私有变量
+
+@function getButtonVar() {
+  $button: (
+    border-color: (
+      default: fn.getVarName(border-color, default)
+    ),
+    bg-color: (
+      default: fn.getVarName(color, white)
+    ),
+    text-color: (
+      default: fn.getVarName(text-color, primary)
+    )
+  );
+
+  @return $button;
+}
