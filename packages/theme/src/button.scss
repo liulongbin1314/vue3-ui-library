@@ -14,7 +14,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  height: 32px;
+  height: var(#{fn.getVarName(button, size)});
   min-width: 80px;
   background-color: var(#{fn.getVarName(button, bg-color)});
   border: 2px solid var(#{fn.getVarName(button, border-color)});
@@ -95,32 +95,24 @@
   }
 
   &.a-button--size_small {
-    height: 24px;
+    // 私有变量的名字: var(root变量的名字);
+    #{fn.getVarName(button, size)}: var(#{fn.getVarName(component-size, small)});
     padding: 0 10px;
     font-size: 12px;
-    &.is-circle {
-      width: 24px;
-    }
     .iconfont {
       font-size: 12px;
     }
   }
 
   &.a-button--size_large {
-    height: 40px;
+    #{fn.getVarName(button, size)}: var(#{fn.getVarName(component-size, large)});
     font-size: 16px;
-    &.is-circle {
-      width: 40px;
-    }
     .iconfont {
       font-size: 16px;
     }
   }
 
   &.a-button--size_default {
-    &.is-circle {
-      width: 32px;
-    }
     .iconfont {
       font-size: 14px;
     }
@@ -128,6 +120,7 @@
 
   &.is-circle {
     // 如果按钮是圆形按钮，则把 80px 的最小宽度重置成 auto
+    width: var(#{fn.getVarName(button, size)});
     min-width: auto;
     border-radius: 50%;
     padding: 0;

@@ -46,7 +46,12 @@
     disabled-text-color: (
       default: fn.getVarName(text-color, disabled),
       type: fn.getVarName(color, white)
-    )
+    ),
+    // 按钮的尺寸变量 --a-button-size
+    size:
+      (
+        default: fn.getVarName(component-size, default)
+      )
   );
 
   @return $button;
