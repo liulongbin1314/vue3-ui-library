@@ -1,6 +1,7 @@
 @use './common/function.scss' as fn;
 @use './common/mixins.scss';
 @use './common/componentVar.scss' as comVar;
+@use './common/var.scss';
 
 // .a-button 是 button 组件基础类名
 .a-button {
@@ -152,6 +153,14 @@
   align-items: center;
 }
 
+// 循环生成除了默认按钮之外的其它按钮的私有的 css 变量
+@each $type in var.$types-base {
+  // 覆盖 .a-button 中的 css 变量的值
+  #{'.a-button--' + $type} {
+    @include mixins.set-component-var(button, comVar.getButtonVar($type), type);
+  }
+}
+
 // 默认按钮的样式
 .a-button--default {
   &.is-text {
@@ -176,42 +185,6 @@
 
 // 主要按钮的样式
 .a-button--primary {
-  // 如果要引用 :root 中的 CSS 变量，
-  // 需要使用 var(变量名) 函数进行引用
-  // $var: fn.getVarName(color, primary);
-  // background-color: var(#{$var});
-  // border-color: var(#{$var});
-  // color: #fff;
-  // &:hover {
-  //   background-color: #6e96ff;
-  //   border-color: #6e96ff;
-  // }
-
-  // &.is-disabled,
-  // &.is-loading {
-  //   cursor: not-allowed;
-  //   &,
-  //   &:hover {
-  //     background-color: #98b4ff;
-  //     border-color: #98b4ff;
-  //     color: #fff;
-  //   }
-  // }
-
-  // 覆盖 a.a-button 中的 css 变量的值
-  // 普通状态
-  --a-button-border-color: var(--a-color-primary);
-  --a-button-bg-color: var(--a-color-primary);
-  --a-button-text-color: var(--a-color-white);
-  // hover 状态
-  --a-button-hover-border-color: var(--a-color-primary-light-3);
-  --a-button-hover-bg-color: var(--a-color-primary-light-3);
-  --a-button-hover-text-color: var(--a-color-white);
-  // disabled 状态
-  --a-button-disabled-border-color: var(--a-color-primary-light-6);
-  --a-button-disabled-bg-color: var(--a-color-primary-light-6);
-  --a-button-disabled-text-color: var(--a-color-white);
-
   &.is-text {
     color: #3069ff;
     &:hover {
@@ -234,40 +207,6 @@
 
 // 成功按钮的样式
 .a-button--success {
-  // $var: fn.getVarName(color, success);
-  // background-color: var(#{$var});
-  // border-color: var(#{$var});
-  // color: #fff;
-  // &:hover {
-  //   background-color: #5bdc9b;
-  //   border-color: #5bdc9b;
-  // }
-
-  // &.is-disabled,
-  // &.is-loading {
-  //   cursor: not-allowed;
-  //   &,
-  //   &:hover {
-  //     background-color: #8ae6b8;
-  //     border-color: #8ae6b8;
-  //     color: #fff;
-  //   }
-  // }
-
-  // 覆盖 a.a-button 中的 css 变量的值
-  // 普通状态
-  --a-button-border-color: var(--a-color-success);
-  --a-button-bg-color: var(--a-color-success);
-  --a-button-text-color: var(--a-color-white);
-  // hover 状态
-  --a-button-hover-border-color: var(--a-color-success-light-3);
-  --a-button-hover-bg-color: var(--a-color-success-light-3);
-  --a-button-hover-text-color: var(--a-color-white);
-  // disabled 状态
-  --a-button-disabled-border-color: var(--a-color-success-light-6);
-  --a-button-disabled-bg-color: var(--a-color-success-light-6);
-  --a-button-disabled-text-color: var(--a-color-white);
-
   &.is-text {
     color: #14cd70;
     &:hover {
@@ -290,39 +229,6 @@
 
 // 警告按钮的样式
 .a-button--warning {
-  // background-color: #ffa81a;
-  // border-color: #ffa81a;
-  // color: #fff;
-  // &:hover {
-  //   background-color: #ffc25f;
-  //   border-color: #ffc25f;
-  // }
-
-  // &.is-disabled,
-  // &.is-loading {
-  //   cursor: not-allowed;
-  //   &,
-  //   &:hover {
-  //     background-color: #ffd48d;
-  //     border-color: #ffd48d;
-  //     color: #fff;
-  //   }
-  // }
-
-  // 覆盖 a.a-button 中的 css 变量的值
-  // 普通状态
-  --a-button-border-color: var(--a-color-warning);
-  --a-button-bg-color: var(--a-color-warning);
-  --a-button-text-color: var(--a-color-white);
-  // hover 状态
-  --a-button-hover-border-color: var(--a-color-warning-light-3);
-  --a-button-hover-bg-color: var(--a-color-warning-light-3);
-  --a-button-hover-text-color: var(--a-color-white);
-  // disabled 状态
-  --a-button-disabled-border-color: var(--a-color-warning-light-6);
-  --a-button-disabled-bg-color: var(--a-color-warning-light-6);
-  --a-button-disabled-text-color: var(--a-color-white);
-
   &.is-text {
     color: #ffa81a;
     &:hover {
@@ -345,39 +251,6 @@
 
 // 错误按钮的样式
 .a-button--error {
-  // background-color: #ff4a5b;
-  // border-color: #ff4a5b;
-  // color: #fff;
-  // &:hover {
-  //   background-color: #ff808c;
-  //   border-color: #ff808c;
-  // }
-
-  // &.is-disabled,
-  // &.is-loading {
-  //   cursor: not-allowed;
-  //   &,
-  //   &:hover {
-  //     background-color: #ffa5ad;
-  //     border-color: #ffa5ad;
-  //     color: #fff;
-  //   }
-  // }
-
-  // 覆盖 a.a-button 中的 css 变量的值
-  // 普通状态
-  --a-button-border-color: var(--a-color-error);
-  --a-button-bg-color: var(--a-color-error);
-  --a-button-text-color: var(--a-color-white);
-  // hover 状态
-  --a-button-hover-border-color: var(--a-color-error-light-3);
-  --a-button-hover-bg-color: var(--a-color-error-light-3);
-  --a-button-hover-text-color: var(--a-color-white);
-  // disabled 状态
-  --a-button-disabled-border-color: var(--a-color-error-light-6);
-  --a-button-disabled-bg-color: var(--a-color-error-light-6);
-  --a-button-disabled-text-color: var(--a-color-white);
-
   &.is-text {
     color: #ff4a5b;
     &:hover {

@@ -8,6 +8,7 @@
 $colors: () !default;
 $types-mix: (black, primary, success, warning, error);
 $types: (black, white, primary, success, warning, error);
+$types-base: (primary, success, warning, error);
 
 // 在进行 map.deep-merge(参数1, 参数2) 的时候，
 // 永远都是后来者居上，参数2 中的属性会覆盖掉 参数1 中相同属性的值

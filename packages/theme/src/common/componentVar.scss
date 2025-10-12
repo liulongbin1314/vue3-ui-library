@@ -1,40 +1,51 @@
 @use './function.scss' as fn;
 // 用于声明每一类组件的私有变量
 
-@function getButtonVar() {
+@function getButtonVar($type: '') {
   $button: (
     // 按钮的默认状态（边框色、背景色、文字色）
     border-color:
       (
-        default: fn.getVarName(border-color, default)
+        // 如果要获取默认按钮的颜色变量，取 default 属性的值
+        default: fn.getVarName(border-color, default),
+        // 如果要获取其它按钮的颜色变量，取 type 属性的值
+        type: fn.getVarName(color, $type)
       ),
     bg-color: (
-      default: fn.getVarName(color, white)
+      default: fn.getVarName(color, white),
+      type: fn.getVarName(color, $type)
     ),
     text-color: (
-      default: fn.getVarName(text-color, primary)
+      default: fn.getVarName(text-color, primary),
+      type: fn.getVarName(color, white)
     ),
     // 按钮的 hover 状态
     hover-border-color:
       (
-        default: fn.getVarName(color, primary, light-5)
+        default: fn.getVarName(color, primary, light-5),
+        type: fn.getVarName(color, $type, light-3)
       ),
     hover-bg-color: (
-      default: fn.getVarName(color, primary, light-9)
+      default: fn.getVarName(color, primary, light-9),
+      type: fn.getVarName(color, $type, light-3)
     ),
     hover-text-color: (
-      default: fn.getVarName(color, primary)
+      default: fn.getVarName(color, primary),
+      type: fn.getVarName(color, white)
     ),
     // 按钮 disabled 时候的状态
     disabled-border-color:
       (
-        default: fn.getVarName(border-color, disabled)
+        default: fn.getVarName(border-color, disabled),
+        type: fn.getVarName(color, $type, light-6)
       ),
     disabled-bg-color: (
-      default: fn.getVarName(color, white)
+      default: fn.getVarName(color, white),
+      type: fn.getVarName(color, $type, light-6)
     ),
     disabled-text-color: (
-      default: fn.getVarName(text-color, disabled)
+      default: fn.getVarName(text-color, disabled),
+      type: fn.getVarName(color, white)
     )
   );
 
