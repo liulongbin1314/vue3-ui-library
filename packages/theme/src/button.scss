@@ -59,8 +59,20 @@
 
   // 文字按钮的类名
   &.is-text {
-    background-color: transparent;
-    border-color: transparent;
+    color: var(#{fn.getVarName(button, is-text-color)});
+    background-color: var(#{fn.getVarName(button, is-text-bg-color)});
+    border-color: var(#{fn.getVarName(button, is-text-bg-color)});
+    &:hover {
+      color: var(#{fn.getVarName(button, hover-is-text-color)});
+      background-color: var(#{fn.getVarName(button, hover-is-text-bg-color)});
+      border-color: var(#{fn.getVarName(button, hover-is-text-bg-color)});
+    }
+    &.is-disabled,
+    &.is-loading {
+      color: var(#{fn.getVarName(button, disabled-is-text-color)});
+      background-color: var(#{fn.getVarName(button, disabled-is-text-bg-color)});
+      border-color: var(#{fn.getVarName(button, disabled-is-text-bg-color)});
+    }
   }
 
   // 链接按钮的类名
@@ -161,14 +173,6 @@
 
 // 默认按钮的样式
 .a-button--default {
-  &.is-text {
-    color: #4d5059;
-    &:hover {
-      background-color: #f5f6fa;
-      border-color: #f5f6fa;
-    }
-  }
-
   &.is-border {
     color: #4d5059;
   }
@@ -176,14 +180,6 @@
 
 // 主要按钮的样式
 .a-button--primary {
-  &.is-text {
-    color: #3069ff;
-    &:hover {
-      background-color: #eaf0ff;
-      border-color: #eaf0ff;
-    }
-  }
-
   &.is-border {
     color: #3069ff;
   }
@@ -191,14 +187,6 @@
 
 // 成功按钮的样式
 .a-button--success {
-  &.is-text {
-    color: #14cd70;
-    &:hover {
-      background-color: #e8faf1;
-      border-color: #e8faf1;
-    }
-  }
-
   &.is-border {
     color: #14cd70;
   }
@@ -206,14 +194,6 @@
 
 // 警告按钮的样式
 .a-button--warning {
-  &.is-text {
-    color: #ffa81a;
-    &:hover {
-      background-color: #fff6e8;
-      border-color: #fff6e8;
-    }
-  }
-
   &.is-border {
     color: #ffa81a;
   }
@@ -221,14 +201,6 @@
 
 // 错误按钮的样式
 .a-button--error {
-  &.is-text {
-    color: #ff4a5b;
-    &:hover {
-      background-color: #ffedef;
-      border-color: #ffedef;
-    }
-  }
-
   &.is-border {
     color: #ff4a5b;
   }

@@ -72,7 +72,37 @@
       (
         default: fn.getVarName(text-color, disabled),
         type: fn.getVarName(color, $type, light-6)
-      )
+      ),
+    // 文字按钮 - 默认状态
+    is-text-color:
+      (
+        default: fn.getVarName(text-color, primary),
+        type: fn.getVarName(color, $type)
+      ),
+    is-text-bg-color: (
+      default: fn.getVarName(color, white),
+      type: fn.getVarName(color, white)
+    ),
+    // 文字按钮 - hover 状态
+    hover-is-text-color:
+      (
+        default: fn.getVarName(text-color, primary),
+        type: fn.getVarName(color, $type)
+      ),
+    hover-is-text-bg-color: (
+      default: fn.getVarName(border-color, disabled),
+      type: fn.getVarName(color, $type, light-9)
+    ),
+    // 文字按钮 - disabled 状态
+    disabled-is-text-color:
+      (
+        default: fn.getVarName(text-color, disabled),
+        type: fn.getVarName(color, $type, light-5)
+      ),
+    disabled-is-text-bg-color: (
+      default: fn.getVarName(color, white),
+      type: fn.getVarName(color, white)
+    )
   );
 
   @return $button;

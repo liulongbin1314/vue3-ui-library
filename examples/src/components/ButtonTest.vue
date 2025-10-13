@@ -36,6 +36,20 @@
     <a-button type="warning" text>警告</a-button>
     <a-button type="error" text>错误</a-button>
   </div>
+  <div class="row-gap">
+    <a-button text disabled>默认</a-button>
+    <a-button type="primary" text disabled>主要</a-button>
+    <a-button type="success" text disabled>成功</a-button>
+    <a-button type="warning" text disabled>警告</a-button>
+    <a-button type="error" text disabled>错误</a-button>
+  </div>
+  <div class="row-gap">
+    <a-button text loading>默认</a-button>
+    <a-button type="primary" text loading>主要</a-button>
+    <a-button type="success" text loading>成功</a-button>
+    <a-button type="warning" text loading>警告</a-button>
+    <a-button type="error" text loading>错误</a-button>
+  </div>
 
   <p>链接按钮</p>
   <div class="row-gap">
