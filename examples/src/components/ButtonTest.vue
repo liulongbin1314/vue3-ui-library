@@ -45,6 +45,21 @@
     <a-button type="warning" link>警告</a-button>
     <a-button type="error" link>错误</a-button>
   </div>
+  <div class="row-gap">
+    <a-button link disabled>默认</a-button>
+    <a-button type="primary" link disabled>主要</a-button>
+    <a-button type="success" link disabled>成功</a-button>
+    <a-button type="warning" link disabled>警告</a-button>
+    <a-button type="error" link disabled>错误</a-button>
+  </div>
+
+  <div class="row-gap">
+    <a-button link loading>默认</a-button>
+    <a-button type="primary" link loading>主要</a-button>
+    <a-button type="success" link loading>成功</a-button>
+    <a-button type="warning" link loading>警告</a-button>
+    <a-button type="error" link loading>错误</a-button>
+  </div>
 
   <p>边框按钮</p>
   <div class="row-gap">

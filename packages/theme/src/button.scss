@@ -78,6 +78,19 @@
     }
   }
 
+  &.is-link {
+    color: var(#{fn.getVarName(button, is-link-color)});
+    &:hover {
+      color: var(#{fn.getVarName(button, hover-is-link-color)});
+      text-decoration-color: var(#{fn.getVarName(button, hover-is-link-color)});
+    }
+    &.is-disabled,
+    &.is-loading {
+      color: var(#{fn.getVarName(button, disabled-is-link-color)});
+      text-decoration-color: transparent;
+    }
+  }
+
   &.is-border {
     &,
     &:hover {
@@ -156,13 +169,6 @@
     }
   }
 
-  &.is-link {
-    color: #4d5059;
-    &:hover {
-      text-decoration-color: #4d5059;
-    }
-  }
-
   &.is-border {
     color: #4d5059;
   }
@@ -175,13 +181,6 @@
     &:hover {
       background-color: #eaf0ff;
       border-color: #eaf0ff;
-    }
-  }
-
-  &.is-link {
-    color: #3069ff;
-    &:hover {
-      text-decoration-color: #3069ff;
     }
   }
 
@@ -200,13 +199,6 @@
     }
   }
 
-  &.is-link {
-    color: #14cd70;
-    &:hover {
-      text-decoration-color: #14cd70;
-    }
-  }
-
   &.is-border {
     color: #14cd70;
   }
@@ -222,13 +214,6 @@
     }
   }
 
-  &.is-link {
-    color: #ffa81a;
-    &:hover {
-      text-decoration-color: #ffa81a;
-    }
-  }
-
   &.is-border {
     color: #ffa81a;
   }
@@ -241,13 +226,6 @@
     &:hover {
       background-color: #ffedef;
       border-color: #ffedef;
-    }
-  }
-
-  &.is-link {
-    color: #ff4a5b;
-    &:hover {
-      text-decoration-color: #ff4a5b;
     }
   }
 

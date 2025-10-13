@@ -54,7 +54,25 @@
       ),
     font-size: (
       default: fn.getVarName(font-size, default)
-    )
+    ),
+    // 链接按钮 - 默认状态
+    is-link-color:
+      (
+        default: fn.getVarName(text-color, primary),
+        type: fn.getVarName(color, $type)
+      ),
+    // 链接按钮 - hover 状态
+    hover-is-link-color:
+      (
+        default: fn.getVarName(text-color, secondary),
+        type: fn.getVarName(color, $type, light-3)
+      ),
+    // 链接按钮 - disabled 状态
+    disabled-is-link-color:
+      (
+        default: fn.getVarName(text-color, disabled),
+        type: fn.getVarName(color, $type, light-6)
+      )
   );
 
   @return $button;
