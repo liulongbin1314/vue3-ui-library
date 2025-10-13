@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use './var.scss';
 @use './function.scss' as fn;
+@use './config.scss';
 
 // 用于给 :root 动态生成基础颜色的 css 变量
 @mixin set-base-color() {
@@ -48,5 +49,15 @@
     $name: fn.getVarName($com-type, $key);
     $value: var(#{map.get($var, $key, $var-key)});
     #{$name}: #{$value};
+  }
+}
+
+// 生成 Block 块类名
+@mixin b($block) {
+  $b: '.' + config.$namespace + config.$connect + $block;
+
+  #{$b} {
+    // 占位符
+    @content;
   }
 }
