@@ -104,9 +104,18 @@
   }
 
   &.is-border {
-    &,
+    color: var(#{fn.getVarName(button, is-border-text-color)});
+    border-color: var(#{fn.getVarName(button, is-border-color)});
+    background-color: transparent;
     &:hover {
+      color: var(#{fn.getVarName(button, hover-is-border-text-color)});
+      border-color: var(#{fn.getVarName(button, hover-is-border-color)});
       background-color: transparent;
+    }
+    &.is-disabled,
+    &.is-loading {
+      color: var(#{fn.getVarName(button, disabled-is-border-text-color)});
+      border-color: var(#{fn.getVarName(button, disabled-is-border-color)});
     }
   }
 
@@ -168,40 +177,5 @@
   // 覆盖 .a-button 中的 css 变量的值
   #{'.a-button--' + $type} {
     @include mixins.set-component-var(button, comVar.getButtonVar($type), type);
-  }
-}
-
-// 默认按钮的样式
-.a-button--default {
-  &.is-border {
-    color: #4d5059;
-  }
-}
-
-// 主要按钮的样式
-.a-button--primary {
-  &.is-border {
-    color: #3069ff;
-  }
-}
-
-// 成功按钮的样式
-.a-button--success {
-  &.is-border {
-    color: #14cd70;
-  }
-}
-
-// 警告按钮的样式
-.a-button--warning {
-  &.is-border {
-    color: #ffa81a;
-  }
-}
-
-// 错误按钮的样式
-.a-button--error {
-  &.is-border {
-    color: #ff4a5b;
   }
 }

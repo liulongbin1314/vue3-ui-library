@@ -83,6 +83,20 @@
     <a-button type="warning" border>警告</a-button>
     <a-button type="error" border>错误</a-button>
   </div>
+  <div class="row-gap">
+    <a-button border disabled>默认</a-button>
+    <a-button type="primary" border disabled>主要</a-button>
+    <a-button type="success" border disabled>成功</a-button>
+    <a-button type="warning" border disabled>警告</a-button>
+    <a-button type="error" border disabled>错误</a-button>
+  </div>
+  <div class="row-gap">
+    <a-button border loading>默认</a-button>
+    <a-button type="primary" border loading>主要</a-button>
+    <a-button type="success" border loading>成功</a-button>
+    <a-button type="warning" border loading>警告</a-button>
+    <a-button type="error" border loading>错误</a-button>
+  </div>
 
   <p>虚线边框按钮</p>
   <div class="row-gap">
@@ -91,6 +105,20 @@
     <a-button type="success" border dashed>成功</a-button>
     <a-button type="warning" border dashed>警告</a-button>
     <a-button type="error" border dashed>错误</a-button>
+  </div>
+  <div class="row-gap">
+    <a-button border dashed disabled>默认</a-button>
+    <a-button type="primary" border dashed disabled>主要</a-button>
+    <a-button type="success" border dashed disabled>成功</a-button>
+    <a-button type="warning" border dashed disabled>警告</a-button>
+    <a-button type="error" border dashed disabled>错误</a-button>
+  </div>
+  <div class="row-gap">
+    <a-button border dashed loading>默认</a-button>
+    <a-button type="primary" border dashed loading>主要</a-button>
+    <a-button type="success" border dashed loading>成功</a-button>
+    <a-button type="warning" border dashed loading>警告</a-button>
+    <a-button type="error" border dashed loading>错误</a-button>
   </div>
 
   <p>块级按钮</p>

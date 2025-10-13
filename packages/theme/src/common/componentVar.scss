@@ -102,6 +102,36 @@
     disabled-is-text-bg-color: (
       default: fn.getVarName(color, white),
       type: fn.getVarName(color, white)
+    ),
+    // 边框按钮 - 默认状态
+    is-border-text-color:
+      (
+        default: fn.getVarName(text-color, primary),
+        type: fn.getVarName(color, $type)
+      ),
+    is-border-color: (
+      default: fn.getVarName(border-color, default),
+      type: fn.getVarName(color, $type)
+    ),
+    // 边框按钮 - hover 状态
+    hover-is-border-text-color:
+      (
+        default: fn.getVarName(text-color, secondary),
+        type: fn.getVarName(color, $type, light-3)
+      ),
+    hover-is-border-color: (
+      default: fn.getVarName(border-color, hover),
+      type: fn.getVarName(color, $type, light-3)
+    ),
+    // 边框按钮 - disabled 状态
+    disabled-is-border-text-color:
+      (
+        default: fn.getVarName(text-color, disabled),
+        type: fn.getVarName(color, $type, light-6)
+      ),
+    disabled-is-border-color: (
+      default: fn.getVarName(border-color, disabled),
+      type: fn.getVarName(color, $type, light-6)
     )
   );
 
