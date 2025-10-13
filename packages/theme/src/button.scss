@@ -19,7 +19,7 @@
   background-color: var(#{fn.getVarName(button, bg-color)});
   border: 2px solid var(#{fn.getVarName(button, border-color)});
   color: var(#{fn.getVarName(button, text-color)});
-  font-size: 14px;
+  font-size: var(#{fn.getVarName(button, font-size)});
 
   padding: 0 16px;
   box-sizing: border-box;
@@ -97,25 +97,17 @@
   &.a-button--size_small {
     // 私有变量的名字: var(root变量的名字);
     #{fn.getVarName(button, size)}: var(#{fn.getVarName(component-size, small)});
+    #{fn.getVarName(button, font-size)}: var(#{fn.getVarName(font-size, small)});
     padding: 0 10px;
-    font-size: 12px;
-    .iconfont {
-      font-size: 12px;
-    }
   }
 
   &.a-button--size_large {
     #{fn.getVarName(button, size)}: var(#{fn.getVarName(component-size, large)});
-    font-size: 16px;
-    .iconfont {
-      font-size: 16px;
-    }
+    #{fn.getVarName(button, font-size)}: var(#{fn.getVarName(font-size, large)});
   }
 
-  &.a-button--size_default {
-    .iconfont {
-      font-size: 14px;
-    }
+  .iconfont {
+    font-size: var(#{fn.getVarName(button, font-size)});
   }
 
   &.is-circle {

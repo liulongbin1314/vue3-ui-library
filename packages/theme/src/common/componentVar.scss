@@ -51,7 +51,10 @@
     size:
       (
         default: fn.getVarName(component-size, default)
-      )
+      ),
+    font-size: (
+      default: fn.getVarName(font-size, default)
+    )
   );
 
   @return $button;
