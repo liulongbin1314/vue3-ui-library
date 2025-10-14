@@ -74,3 +74,20 @@
     }
   }
 }
+
+// 生成 Modifier 修改器类名
+@mixin m($modifier, $value: '') {
+  $m: $b + config.$modifier-connect + $modifier;
+
+  @if $value != '' {
+    $m: $m + config.$modifier-value-connect + $value;
+  }
+
+  @debug $m;
+
+  @at-root {
+    #{$m} {
+      @content;
+    }
+  }
+}

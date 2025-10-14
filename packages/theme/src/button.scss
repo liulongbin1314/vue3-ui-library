@@ -128,14 +128,14 @@
     width: 100%;
   }
 
-  &.a-button--size_small {
+  @include mixins.m(size, small) {
     // 私有变量的名字: var(root变量的名字);
     #{fn.getVarName(button, size)}: var(#{fn.getVarName(component-size, small)});
     #{fn.getVarName(button, font-size)}: var(#{fn.getVarName(font-size, small)});
     padding: 0 10px;
   }
 
-  &.a-button--size_large {
+  @include mixins.m(size, large) {
     #{fn.getVarName(button, size)}: var(#{fn.getVarName(component-size, large)});
     #{fn.getVarName(button, font-size)}: var(#{fn.getVarName(font-size, large)});
   }
