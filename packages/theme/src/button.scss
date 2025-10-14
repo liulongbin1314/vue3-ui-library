@@ -66,8 +66,7 @@
       background-color: var(#{fn.getVarName(button, hover-is-text-bg-color)});
       border-color: var(#{fn.getVarName(button, hover-is-text-bg-color)});
     }
-    &.is-disabled,
-    &.is-loading {
+    @include mixins.s((disabled, loading)) {
       color: var(#{fn.getVarName(button, disabled-is-text-color)});
       background-color: var(#{fn.getVarName(button, disabled-is-text-bg-color)});
       border-color: var(#{fn.getVarName(button, disabled-is-text-bg-color)});
@@ -95,8 +94,7 @@
       color: var(#{fn.getVarName(button, hover-is-link-color)});
       text-decoration-color: var(#{fn.getVarName(button, hover-is-link-color)});
     }
-    &.is-disabled,
-    &.is-loading {
+    @include mixins.s((disabled, loading)) {
       color: var(#{fn.getVarName(button, disabled-is-link-color)});
       text-decoration-color: transparent;
     }
