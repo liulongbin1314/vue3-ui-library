@@ -1,7 +1,9 @@
 <template>
   <p>图标组件</p>
   <div class="row-gap">
-    <a-icon>默认</a-icon>
+    <a-icon>
+      <span class="iconfont icon-business-icon-buyers-club-fill"></span>
+    </a-icon>
   </div>
 </template>
 
