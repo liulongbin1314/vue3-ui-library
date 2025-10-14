@@ -1,12 +1,26 @@
 <template>
   <p>图标组件</p>
+  <a-button @click="changeColor">change color</a-button>
+  <a-button @click="changeSize">change size</a-button>
   <div class="row-gap">
-    <a-icon>
+    <a-icon :color="color" :size="size">
       <span class="iconfont icon-business-icon-buyers-club-fill"></span>
     </a-icon>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+
+const color = ref('red')
+const changeColor = () => {
+  color.value = color.value === 'red' ? 'black' : 'red'
+}
+
+const size = ref(30)
+const changeSize = () => {
+  size.value += 5
+}
+</script>
 
 <style scoped></style>
