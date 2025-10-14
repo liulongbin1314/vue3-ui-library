@@ -54,10 +54,23 @@
 
 // 生成 Block 块类名
 @mixin b($block) {
-  $b: '.' + config.$namespace + config.$connect + $block;
+  $b: '.' + config.$namespace + config.$connect + $block !global;
 
   #{$b} {
     // 占位符
     @content;
+  }
+}
+
+// 生成 Element 元素类名
+@mixin e($el) {
+  $e: $b + config.$element-connect + $el;
+
+  // 被 @at-root 包裹的选择器，会脱离父级，不与父级形成嵌套关系
+  @at-root {
+    #{$e} {
+      // 样式
+      @content;
+    }
   }
 }

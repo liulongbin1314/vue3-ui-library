@@ -164,12 +164,12 @@
       margin-left: -2px;
     }
   }
-}
 
-.a-button__inner {
-  display: inline-flex;
-  gap: 4px;
-  align-items: center;
+  @include mixins.e(inner) {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+  }
 }
 
 // 循环生成除了默认按钮之外的其它按钮的私有的 css 变量
