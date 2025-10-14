@@ -41,8 +41,7 @@
   }
 
   // 按钮禁用和 loading 时候的样式
-  &.is-disabled,
-  &.is-loading {
+  @include mixins.s((disabled, loading)) {
     cursor: not-allowed;
     &,
     &:hover {
@@ -53,12 +52,12 @@
   }
 
   // 圆角按钮的类名
-  &.is-round {
+  @include mixins.s(round) {
     border-radius: 100px;
   }
 
   // 文字按钮的类名
-  &.is-text {
+  @include mixins.s(text) {
     color: var(#{fn.getVarName(button, is-text-color)});
     background-color: var(#{fn.getVarName(button, is-text-bg-color)});
     border-color: var(#{fn.getVarName(button, is-text-bg-color)});
@@ -76,7 +75,7 @@
   }
 
   // 链接按钮的类名
-  &.is-link {
+  @include mixins.s(link) {
     padding: 0;
     min-width: auto;
     height: auto;
@@ -90,7 +89,7 @@
     }
   }
 
-  &.is-link {
+  @include mixins.s(link) {
     color: var(#{fn.getVarName(button, is-link-color)});
     &:hover {
       color: var(#{fn.getVarName(button, hover-is-link-color)});
@@ -103,7 +102,7 @@
     }
   }
 
-  &.is-border {
+  @include mixins.s(border) {
     color: var(#{fn.getVarName(button, is-border-text-color)});
     border-color: var(#{fn.getVarName(button, is-border-color)});
     background-color: transparent;
@@ -112,18 +111,17 @@
       border-color: var(#{fn.getVarName(button, hover-is-border-color)});
       background-color: transparent;
     }
-    &.is-disabled,
-    &.is-loading {
+    @include mixins.s((disabled, loading)) {
       color: var(#{fn.getVarName(button, disabled-is-border-text-color)});
       border-color: var(#{fn.getVarName(button, disabled-is-border-color)});
     }
   }
 
-  &.is-dashed {
+  @include mixins.s(dashed) {
     border-style: dashed;
   }
 
-  &.is-block {
+  @include mixins.s(block) {
     display: block;
     width: 100%;
   }
@@ -144,7 +142,7 @@
     font-size: var(#{fn.getVarName(button, font-size)});
   }
 
-  &.is-circle {
+  @include mixins.s(circle) {
     // 如果按钮是圆形按钮，则把 80px 的最小宽度重置成 auto
     width: var(#{fn.getVarName(button, size)});
     min-width: auto;
@@ -152,7 +150,7 @@
     padding: 0;
   }
 
-  &.is-button-group {
+  @include mixins.s(button-group) {
     border-radius: 0;
     &:first-child {
       border-radius: 6px 0 0 6px;

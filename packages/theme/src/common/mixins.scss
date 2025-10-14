@@ -83,11 +83,22 @@
     $m: $m + config.$modifier-value-connect + $value;
   }
 
-  @debug $m;
-
   @at-root {
     #{$m} {
       @content;
     }
+  }
+}
+
+// 生成状态类名
+@mixin s($attrs, $and: true) {
+  $selector: '';
+
+  @each $attr in $attrs {
+    $selector: $selector + if($and, '&.', '.') + config.$is-prefix + $attr + ',';
+  }
+
+  #{$selector} {
+    @content;
   }
 }
