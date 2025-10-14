@@ -1,5 +1,5 @@
 <template>
-  <i :class="[ns.b()]" :style="[{ color }, { fontSize: size + 'px' }]">
+  <i :class="[ns.b()]" :style="[styledColor, styledFSize]">
     <slot></slot>
   </i>
 </template>
@@ -9,12 +9,17 @@ defineOptions({
   name: 'a-icon'
 })
 
-defineProps({
+const { color, size } = defineProps({
   color: String,
   size: [String, Number]
 })
 
-import { useNamespace } from '@ui-library/hooks'
+import { useNamespace, useStyle } from '@ui-library/hooks'
+import { computed } from 'vue'
 
 const ns = useNamespace('icon')
+const uStyle = useStyle()
+
+const styledFSize = computed(() => uStyle.fontSize(size))
+const styledColor = computed(() => uStyle.color(color))
 </script>

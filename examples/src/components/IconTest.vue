@@ -1,9 +1,13 @@
 <template>
-  <p>图标组件</p>
+  <p>图标组件 --- {{ color }} --- {{ size }}</p>
   <a-button @click="changeColor">change color</a-button>
   <a-button @click="changeSize">change size</a-button>
   <div class="row-gap">
     <a-icon :color="color" :size="size">
+      <span class="iconfont icon-business-icon-buyers-club-fill"></span>
+    </a-icon>
+
+    <a-icon :color="color" size="40px">
       <span class="iconfont icon-business-icon-buyers-club-fill"></span>
     </a-icon>
   </div>
