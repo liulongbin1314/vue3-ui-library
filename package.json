@@ -13,6 +13,7 @@
   "dependencies": {
     "@ui-library/components": "workspace:^",
     "@ui-library/hooks": "workspace:^",
+    "@ui-library/icons": "workspace:^",
     "@ui-library/theme": "workspace:^",
     "@ui-library/utils": "workspace:^",
     "vue": "^3.5.21"

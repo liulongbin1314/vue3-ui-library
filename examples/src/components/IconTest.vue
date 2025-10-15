@@ -11,10 +11,29 @@
       <span class="iconfont icon-business-icon-buyers-club-fill"></span>
     </a-icon>
   </div>
+
+  <p>Svg 图标</p>
+  <div class="row-gap">
+    <a-icon :color="color" :size="size">
+      <!-- svg 的图标组件 -->
+      <Activity />
+    </a-icon>
+
+    <a-icon :color="color" :size="size">
+      <!-- svg 的图标组件 -->
+      <Airplay />
+    </a-icon>
+
+    <a-icon :color="color" :size="size">
+      <!-- svg 的图标组件 -->
+      <Bookmark />
+    </a-icon>
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import { Activity, Airplay, Bookmark } from '@ui-library/icons'
 
 const color = ref('red')
 const changeColor = () => {
