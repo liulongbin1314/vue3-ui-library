@@ -2,7 +2,8 @@
 import AButton from '@ui-library/components/button'
 import AButtonGroup from '@ui-library/components/button-group'
 import AIcon from '@ui-library/components/icon'
+import AInput from '@ui-library/components/input'
 
 // 默认导出一个数组，
 // 数组中包含封装的所有的组件
-export default [AButton, AButtonGroup, AIcon]
+export default [AButton, AButtonGroup, AIcon, AInput]
