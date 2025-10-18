@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:string';
 @use './var.scss';
 @use './function.scss' as fn;
 @use './config.scss';
@@ -47,8 +48,24 @@
   @each $key, $data in $var {
     // --a-button-bg-color
     $name: fn.getVarName($com-type, $key);
-    $value: var(#{map.get($var, $key, $var-key)});
-    #{$name}: #{$value};
+    // 先获取私有变量的值，但是，
+    // 并不确定这个值是 --a 开头的字符串还是 纯粹的值
+    $map-val: map.get($var, $key, $var-key);
+
+    // --a-input-font-size: var(--a-font-size-default);
+    // --a-input-padding: var(10px);
+
+    @if $map-val {
+      // 进一步判断 $map-val 是否以 --a 开头
+      $index: string.index($map-val, '--' + config.$namespace);
+      @if $index {
+        $value: var(#{$map-val});
+        #{$name}: #{$value};
+      } @else {
+        $value: #{$map-val};
+        #{$name}: #{$value};
+      }
+    }
   }
 }
 

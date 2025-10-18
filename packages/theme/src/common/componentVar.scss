@@ -155,8 +155,12 @@
     font-size: (
       default: fn.getVarName(font-size, default)
     ),
-    // round: (),
-    // padding: ()
+    round: (
+      default: fn.getVarName(component-round, default)
+    ),
+    padding: (
+      default: '10px'
+    )
   );
 
   @return $input;

@@ -114,10 +114,24 @@ $component-size: map.deep-merge(
   $component-size
 );
 
+// 组件的圆角
+$component-round: () !default;
+$component-round: map.deep-merge(
+  (
+    small: 4px,
+    default: 6px,
+    large: 8px,
+    // 绝对圆形的弧度
+    round: 100px
+  ),
+  $component-round
+);
+
 // 全局通用的样式
 $global: (
   'text-color': $text-color,
   'border-color': $border-color,
   'font-size': $font-size,
-  'component-size': $component-size
+  'component-size': $component-size,
+  'component-round': $component-round
 );
