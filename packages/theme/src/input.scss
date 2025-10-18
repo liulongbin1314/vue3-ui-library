@@ -11,6 +11,16 @@
   align-items: center;
   width: 100%;
 
+  // hover 状态
+  &:hover {
+    #{fn.getVarName(input, border-color)}: var(#{fn.getVarName(border-color, hover)});
+  }
+
+  // focus 状态
+  @include mixins.s(focus) {
+    #{fn.getVarName(input, border-color)}: var(#{fn.getVarName(color, primary)});
+  }
+
   // 文本框的容器
   @include mixins.e(wrapper) {
     display: inline-flex;
@@ -24,11 +34,6 @@
     padding: 0 var(#{fn.getVarName(input, padding)});
     background-color: var(#{fn.getVarName(input, bg-color)});
     transition: 0.3s;
-
-    // 文本框容器的 hover 状态
-    &:hover {
-      #{fn.getVarName(input, border-color)}: var(#{fn.getVarName(border-color, hover)});
-    }
 
     // 文本框
     @include mixins.e(inner) {
