@@ -137,3 +137,27 @@
 
   @return $button;
 }
+
+@function getInputVar() {
+  $input: (
+    text-color: (
+      default: fn.getVarName(text-color, primary)
+    ),
+    border-color: (
+      default: fn.getVarName(border-color, default)
+    ),
+    bg-color: (
+      default: fn.getVarName(color, white)
+    ),
+    size: (
+      default: fn.getVarName(component-size, default)
+    ),
+    font-size: (
+      default: fn.getVarName(font-size, default)
+    ),
+    // round: (),
+    // padding: ()
+  );
+
+  @return $input;
+}

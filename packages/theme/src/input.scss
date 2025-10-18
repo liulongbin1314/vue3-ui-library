@@ -1,7 +1,11 @@
 @use './common/mixins.scss';
+@use './common/componentVar.scss' as comVar;
 
 // 根元素
 @include mixins.b(input) {
+  // 自动混入 input 组件的私有变量
+  @include mixins.set-component-var(input, comVar.getInputVar());
+
   display: inline-flex;
   align-items: center;
   width: 100%;
