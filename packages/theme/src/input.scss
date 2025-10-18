@@ -1,0 +1,39 @@
+@use './common/mixins.scss';
+
+// 根元素
+@include mixins.b(input) {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+
+  // 文本框的容器
+  @include mixins.e(wrapper) {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    border: 2px solid red;
+    border-radius: 6px;
+    padding: 0 10px;
+    background-color: #fff;
+    transition: 0.3s;
+
+    // 文本框
+    @include mixins.e(inner) {
+      height: 100%;
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 0;
+      background-color: transparent;
+      color: #333;
+      font-size: 14px;
+
+      &::placeholder {
+        color: #ccc;
+      }
+    }
+  }
+}
