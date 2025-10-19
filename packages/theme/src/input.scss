@@ -28,6 +28,22 @@
     #{fn.getVarName(input, bg-color)}: var(#{fn.getVarName(color, gray, light-9)});
   }
 
+  // 尺寸 - small
+  @include mixins.m(size, small) {
+    // 尺寸、圆角、文字
+    #{fn.getVarName(input, size)}: var(#{fn.getVarName(component-size, small)});
+    #{fn.getVarName(input, round)}: var(#{fn.getVarName(component-round, small)});
+    #{fn.getVarName(input, font-size)}: var(#{fn.getVarName(font-size, small)});
+  }
+
+  // 尺寸 - large
+  @include mixins.m(size, large) {
+    // 尺寸、圆角、文字
+    #{fn.getVarName(input, size)}: var(#{fn.getVarName(component-size, large)});
+    #{fn.getVarName(input, round)}: var(#{fn.getVarName(component-round, large)});
+    #{fn.getVarName(input, font-size)}: var(#{fn.getVarName(font-size, large)});
+  }
+
   // 文本框的容器
   @include mixins.e(wrapper) {
     display: inline-flex;
