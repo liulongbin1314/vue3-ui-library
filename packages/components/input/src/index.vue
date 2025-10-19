@@ -7,9 +7,10 @@
       <!-- yyy -->
       <input
         type="text"
-        placeholder="请输入内容"
+        :placeholder="placeholder"
         :class="[ns.e('inner')]"
         :disabled="disabled"
+        :maxlength="maxLength"
         @focus="focusHandler"
         @blur="blurHandler"
       />
@@ -27,7 +28,12 @@ defineOptions({
 })
 
 const props = defineProps({
-  disabled: Boolean
+  disabled: Boolean,
+  placeholder: {
+    type: String,
+    default: '请输入内容'
+  },
+  maxLength: [String, Number]
 })
 
 import { useNamespace } from '@ui-library/hooks'
