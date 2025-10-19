@@ -20,6 +20,11 @@
     <a-input></a-input>
     <a-input size="large"></a-input>
   </div>
+
+  <p>文本框 - round</p>
+  <div class="col-gap">
+    <a-input round size="large"></a-input>
+  </div>
 </template>
 
 <script setup></script>

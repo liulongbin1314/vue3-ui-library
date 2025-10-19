@@ -1,5 +1,13 @@
 <template>
-  <div :class="[ns.b(), ns.is('focus', _isFocus), ns.is('disabled', disabled), ns.m('size', size)]">
+  <div
+    :class="[
+      ns.b(),
+      ns.is('focus', _isFocus),
+      ns.is('disabled', disabled),
+      ns.m('size', size),
+      ns.is('round', round)
+    ]"
+  >
     <!-- 前置区域 -->
     <!-- xxx -->
     <div :class="[ns.e('wrapper')]">
@@ -37,7 +45,8 @@ const props = defineProps({
   size: {
     type: String,
     default: 'default'
-  }
+  },
+  round: Boolean
 })
 
 import { useNamespace } from '@ui-library/hooks'
