@@ -78,5 +78,22 @@
         color: var(#{fn.getVarName(text-color, placeholder)});
       }
     }
+
+    // 前缀、后缀图标
+    @include mixins.e(fix-wrapper) {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      color: var(#{fn.getVarName(text-color, placeholder)});
+      font-size: var(#{fn.getVarName(input, font-size)});
+
+      @include mixins.e(prefix) {
+        padding-right: 5px;
+      }
+
+      @include mixins.e(suffix) {
+        padding-left: 5px;
+      }
+    }
   }
 }
