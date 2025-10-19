@@ -6,8 +6,8 @@
 // : 后面的 () 表示这个变量的初始值是空的
 // !default 表示变量有初始值，但是允许被用于重新改写！
 $colors: () !default;
-$types-mix: (black, primary, success, warning, error);
-$types: (black, white, primary, success, warning, error);
+$types-mix: (black, gray, primary, success, warning, error);
+$types: (black, white, gray, primary, success, warning, error);
 $types-base: (primary, success, warning, error);
 
 // 在进行 map.deep-merge(参数1, 参数2) 的时候，
@@ -19,6 +19,9 @@ $colors: map.deep-merge(
     ),
     white: (
       base: #ffffff
+    ),
+    gray: (
+      base: #808080
     ),
     primary: (
       base: #3069ff

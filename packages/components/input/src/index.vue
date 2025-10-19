@@ -1,5 +1,5 @@
 <template>
-  <div :class="[ns.b(), ns.is('focus', _isFocus)]">
+  <div :class="[ns.b(), ns.is('focus', _isFocus), ns.is('disabled', disabled)]">
     <!-- 前置区域 -->
     <!-- xxx -->
     <div :class="[ns.e('wrapper')]">
@@ -9,6 +9,7 @@
         type="text"
         placeholder="请输入内容"
         :class="[ns.e('inner')]"
+        :disabled="disabled"
         @focus="focusHandler"
         @blur="blurHandler"
       />
@@ -23,6 +24,10 @@
 <script setup>
 defineOptions({
   name: 'a-input'
+})
+
+const props = defineProps({
+  disabled: Boolean
 })
 
 import { useNamespace } from '@ui-library/hooks'
