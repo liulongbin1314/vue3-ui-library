@@ -36,6 +36,21 @@
   <div class="col-gap">
     <a-input prefix="￥" suffix="RMB"></a-input>
   </div>
+
+  <p>文本框 - 前置和后置区域</p>
+  <div class="col-gap">
+    <a-input>
+      <!-- 具名插槽 -->
+      <!-- 前置内容 -->
+      <template #prepend>
+        <a-icon icon="icon-search"></a-icon>
+      </template>
+      <!-- 后置内容 -->
+      <template #append>
+        <a-button type="primary">提交</a-button>
+      </template>
+    </a-input>
+  </div>
 </template>
 
 <script setup>
