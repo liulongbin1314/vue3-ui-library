@@ -31,6 +31,11 @@
     <a-input prefix-icon="icon-search" :suffix-icon="PlusCircle"></a-input>
     <a-input prefix-icon="icon-cart-empty" :suffix-icon="Calendar"></a-input>
   </div>
+
+  <p>文本框 - 前缀、后缀文本内容</p>
+  <div class="col-gap">
+    <a-input prefix="￥" suffix="RMB"></a-input>
+  </div>
 </template>
 
 <script setup>

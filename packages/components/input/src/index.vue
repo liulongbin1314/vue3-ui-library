@@ -14,7 +14,9 @@
       <!-- 前缀区域 -->
       <div v-if="_isPrefix" :class="[ns.e('fix-wrapper'), ns.e('prefix')]">
         <!-- 小图标 -->
-        <a-icon :icon="prefixIcon"></a-icon>
+        <a-icon :icon="prefixIcon" v-if="prefixIcon"></a-icon>
+        <!-- 文本内容 -->
+        <span v-if="prefix">{{ prefix }}</span>
       </div>
       <input
         type="text"
@@ -28,7 +30,9 @@
       <!-- 后缀区域 -->
       <div v-if="_isSuffix" :class="[ns.e('fix-wrapper'), ns.e('suffix')]">
         <!-- 小图标 -->
-        <a-icon :icon="suffixIcon"></a-icon>
+        <a-icon :icon="suffixIcon" v-if="suffixIcon"></a-icon>
+        <!-- 文本内容 -->
+        <span v-if="suffix">{{ suffix }}</span>
       </div>
     </div>
     <!-- 后置区域 -->
@@ -56,7 +60,10 @@ const props = defineProps({
   // 前缀图标
   prefixIcon: [String, Object],
   // 后缀图标
-  suffixIcon: [String, Object]
+  suffixIcon: [String, Object],
+  // 前缀和后缀的文本内容
+  prefix: String,
+  suffix: String
 })
 
 import { useNamespace } from '@ui-library/hooks'
@@ -74,7 +81,7 @@ const blurHandler = (e) => {
 }
 
 // 是否渲染前缀区域
-const _isPrefix = computed(() => props.prefixIcon)
+const _isPrefix = computed(() => props.prefixIcon || props.prefix)
 // 是否渲染后缀区域
-const _isSuffix = computed(() => props.suffixIcon)
+const _isSuffix = computed(() => props.suffixIcon || props.suffix)
 </script>
