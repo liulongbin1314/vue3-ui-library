@@ -96,4 +96,23 @@
       }
     }
   }
+
+  // 前置后置区域的容器
+  @include mixins.e(aside-wrapper) {
+    // border: 2px solid red;
+    min-width: var(#{fn.getVarName(input, size)});
+    height: var(#{fn.getVarName(input, size)});
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(#{fn.getVarName(input, round)});
+    box-sizing: border-box;
+    // box-shadow: 0 0 0 2px var(#{fn.getVarName(input, border-color)}) inset;
+    box-shadow: 0 0 0 2px var(#{fn.getVarName(border-color, default)}) inset;
+    transition: 0.3s;
+
+    @include mixins.b(button) {
+      min-width: inherit;
+    }
+  }
 }
