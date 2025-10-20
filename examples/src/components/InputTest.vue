@@ -50,6 +50,30 @@
         <a-button type="primary">提交</a-button>
       </template>
     </a-input>
+
+    <a-input>
+      <!-- 具名插槽 -->
+      <!-- 前置内容 -->
+      <template #prepend>
+        <a-button type="primary">姓名</a-button>
+      </template>
+      <!-- 后置内容 -->
+      <template #append>
+        <a-button type="primary">提交</a-button>
+      </template>
+    </a-input>
+
+    <a-input>
+      <!-- 具名插槽 -->
+      <!-- 前置内容 -->
+      <template #prepend>
+        <a-icon icon="icon-search"></a-icon>
+      </template>
+      <!-- 后置内容 -->
+      <template #append>
+        <a-icon icon="icon-search"></a-icon>
+      </template>
+    </a-input>
   </div>
 </template>
 

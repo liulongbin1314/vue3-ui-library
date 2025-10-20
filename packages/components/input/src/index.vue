@@ -9,10 +9,11 @@
     ]"
   >
     <!-- 前置区域 -->
-    <div v-if="_isPrepend" :class="[ns.e('aside-wrapper')]">
+    <div v-if="_isPrepend" :class="[ns.e('aside-wrapper'), ns.e('prepend')]">
       <slot name="prepend"></slot>
     </div>
-    <div :class="[ns.e('wrapper')]">
+    <!-- 文本框的容器 -->
+    <div :class="[ns.e('wrapper'), ns.is('prepend', _isPrepend), ns.is('append', _isAppend)]">
       <!-- 前缀区域 -->
       <div v-if="_isPrefix" :class="[ns.e('fix-wrapper'), ns.e('prefix')]">
         <!-- 小图标 -->
@@ -38,7 +39,7 @@
       </div>
     </div>
     <!-- 后置区域 -->
-    <div v-if="_isAppend" :class="[ns.e('aside-wrapper')]">
+    <div v-if="_isAppend" :class="[ns.e('aside-wrapper'), ns.e('append')]">
       <slot name="append"></slot>
     </div>
   </div>

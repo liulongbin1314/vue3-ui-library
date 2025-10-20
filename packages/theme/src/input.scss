@@ -62,6 +62,7 @@
     padding: 0 var(#{fn.getVarName(input, padding)});
     background-color: var(#{fn.getVarName(input, bg-color)});
     transition: 0.3s;
+    z-index: 1;
 
     // 文本框
     @include mixins.e(inner) {
@@ -95,6 +96,19 @@
         padding-left: 5px;
       }
     }
+
+    // 是否有前置区域
+    @include mixins.s(prepend) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-left: -2px;
+    }
+
+    // 是否有后置区域
+    @include mixins.s(append) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
   }
 
   // 前置后置区域的容器
@@ -110,6 +124,25 @@
     // box-shadow: 0 0 0 2px var(#{fn.getVarName(input, border-color)}) inset;
     box-shadow: 0 0 0 2px var(#{fn.getVarName(border-color, default)}) inset;
     transition: 0.3s;
+
+    @include mixins.e(prepend) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      button {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    @include mixins.e(append) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-left: -2px;
+      button {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
 
     @include mixins.b(button) {
       min-width: inherit;
