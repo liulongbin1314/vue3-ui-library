@@ -23,7 +23,7 @@
         <span v-if="prefix">{{ prefix }}</span>
       </div>
       <input
-        type="text"
+        :type="_inputType"
         :placeholder="placeholder"
         :class="[ns.e('inner')]"
         :disabled="disabled"
@@ -37,6 +37,8 @@
         <a-icon :icon="suffixIcon" v-if="suffixIcon"></a-icon>
         <!-- 文本内容 -->
         <span v-if="suffix">{{ suffix }}</span>
+        <!-- 密码框 -->
+        <a-icon :icon="_pwdIcon" v-if="password" @click="_pwdVisible = !_pwdVisible"></a-icon>
       </div>
     </div>
     <!-- 后置区域 -->
@@ -73,12 +75,14 @@ const props = defineProps({
   suffix: String,
   // 前置和后置的文本内容
   prepend: String,
-  append: String
+  append: String,
+  password: Boolean
 })
 
 import { useNamespace } from '@ui-library/hooks'
 import { ref, computed, useSlots, provide } from 'vue'
 import { AIcon } from '@ui-library/components'
+import { Eye, EyeOff } from '@ui-library/icons'
 
 const ns = useNamespace('input')
 const _isFocus = ref(false)
@@ -95,10 +99,21 @@ const blurHandler = (e) => {
 // 是否渲染前缀区域
 const _isPrefix = computed(() => props.prefixIcon || props.prefix)
 // 是否渲染后缀区域
-const _isSuffix = computed(() => props.suffixIcon || props.suffix)
+const _isSuffix = computed(() => props.suffixIcon || props.suffix || props.password)
 
 // 是否渲染前置区域
 const _isPrepend = computed(() => slots.prepend || props.prepend)
 // 是否渲染后置区域
 const _isAppend = computed(() => slots.append || props.append)
+
+// 布尔值
+// 如果值为 true，则展示原密码，且展示打开的眼睛
+// 如果值为 false，则不展示原密码，且展示关闭的眼睛
+const _pwdVisible = ref(false)
+// 动态计算输入框的类型
+const _inputType = computed(() =>
+  props.password ? (_pwdVisible.value ? 'text' : 'password') : 'text'
+)
+// 动态计算密码框的图标
+const _pwdIcon = computed(() => (_pwdVisible.value ? Eye : EyeOff))
 </script>

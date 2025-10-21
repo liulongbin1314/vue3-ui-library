@@ -80,6 +80,11 @@
   <div class="col-gap">
     <a-input prepend="https://" append=".com"></a-input>
   </div>
+
+  <p>文本框 - password</p>
+  <div class="col-gap">
+    <a-input password></a-input>
+  </div>
 </template>
 
 <script setup>
