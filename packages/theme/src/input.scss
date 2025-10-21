@@ -114,7 +114,7 @@
   // 前置后置区域的容器
   @include mixins.e(aside-wrapper) {
     // border: 2px solid red;
-    min-width: var(#{fn.getVarName(input, size)});
+    // min-width: var(#{fn.getVarName(input, size)});
     height: var(#{fn.getVarName(input, size)});
     display: flex;
     justify-content: center;
@@ -124,6 +124,9 @@
     // box-shadow: 0 0 0 2px var(#{fn.getVarName(input, border-color)}) inset;
     box-shadow: 0 0 0 2px var(#{fn.getVarName(border-color, default)}) inset;
     transition: 0.3s;
+    color: var(#{fn.getVarName(text-color, placeholder)});
+    font-size: var(#{fn.getVarName(input, font-size)});
+    background-color: var(#{fn.getVarName(color, gray, light-9)});
 
     @include mixins.e(prepend) {
       border-top-right-radius: 0;
@@ -144,8 +147,20 @@
       }
     }
 
+    @include mixins.e(prepend-text) {
+      padding: 0 var(#{fn.getVarName(input, padding)});
+    }
+
+    @include mixins.e(append-text) {
+      padding: 0 var(#{fn.getVarName(input, padding)});
+    }
+
     @include mixins.b(button) {
       min-width: inherit;
+    }
+
+    @include mixins.b(icon) {
+      padding: 0 var(#{fn.getVarName(input, padding)});
     }
   }
 }

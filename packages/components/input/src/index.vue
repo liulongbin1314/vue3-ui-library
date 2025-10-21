@@ -10,7 +10,8 @@
   >
     <!-- 前置区域 -->
     <div v-if="_isPrepend" :class="[ns.e('aside-wrapper'), ns.e('prepend')]">
-      <slot name="prepend"></slot>
+      <slot name="prepend" v-if="$slots.prepend"></slot>
+      <span :class="[ns.e('prepend-text')]" v-if="prepend">{{ prepend }}</span>
     </div>
     <!-- 文本框的容器 -->
     <div :class="[ns.e('wrapper'), ns.is('prepend', _isPrepend), ns.is('append', _isAppend)]">
@@ -40,7 +41,8 @@
     </div>
     <!-- 后置区域 -->
     <div v-if="_isAppend" :class="[ns.e('aside-wrapper'), ns.e('append')]">
-      <slot name="append"></slot>
+      <slot name="append" v-if="$slots.append"></slot>
+      <span :class="[ns.e('append-text')]" v-if="append">{{ append }}</span>
     </div>
   </div>
 </template>
@@ -68,7 +70,10 @@ const props = defineProps({
   suffixIcon: [String, Object],
   // 前缀和后缀的文本内容
   prefix: String,
-  suffix: String
+  suffix: String,
+  // 前置和后置的文本内容
+  prepend: String,
+  append: String
 })
 
 import { useNamespace } from '@ui-library/hooks'
@@ -92,7 +97,7 @@ const _isPrefix = computed(() => props.prefixIcon || props.prefix)
 const _isSuffix = computed(() => props.suffixIcon || props.suffix)
 
 // 是否渲染前置区域
-const _isPrepend = computed(() => slots.prepend)
+const _isPrepend = computed(() => slots.prepend || props.prepend)
 // 是否渲染后置区域
-const _isAppend = computed(() => slots.append)
+const _isAppend = computed(() => slots.append || props.append)
 </script>
