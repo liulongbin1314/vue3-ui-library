@@ -29,6 +29,7 @@
         :disabled="disabled"
         :maxlength="maxLength"
         :value="modelValue"
+        ref="_inputRef"
         @focus="focusHandler"
         @blur="blurHandler"
         @input="inputHandler"
@@ -44,7 +45,7 @@
         <!-- 清空的图标 -->
         <a-icon
           :icon="XCircle"
-          v-if="clearable && modelValue !== ''"
+          v-if="clearable && modelValue !== '' && !password"
           @click="clearHandler"
         ></a-icon>
       </div>
@@ -91,7 +92,7 @@ const props = defineProps({
 const emit = defineEmits(['input', 'clear'])
 
 import { useNamespace } from '@ui-library/hooks'
-import { ref, computed, useSlots, provide } from 'vue'
+import { ref, computed, useSlots, provide, shallowRef } from 'vue'
 import { AIcon } from '@ui-library/components'
 import { Eye, EyeOff, XCircle } from '@ui-library/icons'
 
@@ -100,6 +101,7 @@ const _isFocus = ref(false)
 const slots = useSlots()
 provide('groupSize', props.size)
 const modelValue = defineModel({ default: '' })
+const _inputRef = shallowRef(null)
 
 const focusHandler = (e) => {
   _isFocus.value = true
@@ -116,6 +118,7 @@ const clearHandler = () => {
   modelValue.value = ''
   emit('input', '')
   emit('clear')
+  _inputRef.value?.focus()
 }
 
 // 是否渲染前缀区域

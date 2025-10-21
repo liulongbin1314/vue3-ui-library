@@ -91,6 +91,10 @@
   <div class="col-gap">
     <a-input v-model="info" @input="inputFn" @clear="clearFn" clearable></a-input>
   </div>
+  <br />
+  <br />
+  <br />
+  <br />
 </template>
 
 <script setup>
