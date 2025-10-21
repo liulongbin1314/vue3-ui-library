@@ -51,7 +51,7 @@
       </template>
     </a-input>
 
-    <a-input>
+    <a-input size="large">
       <!-- 具名插槽 -->
       <!-- 前置内容 -->
       <template #prepend>

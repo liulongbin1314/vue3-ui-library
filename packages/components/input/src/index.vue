@@ -77,12 +77,13 @@ const props = defineProps({
 })
 
 import { useNamespace } from '@ui-library/hooks'
-import { ref, computed, useSlots } from 'vue'
+import { ref, computed, useSlots, provide } from 'vue'
 import { AIcon } from '@ui-library/components'
 
 const ns = useNamespace('input')
 const _isFocus = ref(false)
 const slots = useSlots()
+provide('groupSize', props.size)
 
 const focusHandler = (e) => {
   _isFocus.value = true
