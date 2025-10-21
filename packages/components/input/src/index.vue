@@ -41,6 +41,12 @@
         <span v-if="suffix">{{ suffix }}</span>
         <!-- 密码框 -->
         <a-icon :icon="_pwdIcon" v-if="password" @click="_pwdVisible = !_pwdVisible"></a-icon>
+        <!-- 清空的图标 -->
+        <a-icon
+          :icon="XCircle"
+          v-if="clearable && modelValue !== ''"
+          @click="clearHandler"
+        ></a-icon>
       </div>
     </div>
     <!-- 后置区域 -->
@@ -78,15 +84,16 @@ const props = defineProps({
   // 前置和后置的文本内容
   prepend: String,
   append: String,
-  password: Boolean
+  password: Boolean,
+  clearable: Boolean
 })
 
-const emit = defineEmits(['input'])
+const emit = defineEmits(['input', 'clear'])
 
 import { useNamespace } from '@ui-library/hooks'
 import { ref, computed, useSlots, provide } from 'vue'
 import { AIcon } from '@ui-library/components'
-import { Eye, EyeOff } from '@ui-library/icons'
+import { Eye, EyeOff, XCircle } from '@ui-library/icons'
 
 const ns = useNamespace('input')
 const _isFocus = ref(false)
@@ -105,11 +112,18 @@ const inputHandler = (e) => {
   // 触发自定义的 input 事件
   emit('input', e.currentTarget.value, e)
 }
+const clearHandler = () => {
+  modelValue.value = ''
+  emit('input', '')
+  emit('clear')
+}
 
 // 是否渲染前缀区域
 const _isPrefix = computed(() => props.prefixIcon || props.prefix)
 // 是否渲染后缀区域
-const _isSuffix = computed(() => props.suffixIcon || props.suffix || props.password)
+const _isSuffix = computed(
+  () => props.suffixIcon || props.suffix || props.password || props.clearable
+)
 
 // 是否渲染前置区域
 const _isPrepend = computed(() => slots.prepend || props.prepend)
