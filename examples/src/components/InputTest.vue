@@ -85,8 +85,22 @@
   <div class="col-gap">
     <a-input password></a-input>
   </div>
+
+  <p>文本框 - 数据双向绑定</p>
+  <p>{{ info }}</p>
+  <div class="col-gap">
+    <a-input v-model="info" @input="inputFn"></a-input>
+  </div>
 </template>
 
 <script setup>
 import { Calendar, PlusCircle } from '@ui-library/icons'
+import { ref } from 'vue'
+
+const info = ref('Hello')
+
+const inputFn = (value, e) => {
+  console.log(value)
+  console.log(e)
+}
 </script>

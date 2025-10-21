@@ -28,8 +28,10 @@
         :class="[ns.e('inner')]"
         :disabled="disabled"
         :maxlength="maxLength"
+        :value="modelValue"
         @focus="focusHandler"
         @blur="blurHandler"
+        @input="inputHandler"
       />
       <!-- 后缀区域 -->
       <div v-if="_isSuffix" :class="[ns.e('fix-wrapper'), ns.e('suffix')]">
@@ -79,6 +81,8 @@ const props = defineProps({
   password: Boolean
 })
 
+const emit = defineEmits(['input'])
+
 import { useNamespace } from '@ui-library/hooks'
 import { ref, computed, useSlots, provide } from 'vue'
 import { AIcon } from '@ui-library/components'
@@ -88,12 +92,18 @@ const ns = useNamespace('input')
 const _isFocus = ref(false)
 const slots = useSlots()
 provide('groupSize', props.size)
+const modelValue = defineModel({ default: '' })
 
 const focusHandler = (e) => {
   _isFocus.value = true
 }
 const blurHandler = (e) => {
   _isFocus.value = false
+}
+const inputHandler = (e) => {
+  modelValue.value = e.currentTarget.value
+  // 触发自定义的 input 事件
+  emit('input', e.currentTarget.value, e)
 }
 
 // 是否渲染前缀区域
