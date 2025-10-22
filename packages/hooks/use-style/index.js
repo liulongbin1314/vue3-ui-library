@@ -1,8 +1,8 @@
+const reg = /^\d+$/
+
 export const useStyle = () => {
   const fontSize = (value) => {
     if (!value) return {}
-
-    const reg = /^\d+$/
 
     if (reg.test(value)) {
       // 纯数字
@@ -17,5 +17,12 @@ export const useStyle = () => {
     return value ? { color: value } : {}
   }
 
-  return { fontSize, color }
+  const width = (value) => {
+    if (!value) return {}
+
+    const targetValue = reg.test(value) ? value + 'px' : value
+    return { width: targetValue }
+  }
+
+  return { fontSize, color, width }
 }

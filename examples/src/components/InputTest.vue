@@ -94,9 +94,9 @@
 
   <p>文本框 - 统计字数</p>
   <div class="col-gap">
-    <a-input count max-length="5" v-model="info"></a-input>
+    <a-input count max-length="5" v-model="info" width="200"></a-input>
     <!-- 如果文本框只有 count 属性，没有 max-length 属性，则不应该展示统计的字数 -->
-    <a-input count></a-input>
+    <a-input count width="200px"></a-input>
   </div>
 
   <br />

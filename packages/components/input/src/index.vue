@@ -7,6 +7,7 @@
       ns.m('size', size),
       ns.is('round', round)
     ]"
+    :style="[styledWidth]"
   >
     <!-- 前置区域 -->
     <div v-if="_isPrepend" :class="[ns.e('aside-wrapper'), ns.e('prepend')]">
@@ -87,12 +88,13 @@ const props = defineProps({
   append: String,
   password: Boolean,
   clearable: Boolean,
-  count: Boolean
+  count: Boolean,
+  width: String
 })
 
 const emit = defineEmits(['input', 'clear'])
 
-import { useNamespace } from '@ui-library/hooks'
+import { useNamespace, useStyle } from '@ui-library/hooks'
 import { ref, computed, useSlots, provide, shallowRef } from 'vue'
 import { AIcon } from '@ui-library/components'
 import { Eye, EyeOff, XCircle } from '@ui-library/icons'
@@ -103,6 +105,9 @@ const slots = useSlots()
 provide('groupSize', props.size)
 const modelValue = defineModel({ default: '' })
 const _inputRef = shallowRef(null)
+const uStyle = useStyle()
+
+const styledWidth = uStyle.width(props.width)
 
 const focusHandler = (e) => {
   _isFocus.value = true
