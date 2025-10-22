@@ -91,6 +91,14 @@
   <div class="col-gap">
     <a-input v-model="info" @input="inputFn" @clear="clearFn" clearable></a-input>
   </div>
+
+  <p>文本框 - 统计字数</p>
+  <div class="col-gap">
+    <a-input count max-length="5"></a-input>
+    <!-- 如果文本框只有 count 属性，没有 max-length 属性，则不应该展示统计的字数 -->
+    <a-input count></a-input>
+  </div>
+
   <br />
   <br />
   <br />

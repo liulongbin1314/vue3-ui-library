@@ -44,6 +44,8 @@
         <a-icon :icon="_pwdIcon" v-if="_showPwdIcon" @click="_pwdVisible = !_pwdVisible"></a-icon>
         <!-- 清空的图标 -->
         <a-icon :icon="XCircle" v-if="_showClearIcon" @click="clearHandler"></a-icon>
+        <!-- 统计字数 -->
+        <span v-if="_showCount">{{ modelValue.length }}/{{ maxLength }}</span>
       </div>
     </div>
     <!-- 后置区域 -->
@@ -82,7 +84,8 @@ const props = defineProps({
   prepend: String,
   append: String,
   password: Boolean,
-  clearable: Boolean
+  clearable: Boolean,
+  count: Boolean
 })
 
 const emit = defineEmits(['input', 'clear'])
@@ -121,7 +124,12 @@ const clearHandler = () => {
 const _isPrefix = computed(() => props.prefixIcon || props.prefix)
 // 是否渲染后缀区域
 const _isSuffix = computed(
-  () => props.suffixIcon || props.suffix || _showPwdIcon.value || _showClearIcon.value
+  () =>
+    props.suffixIcon ||
+    props.suffix ||
+    _showPwdIcon.value ||
+    _showClearIcon.value ||
+    _showCount.value
 )
 
 // 是否渲染前置区域
@@ -142,5 +150,8 @@ const _pwdIcon = computed(() => (_pwdVisible.value ? Eye : EyeOff))
 
 // 计算属性
 const _showPwdIcon = computed(() => props.password && !props.disabled)
-const _showClearIcon = computed(() => props.clearable && modelValue.value !== '' && !props.disabled)
+const _showClearIcon = computed(
+  () => props.clearable && modelValue.value !== '' && !props.disabled && !props.password
+)
+const _showCount = computed(() => props.count && props.maxLength && !props.disabled)
 </script>
