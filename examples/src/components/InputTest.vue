@@ -99,6 +99,11 @@
     <a-input count width="200px"></a-input>
   </div>
 
+  <p>文本框 - focus 和 blur 事件</p>
+  <div class="col-gap">
+    <a-input @focus="focusFn" @blur="blurFn"></a-input>
+  </div>
+
   <br />
   <br />
   <br />
@@ -117,5 +122,11 @@ const inputFn = (value, e) => {
 }
 const clearFn = () => {
   console.log('文本框内容被清空了！')
+}
+const focusFn = (e) => {
+  console.log('focus:', e)
+}
+const blurFn = (e) => {
+  console.log('blur:', e)
 }
 </script>

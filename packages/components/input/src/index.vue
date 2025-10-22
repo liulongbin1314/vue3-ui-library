@@ -2,7 +2,7 @@
   <div
     :class="[
       ns.b(),
-      ns.is('focus', _isFocus),
+      ns.is('focus', isFocus),
       ns.is('disabled', disabled),
       ns.m('size', size),
       ns.is('round', round)
@@ -31,8 +31,8 @@
         :maxlength="maxLength"
         :value="modelValue"
         ref="_inputRef"
-        @focus="focusHandler"
-        @blur="blurHandler"
+        @focus="focusEvent"
+        @blur="blurEvent"
         @input="inputHandler"
       />
       <!-- 后缀区域 -->
@@ -92,29 +92,24 @@ const props = defineProps({
   width: String
 })
 
-const emit = defineEmits(['input', 'clear'])
+const emit = defineEmits(['input', 'clear', 'blur', 'focus'])
 
-import { useNamespace, useStyle } from '@ui-library/hooks'
+import { useNamespace, useStyle, useEvent } from '@ui-library/hooks'
 import { ref, computed, useSlots, provide, shallowRef } from 'vue'
 import { AIcon } from '@ui-library/components'
 import { Eye, EyeOff, XCircle } from '@ui-library/icons'
 
 const ns = useNamespace('input')
-const _isFocus = ref(false)
+
 const slots = useSlots()
 provide('groupSize', props.size)
 const modelValue = defineModel({ default: '' })
 const _inputRef = shallowRef(null)
 const uStyle = useStyle()
+const { isFocus, focusEvent, blurEvent } = useEvent()
 
 const styledWidth = uStyle.width(props.width)
 
-const focusHandler = (e) => {
-  _isFocus.value = true
-}
-const blurHandler = (e) => {
-  _isFocus.value = false
-}
 const inputHandler = (e) => {
   modelValue.value = e.currentTarget.value
   // 触发自定义的 input 事件
