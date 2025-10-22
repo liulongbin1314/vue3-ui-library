@@ -45,7 +45,9 @@
         <!-- 清空的图标 -->
         <a-icon :icon="XCircle" v-if="_showClearIcon" @click="clearHandler"></a-icon>
         <!-- 统计字数 -->
-        <span v-if="_showCount">{{ modelValue.length }}/{{ maxLength }}</span>
+        <span v-if="_showCount" :class="[ns.is('color-error', _isColorDanger)]"
+          >{{ modelValue.length }}/{{ maxLength }}</span
+        >
       </div>
     </div>
     <!-- 后置区域 -->
@@ -154,4 +156,5 @@ const _showClearIcon = computed(
   () => props.clearable && modelValue.value !== '' && !props.disabled && !props.password
 )
 const _showCount = computed(() => props.count && props.maxLength && !props.disabled)
+const _isColorDanger = computed(() => modelValue.value.length > Number(props.maxLength))
 </script>

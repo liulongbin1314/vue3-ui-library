@@ -95,6 +95,10 @@
       @include mixins.e(suffix) {
         padding-left: 5px;
       }
+
+      @include mixins.s(color-error, false) {
+        color: var(#{fn.getVarName(color, error)});
+      }
     }
 
     // 是否有前置区域
