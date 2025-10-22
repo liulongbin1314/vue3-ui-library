@@ -40,14 +40,10 @@
         <a-icon :icon="suffixIcon" v-if="suffixIcon"></a-icon>
         <!-- 文本内容 -->
         <span v-if="suffix">{{ suffix }}</span>
-        <!-- 密码框 -->
-        <a-icon :icon="_pwdIcon" v-if="password" @click="_pwdVisible = !_pwdVisible"></a-icon>
+        <!-- 展示/隐藏密码的小图标 -->
+        <a-icon :icon="_pwdIcon" v-if="_showPwdIcon" @click="_pwdVisible = !_pwdVisible"></a-icon>
         <!-- 清空的图标 -->
-        <a-icon
-          :icon="XCircle"
-          v-if="clearable && modelValue !== '' && !password"
-          @click="clearHandler"
-        ></a-icon>
+        <a-icon :icon="XCircle" v-if="_showClearIcon" @click="clearHandler"></a-icon>
       </div>
     </div>
     <!-- 后置区域 -->
@@ -125,7 +121,7 @@ const clearHandler = () => {
 const _isPrefix = computed(() => props.prefixIcon || props.prefix)
 // 是否渲染后缀区域
 const _isSuffix = computed(
-  () => props.suffixIcon || props.suffix || props.password || props.clearable
+  () => props.suffixIcon || props.suffix || _showPwdIcon.value || _showClearIcon.value
 )
 
 // 是否渲染前置区域
@@ -143,4 +139,8 @@ const _inputType = computed(() =>
 )
 // 动态计算密码框的图标
 const _pwdIcon = computed(() => (_pwdVisible.value ? Eye : EyeOff))
+
+// 计算属性
+const _showPwdIcon = computed(() => props.password && !props.disabled)
+const _showClearIcon = computed(() => props.clearable && modelValue.value !== '' && !props.disabled)
 </script>
