@@ -39,6 +39,9 @@
         @keyup="keyupEvent"
         @input="inputHandler"
         @change="changeEvent"
+        @compositionstart="compositionstartEvent"
+        @compositionupdate="compositionupdateEvent"
+        @compositionend="compositionendEvent"
       />
       <!-- 后缀区域 -->
       <div v-if="_isSuffix" :class="[ns.e('fix-wrapper'), ns.e('suffix')]">
@@ -106,7 +109,10 @@ const emit = defineEmits([
   'mouseenter',
   'mouseleave',
   'keydown',
-  'keyup'
+  'keyup',
+  'compositionstart',
+  'compositionupdate',
+  'compositionend'
 ])
 
 import { useNamespace, useStyle, useEvent } from '@ui-library/hooks'
@@ -130,7 +136,10 @@ const {
   keydownEvent,
   keyupEvent,
   inputEvent,
-  changeEvent
+  changeEvent,
+  compositionstartEvent,
+  compositionupdateEvent,
+  compositionendEvent
 } = useEvent()
 
 const styledWidth = uStyle.width(props.width)

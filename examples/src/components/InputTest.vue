@@ -119,6 +119,15 @@
     <a-input @input="inputFn" @change="changeFn"></a-input>
   </div>
 
+  <p>文本框 - 文字组合相关的事件</p>
+  <div class="col-gap">
+    <a-input
+      @compositionstart="compositionstartFn"
+      @compositionupdate="compositionupdateFn"
+      @compositionend="compositionendFn"
+    ></a-input>
+  </div>
+
   <br />
   <br />
   <br />
@@ -131,6 +140,15 @@ import { ref } from 'vue'
 
 const info = ref('Hello Escook')
 
+const compositionstartFn = (e) => {
+  console.log('compositionstart 开始组合文字了！')
+}
+const compositionupdateFn = (e) => {
+  console.log('compositionupdate 更新了文字组合的过程...')
+}
+const compositionendFn = (e) => {
+  console.log('compositionend 文字组合结束。')
+}
 const inputFn = (value, e) => {
   console.log('input:')
   console.log(value)
