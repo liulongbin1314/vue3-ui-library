@@ -125,6 +125,7 @@
       @compositionstart="compositionstartFn"
       @compositionupdate="compositionupdateFn"
       @compositionend="compositionendFn"
+      @input="inputFn2"
     ></a-input>
   </div>
 
@@ -140,6 +141,9 @@ import { ref } from 'vue'
 
 const info = ref('Hello Escook')
 
+const inputFn2 = (value) => {
+  console.log('input:', value)
+}
 const compositionstartFn = (e) => {
   console.log('compositionstart 开始组合文字了！')
 }

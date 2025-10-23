@@ -41,7 +41,7 @@
         @change="changeEvent"
         @compositionstart="compositionstartEvent"
         @compositionupdate="compositionupdateEvent"
-        @compositionend="compositionendEvent"
+        @compositionend="compositionendHandler"
       />
       <!-- 后缀区域 -->
       <div v-if="_isSuffix" :class="[ns.e('fix-wrapper'), ns.e('suffix')]">
@@ -139,12 +139,19 @@ const {
   changeEvent,
   compositionstartEvent,
   compositionupdateEvent,
-  compositionendEvent
+  compositionendEvent,
+  isComposition
 } = useEvent()
 
 const styledWidth = uStyle.width(props.width)
 
+// compositionend 事件的处理函数
+const compositionendHandler = (e) => {
+  compositionendEvent(e).then(() => inputHandler(e))
+}
 const inputHandler = (e) => {
+  // 如果当前正在组合文字，则 return 出去，避免在组合文字的过程中，触发 input 事件的逻辑
+  if (isComposition.value) return
   modelValue.value = e.currentTarget.value
   // 触发自定义的 input 事件
   inputEvent(e)
