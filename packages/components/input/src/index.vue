@@ -8,6 +8,8 @@
       ns.is('round', round)
     ]"
     :style="[styledWidth]"
+    @mouseenter="mouseenterEvent"
+    @mouseleave="mouseleaveEvent"
   >
     <!-- 前置区域 -->
     <div v-if="_isPrepend" :class="[ns.e('aside-wrapper'), ns.e('prepend')]">
@@ -92,7 +94,7 @@ const props = defineProps({
   width: String
 })
 
-const emit = defineEmits(['input', 'clear', 'blur', 'focus'])
+const emit = defineEmits(['input', 'clear', 'blur', 'focus', 'mouseenter', 'mouseleave'])
 
 import { useNamespace, useStyle, useEvent } from '@ui-library/hooks'
 import { ref, computed, useSlots, provide, shallowRef } from 'vue'
@@ -106,7 +108,7 @@ provide('groupSize', props.size)
 const modelValue = defineModel({ default: '' })
 const _inputRef = shallowRef(null)
 const uStyle = useStyle()
-const { isFocus, focusEvent, blurEvent } = useEvent()
+const { isFocus, focusEvent, blurEvent, mouseenterEvent, mouseleaveEvent } = useEvent()
 
 const styledWidth = uStyle.width(props.width)
 
