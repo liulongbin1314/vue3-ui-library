@@ -129,6 +129,16 @@
     ></a-input>
   </div>
 
+  <p>文本框 - expose 暴露成员</p>
+  <div class="col-gap">
+    <div class="row-gap">
+      <a-button @click="inputRef.focus()">获取焦点</a-button>
+      <a-button @click="inputRef.select()">选中文本</a-button>
+      <a-button @click="inputRef.clear()">清空内容</a-button>
+    </div>
+    <a-input ref="inputRef"></a-input>
+  </div>
+
   <br />
   <br />
   <br />
@@ -137,9 +147,10 @@
 
 <script setup>
 import { Calendar, PlusCircle } from '@ui-library/icons'
-import { ref } from 'vue'
+import { ref, shallowRef } from 'vue'
 
 const info = ref('Hello Escook')
+const inputRef = ref(null)
 
 const inputFn2 = (value) => {
   console.log('input:', value)

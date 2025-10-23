@@ -115,7 +115,7 @@ const emit = defineEmits([
   'compositionend'
 ])
 
-import { useNamespace, useStyle, useEvent } from '@ui-library/hooks'
+import { useNamespace, useStyle, useEvent, useExpose } from '@ui-library/hooks'
 import { ref, computed, useSlots, provide, shallowRef } from 'vue'
 import { AIcon } from '@ui-library/components'
 import { Eye, EyeOff, XCircle } from '@ui-library/icons'
@@ -142,6 +142,7 @@ const {
   compositionendEvent,
   isComposition
 } = useEvent()
+const { focusExpose, selectExpose } = useExpose(_inputRef)
 
 const styledWidth = uStyle.width(props.width)
 
@@ -162,6 +163,12 @@ const clearHandler = () => {
   emit('clear')
   _inputRef.value?.focus()
 }
+
+defineExpose({
+  focus: focusExpose,
+  select: selectExpose,
+  clear: clearHandler
+})
 
 // 是否渲染前缀区域
 const _isPrefix = computed(() => props.prefixIcon || props.prefix)
