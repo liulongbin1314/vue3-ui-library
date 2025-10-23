@@ -114,6 +114,11 @@
     <a-input @keydown="keydownFn" @keyup="keyupFn"></a-input>
   </div>
 
+  <p>文本框 - input 和 change 事件</p>
+  <div class="col-gap">
+    <a-input @input="inputFn" @change="changeFn"></a-input>
+  </div>
+
   <br />
   <br />
   <br />
@@ -127,6 +132,12 @@ import { ref } from 'vue'
 const info = ref('Hello Escook')
 
 const inputFn = (value, e) => {
+  console.log('input:')
+  console.log(value)
+  console.log(e)
+}
+const changeFn = (value, e) => {
+  console.log('change:')
   console.log(value)
   console.log(e)
 }

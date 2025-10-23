@@ -38,6 +38,7 @@
         @keydown="keydownEvent"
         @keyup="keyupEvent"
         @input="inputHandler"
+        @change="changeEvent"
       />
       <!-- 后缀区域 -->
       <div v-if="_isSuffix" :class="[ns.e('fix-wrapper'), ns.e('suffix')]">
@@ -98,6 +99,7 @@ const props = defineProps({
 
 const emit = defineEmits([
   'input',
+  'change',
   'clear',
   'blur',
   'focus',
@@ -126,7 +128,9 @@ const {
   mouseenterEvent,
   mouseleaveEvent,
   keydownEvent,
-  keyupEvent
+  keyupEvent,
+  inputEvent,
+  changeEvent
 } = useEvent()
 
 const styledWidth = uStyle.width(props.width)
@@ -134,7 +138,7 @@ const styledWidth = uStyle.width(props.width)
 const inputHandler = (e) => {
   modelValue.value = e.currentTarget.value
   // 触发自定义的 input 事件
-  emit('input', e.currentTarget.value, e)
+  inputEvent(e)
 }
 const clearHandler = () => {
   modelValue.value = ''
