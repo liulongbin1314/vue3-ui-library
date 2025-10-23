@@ -35,6 +35,8 @@
         ref="_inputRef"
         @focus="focusEvent"
         @blur="blurEvent"
+        @keydown="keydownEvent"
+        @keyup="keyupEvent"
         @input="inputHandler"
       />
       <!-- 后缀区域 -->
@@ -94,7 +96,16 @@ const props = defineProps({
   width: String
 })
 
-const emit = defineEmits(['input', 'clear', 'blur', 'focus', 'mouseenter', 'mouseleave'])
+const emit = defineEmits([
+  'input',
+  'clear',
+  'blur',
+  'focus',
+  'mouseenter',
+  'mouseleave',
+  'keydown',
+  'keyup'
+])
 
 import { useNamespace, useStyle, useEvent } from '@ui-library/hooks'
 import { ref, computed, useSlots, provide, shallowRef } from 'vue'
@@ -108,7 +119,15 @@ provide('groupSize', props.size)
 const modelValue = defineModel({ default: '' })
 const _inputRef = shallowRef(null)
 const uStyle = useStyle()
-const { isFocus, focusEvent, blurEvent, mouseenterEvent, mouseleaveEvent } = useEvent()
+const {
+  isFocus,
+  focusEvent,
+  blurEvent,
+  mouseenterEvent,
+  mouseleaveEvent,
+  keydownEvent,
+  keyupEvent
+} = useEvent()
 
 const styledWidth = uStyle.width(props.width)
 
