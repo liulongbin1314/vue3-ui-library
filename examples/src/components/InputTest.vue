@@ -139,6 +139,11 @@
     <a-input ref="inputRef"></a-input>
   </div>
 
+  <p>文本域 - textarea</p>
+  <div class="col-gap">
+    <a-textarea></a-textarea>
+  </div>
+
   <br />
   <br />
   <br />
