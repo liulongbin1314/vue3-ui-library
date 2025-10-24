@@ -141,7 +141,7 @@
 
   <p>文本域 - textarea</p>
   <div class="col-gap">
-    <a-textarea></a-textarea>
+    <a-textarea width="200" count max-length="10" v-model="info"></a-textarea>
   </div>
 
   <br />

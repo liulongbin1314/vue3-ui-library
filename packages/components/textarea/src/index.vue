@@ -7,11 +7,11 @@
   >
     <!-- 前置区域 -->
     <!-- 文本框的容器 -->
-    <div :class="[ns.e('wrapper')]">
+    <div :class="[ns.e('wrapper'), ns.e('wrapper-multi')]">
       <!-- 前缀区域 -->
       <textarea
         :placeholder="placeholder"
-        :class="[ns.e('inner')]"
+        :class="[ns.e('inner'), ns.e('multi')]"
         :disabled="disabled"
         :maxlength="maxLength"
         :value="modelValue"

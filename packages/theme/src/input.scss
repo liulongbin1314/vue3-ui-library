@@ -115,6 +115,48 @@
     }
   }
 
+  // 文本域的容器
+  @include mixins.e(wrapper-multi) {
+    height: auto;
+    line-height: auto;
+    padding: 0;
+    position: relative;
+
+    @include mixins.e(multi) {
+      // background-color: red;
+      resize: vertical;
+      outline: none;
+      border: none;
+      padding: 5px 10px;
+      font-family: inherit;
+      min-height: 60px;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 100px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: #efefef;
+      }
+    }
+
+    @include mixins.e(fix-wrapper) {
+      position: absolute;
+      bottom: 3px;
+      right: 15px;
+      font-size: 12px;
+      background-color: white;
+      height: 12px;
+      line-height: 12px;
+      border-radius: 12px;
+      padding: 1px;
+    }
+  }
+
   // 前置后置区域的容器
   @include mixins.e(aside-wrapper) {
     // border: 2px solid red;
