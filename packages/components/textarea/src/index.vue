@@ -10,6 +10,7 @@
     <div :class="[ns.e('wrapper'), ns.e('wrapper-multi')]">
       <!-- 前缀区域 -->
       <textarea
+        :rows="rows"
         :placeholder="placeholder"
         :class="[ns.e('inner'), ns.e('multi')]"
         :disabled="disabled"
@@ -51,7 +52,8 @@ const props = defineProps({
   },
   maxLength: [String, Number],
   count: Boolean,
-  width: String
+  width: String,
+  rows: [String, Number]
 })
 
 const emit = defineEmits([
