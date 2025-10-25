@@ -144,7 +144,7 @@
       }
     }
 
-    @include mixins.e(fix-wrapper) {
+    @include mixins.e(suffix-multi) {
       position: absolute;
       bottom: 3px;
       right: 15px;

@@ -4,7 +4,8 @@ import AButtonGroup from '@ui-library/components/button-group'
 import AIcon from '@ui-library/components/icon'
 import AInput from '@ui-library/components/input'
 import ATextarea from '@ui-library/components/textarea'
+import ARow from '@ui-library/components/row'
 
 // 默认导出一个数组，
 // 数组中包含封装的所有的组件
-export default [AButton, AButtonGroup, AIcon, AInput, ATextarea]
+export default [AButton, AButtonGroup, AIcon, AInput, ATextarea, ARow]

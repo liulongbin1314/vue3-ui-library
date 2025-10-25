@@ -28,7 +28,7 @@
         @compositionend="compositionendHandler"
       ></textarea>
       <!-- 后缀区域 -->
-      <div v-if="_isSuffix" :class="[ns.e('fix-wrapper'), ns.e('suffix')]">
+      <div v-if="_isSuffix" :class="[ns.e('fix-wrapper'), ns.e('suffix'), ns.e('suffix-multi')]">
         <!-- 统计字数 -->
         <span v-if="_showCount" :class="[ns.is('color-error', _isColorDanger)]"
           >{{ modelValue.length }}/{{ maxLength }}</span
