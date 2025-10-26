@@ -24,8 +24,11 @@
   </a-row>
 
   <div style="overflow-x: hidden">
-    <a-row :gutter="20">
+    <a-row :gutter="20" :gap="15">
       <a-col :span="4" :offset="4">4</a-col>
+      <a-col :span="4">4</a-col>
+      <a-col :span="4">4</a-col>
+      <a-col :span="4">4</a-col>
       <a-col :span="4">4</a-col>
       <a-col :span="4">4</a-col>
       <a-col :span="4">4</a-col>

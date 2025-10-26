@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag" :class="[ns.b()]" :style="[styledMargin]">
+  <component :is="tag" :class="[ns.b()]" :style="[styledMargin, styledRowGap]">
     <slot></slot>
   </component>
 </template>
@@ -17,6 +17,10 @@ const props = defineProps({
   gutter: {
     type: Number,
     default: 0
+  },
+  gap: {
+    type: Number,
+    default: 0
   }
 })
 
@@ -30,6 +34,11 @@ const styledMargin = computed(() => {
   if (!props.gutter) return {}
   const halfGutter = (props.gutter / 2) * -1 + 'px'
   return { marginLeft: halfGutter, marginRight: halfGutter }
+})
+
+const styledRowGap = computed(() => {
+  if (!props.gap) return {}
+  return { rowGap: props.gap + 'px' }
 })
 </script>
 
