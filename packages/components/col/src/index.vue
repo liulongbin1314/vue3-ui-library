@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag" :class="[ns.b(), spanClass]" :style="[styledGutter]">
+  <component :is="tag" :class="[ns.b(), spanClass, offsetClass]" :style="[styledGutter]">
     <slot></slot>
   </component>
 </template>
@@ -15,6 +15,10 @@ const props = defineProps({
     default: 'div'
   },
   span: {
+    type: Number,
+    default: 0
+  },
+  offset: {
     type: Number,
     default: 0
   }
@@ -34,6 +38,11 @@ const styledGutter = computed(() => {
   if (!gutter) return {}
   const gutterVal = gutter / 2 + 'px'
   return { paddingLeft: gutterVal, paddingRight: gutterVal }
+})
+
+const offsetClass = computed(() => {
+  if (!props.offset) return ''
+  return 'a-col-offset-' + props.offset
 })
 </script>
 

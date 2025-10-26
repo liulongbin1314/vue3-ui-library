@@ -8,9 +8,14 @@
 }
 
 @for $i from 1 through 24 {
+  $value: math.div($i, 24) * 100 * 1%;
   .a-col-#{$i} {
-    $value: math.div($i, 24) * 100 * 1%;
     width: $value;
     flex: 0 0 $value;
+  }
+
+  // 偏移的类名
+  .a-col-offset-#{$i} {
+    margin-left: $value;
   }
 }
