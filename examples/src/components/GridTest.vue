@@ -9,8 +9,42 @@
     <a-col :span="12">12</a-col>
     <a-col :span="12">12</a-col>
   </a-row>
+
+  <a-row>
+    <a-col :span="8">8</a-col>
+    <a-col :span="8">8</a-col>
+    <a-col :span="8">8</a-col>
+  </a-row>
+
+  <a-row>
+    <a-col :span="6">6</a-col>
+    <a-col :span="6">6</a-col>
+    <a-col :span="6">6</a-col>
+    <a-col :span="6">6</a-col>
+  </a-row>
+
+  <a-row>
+    <a-col :span="4">4</a-col>
+    <a-col :span="4">4</a-col>
+    <a-col :span="4">4</a-col>
+    <a-col :span="4">4</a-col>
+    <a-col :span="4">4</a-col>
+    <a-col :span="4">4</a-col>
+  </a-row>
 </template>
 
 <script setup></script>
 
-<style scoped></style>
+<style scoped>
+.a-row {
+  margin-bottom: 15px;
+}
+
+.a-col {
+  background-color: #ccc;
+
+  &:nth-child(odd) {
+    background-color: #eee;
+  }
+}
+</style>

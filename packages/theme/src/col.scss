@@ -1,6 +1,15 @@
 @use './common/mixins.scss';
+@use 'sass:math';
 
 @include mixins.b(col) {
   display: block;
   min-height: 1px;
+}
+
+@for $i from 1 through 24 {
+  .a-col-#{$i} {
+    $value: math.div($i, 24) * 100 * 1%;
+    width: $value;
+    flex: 0 0 $value;
+  }
 }
