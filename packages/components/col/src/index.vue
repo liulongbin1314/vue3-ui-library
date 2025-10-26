@@ -1,5 +1,5 @@
 <template>
-  <component :is="tag" :class="[ns.b(), spanClass]">
+  <component :is="tag" :class="[ns.b(), spanClass]" :style="[styledGutter]">
     <slot></slot>
   </component>
 </template>
@@ -21,12 +21,19 @@ const props = defineProps({
 })
 
 import { useNamespace } from '@ui-library/hooks'
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 
 const ns = useNamespace('col')
+const gutter = inject('gutter', 0)
 
 const spanClass = computed(() => {
   return props.span ? `${ns.namespace}-col-${props.span}` : ''
+})
+
+const styledGutter = computed(() => {
+  if (!gutter) return {}
+  const gutterVal = gutter / 2 + 'px'
+  return { paddingLeft: gutterVal, paddingRight: gutterVal }
 })
 </script>
 
