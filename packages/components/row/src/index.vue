@@ -1,5 +1,9 @@
 <template>
-  <component :is="tag" :class="[ns.b()]" :style="[styledMargin, styledRowGap]">
+  <component
+    :is="tag"
+    :class="[ns.b(), ns.is('justify-' + justify, !!justify)]"
+    :style="[styledMargin, styledRowGap]"
+  >
     <slot></slot>
   </component>
 </template>
@@ -21,6 +25,10 @@ const props = defineProps({
   gap: {
     type: Number,
     default: 0
+  },
+  justify: {
+    type: String,
+    default: ''
   }
 })
 

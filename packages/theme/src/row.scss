@@ -1,8 +1,23 @@
 @use './common/mixins.scss';
 
+$justify: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  space-between: space-between,
+  space-around: space-around,
+  space-evenly: space-evenly
+);
+
 @include mixins.b(row) {
   display: flex;
   // 允许子元素换行展示
   flex-wrap: wrap;
   box-sizing: border-box;
+
+  @each $key, $value in $justify {
+    @include mixins.s('justify-' + $key) {
+      justify-content: $value;
+    }
+  }
 }

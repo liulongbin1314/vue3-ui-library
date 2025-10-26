@@ -36,6 +36,14 @@
       <a-col :span="4">4</a-col>
     </a-row>
   </div>
+
+  <!-- start、center、end、space-between、space-around或space-evenly -->
+  <a-row justify="space-evenly">
+    <a-col :span="4">4</a-col>
+    <a-col :span="4">4</a-col>
+    <a-col :span="4">4</a-col>
+    <a-col :span="4">4</a-col>
+  </a-row>
 </template>
 
 <script setup></script>
