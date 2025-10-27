@@ -1,5 +1,5 @@
 <template>
-  <header :class="[ns.b()]">
+  <header :class="[ns.b()]" :style="[styledHeight]">
     <slot>Header</slot>
   </header>
 </template>
@@ -9,6 +9,16 @@ defineOptions({
   name: 'a-header'
 })
 
-import { useNamespace } from '@ui-library/hooks'
+const { height } = defineProps({
+  height: {
+    type: String,
+    default: '60px'
+  }
+})
+
+import { useNamespace, useStyle } from '@ui-library/hooks'
+import { computed } from 'vue'
 const ns = useNamespace('header')
+const uStyle = useStyle()
+const styledHeight = computed(() => uStyle.height(height))
 </script>

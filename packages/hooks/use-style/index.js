@@ -24,5 +24,12 @@ export const useStyle = () => {
     return { width: targetValue }
   }
 
-  return { fontSize, color, width }
+  const height = (value) => {
+    if (!value) return {}
+
+    const targetValue = reg.test(value) ? value + 'px' : value
+    return { height: targetValue }
+  }
+
+  return { fontSize, color, width, height }
 }

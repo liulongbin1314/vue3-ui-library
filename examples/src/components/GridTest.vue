@@ -2,9 +2,9 @@
   <a-container>
     <a-aside width="200px"></a-aside>
     <a-container>
-      <a-header></a-header>
+      <a-header height="80px"></a-header>
       <a-main></a-main>
-      <a-footer></a-footer>
+      <a-footer height="80px"></a-footer>
     </a-container>
   </a-container>
 
