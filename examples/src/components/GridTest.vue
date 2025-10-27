@@ -1,7 +1,7 @@
 <template>
   <a-container>
     <a-aside width="200px"></a-aside>
-    <a-container>
+    <a-container direction="vertical">
       <a-header height="80px"></a-header>
       <a-main></a-main>
       <a-footer height="80px"></a-footer>
