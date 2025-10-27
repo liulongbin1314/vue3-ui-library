@@ -10,5 +10,7 @@ defineOptions({
 })
 
 import { useNamespace } from '@ui-library/hooks'
+import { useSonOfContainer } from './composition'
+useSonOfContainer()
 const ns = useNamespace('main')
 </script>

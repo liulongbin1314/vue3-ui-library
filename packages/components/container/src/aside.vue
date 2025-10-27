@@ -18,6 +18,9 @@ const { width } = defineProps({
 
 import { useNamespace, useStyle } from '@ui-library/hooks'
 import { computed } from 'vue'
+import { useSonOfContainer } from './composition'
+useSonOfContainer()
+
 const ns = useNamespace('aside')
 const uStyle = useStyle()
 const styledWidth = computed(() => uStyle.width(width))

@@ -17,6 +17,8 @@ const { height } = defineProps({
 })
 
 import { useNamespace } from '@ui-library/hooks'
+import { useSonOfContainer } from './composition'
+useSonOfContainer()
 const ns = useNamespace('footer')
 </script>
 

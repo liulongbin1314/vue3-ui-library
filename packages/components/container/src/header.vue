@@ -18,6 +18,8 @@ const { height } = defineProps({
 
 import { useNamespace, useStyle } from '@ui-library/hooks'
 import { computed } from 'vue'
+import { useSonOfContainer } from './composition'
+useSonOfContainer()
 const ns = useNamespace('header')
 const uStyle = useStyle()
 const styledHeight = computed(() => uStyle.height(height))
