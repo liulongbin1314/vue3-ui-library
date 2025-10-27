@@ -1,6 +1,6 @@
 <template>
   <a-container>
-    <a-aside></a-aside>
+    <a-aside width="200px"></a-aside>
     <a-container>
       <a-header></a-header>
       <a-main></a-main>

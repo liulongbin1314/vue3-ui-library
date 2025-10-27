@@ -1,5 +1,5 @@
 <template>
-  <aside :class="[ns.b()]">
+  <aside :class="[ns.b()]" :style="[styledWidth]">
     <slot>Aside</slot>
   </aside>
 </template>
@@ -9,6 +9,16 @@ defineOptions({
   name: 'a-aside'
 })
 
-import { useNamespace } from '@ui-library/hooks'
+const { width } = defineProps({
+  width: {
+    type: String,
+    default: '300px'
+  }
+})
+
+import { useNamespace, useStyle } from '@ui-library/hooks'
+import { computed } from 'vue'
 const ns = useNamespace('aside')
+const uStyle = useStyle()
+const styledWidth = computed(() => uStyle.width(width))
 </script>
