@@ -1,0 +1,5 @@
+import '@ui-library/theme/src/container.scss'
+import '@ui-library/theme/src/header.scss'
+import '@ui-library/theme/src/footer.scss'
+import '@ui-library/theme/src/aside.scss'
+import '@ui-library/theme/src/main.scss'
