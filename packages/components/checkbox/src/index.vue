@@ -1,6 +1,6 @@
 <template>
   <!-- 根元素 -->
-  <component :tag="tag" :class="[ns.b()]">
+  <component :is="tag" :class="[ns.b()]">
     <!-- 复选框容器 -->
     <span :class="[ns.e('wrapper')]">
       <!-- 真实的复选框 -->

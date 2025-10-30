@@ -2,6 +2,7 @@
   <p>基础用法</p>
   <div>
     <a-checkbox label="北京市"></a-checkbox>
+    <a-checkbox label="上海市"></a-checkbox>
   </div>
 </template>
 

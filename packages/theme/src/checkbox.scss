@@ -1,4 +1,52 @@
 @use './common/mixins.scss';
 
-@include mixins.b('checkbox') {
+// 根元素
+@include mixins.b(checkbox) {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  margin-right: 24px;
+  cursor: pointer;
+  user-select: none;
+
+  // 复选框容器
+  @include mixins.e(wrapper) {
+    position: relative;
+
+    // 真实的复选框
+    @include mixins.e(input) {
+      position: absolute;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+
+    // 模拟出来的复选框
+    @include mixins.e(inner) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #ccc;
+      width: 20px;
+      height: 20px;
+      box-sizing: border-box;
+      border-radius: 6px;
+      background-color: #fff;
+      color: #000;
+
+      // 图标
+      @include mixins.e(icon-check) {
+        transform: scale(0);
+        transition: 0.3s;
+      }
+    }
+  }
+
+  // 描述文本
+  @include mixins.e(label) {
+    margin-left: 8px;
+    color: #666;
+    line-height: 1;
+    font-size: 14px;
+  }
 }
