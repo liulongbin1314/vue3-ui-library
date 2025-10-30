@@ -165,3 +165,34 @@
 
   @return $input;
 }
+
+@function getCheckboxVar() {
+  $checkbox: (
+    // 基础状态
+    border-color:
+      (
+        default: fn.getVarName(border-color, default)
+      ),
+    bg-color: (
+      default: fn.getVarName(color, white)
+    ),
+    text-color: (
+      default: fn.getVarName(text-color, primary)
+    ),
+    icon-color: (
+      default: fn.getVarName(color, white)
+    ),
+    // 禁用状态
+    // 勾选状态
+    // 其它的私有变量（尺寸）
+    size:
+      (
+        default: fn.getVarName(component-size, default)
+      ),
+    font-size: (
+      default: fn.getVarName(font-size, default)
+    )
+  );
+
+  @return $checkbox;
+}

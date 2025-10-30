@@ -1,13 +1,23 @@
 @use './common/mixins.scss';
+@use './common/componentVar.scss' as comVar;
+@use './common/function.scss' as fn;
 
 // 根元素
 @include mixins.b(checkbox) {
+  // 混入私有变量
+  @include mixins.set-component-var(checkbox, comVar.getCheckboxVar());
+
   display: inline-flex;
   align-items: center;
-  height: 32px;
+  height: var(#{fn.getVarName(checkbox, size)});
   margin-right: 24px;
   cursor: pointer;
   user-select: none;
+
+  &:hover {
+    // 私有变量的名字: var(全局变量的名字);
+    #{fn.getVarName(checkbox, border-color)}: var(#{fn.getVarName(border-color, hover)});
+  }
 
   // 复选框容器
   @include mixins.e(wrapper) {
@@ -26,13 +36,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 2px solid #ccc;
+      border: 2px solid var(#{fn.getVarName(checkbox, border-color)});
       width: 20px;
       height: 20px;
       box-sizing: border-box;
       border-radius: 6px;
-      background-color: #fff;
-      color: #000;
+      background-color: var(#{fn.getVarName(checkbox, bg-color)});
+      color: var(#{fn.getVarName(checkbox, icon-color)});
+      transition: 0.3s;
 
       // 图标
       @include mixins.e(icon-check) {
@@ -45,8 +56,8 @@
   // 描述文本
   @include mixins.e(label) {
     margin-left: 8px;
-    color: #666;
+    color: var(#{fn.getVarName(checkbox, text-color)});
     line-height: 1;
-    font-size: 14px;
+    font-size: var(#{fn.getVarName(checkbox, font-size)});
   }
 }
