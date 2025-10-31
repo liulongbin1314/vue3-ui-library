@@ -55,6 +55,16 @@
     }
   }
 
+  // 循环生成尺寸的选择器
+  @each $s in var.$sizes {
+    @include mixins.m(size, $s) {
+      #{fn.getVarName(checkbox, font-size)}: var(#{fn.getVarName(font-size, $s)});
+      #{fn.getVarName(checkbox, check-size)}: var(#{fn.getVarName(checkbox-size, $s)});
+      #{fn.getVarName(checkbox, check-round)}: var(#{fn.getVarName(component-round, $s)});
+      #{fn.getVarName(checkbox, check-icon-size)}: var(#{fn.getVarName(checkbox-icon-size, $s)});
+    }
+  }
+
   // 复选框容器
   @include mixins.e(wrapper) {
     position: relative;
@@ -73,10 +83,10 @@
       justify-content: center;
       align-items: center;
       border: 2px solid var(#{fn.getVarName(checkbox, border-color)});
-      width: 20px;
-      height: 20px;
+      width: var(#{fn.getVarName(checkbox, check-size)});
+      height: var(#{fn.getVarName(checkbox, check-size)});
       box-sizing: border-box;
-      border-radius: 6px;
+      border-radius: var(#{fn.getVarName(checkbox, check-round)});
       background-color: var(#{fn.getVarName(checkbox, bg-color)});
       color: var(#{fn.getVarName(checkbox, icon-color)});
       transition: 0.3s;
@@ -85,6 +95,7 @@
       @include mixins.e(icon-check) {
         transform: scale(0);
         transition: 0.3s;
+        font-size: var(#{fn.getVarName(checkbox, check-icon-size)});
       }
     }
   }

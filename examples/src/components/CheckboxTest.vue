@@ -31,6 +31,14 @@
     <a-checkbox label="北京市" checked disabled type="warning"></a-checkbox>
     <a-checkbox label="北京市" checked disabled type="error"></a-checkbox>
   </div>
+
+  <p>尺寸</p>
+  <div>
+    <a-checkbox label="北京市" checked type="primary" size="small"></a-checkbox>
+    <a-checkbox label="北京市" checked type="success" size="default"></a-checkbox>
+    <a-checkbox label="北京市" checked type="warning" size="large"></a-checkbox>
+    <a-checkbox label="北京市" checked type="error"></a-checkbox>
+  </div>
 </template>
 
 <script setup></script>

@@ -2,7 +2,13 @@
   <!-- 根元素 -->
   <component
     :is="tag"
-    :class="[ns.b(), ns.is('checked', checked), ns.is('disabled', disabled), ns.m(type)]"
+    :class="[
+      ns.b(),
+      ns.is('checked', checked),
+      ns.is('disabled', disabled),
+      ns.m(type),
+      ns.m('size', size)
+    ]"
   >
     <!-- 复选框容器 -->
     <span :class="[ns.e('wrapper')]">
@@ -33,7 +39,11 @@ const props = defineProps({
   label: String,
   checked: Boolean,
   disabled: Boolean,
-  type: String
+  type: String,
+  size: {
+    type: String,
+    default: 'default'
+  }
 })
 
 import { useNamespace } from '@ui-library/hooks'

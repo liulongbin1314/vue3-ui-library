@@ -225,6 +225,17 @@
       ),
     font-size: (
       default: fn.getVarName(font-size, default)
+    ),
+    // 复选框矩形的尺寸
+    check-size:
+      (
+        default: fn.getVarName(checkbox-size, default)
+      ),
+    check-round: (
+      default: fn.getVarName(component-round, default)
+    ),
+    check-icon-size: (
+      default: fn.getVarName(checkbox-icon-size, default)
     )
   );
 

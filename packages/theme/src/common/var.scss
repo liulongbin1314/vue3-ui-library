@@ -9,6 +9,7 @@ $colors: () !default;
 $types-mix: (black, gray, primary, success, warning, error);
 $types: (black, white, gray, primary, success, warning, error);
 $types-base: (primary, success, warning, error);
+$sizes: (small, default, large);
 
 // 在进行 map.deep-merge(参数1, 参数2) 的时候，
 // 永远都是后来者居上，参数2 中的属性会覆盖掉 参数1 中相同属性的值
@@ -130,11 +131,35 @@ $component-round: map.deep-merge(
   $component-round
 );
 
+// 复选框-图标尺寸
+$checkbox-icon-size: () !default;
+$checkbox-icon-size: map.deep-merge(
+  (
+    small: 12px,
+    default: 16px,
+    large: 20px
+  ),
+  $checkbox-icon-size
+);
+
+// 复选框-尺寸
+$checkbox-size: () !default;
+$checkbox-size: map.deep-merge(
+  (
+    small: 16px,
+    default: 20px,
+    large: 24px
+  ),
+  $checkbox-size
+);
+
 // 全局通用的样式
 $global: (
   'text-color': $text-color,
   'border-color': $border-color,
   'font-size': $font-size,
   'component-size': $component-size,
-  'component-round': $component-round
+  'component-round': $component-round,
+  'checkbox-icon-size': $checkbox-icon-size,
+  'checkbox-size': $checkbox-size
 );
