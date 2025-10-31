@@ -15,6 +15,22 @@
     <a-checkbox label="北京市" disabled></a-checkbox>
     <a-checkbox label="北京市" checked disabled></a-checkbox>
   </div>
+
+  <p>主题颜色</p>
+  <div>
+    <a-checkbox label="北京市" checked></a-checkbox>
+    <a-checkbox label="北京市" checked type="primary"></a-checkbox>
+    <a-checkbox label="北京市" checked type="success"></a-checkbox>
+    <a-checkbox label="北京市" checked type="warning"></a-checkbox>
+    <a-checkbox label="北京市" checked type="error"></a-checkbox>
+  </div>
+  <div>
+    <a-checkbox label="北京市" checked disabled></a-checkbox>
+    <a-checkbox label="北京市" checked disabled type="primary"></a-checkbox>
+    <a-checkbox label="北京市" checked disabled type="success"></a-checkbox>
+    <a-checkbox label="北京市" checked disabled type="warning"></a-checkbox>
+    <a-checkbox label="北京市" checked disabled type="error"></a-checkbox>
+  </div>
 </template>
 
 <script setup></script>

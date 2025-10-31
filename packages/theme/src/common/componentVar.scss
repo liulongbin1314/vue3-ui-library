@@ -166,7 +166,7 @@
   @return $input;
 }
 
-@function getCheckboxVar() {
+@function getCheckboxVar($type: '') {
   $checkbox: (
     // 基础状态
     border-color:
@@ -185,30 +185,38 @@
     // 禁用状态
     disabled-border-color:
       (
-        default: fn.getVarName(border-color, disabled)
+        default: fn.getVarName(border-color, disabled),
+        type: fn.getVarName(color, $type, light-5)
       ),
     disabled-bg-color: (
-      default: fn.getVarName(color, gray, light-9)
+      default: fn.getVarName(color, gray, light-9),
+      type: fn.getVarName(color, $type, light-5)
     ),
     disabled-text-color: (
-      default: fn.getVarName(text-color, disabled)
+      default: fn.getVarName(text-color, disabled),
+      type: fn.getVarName(text-color, disabled)
     ),
     disabled-icon-color: (
-      default: fn.getVarName(border-color, hover)
+      default: fn.getVarName(border-color, hover),
+      type: fn.getVarName(color, white)
     ),
     // 勾选状态
     checked-border-color:
       (
-        default: fn.getVarName(color, primary)
+        default: fn.getVarName(color, primary),
+        type: fn.getVarName(color, $type)
       ),
     checked-bg-color: (
-      default: fn.getVarName(color, primary)
+      default: fn.getVarName(color, primary),
+      type: fn.getVarName(color, $type)
     ),
     checked-text-color: (
-      default: fn.getVarName(text-color, primary)
+      default: fn.getVarName(text-color, primary),
+      type: fn.getVarName(text-color, primary)
     ),
     checked-icon-color: (
-      default: fn.getVarName(color, white)
+      default: fn.getVarName(color, white),
+      type: fn.getVarName(color, white)
     ),
     // 其它的私有变量（尺寸）
     size:

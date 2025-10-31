@@ -1,6 +1,9 @@
 <template>
   <!-- 根元素 -->
-  <component :is="tag" :class="[ns.b(), ns.is('checked', checked), ns.is('disabled', disabled)]">
+  <component
+    :is="tag"
+    :class="[ns.b(), ns.is('checked', checked), ns.is('disabled', disabled), ns.m(type)]"
+  >
     <!-- 复选框容器 -->
     <span :class="[ns.e('wrapper')]">
       <!-- 真实的复选框 -->
@@ -29,7 +32,8 @@ const props = defineProps({
   },
   label: String,
   checked: Boolean,
-  disabled: Boolean
+  disabled: Boolean,
+  type: String
 })
 
 import { useNamespace } from '@ui-library/hooks'
