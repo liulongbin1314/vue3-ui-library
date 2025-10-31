@@ -1,10 +1,10 @@
 <template>
   <!-- 根元素 -->
-  <component :is="tag" :class="[ns.b(), ns.is('checked', checked)]">
+  <component :is="tag" :class="[ns.b(), ns.is('checked', checked), ns.is('disabled', disabled)]">
     <!-- 复选框容器 -->
     <span :class="[ns.e('wrapper')]">
       <!-- 真实的复选框 -->
-      <input type="checkbox" :class="[ns.e('input')]" />
+      <input type="checkbox" :disabled="disabled" :class="[ns.e('input')]" />
       <!-- 模拟出来的复选框 -->
       <span :class="[ns.e('inner')]">
         <a-icon :icon="Check" :class="[ns.e('icon-check')]"></a-icon>
@@ -28,7 +28,8 @@ const props = defineProps({
     default: 'label'
   },
   label: String,
-  checked: Boolean
+  checked: Boolean,
+  disabled: Boolean
 })
 
 import { useNamespace } from '@ui-library/hooks'

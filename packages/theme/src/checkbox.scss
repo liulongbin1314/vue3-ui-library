@@ -33,6 +33,16 @@
     }
   }
 
+  // 禁用状态
+  @include mixins.s(disabled) {
+    #{fn.getVarName(checkbox, border-color)}: var(
+      #{fn.getVarName(checkbox, disabled-border-color)}
+    );
+    #{fn.getVarName(checkbox, bg-color)}: var(#{fn.getVarName(checkbox, disabled-bg-color)});
+    #{fn.getVarName(checkbox, text-color)}: var(#{fn.getVarName(checkbox, disabled-text-color)});
+    #{fn.getVarName(checkbox, icon-color)}: var(#{fn.getVarName(checkbox, disabled-icon-color)});
+  }
+
   // 复选框容器
   @include mixins.e(wrapper) {
     position: relative;

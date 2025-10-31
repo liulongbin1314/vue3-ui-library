@@ -183,6 +183,19 @@
       default: fn.getVarName(color, white)
     ),
     // 禁用状态
+    disabled-border-color:
+      (
+        default: fn.getVarName(border-color, disabled)
+      ),
+    disabled-bg-color: (
+      default: fn.getVarName(color, gray, light-9)
+    ),
+    disabled-text-color: (
+      default: fn.getVarName(text-color, disabled)
+    ),
+    disabled-icon-color: (
+      default: fn.getVarName(border-color, hover)
+    ),
     // 勾选状态
     checked-border-color:
       (

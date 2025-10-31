@@ -9,6 +9,12 @@
   <div>
     <a-checkbox label="北京市" checked></a-checkbox>
   </div>
+
+  <p>禁用状态</p>
+  <div>
+    <a-checkbox label="北京市" disabled></a-checkbox>
+    <a-checkbox label="北京市" checked disabled></a-checkbox>
+  </div>
 </template>
 
 <script setup></script>
