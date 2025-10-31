@@ -80,11 +80,18 @@
 }
 
 // 生成 Element 元素类名
-@mixin e($el) {
+@mixin e($el, $root: true) {
   $e: $b + config.$element-connect + $el;
 
-  // 被 @at-root 包裹的选择器，会脱离父级，不与父级形成嵌套关系
-  @at-root {
+  @if $root {
+    // 被 @at-root 包裹的选择器，会脱离父级，不与父级形成嵌套关系
+    @at-root {
+      #{$e} {
+        // 样式
+        @content;
+      }
+    }
+  } @else {
     #{$e} {
       // 样式
       @content;

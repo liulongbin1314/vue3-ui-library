@@ -184,6 +184,19 @@
     ),
     // 禁用状态
     // 勾选状态
+    checked-border-color:
+      (
+        default: fn.getVarName(color, primary)
+      ),
+    checked-bg-color: (
+      default: fn.getVarName(color, primary)
+    ),
+    checked-text-color: (
+      default: fn.getVarName(text-color, primary)
+    ),
+    checked-icon-color: (
+      default: fn.getVarName(color, white)
+    ),
     // 其它的私有变量（尺寸）
     size:
       (
