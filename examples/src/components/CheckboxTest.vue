@@ -39,6 +39,13 @@
     <a-checkbox label="北京市" checked type="warning" size="large"></a-checkbox>
     <a-checkbox label="北京市" checked type="error"></a-checkbox>
   </div>
+
+  <p>复选框组</p>
+  <a-checkbox-group>
+    <a-checkbox label="北京市" checked></a-checkbox>
+    <a-checkbox label="上海市" checked></a-checkbox>
+    <a-checkbox label="天津市" checked></a-checkbox>
+  </a-checkbox-group>
 </template>
 
 <script setup></script>
