@@ -7,6 +7,10 @@ export const useCheckboxState = () => {
 
   // 获取组件的 size 尺寸
   const cbSize = computed(() => instance.props.size)
+  // 禁用状态
+  const isDisabled = computed(() => instance.props.disabled)
+  // 勾选状态
+  const isChecked = computed(() => instance.props.checked)
 
-  return { cbSize }
+  return { cbSize, isDisabled, isChecked }
 }

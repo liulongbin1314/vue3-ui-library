@@ -1,7 +1,7 @@
 import { useCheckboxState } from './use-checkbox-state'
 
 export const useCheckbox = () => {
-  const { cbSize } = useCheckboxState()
+  const { cbSize, isDisabled, isChecked } = useCheckboxState()
 
-  return { cbSize }
+  return { cbSize, isDisabled, isChecked }
 }

@@ -4,8 +4,8 @@
     :is="tag"
     :class="[
       ns.b(),
-      ns.is('checked', checked),
-      ns.is('disabled', disabled),
+      ns.is('checked', isChecked),
+      ns.is('disabled', isDisabled),
       ns.m(type),
       ns.m('size', cbSize)
     ]"
@@ -13,7 +13,7 @@
     <!-- 复选框容器 -->
     <span :class="[ns.e('wrapper')]">
       <!-- 真实的复选框 -->
-      <input type="checkbox" :disabled="disabled" :class="[ns.e('input')]" />
+      <input type="checkbox" :disabled="isDisabled" :class="[ns.e('input')]" />
       <!-- 模拟出来的复选框 -->
       <span :class="[ns.e('inner')]">
         <a-icon :icon="Check" :class="[ns.e('icon-check')]"></a-icon>
@@ -52,5 +52,5 @@ import { Check } from '@ui-library/icons'
 import { useCheckbox } from './composables'
 
 const ns = useNamespace('checkbox')
-const { cbSize } = useCheckbox()
+const { cbSize, isDisabled, isChecked } = useCheckbox()
 </script>
