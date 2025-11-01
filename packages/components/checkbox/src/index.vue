@@ -7,7 +7,7 @@
       ns.is('checked', checked),
       ns.is('disabled', disabled),
       ns.m(type),
-      ns.m('size', size)
+      ns.m('size', cbSize)
     ]"
   >
     <!-- 复选框容器 -->
@@ -49,6 +49,8 @@ const props = defineProps({
 import { useNamespace } from '@ui-library/hooks'
 import { AIcon } from '@ui-library/components'
 import { Check } from '@ui-library/icons'
+import { useCheckbox } from './composables'
 
 const ns = useNamespace('checkbox')
+const { cbSize } = useCheckbox()
 </script>
