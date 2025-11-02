@@ -13,7 +13,9 @@
     <!-- 复选框容器 -->
     <span :class="[ns.e('wrapper')]">
       <!-- 真实的复选框 -->
-      <input type="checkbox" :disabled="isDisabled" :class="[ns.e('input')]" />
+      <!-- 把 useCheckbox 返回的 model 数据，双向绑定到 checkbox 元素上， -->
+      <!-- 好处：可以同时兼顾到单个复选框和复选框组的双向数据绑定的情况 -->
+      <input type="checkbox" v-model="model" :disabled="isDisabled" :class="[ns.e('input')]" />
       <!-- 模拟出来的复选框 -->
       <span :class="[ns.e('inner')]">
         <a-icon :icon="Check" :class="[ns.e('icon-check')]"></a-icon>
@@ -46,11 +48,18 @@ const props = defineProps({
   }
 })
 
+const cbModel = defineModel({ type: [String, Number, Boolean], default: false })
+
+if (props.checked) {
+  cbModel.value = true
+}
+
 import { useNamespace } from '@ui-library/hooks'
 import { AIcon } from '@ui-library/components'
 import { Check } from '@ui-library/icons'
 import { useCheckbox } from './composables'
 
 const ns = useNamespace('checkbox')
-const { cbSize, isDisabled, isChecked } = useCheckbox()
+// 注意：这里返回的 model 是一个“可读可写”的计算属性
+const { cbSize, isDisabled, isChecked, model } = useCheckbox({ cbModel })
 </script>

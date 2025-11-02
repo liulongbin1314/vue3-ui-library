@@ -46,8 +46,18 @@
     <a-checkbox label="上海市" checked></a-checkbox>
     <a-checkbox label="天津市" checked></a-checkbox>
   </a-checkbox-group>
+
+  <p>单个复选框的 v-model</p>
+  <div>
+    <a-checkbox label="北京市" type="error" v-model="value1"></a-checkbox>
+  </div>
+  <p>{{ value1 }}</p>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+
+const value1 = ref(false)
+</script>
 
 <style scoped></style>

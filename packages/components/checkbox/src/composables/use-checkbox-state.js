@@ -1,7 +1,7 @@
 import { getCurrentInstance, computed } from 'vue'
 
 // 状态模块
-export const useCheckboxState = ({ groupProps, isGroupMode }) => {
+export const useCheckboxState = ({ groupProps, isGroupMode, model }) => {
   // 获取当前组件的实例对象
   const instance = getCurrentInstance()
 
@@ -21,7 +21,9 @@ export const useCheckboxState = ({ groupProps, isGroupMode }) => {
   // 禁用状态
   const isDisabled = computed(() => instance.props.disabled)
   // 勾选状态
-  const isChecked = computed(() => instance.props.checked)
+  const isChecked = computed(() => {
+    return model.value
+  })
 
   return { cbSize, isDisabled, isChecked }
 }
