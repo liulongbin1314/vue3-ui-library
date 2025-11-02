@@ -45,13 +45,29 @@ const props = defineProps({
   size: {
     type: String,
     default: 'default'
+  },
+  trueValue: {
+    type: [String, Number],
+    default: undefined
+  },
+  falseValue: {
+    type: [String, Number],
+    default: undefined
   }
 })
 
 const cbModel = defineModel({ type: [String, Number, Boolean], default: false })
 
 if (props.checked) {
-  cbModel.value = true
+  if (props.trueValue) {
+    cbModel.value = props.trueValue
+  } else {
+    cbModel.value = true
+  }
+} else {
+  if (props.falseValue) {
+    cbModel.value = props.falseValue
+  }
 }
 
 import { useNamespace } from '@ui-library/hooks'

@@ -49,7 +49,14 @@
 
   <p>单个复选框的 v-model</p>
   <div>
-    <a-checkbox label="北京市" type="error" v-model="value1"></a-checkbox>
+    <a-checkbox
+      label="北京市"
+      type="error"
+      v-model="value1"
+      true-value="yes"
+      false-value="no"
+      checked
+    ></a-checkbox>
   </div>
   <p>{{ value1 }}</p>
 </template>
