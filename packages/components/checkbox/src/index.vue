@@ -62,6 +62,8 @@ const props = defineProps({
   }
 })
 
+defineEmits(['change'])
+
 const cbModel = defineModel({ type: [String, Number, Boolean], default: false })
 
 if (props.checked) {
