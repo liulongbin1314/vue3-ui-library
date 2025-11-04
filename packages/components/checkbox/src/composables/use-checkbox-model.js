@@ -12,13 +12,15 @@ export const useCheckboxModel = ({ cbModel }) => {
     },
     set(value) {
       // 在 setter 中，形参 value 永远都是布尔值
+      let targetValue = value
       if (value && props.trueValue) {
-        cbModel.value = props.trueValue
+        targetValue = props.trueValue
       } else if (!value && props.falseValue) {
-        cbModel.value = props.falseValue
-      } else {
-        cbModel.value = value
+        targetValue = props.falseValue
       }
+
+      cbModel.value = targetValue
+      instance.emit('change', targetValue)
     }
   })
 

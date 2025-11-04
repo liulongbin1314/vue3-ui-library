@@ -56,6 +56,7 @@
       true-value="yes"
       false-value="no"
       checked
+      @change="handleChange1"
     ></a-checkbox>
   </div>
   <p>{{ value1 }}</p>
@@ -65,6 +66,10 @@
 import { ref } from 'vue'
 
 const value1 = ref(false)
+
+const handleChange1 = (value) => {
+  console.log('单个复选框的 change 事件：', value)
+}
 </script>
 
 <style scoped></style>
