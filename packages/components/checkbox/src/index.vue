@@ -15,7 +15,13 @@
       <!-- 真实的复选框 -->
       <!-- 把 useCheckbox 返回的 model 数据，双向绑定到 checkbox 元素上， -->
       <!-- 好处：可以同时兼顾到单个复选框和复选框组的双向数据绑定的情况 -->
-      <input type="checkbox" v-model="model" :disabled="isDisabled" :class="[ns.e('input')]" />
+      <input
+        type="checkbox"
+        v-model="model"
+        :checked="isChecked"
+        :disabled="isDisabled"
+        :class="[ns.e('input')]"
+      />
       <!-- 模拟出来的复选框 -->
       <span :class="[ns.e('inner')]">
         <a-icon :icon="Check" :class="[ns.e('icon-check')]"></a-icon>
@@ -59,15 +65,7 @@ const props = defineProps({
 const cbModel = defineModel({ type: [String, Number, Boolean], default: false })
 
 if (props.checked) {
-  if (props.trueValue) {
-    cbModel.value = props.trueValue
-  } else {
-    cbModel.value = true
-  }
-} else {
-  if (props.falseValue) {
-    cbModel.value = props.falseValue
-  }
+  cbModel.value = true
 }
 
 import { useNamespace } from '@ui-library/hooks'

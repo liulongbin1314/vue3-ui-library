@@ -4,6 +4,7 @@ import { getCurrentInstance, computed } from 'vue'
 export const useCheckboxState = ({ groupProps, isGroupMode, model }) => {
   // 获取当前组件的实例对象
   const instance = getCurrentInstance()
+  const props = instance.props
 
   // 获取组件的 size 尺寸
   const cbSize = computed(() => {
@@ -22,7 +23,13 @@ export const useCheckboxState = ({ groupProps, isGroupMode, model }) => {
   const isDisabled = computed(() => instance.props.disabled)
   // 勾选状态
   const isChecked = computed(() => {
-    return model.value
+    // 注意：getter 函数中，最后必须 return 一个布尔值，
+    // 才能正确控制复选框的选中状态
+    if (typeof model.value === 'boolean') {
+      return model.value
+    } else {
+      return model.value === props.trueValue
+    }
   })
 
   return { cbSize, isDisabled, isChecked }
