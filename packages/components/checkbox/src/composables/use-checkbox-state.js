@@ -23,12 +23,18 @@ export const useCheckboxState = ({ groupProps, isGroupMode, model }) => {
   const isDisabled = computed(() => instance.props.disabled)
   // 勾选状态
   const isChecked = computed(() => {
-    // 注意：getter 函数中，最后必须 return 一个布尔值，
-    // 才能正确控制复选框的选中状态
-    if (typeof model.value === 'boolean') {
-      return model.value
+    if (isGroupMode.value) {
+      // 复选框组模式
+      return model.value.includes(props.value)
     } else {
-      return model.value === props.trueValue
+      // 单个复选框
+      // 注意：getter 函数中，最后必须 return 一个布尔值，
+      // 才能正确控制复选框的选中状态
+      if (typeof model.value === 'boolean') {
+        return model.value
+      } else {
+        return model.value === props.trueValue
+      }
     }
   })
 

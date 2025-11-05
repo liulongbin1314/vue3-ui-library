@@ -4,7 +4,7 @@ import { useCheckboxModel } from './use-checkbox-model'
 
 export const useCheckbox = ({ cbModel }) => {
   const { groupProps, isGroupMode } = useCheckboxGroup()
-  const { model } = useCheckboxModel({ cbModel })
+  const { model } = useCheckboxModel({ cbModel, groupProps, isGroupMode })
   const { cbSize, isDisabled, isChecked } = useCheckboxState({ groupProps, isGroupMode, model })
 
   return { cbSize, isDisabled, isChecked, model }

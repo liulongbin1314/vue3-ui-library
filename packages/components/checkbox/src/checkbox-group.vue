@@ -17,10 +17,12 @@ const props = defineProps({
   }
 })
 
+const groupModel = defineModel({ type: Array, default: () => [] })
+
 import { useNamespace } from '@ui-library/hooks'
 import { provide, toRefs } from 'vue'
 import { CHECKBOX_GROUP_PROPS } from './constant'
 
 const ns = useNamespace('checkbox-group')
-provide(CHECKBOX_GROUP_PROPS, { ...toRefs(props) })
+provide(CHECKBOX_GROUP_PROPS, { ...toRefs(props), groupModel })
 </script>

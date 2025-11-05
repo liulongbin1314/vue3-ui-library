@@ -59,6 +59,10 @@ const props = defineProps({
   falseValue: {
     type: [String, Number],
     default: undefined
+  },
+  value: {
+    type: [String, Number, Boolean],
+    default: undefined
   }
 })
 
