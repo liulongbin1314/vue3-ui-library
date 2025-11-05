@@ -5,9 +5,10 @@
     :class="[
       ns.b(),
       ns.is('checked', isChecked),
-      ns.is('disabled', isDisabled),
+      ns.is('disabled', isDisabled || isLoading),
       ns.m(type),
-      ns.m('size', cbSize)
+      ns.m('size', cbSize),
+      ns.is('loading', isLoading)
     ]"
   >
     <!-- 复选框容器 -->
@@ -19,13 +20,18 @@
         type="checkbox"
         v-model="model"
         :checked="isChecked"
-        :disabled="isDisabled"
+        :disabled="isDisabled || isLoading"
         :class="[ns.e('input')]"
         :value="value"
       />
       <!-- 模拟出来的复选框 -->
       <span :class="[ns.e('inner')]">
-        <a-icon :icon="Check" :class="[ns.e('icon-check')]"></a-icon>
+        <a-icon
+          :icon="Loader"
+          :class="[ns.e('icon-check'), ns.is('loading-animate', isLoading)]"
+          v-if="isLoading"
+        ></a-icon>
+        <a-icon :icon="Check" :class="[ns.e('icon-check')]" v-else></a-icon>
       </span>
     </span>
     <!-- label 描述文本 -->
@@ -72,23 +78,15 @@ defineEmits(['change'])
 const cbModel = defineModel({ type: [String, Number, Boolean], default: false })
 
 if (props.checked) {
-  if (props.trueValue) {
-    cbModel.value = props.trueValue
-  } else {
-    cbModel.value = true
-  }
-} else {
-  if (props.falseValue) {
-    cbModel.value = props.falseValue
-  }
+  cbModel.value = true
 }
 
 import { useNamespace } from '@ui-library/hooks'
 import { AIcon } from '@ui-library/components'
-import { Check } from '@ui-library/icons'
+import { Check, Loader } from '@ui-library/icons'
 import { useCheckbox } from './composables'
 
 const ns = useNamespace('checkbox')
 // 注意：这里返回的 model 是一个“可读可写”的计算属性
-const { cbSize, isDisabled, isChecked, model } = useCheckbox({ cbModel })
+const { cbSize, isDisabled, isChecked, model, isLoading } = useCheckbox({ cbModel })
 </script>
