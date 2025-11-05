@@ -15,7 +15,7 @@ export const useCheckboxModel = ({ cbModel, groupProps, isGroupMode }) => {
     set(value) {
       if (isGroupMode.value) {
         // 复选框组的模式
-        groupProps.groupModel.value = value
+        groupProps.changeEvent(value)
       } else {
         // 单个复选框
         // 在 setter 中，形参 value 永远都是布尔值
