@@ -13,16 +13,22 @@ export const useCheckboxModel = ({ cbModel, groupProps, isGroupMode }) => {
       return isGroupMode.value ? groupProps.groupModel.value : cbModel.value
     },
     set(value) {
-      // 在 setter 中，形参 value 永远都是布尔值
-      let targetValue = value
-      if (value && props.trueValue) {
-        targetValue = props.trueValue
-      } else if (!value && props.falseValue) {
-        targetValue = props.falseValue
-      }
+      if (isGroupMode.value) {
+        // 复选框组的模式
+        groupProps.groupModel.value = value
+      } else {
+        // 单个复选框
+        // 在 setter 中，形参 value 永远都是布尔值
+        let targetValue = value
+        if (value && props.trueValue) {
+          targetValue = props.trueValue
+        } else if (!value && props.falseValue) {
+          targetValue = props.falseValue
+        }
 
-      cbModel.value = targetValue
-      instance.emit('change', targetValue)
+        cbModel.value = targetValue
+        instance.emit('change', targetValue)
+      }
     }
   })
 

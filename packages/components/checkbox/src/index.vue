@@ -21,6 +21,7 @@
         :checked="isChecked"
         :disabled="isDisabled"
         :class="[ns.e('input')]"
+        :value="value"
       />
       <!-- 模拟出来的复选框 -->
       <span :class="[ns.e('inner')]">
@@ -71,15 +72,7 @@ defineEmits(['change'])
 const cbModel = defineModel({ type: [String, Number, Boolean], default: false })
 
 if (props.checked) {
-  if (props.trueValue) {
-    cbModel.value = props.trueValue
-  } else {
-    cbModel.value = true
-  }
-} else {
-  if (props.falseValue) {
-    cbModel.value = props.falseValue
-  }
+  cbModel.value = true
 }
 
 import { useNamespace } from '@ui-library/hooks'
