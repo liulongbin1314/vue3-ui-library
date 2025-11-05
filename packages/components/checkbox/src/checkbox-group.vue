@@ -17,6 +17,8 @@ const props = defineProps({
   }
 })
 
+const emit = defineEmits(['change'])
+
 const groupModel = defineModel({ type: Array, default: () => [] })
 
 import { useNamespace } from '@ui-library/hooks'
@@ -24,5 +26,9 @@ import { provide, toRefs } from 'vue'
 import { CHECKBOX_GROUP_PROPS } from './constant'
 
 const ns = useNamespace('checkbox-group')
-provide(CHECKBOX_GROUP_PROPS, { ...toRefs(props), groupModel })
+const changeEvent = (value) => {
+  groupModel.value = value
+  emit('change', value)
+}
+provide(CHECKBOX_GROUP_PROPS, { ...toRefs(props), groupModel, changeEvent })
 </script>
