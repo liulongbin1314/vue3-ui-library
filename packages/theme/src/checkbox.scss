@@ -35,7 +35,8 @@
   }
 
   // 禁用状态
-  @include mixins.s(disabled) {
+  @include mixins.s((disabled, loading)) {
+    cursor: not-allowed;
     #{fn.getVarName(checkbox, border-color)}: var(
       #{fn.getVarName(checkbox, disabled-border-color)}
     );
@@ -48,7 +49,7 @@
   @each $type in var.$types-base {
     // .a-checkbox--primary
     @include mixins.m($type) {
-      @include mixins.s(checked) {
+      @include mixins.s((checked, loading)) {
         // 覆盖私有变量
         @include mixins.set-component-var(checkbox, comVar.getCheckboxVar($type), type);
       }

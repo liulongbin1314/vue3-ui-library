@@ -68,6 +68,20 @@
     <a-checkbox label="天津市" value="tianjin"></a-checkbox>
   </a-checkbox-group>
   <p>{{ value2 }}</p>
+
+  <p>单个复选框的 loading 动画效果</p>
+  <div>
+    <a-checkbox
+      label="北京市"
+      type="error"
+      v-model="value1"
+      true-value="yes"
+      false-value="no"
+      checked
+      @change="handleChange1"
+    ></a-checkbox>
+  </div>
+  <p>{{ value1 }}</p>
 </template>
 
 <script setup>
