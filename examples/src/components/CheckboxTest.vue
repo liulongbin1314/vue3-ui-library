@@ -67,6 +67,7 @@
     <a-checkbox label="上海市" value="shanghai"></a-checkbox>
     <a-checkbox label="天津市" value="tianjin"></a-checkbox>
   </a-checkbox-group>
+  <p>{{ value2 }}</p>
 </template>
 
 <script setup>

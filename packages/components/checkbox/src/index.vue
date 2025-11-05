@@ -21,6 +21,7 @@
         :checked="isChecked"
         :disabled="isDisabled"
         :class="[ns.e('input')]"
+        :value="value"
       />
       <!-- 模拟出来的复选框 -->
       <span :class="[ns.e('inner')]">
