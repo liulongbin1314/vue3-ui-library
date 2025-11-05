@@ -59,6 +59,10 @@ const props = defineProps({
   falseValue: {
     type: [String, Number],
     default: undefined
+  },
+  value: {
+    type: [String, Number, Boolean],
+    default: undefined
   }
 })
 
@@ -67,15 +71,7 @@ defineEmits(['change'])
 const cbModel = defineModel({ type: [String, Number, Boolean], default: false })
 
 if (props.checked) {
-  if (props.trueValue) {
-    cbModel.value = props.trueValue
-  } else {
-    cbModel.value = true
-  }
-} else {
-  if (props.falseValue) {
-    cbModel.value = props.falseValue
-  }
+  cbModel.value = true
 }
 
 import { useNamespace } from '@ui-library/hooks'
