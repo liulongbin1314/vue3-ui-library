@@ -13,6 +13,14 @@ export const useCheckboxEvent = ({ groupProps, isGroupMode, model, isDisabled, i
   const clickEvent = (e) => {
     if (!isFunction.value) return
 
+    // 如果当前复选框已经被禁用了，或者正处于 loading 状态，则 return 出去
+    if (isDisabled.value || isLoading.value) return
+
+    // 调用 beforeChange 函数，并得到其返回值，
+    // 如果返回值的类型不是 Promise，则 return 出去
+    const invokeResult = beforeChange.value()
+    if (!(invokeResult instanceof Promise)) return
+
     // 阻止复选框切换选中状态的默认行为
     e.preventDefault()
   }
