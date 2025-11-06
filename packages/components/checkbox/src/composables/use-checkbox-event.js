@@ -26,9 +26,28 @@ export const useCheckboxEvent = ({ groupProps, isGroupMode, model, isDisabled, i
 
     isLoading.value = true
     invokeResult
-      .then() // 异步操作成功
+      .then(updateData) // 异步操作成功
       .catch() // 异步操作失败
       .finally(() => (isLoading.value = false))
+  }
+
+  // 当复选框的异步操作成功后，手动修改 v-model 的数据
+  function updateData() {
+    if (isGroupMode.value) {
+      // 复选框组的模式
+      const index = model.value.findIndex((item) => item === props.value)
+      const targetValue = [...model.value]
+      if (index === -1) {
+        // 没找到，把 props.value push 到数组中
+        targetValue.push(props.value)
+      } else {
+        // 找到了，把 props.value 从数组中移除
+        targetValue.splice(index, 1)
+      }
+      groupProps.changeEvent(targetValue)
+    } else {
+      // 单个复选框的模式
+    }
   }
 
   return { clickEvent }
