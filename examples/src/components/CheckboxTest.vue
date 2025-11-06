@@ -101,6 +101,7 @@ const handleBeforeChange = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve()
+      // reject()
     }, 1500)
   })
 }
