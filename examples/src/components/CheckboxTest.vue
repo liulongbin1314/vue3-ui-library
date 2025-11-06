@@ -62,7 +62,7 @@
   <p>{{ value1 }}</p>
 
   <p>复选框组的 v-model</p>
-  <a-checkbox-group v-model="value2" @change="handleChange2">
+  <a-checkbox-group v-model="value2" @change="handleChange2" :before-change="handleBeforeChange">
     <a-checkbox label="北京市" value="beijing"></a-checkbox>
     <a-checkbox label="上海市" value="shanghai"></a-checkbox>
     <a-checkbox label="天津市" value="tianjin"></a-checkbox>
@@ -79,6 +79,7 @@
       false-value="no"
       checked
       @change="handleChange1"
+      :before-change="handleBeforeChange"
     ></a-checkbox>
   </div>
   <p>{{ value1 }}</p>
@@ -95,6 +96,13 @@ const handleChange1 = (value) => {
 }
 const handleChange2 = (value) => {
   console.log('复选框组的 change 事件：', value)
+}
+const handleBeforeChange = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    }, 1500)
+  })
 }
 </script>
 

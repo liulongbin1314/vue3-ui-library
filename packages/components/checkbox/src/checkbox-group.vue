@@ -14,7 +14,8 @@ const props = defineProps({
   size: {
     type: String,
     default: 'default'
-  }
+  },
+  beforeChange: Function
 })
 
 const emit = defineEmits(['change'])

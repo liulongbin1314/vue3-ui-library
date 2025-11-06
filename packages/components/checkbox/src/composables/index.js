@@ -11,7 +11,7 @@ export const useCheckbox = ({ cbModel }) => {
     isGroupMode,
     model
   })
-  const { clickEvent } = useCheckboxEvent()
+  const { clickEvent } = useCheckboxEvent({ groupProps, isGroupMode, model, isDisabled, isLoading })
 
   return { cbSize, isDisabled, isChecked, model, isLoading, clickEvent }
 }

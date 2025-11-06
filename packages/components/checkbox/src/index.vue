@@ -71,7 +71,8 @@ const props = defineProps({
   value: {
     type: [String, Number, Boolean],
     default: undefined
-  }
+  },
+  beforeChange: Function
 })
 
 defineEmits(['change'])
