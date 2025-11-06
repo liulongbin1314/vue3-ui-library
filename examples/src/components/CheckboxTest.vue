@@ -97,7 +97,8 @@ const handleChange1 = (value) => {
 const handleChange2 = (value) => {
   console.log('复选框组的 change 事件：', value)
 }
-const handleBeforeChange = () => {
+const handleBeforeChange = (newValue, oldValue) => {
+  console.log(newValue, oldValue)
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve()
