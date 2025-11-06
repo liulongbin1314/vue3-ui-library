@@ -1,4 +1,4 @@
-import { getCurrentInstance, computed } from 'vue'
+import { getCurrentInstance, computed, ref } from 'vue'
 
 // 状态模块
 export const useCheckboxState = ({ groupProps, isGroupMode, model }) => {
@@ -38,7 +38,7 @@ export const useCheckboxState = ({ groupProps, isGroupMode, model }) => {
     }
   })
   // loading 加载中
-  const isLoading = computed(() => false)
+  const isLoading = ref(false)
 
   return { cbSize, isDisabled, isChecked, isLoading }
 }
