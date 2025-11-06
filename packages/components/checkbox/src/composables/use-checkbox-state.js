@@ -38,7 +38,7 @@ export const useCheckboxState = ({ groupProps, isGroupMode, model }) => {
     }
   })
   // loading 加载中
-  const isLoading = computed(() => true)
+  const isLoading = computed(() => false)
 
   return { cbSize, isDisabled, isChecked, isLoading }
 }

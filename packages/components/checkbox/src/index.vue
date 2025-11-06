@@ -10,6 +10,7 @@
       ns.m('size', cbSize),
       ns.is('loading', isLoading)
     ]"
+    @click="clickEvent"
   >
     <!-- 复选框容器 -->
     <span :class="[ns.e('wrapper')]">
@@ -96,5 +97,5 @@ import { useCheckbox } from './composables'
 
 const ns = useNamespace('checkbox')
 // 注意：这里返回的 model 是一个“可读可写”的计算属性
-const { cbSize, isDisabled, isChecked, model, isLoading } = useCheckbox({ cbModel })
+const { cbSize, isDisabled, isChecked, model, isLoading, clickEvent } = useCheckbox({ cbModel })
 </script>
