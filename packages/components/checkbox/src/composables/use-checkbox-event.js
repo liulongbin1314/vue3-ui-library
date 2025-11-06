@@ -27,7 +27,7 @@ export const useCheckboxEvent = ({ groupProps, isGroupMode, model, isDisabled, i
     isLoading.value = true
     invokeResult
       .then(updateData) // 异步操作成功
-      .catch() // 异步操作失败
+      .catch(() => console.log('Checkbox异步操作失败！')) // 异步操作失败
       .finally(() => (isLoading.value = false))
   }
 
@@ -44,7 +44,8 @@ export const useCheckboxEvent = ({ groupProps, isGroupMode, model, isDisabled, i
         // 找到了，把 props.value 从数组中移除
         targetValue.splice(index, 1)
       }
-      groupProps.changeEvent(targetValue)
+      // groupProps.changeEvent(targetValue)
+      model.value = targetValue
     } else {
       // 单个复选框的模式
       if (model.value === true || model.value === props.trueValue) {
