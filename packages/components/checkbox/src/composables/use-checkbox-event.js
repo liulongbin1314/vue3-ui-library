@@ -47,6 +47,11 @@ export const useCheckboxEvent = ({ groupProps, isGroupMode, model, isDisabled, i
       groupProps.changeEvent(targetValue)
     } else {
       // 单个复选框的模式
+      if (model.value === true || model.value === props.trueValue) {
+        model.value = false
+      } else {
+        model.value = true
+      }
     }
   }
 
