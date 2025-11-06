@@ -18,7 +18,10 @@ export const useCheckboxEvent = ({ groupProps, isGroupMode, model, isDisabled, i
 
     // 调用 beforeChange 函数，并得到其返回值，
     // 如果返回值的类型不是 Promise，则 return 出去
-    const invokeResult = beforeChange.value()
+    const invokeResult = beforeChange.value(
+      getNewValue(),
+      isGroupMode.value ? [...model.value] : model.value
+    )
     if (!(invokeResult instanceof Promise)) return
 
     // 阻止复选框切换选中状态的默认行为
@@ -54,6 +57,34 @@ export const useCheckboxEvent = ({ groupProps, isGroupMode, model, isDisabled, i
         model.value = true
       }
     }
+  }
+
+  // 获取新值
+  function getNewValue() {
+    let newValue
+
+    if (isGroupMode.value) {
+      // 复选框组的模式
+      const index = model.value.findIndex((item) => item === props.value)
+      const targetValue = [...model.value]
+      if (index === -1) {
+        // 没找到，把 props.value push 到数组中
+        targetValue.push(props.value)
+      } else {
+        // 找到了，把 props.value 从数组中移除
+        targetValue.splice(index, 1)
+      }
+      newValue = targetValue
+    } else {
+      // 单个复选框的模式
+      if (model.value === true || model.value === props.trueValue) {
+        newValue = props.falseValue || false
+      } else {
+        newValue = props.trueValue || true
+      }
+    }
+
+    return newValue
   }
 
   return { clickEvent }
