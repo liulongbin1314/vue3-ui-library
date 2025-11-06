@@ -23,6 +23,12 @@ export const useCheckboxEvent = ({ groupProps, isGroupMode, model, isDisabled, i
 
     // 阻止复选框切换选中状态的默认行为
     e.preventDefault()
+
+    isLoading.value = true
+    invokeResult
+      .then() // 异步操作成功
+      .catch() // 异步操作失败
+      .finally(() => (isLoading.value = false))
   }
 
   return { clickEvent }
