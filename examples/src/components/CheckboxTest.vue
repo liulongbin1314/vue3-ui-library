@@ -83,6 +83,14 @@
     ></a-checkbox>
   </div>
   <p>{{ value1 }}</p>
+
+  <p>全选功能</p>
+  <a-checkbox-all>
+    <a-checkbox value="beijing">北京市</a-checkbox>
+    <a-checkbox value="shanghai">上海市</a-checkbox>
+    <a-checkbox value="tianjin">天津市</a-checkbox>
+    <a-checkbox value="chongqing">重庆市</a-checkbox>
+  </a-checkbox-all>
 </template>
 
 <script setup>
