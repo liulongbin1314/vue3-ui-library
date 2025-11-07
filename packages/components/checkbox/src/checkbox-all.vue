@@ -32,7 +32,7 @@ const allModel = defineModel({ type: Array, default: () => [] })
 
 import { useNamespace } from '@ui-library/hooks'
 import { ACheckbox, ACheckboxGroup } from '@ui-library/components'
-import { ref, useSlots } from 'vue'
+import { ref, useSlots, watchEffect } from 'vue'
 
 // 是否处于中间状态
 const indeterminate = ref(false)
@@ -49,6 +49,23 @@ const all = slots.default
       .map((item) => item.props.value)
   : []
 allOptions.value = all
+
+watchEffect(() => {
+  const checkedLength = allModel.value.length
+  const allLength = allOptions.value.length
+
+  if (allLength > 0 && checkedLength > 0 && allLength > checkedLength) {
+    indeterminate.value = true
+  } else {
+    indeterminate.value = false
+  }
+
+  if (allLength === checkedLength && allLength !== 0) {
+    isAllChecked.value = true
+  } else {
+    isAllChecked.value = false
+  }
+})
 
 const ns = useNamespace('checkbox-all')
 </script>
