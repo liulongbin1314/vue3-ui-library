@@ -4,7 +4,7 @@
     :is="tag"
     :class="[
       ns.b(),
-      ns.is('checked', isChecked),
+      ns.is('checked', isChecked || indeterminate),
       ns.is('disabled', isDisabled || isLoading),
       ns.m(type),
       ns.m('size', cbSize),
@@ -32,7 +32,10 @@
           :class="[ns.e('icon-check'), ns.is('loading-animate', isLoading)]"
           v-if="isLoading"
         ></a-icon>
-        <a-icon :icon="Check" :class="[ns.e('icon-check')]" v-else></a-icon>
+        <template v-else>
+          <a-icon :icon="Minus" :class="[ns.e('icon-check')]" v-if="indeterminate"></a-icon>
+          <a-icon :icon="Check" :class="[ns.e('icon-check')]" v-else></a-icon>
+        </template>
       </span>
     </span>
     <!-- label 描述文本 -->
@@ -72,7 +75,9 @@ const props = defineProps({
     type: [String, Number, Boolean],
     default: undefined
   },
-  beforeChange: Function
+  beforeChange: Function,
+  all: Boolean,
+  indeterminate: Boolean
 })
 
 defineEmits(['change'])
@@ -93,7 +98,7 @@ if (props.checked) {
 
 import { useNamespace } from '@ui-library/hooks'
 import { AIcon } from '@ui-library/components'
-import { Check, Loader } from '@ui-library/icons'
+import { Check, Loader, Minus } from '@ui-library/icons'
 import { useCheckbox } from './composables'
 
 const ns = useNamespace('checkbox')
