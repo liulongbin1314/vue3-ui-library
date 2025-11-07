@@ -13,11 +13,13 @@
 
     <!-- 可选项 -->
     <div :class="[ns.e('options')]">
-      <ACheckboxGroup>
+      <ACheckboxGroup v-model="allModel">
         <slot></slot>
       </ACheckboxGroup>
     </div>
   </div>
+  <p>{{ allOptions }}</p>
+  <p>{{ allModel }}</p>
 </template>
 
 <script setup>
@@ -25,14 +27,20 @@ defineOptions({
   name: 'a-checkbox-all'
 })
 
+const allModel = defineModel({ type: Array, default: () => [] })
+
 import { useNamespace } from '@ui-library/hooks'
 import { ACheckbox, ACheckboxGroup } from '@ui-library/components'
-import { ref } from 'vue'
+import { ref, provide } from 'vue'
+import { CHECKBOX_ALL_PROPS } from './constant'
 
 // 是否处于中间状态
 const indeterminate = ref(false)
 // 是否全选了
 const isAllChecked = ref(false)
+// 所有可选项的值
+const allOptions = ref([])
 
 const ns = useNamespace('checkbox-all')
+provide(CHECKBOX_ALL_PROPS, { allOptions })
 </script>

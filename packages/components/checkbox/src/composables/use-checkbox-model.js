@@ -1,7 +1,7 @@
 // 数据处理模块
 import { computed, getCurrentInstance } from 'vue'
 
-export const useCheckboxModel = ({ cbModel, groupProps, isGroupMode }) => {
+export const useCheckboxModel = ({ cbModel, groupProps, isGroupMode, allProps, isAllMode }) => {
   const instance = getCurrentInstance()
   const props = instance.props
 
@@ -31,6 +31,10 @@ export const useCheckboxModel = ({ cbModel, groupProps, isGroupMode }) => {
       }
     }
   })
+
+  // 如果当前处于 “全选” 模式，
+  // 把当前复选框的 value 值，存入 checkbox-all 的 allOptions 数组中
+  !props.all && isAllMode.value && allProps.allOptions.value.push(props.value)
 
   return { model }
 }

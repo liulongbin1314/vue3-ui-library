@@ -1,2 +1,3 @@
 // 常量数据
 export const CHECKBOX_GROUP_PROPS = Symbol('CHECKBOX_GROUP_PROPS')
+export const CHECKBOX_ALL_PROPS = Symbol('CHECKBOX_ALL_PROPS')
