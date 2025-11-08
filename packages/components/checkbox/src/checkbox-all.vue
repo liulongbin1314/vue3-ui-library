@@ -8,7 +8,9 @@
       <!-- 如果全选了：则 indeterminate 为 false，isAllChecked 为 true -->
       <!-- 如果是部分选中：则 indeterminate 为 true，isAllChecked 为 false -->
       <!-- 如果全部选项都未选中：则 indeterminate 为 false，isAllChecked 为 false -->
-      <ACheckbox all :indeterminate="indeterminate" v-model="isAllChecked">全选</ACheckbox>
+      <ACheckbox all :indeterminate="indeterminate" v-model="isAllChecked" @change="handleChange"
+        >全选</ACheckbox
+      >
     </div>
 
     <!-- 可选项 -->
@@ -27,12 +29,14 @@ defineOptions({
   name: 'a-checkbox-all'
 })
 
+const emit = defineEmits(['change'])
+
 // 所有选中项的值
 const allModel = defineModel({ type: Array, default: () => [] })
 
 import { useNamespace } from '@ui-library/hooks'
 import { ACheckbox, ACheckboxGroup } from '@ui-library/components'
-import { ref, useSlots, watchEffect } from 'vue'
+import { ref, useSlots, watchEffect, watch } from 'vue'
 
 // 是否处于中间状态
 const indeterminate = ref(false)
@@ -66,6 +70,21 @@ watchEffect(() => {
     isAllChecked.value = false
   }
 })
+
+const handleChange = (value) => {
+  if (value) {
+    allModel.value = allOptions.value
+  } else {
+    allModel.value = []
+  }
+}
+
+watch(
+  () => allModel.value,
+  (newValue) => {
+    emit('change', [...newValue], isAllChecked.value)
+  }
+)
 
 const ns = useNamespace('checkbox-all')
 </script>
