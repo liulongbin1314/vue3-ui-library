@@ -1,6 +1,6 @@
 <template>
   <!-- 根元素 -->
-  <div :class="[ns.b()]">
+  <div :class="[ns.b(), ns.is('horizontal', isHorizontal)]">
     <!-- 全选 -->
     <div :class="[ns.e('label')]">
       <!-- all 属性用来区分当前的复选框是否为“全选”的复选框  -->
@@ -29,6 +29,14 @@ defineOptions({
   name: 'a-checkbox-all'
 })
 
+const props = defineProps({
+  direction: {
+    type: String,
+    // horizontal
+    default: 'vertical'
+  }
+})
+
 const emit = defineEmits(['change'])
 
 // 所有选中项的值
@@ -36,7 +44,7 @@ const allModel = defineModel({ type: Array, default: () => [] })
 
 import { useNamespace } from '@ui-library/hooks'
 import { ACheckbox, ACheckboxGroup } from '@ui-library/components'
-import { ref, useSlots, watchEffect, watch } from 'vue'
+import { ref, useSlots, watchEffect, watch, computed } from 'vue'
 
 // 是否处于中间状态
 const indeterminate = ref(false)
@@ -85,6 +93,8 @@ watch(
     emit('change', [...newValue], isAllChecked.value)
   }
 )
+
+const isHorizontal = computed(() => props.direction === 'horizontal')
 
 const ns = useNamespace('checkbox-all')
 </script>
