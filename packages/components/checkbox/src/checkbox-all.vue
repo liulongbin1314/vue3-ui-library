@@ -8,14 +8,21 @@
       <!-- 如果全选了：则 indeterminate 为 false，isAllChecked 为 true -->
       <!-- 如果是部分选中：则 indeterminate 为 true，isAllChecked 为 false -->
       <!-- 如果全部选项都未选中：则 indeterminate 为 false，isAllChecked 为 false -->
-      <ACheckbox all :indeterminate="indeterminate" v-model="isAllChecked" @change="handleChange"
-        >全选</ACheckbox
+      <ACheckbox
+        all
+        :indeterminate="indeterminate"
+        :size="size"
+        :type="type"
+        v-model="isAllChecked"
+        @change="handleChange"
       >
+        {{ text }}
+      </ACheckbox>
     </div>
 
     <!-- 可选项 -->
     <div :class="[ns.e('options')]">
-      <ACheckboxGroup v-model="allModel">
+      <ACheckboxGroup :size="size" :type="type" v-model="allModel">
         <slot></slot>
       </ACheckboxGroup>
     </div>
@@ -34,6 +41,15 @@ const props = defineProps({
     type: String,
     // horizontal
     default: 'vertical'
+  },
+  size: {
+    type: String,
+    default: 'default'
+  },
+  type: String,
+  text: {
+    type: String,
+    default: '全选'
   }
 })
 

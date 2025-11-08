@@ -15,7 +15,8 @@ const props = defineProps({
     type: String,
     default: 'default'
   },
-  beforeChange: Function
+  beforeChange: Function,
+  type: String
 })
 
 const emit = defineEmits(['change'])

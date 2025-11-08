@@ -85,7 +85,13 @@
   <p>{{ value1 }}</p>
 
   <p>全选功能</p>
-  <a-checkbox-all direction="horizontal" @change="handleAllChange">
+  <a-checkbox-all
+    direction="horizontal"
+    size="small"
+    type="warning"
+    text="check all"
+    @change="handleAllChange"
+  >
     <a-checkbox value="beijing">北京市</a-checkbox>
     <a-checkbox value="shanghai">上海市</a-checkbox>
     <a-checkbox value="tianjin">天津市</a-checkbox>
