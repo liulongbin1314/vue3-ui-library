@@ -85,7 +85,7 @@
   <p>{{ value1 }}</p>
 
   <p>全选功能</p>
-  <a-checkbox-all>
+  <a-checkbox-all @change="handleAllChange">
     <a-checkbox value="beijing">北京市</a-checkbox>
     <a-checkbox value="shanghai">上海市</a-checkbox>
     <a-checkbox value="tianjin">天津市</a-checkbox>
@@ -113,6 +113,9 @@ const handleBeforeChange = (newValue, oldValue) => {
       // reject()
     }, 1500)
   })
+}
+const handleAllChange = (values, isAllChecked) => {
+  console.log(values, isAllChecked)
 }
 </script>
 
