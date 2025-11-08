@@ -85,11 +85,13 @@
   <p>{{ value1 }}</p>
 
   <p>全选功能</p>
+  <p>{{ value3 }}</p>
   <a-checkbox-all
     direction="horizontal"
     size="small"
     type="warning"
     text="check all"
+    v-model="value3"
     @change="handleAllChange"
   >
     <a-checkbox value="beijing">北京市</a-checkbox>
@@ -104,6 +106,7 @@ import { ref } from 'vue'
 
 const value1 = ref(false)
 const value2 = ref(['beijing', 'shanghai'])
+const value3 = ref(['beijing', 'shanghai'])
 
 const handleChange1 = (value) => {
   console.log('单个复选框的 change 事件：', value)
