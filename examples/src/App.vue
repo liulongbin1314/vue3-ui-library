@@ -1,5 +1,5 @@
 <template>
-  <CheckboxTest />
+  <SwitchTest />
 </template>
 
 <script setup>
@@ -8,6 +8,7 @@ import IconTest from './components/IconTest.vue'
 import InputTest from './components/InputTest.vue'
 import GridTest from './components/GridTest.vue'
 import CheckboxTest from './components/CheckboxTest.vue'
+import SwitchTest from './components/SwitchTest.vue'
 </script>
 
 <style scoped></style>
