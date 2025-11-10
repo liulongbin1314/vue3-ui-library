@@ -13,6 +13,7 @@
         :indeterminate="indeterminate"
         :size="size"
         :type="type"
+        :disabled="disabled"
         v-model="isAllChecked"
         @change="handleChange"
       >
@@ -22,7 +23,7 @@
 
     <!-- 可选项 -->
     <div :class="[ns.e('options')]">
-      <ACheckboxGroup :size="size" :type="type" v-model="allModel">
+      <ACheckboxGroup :size="size" :type="type" :disabled="disabled" v-model="allModel">
         <slot></slot>
       </ACheckboxGroup>
     </div>
@@ -50,7 +51,8 @@ const props = defineProps({
   text: {
     type: String,
     default: '全选'
-  }
+  },
+  disabled: Boolean
 })
 
 const emit = defineEmits(['change'])

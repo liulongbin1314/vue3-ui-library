@@ -20,7 +20,9 @@ export const useCheckboxState = ({ groupProps, isGroupMode, model }) => {
     }
   })
   // 禁用状态
-  const isDisabled = computed(() => instance.props.disabled)
+  const isDisabled = computed(
+    () => instance.props.disabled || (isGroupMode.value && groupProps.disabled.value)
+  )
   // 勾选状态
   const isChecked = computed(() => {
     if (isGroupMode.value) {

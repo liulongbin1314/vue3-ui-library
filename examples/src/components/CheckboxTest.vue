@@ -91,6 +91,7 @@
     size="small"
     type="warning"
     text="check all"
+    disabled
     v-model="value3"
     @change="handleAllChange"
   >

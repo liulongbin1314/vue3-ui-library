@@ -16,7 +16,8 @@ const props = defineProps({
     default: 'default'
   },
   beforeChange: Function,
-  type: String
+  type: String,
+  disabled: Boolean
 })
 
 const emit = defineEmits(['change'])
