@@ -241,3 +241,25 @@
 
   @return $checkbox;
 }
+
+@function getSwitchVar() {
+  $switch: (
+    text-color: (
+      default: fn.getVarName(text-color, secondary)
+    ),
+    bg-color: (
+      default: fn.getVarName(color, gray, light-8)
+    ),
+    font-size: (
+      default: fn.getVarName(font-size, default)
+    ),
+    width: (
+      default: fn.getVarName(switch-width, default)
+    ),
+    height: (
+      default: fn.getVarName(switch-size, default)
+    )
+  );
+
+  @return $switch;
+}

@@ -1,5 +1,7 @@
 @use 'sass:map';
 @use './common/mixins.scss';
+@use './common/componentVar.scss' as comVar;
+@use './common/function.scss' as fn;
 
 // 私有变量
 $switch-size: () !default;
@@ -30,15 +32,18 @@ $switch-width: map.deep-merge(
 
 // 根元素
 @include mixins.b(switch) {
+  // 混入私有变量
+  @include mixins.set-component-var(switch, comVar.getSwitchVar());
+
   display: inline-flex;
   cursor: pointer;
   user-select: none;
 
   // 外层容器
   @include mixins.e(wrapper) {
-    width: 48px;
-    height: 28px;
-    background-color: #ddd;
+    width: var(#{fn.getVarName(switch, width)});
+    height: var(#{fn.getVarName(switch, height)});
+    background-color: var(#{fn.getVarName(switch, bg-color)});
     border-radius: 100px;
     display: flex;
     transition: 0.3s;
@@ -70,8 +75,8 @@ $switch-width: map.deep-merge(
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #333;
-        font-size: 14px;
+        color: var(#{fn.getVarName(switch, text-color)});
+        font-size: var(#{fn.getVarName(switch, font-size)});
         transition: 0.3s;
       }
 
@@ -87,8 +92,8 @@ $switch-width: map.deep-merge(
           align-items: center;
           width: 50%;
           height: 100%;
-          font-size: 14px;
-          color: #333;
+          color: var(#{fn.getVarName(switch, text-color)});
+          font-size: var(#{fn.getVarName(switch, font-size)});
           transition: 0.3s;
         }
       }
