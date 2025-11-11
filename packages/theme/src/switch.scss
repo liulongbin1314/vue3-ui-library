@@ -2,6 +2,7 @@
 @use './common/mixins.scss';
 @use './common/componentVar.scss' as comVar;
 @use './common/function.scss' as fn;
+@use './common/var.scss';
 
 // 私有变量
 $switch-size: () !default;
@@ -64,8 +65,8 @@ $switch-width: map.deep-merge(
 
       // 中心圆
       @include mixins.e(button) {
-        width: 20px;
-        height: 20px;
+        width: calc(var(#{fn.getVarName(switch, height)}) - 8px);
+        height: calc(var(#{fn.getVarName(switch, height)}) - 8px);
         background-color: #fff;
         border-radius: 50%;
         position: absolute;
@@ -98,5 +99,14 @@ $switch-width: map.deep-merge(
         }
       }
     }
+  }
+}
+
+// 动态生成尺寸对应的选择器
+@each $s in var.$sizes {
+  @include mixins.m(size, $s) {
+    #{fn.getVarName(switch, width)}: var(#{fn.getVarName(switch-width, $s)});
+    #{fn.getVarName(switch, height)}: var(#{fn.getVarName(switch-size, $s)});
+    #{fn.getVarName(switch, font-size)}: var(#{fn.getVarName(font-size, $s)});
   }
 }

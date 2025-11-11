@@ -1,6 +1,6 @@
 <template>
   <!-- 根元素 -->
-  <component :is="tag" :class="[ns.b()]">
+  <component :is="tag" :class="[ns.b(), ns.m('size', size)]">
     <!-- 外层容器 -->
     <span :class="[ns.e('wrapper')]">
       <!-- 真实的复选框 -->
@@ -28,6 +28,10 @@ defineProps({
   tag: {
     type: String,
     default: 'label'
+  },
+  size: {
+    type: String,
+    default: 'default'
   }
 })
 
