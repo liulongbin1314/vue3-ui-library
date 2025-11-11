@@ -1,4 +1,32 @@
+@use 'sass:map';
 @use './common/mixins.scss';
+
+// 私有变量
+$switch-size: () !default;
+$switch-size: map.deep-merge(
+  (
+    small: 24px,
+    default: 28px,
+    large: 32px
+  ),
+  $switch-size
+);
+
+$switch-width: () !default;
+$switch-width: map.deep-merge(
+  (
+    small: 40px,
+    default: 48px,
+    large: 56px
+  ),
+  $switch-width
+);
+
+// Switch 组件的全局私有变量
+:root {
+  @include mixins.set-private-var(switch-size, $switch-size);
+  @include mixins.set-private-var(switch-width, $switch-width);
+}
 
 // 根元素
 @include mixins.b(switch) {

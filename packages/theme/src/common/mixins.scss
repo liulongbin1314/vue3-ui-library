@@ -42,6 +42,14 @@
   }
 }
 
+// 生成组件私有的全局变量
+@mixin set-private-var($block, $var) {
+  @each $key, $data in $var {
+    $name: fn.getVarName($block, $key);
+    #{$name}: #{$data};
+  }
+}
+
 // 生成组件专属的私有变量
 // --a-button-bg-color: var(--a-color-white);
 @mixin set-component-var($com-type, $var, $var-key: 'default') {
