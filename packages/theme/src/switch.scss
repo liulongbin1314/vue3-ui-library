@@ -1,4 +1,69 @@
 @use './common/mixins.scss';
 
+// 根元素
 @include mixins.b(switch) {
+  display: inline-flex;
+  cursor: pointer;
+  user-select: none;
+
+  // 外层容器
+  @include mixins.e(wrapper) {
+    width: 48px;
+    height: 28px;
+    background-color: #ddd;
+    border-radius: 100px;
+    display: flex;
+    transition: 0.3s;
+
+    // 复选框
+    @include mixins.e(input) {
+      display: none;
+    }
+
+    // 控制区域
+    @include mixins.e(handle) {
+      flex: 1;
+      border-radius: 100px;
+      padding: 4px;
+      box-sizing: border-box;
+      display: flex;
+      position: relative;
+
+      // 中心圆
+      @include mixins.e(button) {
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 1;
+        top: 4px;
+        left: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #333;
+        font-size: 14px;
+        transition: 0.3s;
+      }
+
+      // 内层容器
+      @include mixins.e(inner) {
+        display: flex;
+        flex: 1;
+        box-sizing: border-box;
+
+        > span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 50%;
+          height: 100%;
+          font-size: 14px;
+          color: #333;
+          transition: 0.3s;
+        }
+      }
+    }
+  }
 }
