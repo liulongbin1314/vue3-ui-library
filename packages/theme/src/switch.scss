@@ -40,6 +40,17 @@ $switch-width: map.deep-merge(
   cursor: pointer;
   user-select: none;
 
+  // 选中的状态
+  @include mixins.s(checked) {
+    #{fn.getVarName(switch, text-color)}: var(#{fn.getVarName(switch, checked-text-color)});
+    #{fn.getVarName(switch, bg-color)}: var(#{fn.getVarName(switch, checked-bg-color)});
+
+    // 设置中心圆的位移
+    @include mixins.e(button, false) {
+      transform: translateX(100%);
+    }
+  }
+
   // 外层容器
   @include mixins.e(wrapper) {
     width: var(#{fn.getVarName(switch, width)});

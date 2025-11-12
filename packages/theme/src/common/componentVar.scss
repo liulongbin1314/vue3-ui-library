@@ -250,6 +250,12 @@
     bg-color: (
       default: fn.getVarName(color, gray, light-8)
     ),
+    checked-text-color: (
+      default: fn.getVarName(color, white)
+    ),
+    checked-bg-color: (
+      default: fn.getVarName(color, primary)
+    ),
     font-size: (
       default: fn.getVarName(font-size, default)
     ),
