@@ -40,6 +40,17 @@
     <a-switch v-model="value2" type="warning" disabled></a-switch>
     <a-switch v-model="value2" type="error" disabled></a-switch>
   </div>
+
+  <p>自定义 value 值</p>
+  <div class="row-gap">
+    <a-switch
+      v-model="value3"
+      :active-value="null"
+      :inactive-value="0"
+      transition="slide"
+    ></a-switch>
+  </div>
+  <p>{{ String(value3) }}</p>
 </template>
 
 <script setup>
@@ -47,6 +58,7 @@ import { ref } from 'vue'
 
 const value1 = ref(false)
 const value2 = ref(true)
+const value3 = ref(0)
 </script>
 
 <style scoped></style>

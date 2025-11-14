@@ -47,10 +47,27 @@ const props = defineProps({
     default: 'scale' // slide
   },
   type: String,
-  disabled: Boolean
+  disabled: Boolean,
+  // 关闭时候被选中的值
+  inactiveValue: {
+    type: [String, Number, Boolean],
+    default: false
+  },
+  // 打开时候被选中的值
+  activeValue: {
+    type: [String, Number, Boolean],
+    default: false
+  }
 })
 
 const switchModel = defineModel({ type: [String, Number, Boolean], default: false })
+
+if (switchModel.value === true && props.activeValue !== false) {
+  switchModel.value = props.activeValue
+}
+if (switchModel.value === false && props.inactiveValue !== false) {
+  switchModel.value = props.inactiveValue
+}
 
 import { useNamespace } from '@ui-library/hooks'
 import { useSwitch } from './composables'
