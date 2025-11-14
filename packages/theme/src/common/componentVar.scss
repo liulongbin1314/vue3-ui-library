@@ -257,6 +257,14 @@
       default: fn.getVarName(color, primary),
       type: fn.getVarName(color, $type)
     ),
+    disabled-text-color: (
+      default: fn.getVarName(text-color, disabled),
+      type: fn.getVarName(color, white)
+    ),
+    disabled-bg-color: (
+      default: fn.getVarName(color, gray, light-9),
+      type: fn.getVarName(color, $type, light-5)
+    ),
     font-size: (
       default: fn.getVarName(font-size, default)
     ),

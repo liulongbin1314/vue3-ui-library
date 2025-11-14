@@ -31,12 +31,22 @@
     <a-switch type="warning"></a-switch>
     <a-switch type="error"></a-switch>
   </div>
+
+  <p>禁用状态</p>
+  <div class="row-gap">
+    <a-switch v-model="value2" disabled></a-switch>
+    <a-switch v-model="value2" type="primary" disabled></a-switch>
+    <a-switch v-model="value2" type="success" disabled></a-switch>
+    <a-switch v-model="value2" type="warning" disabled></a-switch>
+    <a-switch v-model="value2" type="error" disabled></a-switch>
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
 const value1 = ref(false)
+const value2 = ref(true)
 </script>
 
 <style scoped></style>

@@ -51,6 +51,15 @@ $switch-width: map.deep-merge(
     }
   }
 
+  // 禁用状态
+  @include mixins.s(disabled) {
+    cursor: not-allowed;
+    // 文本颜色
+    #{fn.getVarName(switch, text-color)}: var(#{fn.getVarName(switch, disabled-text-color)});
+    // 背景颜色
+    #{fn.getVarName(switch, bg-color)}: var(#{fn.getVarName(switch, disabled-bg-color)});
+  }
+
   // 外层容器
   @include mixins.e(wrapper) {
     width: var(#{fn.getVarName(switch, width)});

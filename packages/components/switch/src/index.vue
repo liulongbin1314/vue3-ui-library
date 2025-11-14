@@ -1,10 +1,19 @@
 <template>
   <!-- 根元素 -->
-  <component :is="tag" :class="[ns.b(), ns.m('size', size), ns.is('checked', model), ns.m(type)]">
+  <component
+    :is="tag"
+    :class="[
+      ns.b(),
+      ns.m('size', size),
+      ns.is('checked', model),
+      ns.m(type),
+      ns.is('disabled', disabled)
+    ]"
+  >
     <!-- 外层容器 -->
     <span :class="[ns.e('wrapper')]">
       <!-- 真实的复选框 -->
-      <input type="checkbox" v-model="model" :class="[ns.e('input')]" />
+      <input type="checkbox" v-model="model" :disabled="disabled" :class="[ns.e('input')]" />
       <!-- 控制区域 -->
       <span :class="[ns.e('handle')]">
         <!-- 中心圆 -->
@@ -37,7 +46,8 @@ const props = defineProps({
     type: String,
     default: 'scale' // slide
   },
-  type: String
+  type: String,
+  disabled: Boolean
 })
 
 const switchModel = defineModel({ type: [String, Number, Boolean], default: false })
