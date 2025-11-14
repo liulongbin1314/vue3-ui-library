@@ -60,6 +60,8 @@ const props = defineProps({
   }
 })
 
+defineEmits(['change'])
+
 const switchModel = defineModel({ type: [String, Number, Boolean], default: false })
 
 if (switchModel.value === true && props.activeValue !== false) {

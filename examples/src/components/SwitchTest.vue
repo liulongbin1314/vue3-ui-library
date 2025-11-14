@@ -43,12 +43,7 @@
 
   <p>自定义 value 值</p>
   <div class="row-gap">
-    <a-switch
-      v-model="value3"
-      :active-value="null"
-      :inactive-value="0"
-      transition="slide"
-    ></a-switch>
+    <a-switch v-model="value3" transition="slide" @change="handleChange"></a-switch>
   </div>
   <p>{{ String(value3) }}</p>
 </template>
@@ -58,7 +53,11 @@ import { ref } from 'vue'
 
 const value1 = ref(false)
 const value2 = ref(true)
-const value3 = ref(0)
+const value3 = ref(false)
+
+const handleChange = (value) => {
+  console.log('change: ', value)
+}
 </script>
 
 <style scoped></style>

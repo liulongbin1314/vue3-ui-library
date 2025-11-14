@@ -24,6 +24,7 @@ export const useSwitchModel = ({ switchModel }) => {
       }
 
       switchModel.value = targetValue
+      instance.emit('change', targetValue)
     }
   })
 
