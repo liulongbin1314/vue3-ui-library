@@ -59,6 +59,7 @@ $switch-width: map.deep-merge(
     border-radius: 100px;
     display: flex;
     transition: 0.3s;
+    overflow-x: hidden;
 
     // 复选框
     @include mixins.e(input) {
@@ -98,6 +99,7 @@ $switch-width: map.deep-merge(
         flex: 1;
         box-sizing: border-box;
 
+        // 文字
         > span {
           display: flex;
           justify-content: center;
@@ -107,6 +109,32 @@ $switch-width: map.deep-merge(
           color: var(#{fn.getVarName(switch, text-color)});
           font-size: var(#{fn.getVarName(switch, font-size)});
           transition: 0.3s;
+        }
+
+        // 缩放动画
+        &.transition-scale {
+          > span {
+            transform: scale(0);
+            @include mixins.s(checked) {
+              transform: scale(1);
+            }
+          }
+        }
+
+        // 滑动动画
+        &.transition-slide {
+          @include mixins.e(inner-checked) {
+            transform: translateX(-120%);
+            @include mixins.s(checked) {
+              transform: translateX(0);
+            }
+          }
+          @include mixins.e(inner-unchecked) {
+            transform: translateX(120%);
+            @include mixins.s(checked) {
+              transform: translateX(0);
+            }
+          }
         }
       }
     }

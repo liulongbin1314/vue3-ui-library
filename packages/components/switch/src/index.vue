@@ -10,9 +10,9 @@
         <!-- 中心圆 -->
         <span :class="[ns.e('button')]"></span>
         <!-- 内层容器 -->
-        <span :class="[ns.e('inner')]">
-          <span :class="[ns.e('inner-checked')]">开</span>
-          <span :class="[ns.e('inner-unchecked')]">关</span>
+        <span :class="[ns.e('inner'), transitionMode]">
+          <span :class="[ns.e('inner-checked'), ns.is('checked', model)]">开</span>
+          <span :class="[ns.e('inner-unchecked'), ns.is('checked', !model)]">关</span>
         </span>
       </span>
     </span>
@@ -24,7 +24,7 @@ defineOptions({
   name: 'a-switch'
 })
 
-defineProps({
+const props = defineProps({
   tag: {
     type: String,
     default: 'label'
@@ -32,6 +32,10 @@ defineProps({
   size: {
     type: String,
     default: 'default'
+  },
+  transition: {
+    type: String,
+    default: 'scale' // slide
   }
 })
 
@@ -39,9 +43,15 @@ const switchModel = defineModel({ type: [String, Number, Boolean], default: fals
 
 import { useNamespace } from '@ui-library/hooks'
 import { useSwitch } from './composables'
+import { computed } from 'vue'
 
 const ns = useNamespace('switch')
 const { model } = useSwitch({ switchModel })
+
+const transitionMode = computed(() => {
+  // transition-slide
+  return `transition-${props.transition}`
+})
 </script>
 
 <style scoped></style>

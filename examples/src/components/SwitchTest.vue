@@ -16,6 +16,12 @@
     <a-switch v-model="value1"></a-switch>
   </div>
   <p>{{ value1 }}</p>
+
+  <p>动画效果</p>
+  <div class="row-gap">
+    <a-switch></a-switch>
+    <a-switch transition="slide"></a-switch>
+  </div>
 </template>
 
 <script setup>
