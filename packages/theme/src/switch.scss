@@ -149,3 +149,13 @@ $switch-width: map.deep-merge(
     #{fn.getVarName(switch, font-size)}: var(#{fn.getVarName(font-size, $s)});
   }
 }
+
+// 动态生成主题颜色
+@each $type in var.$types-base {
+  @include mixins.m($type) {
+    @include mixins.s(checked) {
+      // 混入私有变量
+      @include mixins.set-component-var(switch, comVar.getSwitchVar($type), type);
+    }
+  }
+}

@@ -242,7 +242,7 @@
   @return $checkbox;
 }
 
-@function getSwitchVar() {
+@function getSwitchVar($type: '') {
   $switch: (
     text-color: (
       default: fn.getVarName(text-color, secondary)
@@ -254,7 +254,8 @@
       default: fn.getVarName(color, white)
     ),
     checked-bg-color: (
-      default: fn.getVarName(color, primary)
+      default: fn.getVarName(color, primary),
+      type: fn.getVarName(color, $type)
     ),
     font-size: (
       default: fn.getVarName(font-size, default)

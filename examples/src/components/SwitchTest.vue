@@ -22,6 +22,15 @@
     <a-switch></a-switch>
     <a-switch transition="slide"></a-switch>
   </div>
+
+  <p>主题颜色</p>
+  <div class="row-gap">
+    <a-switch></a-switch>
+    <a-switch type="primary"></a-switch>
+    <a-switch type="success"></a-switch>
+    <a-switch type="warning"></a-switch>
+    <a-switch type="error"></a-switch>
+  </div>
 </template>
 
 <script setup>

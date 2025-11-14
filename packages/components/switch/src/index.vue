@@ -1,6 +1,6 @@
 <template>
   <!-- 根元素 -->
-  <component :is="tag" :class="[ns.b(), ns.m('size', size), ns.is('checked', model)]">
+  <component :is="tag" :class="[ns.b(), ns.m('size', size), ns.is('checked', model), ns.m(type)]">
     <!-- 外层容器 -->
     <span :class="[ns.e('wrapper')]">
       <!-- 真实的复选框 -->
@@ -36,7 +36,8 @@ const props = defineProps({
   transition: {
     type: String,
     default: 'scale' // slide
-  }
+  },
+  type: String
 })
 
 const switchModel = defineModel({ type: [String, Number, Boolean], default: false })
