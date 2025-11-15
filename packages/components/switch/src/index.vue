@@ -7,18 +7,28 @@
       ns.m('size', size),
       ns.is('checked', model),
       ns.m(type),
-      ns.is('disabled', disabled)
+      ns.is('disabled', disabled || isLoading)
     ]"
   >
     <!-- 外层容器 -->
     <span :class="[ns.e('wrapper')]">
       <!-- 真实的复选框 -->
-      <input type="checkbox" v-model="model" :disabled="disabled" :class="[ns.e('input')]" />
+      <input
+        type="checkbox"
+        v-model="model"
+        :disabled="disabled || isLoading"
+        :class="[ns.e('input')]"
+      />
       <!-- 控制区域 -->
       <span :class="[ns.e('handle')]">
         <!-- 中心圆 -->
         <span :class="[ns.e('button')]">
-          <template v-if="centerIcon">
+          <a-icon
+            :icon="Loader"
+            v-if="isLoading"
+            :class="[ns.is('loading-animate', isLoading)]"
+          ></a-icon>
+          <template v-else-if="centerIcon">
             <a-icon :icon="activeIcon" v-if="activeIcon && model"></a-icon>
             <a-icon :icon="inactiveIcon" v-if="inactiveIcon && !model"></a-icon>
           </template>
@@ -97,9 +107,10 @@ import { useNamespace } from '@ui-library/hooks'
 import { useSwitch } from './composables'
 import { computed } from 'vue'
 import { AIcon } from '@ui-library/components'
+import { Loader } from '@ui-library/icons'
 
 const ns = useNamespace('switch')
-const { model } = useSwitch({ switchModel })
+const { model, isLoading } = useSwitch({ switchModel })
 
 const transitionMode = computed(() => {
   // transition-slide

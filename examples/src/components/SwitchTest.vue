@@ -53,7 +53,7 @@
     <a-switch active-text="Yes" inactive-text="No"></a-switch>
   </div>
 
-  <p>自定义文字</p>
+  <p>自定义图标</p>
   <div class="row-gap">
     <a-switch
       active-text="开启"
@@ -67,6 +67,17 @@
       inactive-text="No"
       :active-icon="Eye"
       :inactive-icon="EyeOff"
+    ></a-switch>
+  </div>
+
+  <p>异步</p>
+  <div class="row-gap">
+    <a-switch
+      active-text="开启"
+      inactive-text="关闭"
+      :active-icon="Sun"
+      :inactive-icon="Moon"
+      center-icon
     ></a-switch>
   </div>
 </template>
