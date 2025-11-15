@@ -48,6 +48,7 @@ $switch-width: map.deep-merge(
     // 设置中心圆的位移
     @include mixins.e(button, false) {
       transform: translateX(100%);
+      color: var(#{fn.getVarName(text-color, secondary)});
     }
   }
 

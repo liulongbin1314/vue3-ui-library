@@ -17,14 +17,21 @@
       <!-- 控制区域 -->
       <span :class="[ns.e('handle')]">
         <!-- 中心圆 -->
-        <span :class="[ns.e('button')]"></span>
+        <span :class="[ns.e('button')]">
+          <template v-if="centerIcon">
+            <a-icon :icon="activeIcon" v-if="activeIcon && model"></a-icon>
+            <a-icon :icon="inactiveIcon" v-if="inactiveIcon && !model"></a-icon>
+          </template>
+        </span>
         <!-- 内层容器 -->
         <span :class="[ns.e('inner'), transitionMode]">
           <span :class="[ns.e('inner-checked'), ns.is('checked', model)]">
-            <span>{{ activeText ? activeText[0] : '' }}</span>
+            <a-icon :icon="activeIcon" v-if="activeIcon && !centerIcon"></a-icon>
+            <span v-else>{{ activeText ? activeText[0] : '' }}</span>
           </span>
           <span :class="[ns.e('inner-unchecked'), ns.is('checked', !model)]">
-            <span>{{ inactiveText ? inactiveText[0] : '' }}</span>
+            <a-icon :icon="inactiveIcon" v-if="inactiveIcon && !centerIcon"></a-icon>
+            <span v-else>{{ inactiveText ? inactiveText[0] : '' }}</span>
           </span>
         </span>
       </span>
@@ -69,7 +76,10 @@ const props = defineProps({
   inactiveText: {
     type: String,
     default: ''
-  }
+  },
+  activeIcon: [String, Object],
+  inactiveIcon: [String, Object],
+  centerIcon: Boolean
 })
 
 defineEmits(['change'])
@@ -86,6 +96,7 @@ if (switchModel.value === false && props.inactiveValue !== false) {
 import { useNamespace } from '@ui-library/hooks'
 import { useSwitch } from './composables'
 import { computed } from 'vue'
+import { AIcon } from '@ui-library/components'
 
 const ns = useNamespace('switch')
 const { model } = useSwitch({ switchModel })

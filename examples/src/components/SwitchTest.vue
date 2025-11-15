@@ -52,10 +52,28 @@
     <a-switch active-text="开启" inactive-text="关闭"></a-switch>
     <a-switch active-text="Yes" inactive-text="No"></a-switch>
   </div>
+
+  <p>自定义文字</p>
+  <div class="row-gap">
+    <a-switch
+      active-text="开启"
+      inactive-text="关闭"
+      :active-icon="Sun"
+      :inactive-icon="Moon"
+      center-icon
+    ></a-switch>
+    <a-switch
+      active-text="Yes"
+      inactive-text="No"
+      :active-icon="Eye"
+      :inactive-icon="EyeOff"
+    ></a-switch>
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import { Sun, Moon, Eye, EyeOff } from '@ui-library/icons'
 
 const value1 = ref(false)
 const value2 = ref(true)
