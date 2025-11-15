@@ -9,6 +9,7 @@
       ns.m(type),
       ns.is('disabled', disabled || isLoading)
     ]"
+    @click="clickEvent"
   >
     <!-- 外层容器 -->
     <span :class="[ns.e('wrapper')]">
@@ -89,7 +90,8 @@ const props = defineProps({
   },
   activeIcon: [String, Object],
   inactiveIcon: [String, Object],
-  centerIcon: Boolean
+  centerIcon: Boolean,
+  beforeChange: Function
 })
 
 defineEmits(['change'])
@@ -110,7 +112,7 @@ import { AIcon } from '@ui-library/components'
 import { Loader } from '@ui-library/icons'
 
 const ns = useNamespace('switch')
-const { model, isLoading } = useSwitch({ switchModel })
+const { model, isLoading, clickEvent } = useSwitch({ switchModel })
 
 const transitionMode = computed(() => {
   // transition-slide

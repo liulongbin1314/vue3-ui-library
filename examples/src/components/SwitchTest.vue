@@ -78,6 +78,7 @@
       :active-icon="Sun"
       :inactive-icon="Moon"
       center-icon
+      :before-change="handleBeforeChange"
     ></a-switch>
   </div>
 </template>
@@ -92,6 +93,13 @@ const value3 = ref(false)
 
 const handleChange = (value) => {
   console.log('change: ', value)
+}
+const handleBeforeChange = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('ok')
+    }, 1500)
+  })
 }
 </script>
 
