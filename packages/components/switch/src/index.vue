@@ -20,8 +20,12 @@
         <span :class="[ns.e('button')]"></span>
         <!-- 内层容器 -->
         <span :class="[ns.e('inner'), transitionMode]">
-          <span :class="[ns.e('inner-checked'), ns.is('checked', model)]">开</span>
-          <span :class="[ns.e('inner-unchecked'), ns.is('checked', !model)]">关</span>
+          <span :class="[ns.e('inner-checked'), ns.is('checked', model)]">
+            <span>{{ activeText ? activeText[0] : '' }}</span>
+          </span>
+          <span :class="[ns.e('inner-unchecked'), ns.is('checked', !model)]">
+            <span>{{ inactiveText ? inactiveText[0] : '' }}</span>
+          </span>
         </span>
       </span>
     </span>
@@ -57,6 +61,14 @@ const props = defineProps({
   activeValue: {
     type: [String, Number, Boolean],
     default: false
+  },
+  activeText: {
+    type: String,
+    default: ''
+  },
+  inactiveText: {
+    type: String,
+    default: ''
   }
 })
 

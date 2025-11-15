@@ -46,6 +46,12 @@
     <a-switch v-model="value3" transition="slide" @change="handleChange"></a-switch>
   </div>
   <p>{{ String(value3) }}</p>
+
+  <p>自定义文字</p>
+  <div class="row-gap">
+    <a-switch active-text="开启" inactive-text="关闭"></a-switch>
+    <a-switch active-text="Yes" inactive-text="No"></a-switch>
+  </div>
 </template>
 
 <script setup>
