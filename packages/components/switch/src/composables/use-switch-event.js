@@ -1,6 +1,6 @@
 import { getCurrentInstance, computed } from 'vue'
 
-export const useSwitchEvent = ({ isLoading }) => {
+export const useSwitchEvent = ({ isLoading, model }) => {
   const instance = getCurrentInstance()
   const props = instance.props
 
@@ -20,7 +20,7 @@ export const useSwitchEvent = ({ isLoading }) => {
     isLoading.value = true
     invokeResult
       .then(() => {
-        console.log('成功了')
+        model.value = !model.value
       })
       .catch(() => {
         console.log('失败了')

@@ -6,7 +6,7 @@ export const useSwitch = ({ switchModel }) => {
   // 响应式数据模块
   const { model } = useSwitchModel({ switchModel })
   const { isLoading } = useSwitchState()
-  const { clickEvent } = useSwitchEvent({ isLoading })
+  const { clickEvent } = useSwitchEvent({ isLoading, model })
 
   return { model, isLoading, clickEvent }
 }

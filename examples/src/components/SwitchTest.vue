@@ -78,9 +78,11 @@
       :active-icon="Sun"
       :inactive-icon="Moon"
       center-icon
+      v-model="value4"
       :before-change="handleBeforeChange"
     ></a-switch>
   </div>
+  <p>{{ value4 }}</p>
 </template>
 
 <script setup>
@@ -90,6 +92,7 @@ import { Sun, Moon, Eye, EyeOff } from '@ui-library/icons'
 const value1 = ref(false)
 const value2 = ref(true)
 const value3 = ref(false)
+const value4 = ref(false)
 
 const handleChange = (value) => {
   console.log('change: ', value)
