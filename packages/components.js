@@ -9,6 +9,7 @@ import ACol from '@ui-library/components/col'
 import { AContainer, AHeader, AFooter, AAside, AMain } from '@ui-library/components/container'
 import { ACheckbox, ACheckboxGroup, ACheckboxAll } from '@ui-library/components/checkbox'
 import ASwitch from '@ui-library/components/switch'
+import { ARadio } from '@ui-library/components/radio'
 
 // 默认导出一个数组，
 // 数组中包含封装的所有的组件
@@ -28,5 +29,6 @@ export default [
   ACheckbox,
   ACheckboxGroup,
   ACheckboxAll,
-  ASwitch
+  ASwitch,
+  ARadio
 ]
