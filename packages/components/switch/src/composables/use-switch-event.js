@@ -13,7 +13,8 @@ export const useSwitchEvent = ({ isLoading, model }) => {
 
     if (props.disabled || isLoading.value) return
 
-    const invokeResult = props.beforeChange()
+    const targetValue = getValue(model.value)
+    const invokeResult = props.beforeChange(targetValue.nextValue, targetValue.currentValue)
     if (!(invokeResult instanceof Promise)) return
 
     e.preventDefault()
@@ -28,6 +29,25 @@ export const useSwitchEvent = ({ isLoading, model }) => {
       .finally(() => {
         isLoading.value = false
       })
+  }
+
+  function getValue(boo) {
+    const currentValue = transformValue(boo)
+    const nextValue = transformValue(!boo)
+
+    return { currentValue, nextValue }
+  }
+
+  function transformValue(val) {
+    if (typeof val !== 'boolean') return val
+
+    if (val && props.activeValue) {
+      return props.activeValue
+    }
+    if (!val && props.inactiveValue) {
+      return props.inactiveValue
+    }
+    return val
   }
 
   return { clickEvent }

@@ -97,7 +97,9 @@ const value4 = ref(false)
 const handleChange = (value) => {
   console.log('change: ', value)
 }
-const handleBeforeChange = () => {
+const handleBeforeChange = (nextVal, currentVal) => {
+  console.log(nextVal, currentVal)
+
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve('ok')
