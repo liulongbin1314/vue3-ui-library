@@ -20,11 +20,12 @@ export const useSwitchEvent = ({ isLoading, model }) => {
     e.preventDefault()
     isLoading.value = true
     invokeResult
-      .then(() => {
+      .then((fn) => {
         model.value = !model.value
+        typeof fn === 'function' && fn()
       })
-      .catch(() => {
-        console.log('失败了')
+      .catch((fn) => {
+        typeof fn === 'function' && fn()
       })
       .finally(() => {
         isLoading.value = false

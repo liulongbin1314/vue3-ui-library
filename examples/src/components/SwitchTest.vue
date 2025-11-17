@@ -102,7 +102,12 @@ const handleBeforeChange = (nextVal, currentVal) => {
 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve('ok')
+      const num = Math.ceil(Math.random() * 10)
+      if (num <= 5) {
+        resolve(() => console.log('成功了：', num))
+      } else {
+        reject(() => console.log('失败了：', num))
+      }
     }, 1500)
   })
 }
