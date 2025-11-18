@@ -4,6 +4,11 @@
     <a-radio></a-radio>
     <a-radio></a-radio>
   </div>
+
+  <p>禁用状态</p>
+  <div>
+    <a-radio disabled></a-radio>
+  </div>
 </template>
 
 <script setup></script>

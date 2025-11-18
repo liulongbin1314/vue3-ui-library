@@ -1,7 +1,11 @@
-import { computed } from 'vue'
+import { computed, getCurrentInstance } from 'vue'
 
 export const useRadioState = () => {
-  const isChecked = computed(() => true)
+  const instance = getCurrentInstance()
+  const props = instance.props
 
-  return { isChecked }
+  const isChecked = computed(() => true)
+  const isDisabled = computed(() => props.disabled)
+
+  return { isChecked, isDisabled }
 }

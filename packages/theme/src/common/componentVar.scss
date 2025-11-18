@@ -291,11 +291,26 @@
     text-color: (
       default: fn.getVarName(text-color, primary)
     ),
+    dot-color: (
+      default: fn.getVarName(color, white)
+    ),
     checked-border-color: (
       default: fn.getVarName(color, primary)
     ),
     checked-bg-color: (
       default: fn.getVarName(color, primary)
+    ),
+    disabled-border-color: (
+      default: fn.getVarName(border-color, disabled)
+    ),
+    disabled-bg-color: (
+      default: fn.getVarName(color, gray, light-9)
+    ),
+    disabled-text-color: (
+      default: fn.getVarName(text-color, disabled)
+    ),
+    disabled-dot-color: (
+      default: fn.getVarName(border-color, hover)
     ),
     size: (
       default: fn.getVarName(component-size, default)

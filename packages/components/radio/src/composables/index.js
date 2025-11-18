@@ -1,7 +1,7 @@
 import { useRadioState } from './use-radio-state'
 
 export const useRadio = () => {
-  const { isChecked } = useRadioState()
+  const { isChecked, isDisabled } = useRadioState()
 
-  return { isChecked }
+  return { isChecked, isDisabled }
 }
