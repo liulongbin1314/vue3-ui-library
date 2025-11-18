@@ -1,5 +1,58 @@
 @use './common/mixins.scss';
 
+// 根元素
 @include mixins.b(radio) {
-  color: red;
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  margin-right: 24px;
+  cursor: pointer;
+  user-select: none;
+
+  // 左侧的容器
+  @include mixins.e(wrapper) {
+    position: relative;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+
+    // 被隐藏的真实的单选按钮
+    @include mixins.e(input) {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: none;
+    }
+
+    // 模拟的单选按钮
+    @include mixins.e(inner) {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 50%;
+      background-color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      // 选中后的小圆点
+      @include mixins.e(dot) {
+        display: inline-flex;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #fff;
+        transform: scale(0);
+        transition: 0.3s;
+      }
+    }
+  }
+
+  // 右侧的描述文本
+  @include mixins.e(label) {
+    margin-left: 8px;
+    font-size: 14px;
+    color: #666;
+  }
 }
