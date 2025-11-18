@@ -1,6 +1,6 @@
 <template>
   <!-- 根元素 -->
-  <label :class="[ns.b()]">
+  <label :class="[ns.b(), ns.is('checked', isChecked)]">
     <!-- 左侧的容器 -->
     <span :class="[ns.e('wrapper')]">
       <!-- 被隐藏的真实的单选按钮 -->
@@ -23,8 +23,10 @@ defineOptions({
 })
 
 import { useNamespace } from '@ui-library/hooks'
+import { useRadio } from './composables'
 
 const ns = useNamespace('radio')
+const { isChecked } = useRadio()
 </script>
 
 <style scoped></style>

@@ -291,6 +291,12 @@
     text-color: (
       default: fn.getVarName(text-color, primary)
     ),
+    checked-border-color: (
+      default: fn.getVarName(color, primary)
+    ),
+    checked-bg-color: (
+      default: fn.getVarName(color, primary)
+    ),
     size: (
       default: fn.getVarName(component-size, default)
     ),

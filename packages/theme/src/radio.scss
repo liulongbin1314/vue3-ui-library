@@ -41,6 +41,17 @@ $dot-size: map.deep-merge(
   cursor: pointer;
   user-select: none;
 
+  // 选中时候的样式
+  @include mixins.s(checked) {
+    #{fn.getVarName(radio, border-color)}: var(#{fn.getVarName(radio, checked-border-color)});
+    #{fn.getVarName(radio, bg-color)}: var(#{fn.getVarName(radio, checked-bg-color)});
+
+    // 内部的小圆点
+    @include mixins.e(dot, false) {
+      transform: scale(1);
+    }
+  }
+
   // 左侧的容器
   @include mixins.e(wrapper) {
     position: relative;
