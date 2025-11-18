@@ -279,7 +279,7 @@
   @return $switch;
 }
 
-@function getRadioVar() {
+@function getRadioVar($type: '') {
   // 边框色、背景色、文字色、组件尺寸、文字尺寸、radio 尺寸、dot 尺寸
   $radio: (
     border-color: (
@@ -295,22 +295,27 @@
       default: fn.getVarName(color, white)
     ),
     checked-border-color: (
-      default: fn.getVarName(color, primary)
+      default: fn.getVarName(color, primary),
+      type: fn.getVarName(color, $type)
     ),
     checked-bg-color: (
-      default: fn.getVarName(color, primary)
+      default: fn.getVarName(color, primary),
+      type: fn.getVarName(color, $type)
     ),
     disabled-border-color: (
-      default: fn.getVarName(border-color, disabled)
+      default: fn.getVarName(border-color, disabled),
+      type: fn.getVarName(color, $type, light-5)
     ),
     disabled-bg-color: (
-      default: fn.getVarName(color, gray, light-9)
+      default: fn.getVarName(color, gray, light-9),
+      type: fn.getVarName(color, $type, light-5)
     ),
     disabled-text-color: (
       default: fn.getVarName(text-color, disabled)
     ),
     disabled-dot-color: (
-      default: fn.getVarName(border-color, hover)
+      default: fn.getVarName(border-color, hover),
+      type: fn.getVarName(color, white)
     ),
     size: (
       default: fn.getVarName(component-size, default)
