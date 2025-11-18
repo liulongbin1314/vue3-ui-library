@@ -1,10 +1,42 @@
+@use 'sass:map';
 @use './common/mixins.scss';
+@use './common/componentVar.scss' as comVar;
+@use './common/function.scss' as fn;
+
+// 外层圆的尺寸
+$circle-size: () !default;
+$circle-size: map.deep-merge(
+  (
+    small: 16px,
+    default: 20px,
+    large: 24px
+  ),
+  $circle-size
+);
+
+// 内层圆的尺寸
+$dot-size: () !default;
+$dot-size: map.deep-merge(
+  (
+    small: 6px,
+    default: 8px,
+    large: 10px
+  ),
+  $dot-size
+);
+
+:root {
+  @include mixins.set-private-var(radio-circle-size, $circle-size);
+  @include mixins.set-private-var(radio-dot-size, $dot-size);
+}
 
 // 根元素
 @include mixins.b(radio) {
+  @include mixins.set-component-var(radio, comVar.getRadioVar());
+
   display: inline-flex;
   align-items: center;
-  height: 32px;
+  height: var(#{fn.getVarName(radio, size)});
   margin-right: 24px;
   cursor: pointer;
   user-select: none;
@@ -26,12 +58,12 @@
 
     // 模拟的单选按钮
     @include mixins.e(inner) {
-      width: 20px;
-      height: 20px;
-      border: 2px solid #ccc;
+      width: var(#{fn.getVarName(radio, circle-size)});
+      height: var(#{fn.getVarName(radio, circle-size)});
+      border: 2px solid var(#{fn.getVarName(radio, border-color)});
       box-sizing: border-box;
       border-radius: 50%;
-      background-color: #fff;
+      background-color: var(#{fn.getVarName(radio, bg-color)});
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -39,8 +71,8 @@
       // 选中后的小圆点
       @include mixins.e(dot) {
         display: inline-flex;
-        width: 8px;
-        height: 8px;
+        width: var(#{fn.getVarName(radio, dot-size)});
+        height: var(#{fn.getVarName(radio, dot-size)});
         border-radius: 50%;
         background-color: #fff;
         transform: scale(0);
@@ -52,7 +84,7 @@
   // 右侧的描述文本
   @include mixins.e(label) {
     margin-left: 8px;
-    font-size: 14px;
-    color: #666;
+    font-size: var(#{fn.getVarName(radio, font-size)});
+    color: var(#{fn.getVarName(radio, text-color)});
   }
 }

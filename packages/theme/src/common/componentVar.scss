@@ -278,3 +278,34 @@
 
   @return $switch;
 }
+
+@function getRadioVar() {
+  // 边框色、背景色、文字色、组件尺寸、文字尺寸、radio 尺寸、dot 尺寸
+  $radio: (
+    border-color: (
+      default: fn.getVarName(border-color, default)
+    ),
+    bg-color: (
+      default: fn.getVarName(color, white)
+    ),
+    text-color: (
+      default: fn.getVarName(text-color, primary)
+    ),
+    size: (
+      default: fn.getVarName(component-size, default)
+    ),
+    font-size: (
+      default: fn.getVarName(font-size, default)
+    ),
+    circle-size: (
+      // 定义私有变量
+      default: fn.getVarName(radio-circle-size, default)
+    ),
+    dot-size: (
+      // 定义私有变量
+      default: fn.getVarName(radio-dot-size, default)
+    )
+  );
+
+  @return $radio;
+}
