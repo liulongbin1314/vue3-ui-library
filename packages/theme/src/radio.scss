@@ -117,3 +117,14 @@ $dot-size: map.deep-merge(
     }
   }
 }
+
+// 循环生成 size 尺寸
+@each $s in var.$sizes {
+  @include mixins.m(size, $s) {
+    // 进行私有变量的覆盖（只需要覆盖尺寸相关的变量）
+    #{fn.getVarName(radio, size)}: var(#{fn.getVarName(component-size, $s)});
+    #{fn.getVarName(radio, font-size)}: var(#{fn.getVarName(font-size, $s)});
+    #{fn.getVarName(radio, circle-size)}: var(#{fn.getVarName(radio-circle-size, $s)});
+    #{fn.getVarName(radio, dot-size)}: var(#{fn.getVarName(radio-dot-size, $s)});
+  }
+}

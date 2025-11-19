@@ -23,6 +23,14 @@
     <a-radio disabled type="warning"></a-radio>
     <a-radio disabled type="error"></a-radio>
   </div>
+
+  <p>size 尺寸</p>
+  <div>
+    <a-radio type="primary" size="small"></a-radio>
+    <a-radio type="success" size="default"></a-radio>
+    <a-radio type="warning" size="large"></a-radio>
+    <a-radio type="error"></a-radio>
+  </div>
 </template>
 
 <script setup></script>

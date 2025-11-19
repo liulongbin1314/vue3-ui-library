@@ -6,6 +6,7 @@ export const useRadioState = () => {
 
   const isChecked = computed(() => true)
   const isDisabled = computed(() => props.disabled)
+  const radioSize = computed(() => props.size)
 
-  return { isChecked, isDisabled }
+  return { isChecked, isDisabled, radioSize }
 }
