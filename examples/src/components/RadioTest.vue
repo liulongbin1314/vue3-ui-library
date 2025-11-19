@@ -1,38 +1,50 @@
 <template>
   <p>基础用法</p>
   <div>
-    <a-radio></a-radio>
-    <a-radio></a-radio>
+    <a-radio>基础用法1</a-radio>
+    <a-radio>基础用法2</a-radio>
   </div>
 
   <p>禁用状态</p>
   <div>
-    <a-radio disabled></a-radio>
+    <a-radio disabled>禁用状态</a-radio>
   </div>
 
   <p>主题颜色</p>
   <div>
-    <a-radio type="primary"></a-radio>
-    <a-radio type="success"></a-radio>
-    <a-radio type="warning"></a-radio>
-    <a-radio type="error"></a-radio>
+    <a-radio type="primary">primary</a-radio>
+    <a-radio type="success">success</a-radio>
+    <a-radio type="warning">warning</a-radio>
+    <a-radio type="error">error</a-radio>
   </div>
   <div>
-    <a-radio disabled type="primary"></a-radio>
-    <a-radio disabled type="success"></a-radio>
-    <a-radio disabled type="warning"></a-radio>
-    <a-radio disabled type="error"></a-radio>
+    <a-radio disabled type="primary">primary</a-radio>
+    <a-radio disabled type="success">success</a-radio>
+    <a-radio disabled type="warning">warning</a-radio>
+    <a-radio disabled type="error">error</a-radio>
   </div>
 
   <p>size 尺寸</p>
   <div>
-    <a-radio type="primary" size="small"></a-radio>
-    <a-radio type="success" size="default"></a-radio>
-    <a-radio type="warning" size="large"></a-radio>
-    <a-radio type="error"></a-radio>
+    <a-radio type="primary" size="small">primary</a-radio>
+    <a-radio type="success" size="default">success</a-radio>
+    <a-radio type="warning" size="large">warning</a-radio>
+    <a-radio type="error">error</a-radio>
   </div>
+
+  <p>label 文本</p>
+  <div>
+    <a-radio label="男" value="man" v-model="value1"></a-radio>
+    <a-radio label="女" value="woman" v-model="value1"></a-radio>
+    <a-radio value="secret" v-model="value1">保密</a-radio>
+  </div>
+  <p>{{ value1 }}</p>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+
+const value1 = ref('man')
+</script>
 
 <style scoped></style>

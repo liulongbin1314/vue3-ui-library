@@ -87,6 +87,7 @@ $dot-size: map.deep-merge(
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      transition: 0.3s;
 
       // 选中后的小圆点
       @include mixins.e(dot) {

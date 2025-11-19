@@ -12,7 +12,7 @@
     <!-- 左侧的容器 -->
     <span :class="[ns.e('wrapper')]">
       <!-- 被隐藏的真实的单选按钮 -->
-      <input type="radio" :class="[ns.e('input')]" />
+      <input type="radio" :class="[ns.e('input')]" v-model="model" :value="value" />
       <!-- 模拟的单选按钮 -->
       <span :class="[ns.e('inner')]">
         <!-- 选中后的小圆点 -->
@@ -21,7 +21,9 @@
     </span>
 
     <!-- 右侧的描述文本 -->
-    <span :class="[ns.e('label')]">xxx</span>
+    <span :class="[ns.e('label')]">
+      <slot>{{ label }}</slot>
+    </span>
   </label>
 </template>
 
@@ -33,14 +35,18 @@ defineOptions({
 const props = defineProps({
   disabled: Boolean,
   type: String,
-  size: String
+  size: String,
+  label: String,
+  value: [String, Number, Boolean]
 })
+
+const radioModel = defineModel({ type: [String, Number, Boolean], default: '' })
 
 import { useNamespace } from '@ui-library/hooks'
 import { useRadio } from './composables'
 
 const ns = useNamespace('radio')
-const { isChecked, isDisabled, radioSize } = useRadio()
+const { isChecked, isDisabled, radioSize, model } = useRadio({ radioModel })
 </script>
 
 <style scoped></style>
