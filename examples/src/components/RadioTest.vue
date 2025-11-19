@@ -39,12 +39,21 @@
     <a-radio value="secret" v-model="value1" @change="handleChange1">保密</a-radio>
   </div>
   <p>{{ value1 }}</p>
+
+  <p>RadioGroup 组件</p>
+  <a-radio-group v-model="value2" @change="handleChange1">
+    <a-radio label="男" value="man"></a-radio>
+    <a-radio label="女" value="woman"></a-radio>
+    <a-radio value="secret">保密</a-radio>
+  </a-radio-group>
+  <p>{{ value2 }}</p>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 
 const value1 = ref('man')
+const value2 = ref('man')
 
 const handleChange1 = (value) => {
   console.log('trigger change evnet: ', value)
