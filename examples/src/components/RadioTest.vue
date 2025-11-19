@@ -34,9 +34,9 @@
 
   <p>label 文本</p>
   <div>
-    <a-radio label="男" value="man" v-model="value1"></a-radio>
-    <a-radio label="女" value="woman" v-model="value1"></a-radio>
-    <a-radio value="secret" v-model="value1">保密</a-radio>
+    <a-radio label="男" value="man" v-model="value1" @change="handleChange1"></a-radio>
+    <a-radio label="女" value="woman" v-model="value1" @change="handleChange1"></a-radio>
+    <a-radio value="secret" v-model="value1" @change="handleChange1">保密</a-radio>
   </div>
   <p>{{ value1 }}</p>
 </template>
@@ -45,6 +45,10 @@
 import { ref } from 'vue'
 
 const value1 = ref('man')
+
+const handleChange1 = (value) => {
+  console.log('trigger change evnet: ', value)
+}
 </script>
 
 <style scoped></style>

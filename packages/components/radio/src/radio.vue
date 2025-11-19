@@ -40,6 +40,8 @@ const props = defineProps({
   value: [String, Number, Boolean]
 })
 
+defineEmits(['change'])
+
 const radioModel = defineModel({ type: [String, Number, Boolean], default: '' })
 
 import { useNamespace } from '@ui-library/hooks'
