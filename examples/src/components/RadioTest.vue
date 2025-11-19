@@ -47,6 +47,14 @@
     <a-radio value="secret">保密</a-radio>
   </a-radio-group>
   <p>{{ value2 }}</p>
+
+  <p>RadioGroup 组件的 size、disabled、type</p>
+  <a-radio-group v-model="value2" @change="handleChange1" size="small" disabled type="success">
+    <a-radio label="男" value="man"></a-radio>
+    <a-radio label="女" value="woman"></a-radio>
+    <a-radio value="secret">保密</a-radio>
+  </a-radio-group>
+  <p>{{ value2 }}</p>
 </template>
 
 <script setup>
