@@ -67,6 +67,13 @@
     ></a-radio>
   </div>
   <p>{{ value3 }}</p>
+
+  <p>异步加载动画</p>
+  <a-radio-group v-model="value4" :before-change="handleBeforeChange">
+    <a-radio label="男" value="man"></a-radio>
+    <a-radio label="女" value="woman"></a-radio>
+  </a-radio-group>
+  <p>{{ value4 }}</p>
 </template>
 
 <script setup>
@@ -75,6 +82,7 @@ import { ref } from 'vue'
 const value1 = ref('man')
 const value2 = ref('man')
 const value3 = ref('man')
+const value4 = ref('man')
 
 const handleChange1 = (value) => {
   console.log('trigger change evnet: ', value)
