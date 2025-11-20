@@ -11,7 +11,7 @@ export const useRadio = ({ radioModel }) => {
     isGroupMode,
     groupProps
   })
-  const { clickEvent } = useRadioEvent({ isDisabled, isLoading })
+  const { clickEvent } = useRadioEvent({ isDisabled, isLoading, model })
 
   return { isChecked, isDisabled, radioSize, model, radioType, isLoading, clickEvent }
 }

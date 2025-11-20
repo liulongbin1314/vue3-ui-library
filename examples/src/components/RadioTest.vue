@@ -79,10 +79,13 @@ const value3 = ref('man')
 const handleChange1 = (value) => {
   console.log('trigger change evnet: ', value)
 }
-const handleBeforeChange = () => {
+const handleBeforeChange = (nextValue, currentValue) => {
+  console.log(nextValue, currentValue)
+
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve()
+      resolve(() => console.log('成功啦！'))
+      // reject(() => console.log('失败了！'))
     }, 1500)
   })
 }
