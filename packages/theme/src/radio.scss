@@ -93,6 +93,7 @@ $dot-size: map.deep-merge(
       align-items: center;
       justify-content: center;
       transition: 0.3s;
+      position: absolute;
 
       // 选中后的小圆点
       @include mixins.e(dot) {
@@ -109,7 +110,7 @@ $dot-size: map.deep-merge(
 
   // 右侧的描述文本
   @include mixins.e(label) {
-    margin-left: 8px;
+    margin-left: calc(8px + var(#{fn.getVarName(radio, circle-size)}));
     font-size: var(#{fn.getVarName(radio, font-size)});
     color: var(#{fn.getVarName(radio, text-color)});
   }

@@ -58,8 +58,13 @@
 
   <p>异步加载动画</p>
   <div>
-    <a-radio label="男" value="man" v-model="value3"></a-radio>
-    <a-radio label="女" value="woman" v-model="value3"></a-radio>
+    <a-radio label="男" value="man" v-model="value3" :before-change="handleBeforeChange"></a-radio>
+    <a-radio
+      label="女"
+      value="woman"
+      v-model="value3"
+      :before-change="handleBeforeChange"
+    ></a-radio>
   </div>
   <p>{{ value3 }}</p>
 </template>
@@ -73,6 +78,13 @@ const value3 = ref('man')
 
 const handleChange1 = (value) => {
   console.log('trigger change evnet: ', value)
+}
+const handleBeforeChange = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    }, 1500)
+  })
 }
 </script>
 

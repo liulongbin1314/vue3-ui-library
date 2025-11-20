@@ -9,6 +9,7 @@
       ns.m('size', radioSize),
       ns.is('loading', isLoading)
     ]"
+    @click="clickEvent"
   >
     <!-- 左侧的容器 -->
     <span :class="[ns.e('wrapper')]">
@@ -50,7 +51,8 @@ const props = defineProps({
   type: String,
   size: String,
   label: String,
-  value: [String, Number, Boolean]
+  value: [String, Number, Boolean],
+  beforeChange: Function
 })
 
 defineEmits(['change'])
@@ -63,7 +65,9 @@ import { AIcon } from '@ui-library/components'
 import { Loader } from '@ui-library/icons'
 
 const ns = useNamespace('radio')
-const { isChecked, isDisabled, radioSize, model, radioType, isLoading } = useRadio({ radioModel })
+const { isChecked, isDisabled, radioSize, model, radioType, isLoading, clickEvent } = useRadio({
+  radioModel
+})
 </script>
 
 <style scoped></style>

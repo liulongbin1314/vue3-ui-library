@@ -10,7 +10,7 @@ export const useRadioState = ({ model, isGroupMode, groupProps }) => {
   )
   const radioSize = computed(() => props.size || (isGroupMode.value && groupProps.size.value))
   const radioType = computed(() => props.type || (isGroupMode.value && groupProps.type.value))
-  const isLoading = ref(true)
+  const isLoading = ref(false)
 
   return { isChecked, isDisabled, radioSize, radioType, isLoading }
 }

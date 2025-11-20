@@ -1,6 +1,7 @@
 import { useRadioState } from './use-radio-state'
 import { useRadioModel } from './use-radio-model'
 import { useRadioGroup } from './use-radio-group'
+import { useRadioEvent } from './use-radio-event'
 
 export const useRadio = ({ radioModel }) => {
   const { isGroupMode, groupProps } = useRadioGroup()
@@ -10,6 +11,7 @@ export const useRadio = ({ radioModel }) => {
     isGroupMode,
     groupProps
   })
+  const { clickEvent } = useRadioEvent({ isDisabled, isLoading })
 
-  return { isChecked, isDisabled, radioSize, model, radioType, isLoading }
+  return { isChecked, isDisabled, radioSize, model, radioType, isLoading, clickEvent }
 }
