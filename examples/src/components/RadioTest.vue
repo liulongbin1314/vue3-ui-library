@@ -55,6 +55,13 @@
     <a-radio value="secret">保密</a-radio>
   </a-radio-group>
   <p>{{ value2 }}</p>
+
+  <p>异步加载动画</p>
+  <div>
+    <a-radio label="男" value="man" v-model="value3"></a-radio>
+    <a-radio label="女" value="woman" v-model="value3"></a-radio>
+  </div>
+  <p>{{ value3 }}</p>
 </template>
 
 <script setup>
@@ -62,6 +69,7 @@ import { ref } from 'vue'
 
 const value1 = ref('man')
 const value2 = ref('man')
+const value3 = ref('man')
 
 const handleChange1 = (value) => {
   console.log('trigger change evnet: ', value)

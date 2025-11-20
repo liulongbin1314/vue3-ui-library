@@ -5,11 +5,11 @@ import { useRadioGroup } from './use-radio-group'
 export const useRadio = ({ radioModel }) => {
   const { isGroupMode, groupProps } = useRadioGroup()
   const { model } = useRadioModel({ radioModel, isGroupMode, groupProps })
-  const { isChecked, isDisabled, radioSize, radioType } = useRadioState({
+  const { isChecked, isDisabled, radioSize, radioType, isLoading } = useRadioState({
     model,
     isGroupMode,
     groupProps
   })
 
-  return { isChecked, isDisabled, radioSize, model, radioType }
+  return { isChecked, isDisabled, radioSize, model, radioType, isLoading }
 }

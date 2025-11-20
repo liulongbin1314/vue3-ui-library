@@ -1,4 +1,4 @@
-import { computed, getCurrentInstance } from 'vue'
+import { computed, getCurrentInstance, ref } from 'vue'
 
 export const useRadioState = ({ model, isGroupMode, groupProps }) => {
   const instance = getCurrentInstance()
@@ -10,6 +10,7 @@ export const useRadioState = ({ model, isGroupMode, groupProps }) => {
   )
   const radioSize = computed(() => props.size || (isGroupMode.value && groupProps.size.value))
   const radioType = computed(() => props.type || (isGroupMode.value && groupProps.type.value))
+  const isLoading = ref(true)
 
-  return { isChecked, isDisabled, radioSize, radioType }
+  return { isChecked, isDisabled, radioSize, radioType, isLoading }
 }

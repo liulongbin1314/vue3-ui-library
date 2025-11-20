@@ -54,11 +54,16 @@ $dot-size: map.deep-merge(
   }
 
   // 禁用状态的样式
-  @include mixins.s(disabled) {
+  @include mixins.s((disabled, loading)) {
     #{fn.getVarName(radio, border-color)}: var(#{fn.getVarName(radio, disabled-border-color)});
     #{fn.getVarName(radio, bg-color)}: var(#{fn.getVarName(radio, disabled-bg-color)});
     #{fn.getVarName(radio, text-color)}: var(#{fn.getVarName(radio, disabled-text-color)});
     #{fn.getVarName(radio, dot-color)}: var(#{fn.getVarName(radio, disabled-dot-color)});
+
+    @include mixins.e(icon-loading, false) {
+      color: var(#{fn.getVarName(radio, dot-color)});
+      font-size: calc(var(#{fn.getVarName(radio, dot-size)}) + 6px);
+    }
   }
 
   // 左侧的容器
