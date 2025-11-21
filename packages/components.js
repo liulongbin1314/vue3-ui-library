@@ -10,6 +10,7 @@ import { AContainer, AHeader, AFooter, AAside, AMain } from '@ui-library/compone
 import { ACheckbox, ACheckboxGroup, ACheckboxAll } from '@ui-library/components/checkbox'
 import ASwitch from '@ui-library/components/switch'
 import { ARadio, ARadioGroup } from '@ui-library/components/radio'
+import { AForm, AFormItem } from '@ui-library/components/form'
 
 // 默认导出一个数组，
 // 数组中包含封装的所有的组件
@@ -31,5 +32,7 @@ export default [
   ACheckboxAll,
   ASwitch,
   ARadio,
-  ARadioGroup
+  ARadioGroup,
+  AForm,
+  AFormItem
 ]
