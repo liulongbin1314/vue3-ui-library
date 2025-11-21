@@ -335,3 +335,19 @@
 
   @return $radio;
 }
+
+@function getFormItemVar() {
+  $form-item: (
+    text-color: (
+      default: fn.getVarName(text-color, primary)
+    ),
+    font-size: (
+      default: fn.getVarName(font-size, default)
+    ),
+    size: (
+      default: fn.getVarName(component-size, default)
+    )
+  );
+
+  @return $form-item;
+}

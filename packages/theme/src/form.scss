@@ -1,12 +1,17 @@
 @use './common/mixins.scss';
+@use './common/componentVar.scss' as comVar;
+@use './common/function.scss' as fn;
 
 // 根元素
 @include mixins.b(form-item) {
+  // 混入组件的私有变量
+  @include mixins.set-component-var(form-item, comVar.getFormItemVar());
+
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  color: #555;
-  font-size: 14px;
+  color: var(#{fn.getVarName(form-item, text-color)});
+  font-size: var(#{fn.getVarName(form-item, font-size)});
 
   // 左侧 label 的容器
   @include mixins.e(label-wrapper) {
@@ -18,8 +23,8 @@
     @include mixins.e(label) {
       display: inline-block;
       width: 100%;
-      height: 32px;
-      line-height: 32px;
+      height: var(#{fn.getVarName(form-item, size)});
+      line-height: var(#{fn.getVarName(form-item, size)});
       white-space: nowrap;
     }
   }
