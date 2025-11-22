@@ -15,7 +15,7 @@
 
   // 左侧 label 的容器
   @include mixins.e(label-wrapper) {
-    width: 100px;
+    // width: 100px;
     padding-right: 8px;
     box-sizing: border-box;
 

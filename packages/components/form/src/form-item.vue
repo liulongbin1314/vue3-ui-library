@@ -2,8 +2,8 @@
   <!-- 根元素 -->
   <div :class="[ns.b()]">
     <!-- 左侧 label 的容器 -->
-    <div :class="[ns.e('label-wrapper')]">
-      <label for="" :class="[ns.e('label')]">描述文本</label>
+    <div :class="[ns.e('label-wrapper')]" :style="[styledWidth]" v-if="label">
+      <label for="" :class="[ns.e('label')]">{{ label }}</label>
     </div>
 
     <!-- 右侧 控件 的容器 -->
@@ -23,9 +23,20 @@ defineOptions({
   name: 'a-form-item'
 })
 
+defineProps({
+  label: String,
+  labelWidth: {
+    type: [String, Number],
+    default: 100
+  }
+})
+
 import { useNamespace } from '@ui-library/hooks'
+import { useFormItem } from './composables'
 
 const ns = useNamespace('form-item')
+
+const { styledWidth } = useFormItem()
 </script>
 
 <style scoped></style>
