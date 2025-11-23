@@ -1,8 +1,8 @@
 <template>
   <!-- 根元素 -->
-  <div :class="[ns.b()]">
+  <div :class="[ns.b(), ns.is('label-top', labelPosition === 'top')]">
     <!-- 左侧 label 的容器 -->
-    <div :class="[ns.e('label-wrapper')]" :style="[styledWidth]" v-if="label">
+    <div :class="[ns.e('label-wrapper')]" :style="[styledWidth, styledTextAlign]" v-if="label">
       <label for="" :class="[ns.e('label')]">{{ label }}</label>
     </div>
 
@@ -28,6 +28,11 @@ defineProps({
   labelWidth: {
     type: [String, Number],
     default: 100
+  },
+  labelPosition: {
+    type: String,
+    // left / right / top
+    default: 'right'
   }
 })
 
@@ -36,7 +41,7 @@ import { useFormItem } from './composables'
 
 const ns = useNamespace('form-item')
 
-const { styledWidth } = useFormItem()
+const { styledWidth, styledTextAlign } = useFormItem()
 </script>
 
 <style scoped></style>

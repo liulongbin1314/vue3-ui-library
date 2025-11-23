@@ -13,6 +13,12 @@
   color: var(#{fn.getVarName(form-item, text-color)});
   font-size: var(#{fn.getVarName(form-item, font-size)});
 
+  // label 在顶部进行对齐
+  @include mixins.s(label-top) {
+    flex-direction: column;
+    align-items: start;
+  }
+
   // 左侧 label 的容器
   @include mixins.e(label-wrapper) {
     // width: 100px;

@@ -31,5 +31,14 @@ export const useStyle = () => {
     return { height: targetValue }
   }
 
-  return { fontSize, color, width, height }
+  const textAlign = (value) => {
+    if (!value) return {}
+
+    const targetValue = { textAlign: 'left' }
+    value === 'right' && (targetValue.textAlign = 'right')
+
+    return targetValue
+  }
+
+  return { fontSize, color, width, height, textAlign }
 }

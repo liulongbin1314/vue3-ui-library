@@ -7,6 +7,7 @@ export const useFormItemState = () => {
   const uStyle = useStyle()
 
   const styledWidth = computed(() => uStyle.width(props.labelWidth))
+  const styledTextAlign = computed(() => uStyle.textAlign(props.labelPosition))
 
-  return { styledWidth }
+  return { styledWidth, styledTextAlign }
 }
