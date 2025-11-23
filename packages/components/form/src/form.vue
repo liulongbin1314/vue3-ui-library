@@ -1,5 +1,5 @@
 <template>
-  <div :class="[ns.b()]">
+  <div :class="[ns.b()]" :style="[styledWidth]">
     <!-- 表单项 -->
     <slot></slot>
   </div>
@@ -15,14 +15,17 @@ const props = defineProps({
     type: String,
     // left / right / top
     default: 'right'
-  }
+  },
+  width: [String, Number]
 })
 
-import { useNamespace } from '@ui-library/hooks'
-import { provide, toRefs } from 'vue'
+import { useNamespace, useStyle } from '@ui-library/hooks'
+import { provide, toRefs, computed } from 'vue'
 import { FORM_PROPS } from '../constant'
 
 const ns = useNamespace('form')
+const uStyle = useStyle()
+const styledWidth = computed(() => uStyle.width(props.width))
 
 provide(FORM_PROPS, { ...toRefs(props) })
 </script>
