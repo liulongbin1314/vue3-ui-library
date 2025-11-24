@@ -1,12 +1,12 @@
 <template>
   <p>基础用法</p>
 
-  <a-form label-position="right" width="400px">
-    <a-form-item label="姓名" label-width="120">
+  <a-form label-position="right" width="400px" label-width="100">
+    <a-form-item label="姓名">
       <a-input></a-input>
     </a-form-item>
 
-    <a-form-item label="手机号" label-width="120">
+    <a-form-item label="手机号">
       <a-input></a-input>
     </a-form-item>
   </a-form>

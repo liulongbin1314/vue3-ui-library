@@ -16,7 +16,11 @@ const props = defineProps({
     // left / right / top
     default: 'right'
   },
-  width: [String, Number]
+  width: [String, Number],
+  labelWidth: {
+    type: [String, Number],
+    default: 100
+  }
 })
 
 import { useNamespace, useStyle } from '@ui-library/hooks'

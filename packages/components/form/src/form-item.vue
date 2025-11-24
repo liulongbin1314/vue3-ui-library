@@ -25,10 +25,7 @@ defineOptions({
 
 defineProps({
   label: String,
-  labelWidth: {
-    type: [String, Number],
-    default: 100
-  },
+  labelWidth: [String, Number],
   labelPosition: String
 })
 
