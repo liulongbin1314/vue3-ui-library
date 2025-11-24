@@ -3,7 +3,7 @@
   <div :class="[ns.b(), ns.is('label-top', labelAlign === 'top')]">
     <!-- 左侧 label 的容器 -->
     <div :class="[ns.e('label-wrapper')]" :style="[styledWidth, styledTextAlign]" v-if="label">
-      <label for="" :class="[ns.e('label')]">{{ label }}</label>
+      <label :for="labelId" :class="[ns.e('label')]">{{ label }}</label>
     </div>
 
     <!-- 右侧 控件 的容器 -->
@@ -31,10 +31,14 @@ defineProps({
 
 import { useNamespace } from '@ui-library/hooks'
 import { useFormItem } from './composables'
+import { provide } from 'vue'
+import { FORM_ITEM_PROPS } from '../constant'
 
 const ns = useNamespace('form-item')
 
-const { styledWidth, styledTextAlign, labelAlign } = useFormItem()
+const { styledWidth, styledTextAlign, labelAlign, labelId } = useFormItem()
+
+provide(FORM_ITEM_PROPS, { labelId })
 </script>
 
 <style scoped></style>

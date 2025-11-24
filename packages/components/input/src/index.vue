@@ -32,6 +32,7 @@
         :disabled="disabled"
         :maxlength="maxLength"
         :value="modelValue"
+        :id="formItemProps?.labelId"
         ref="_inputRef"
         @focus="focusEvent"
         @blur="blurEvent"
@@ -119,8 +120,10 @@ import { useNamespace, useStyle, useEvent, useExpose } from '@ui-library/hooks'
 import { ref, computed, useSlots, provide, shallowRef } from 'vue'
 import { AIcon } from '@ui-library/components'
 import { Eye, EyeOff, XCircle } from '@ui-library/icons'
+import { useFormItem } from '@ui-library/components/form/src/composables'
 
 const ns = useNamespace('input')
+const { formItemProps } = useFormItem()
 
 const slots = useSlots()
 provide('groupSize', props.size)
