@@ -23,10 +23,14 @@ defineOptions({
   name: 'a-form-item'
 })
 
-defineProps({
+const props = defineProps({
   label: String,
   labelWidth: [String, Number],
-  labelPosition: String
+  labelPosition: String,
+  // prop 有两层含义：
+  // 1. 数据的名字
+  // 2. 校验规则的名字
+  prop: String
 })
 
 import { useNamespace } from '@ui-library/hooks'
@@ -36,7 +40,9 @@ import { FORM_ITEM_PROPS } from '../constant'
 
 const ns = useNamespace('form-item')
 
-const { styledWidth, styledTextAlign, labelAlign, labelId } = useFormItem()
+const { styledWidth, styledTextAlign, labelAlign, labelId, formProps } = useFormItem()
+
+// console.log(`key 是：${props.prop}，Value 是：${formProps?.model.value[props.prop]}`)
 
 provide(FORM_ITEM_PROPS, { labelId })
 </script>

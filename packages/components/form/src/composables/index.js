@@ -8,5 +8,5 @@ export const useFormItem = () => {
 
   const state = useFormItemState({ formProps })
 
-  return { ...state, formItemProps }
+  return { ...state, formItemProps, formProps }
 }

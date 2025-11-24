@@ -1,18 +1,23 @@
 <template>
   <p>基础用法</p>
 
-  <a-form label-position="right" width="400px" label-width="100">
-    <a-form-item label="姓名">
+  <!-- model 是表单的数据源 -->
+  <a-form :model="formData" label-position="right" width="400px" label-width="100">
+    <a-form-item label="姓名" prop="name">
       <a-input></a-input>
     </a-form-item>
 
-    <a-form-item label="手机号">
+    <a-form-item label="手机号" prop="phone">
       <a-input></a-input>
     </a-form-item>
   </a-form>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+
+const formData = { name: 'zs', phone: '13800000001' }
+</script>
 
 <script>
 // import Schema from 'async-validator'

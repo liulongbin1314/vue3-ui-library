@@ -20,6 +20,11 @@ const props = defineProps({
   labelWidth: {
     type: [String, Number],
     default: 100
+  },
+  // 表单的数据源
+  model: {
+    type: Object,
+    default: () => ({})
   }
 })
 
