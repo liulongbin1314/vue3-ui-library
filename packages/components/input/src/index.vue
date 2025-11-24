@@ -117,7 +117,7 @@ const emit = defineEmits([
 ])
 
 import { useNamespace, useStyle, useEvent, useExpose } from '@ui-library/hooks'
-import { ref, computed, useSlots, provide, shallowRef } from 'vue'
+import { ref, computed, useSlots, provide, shallowRef, watch } from 'vue'
 import { AIcon } from '@ui-library/components'
 import { Eye, EyeOff, XCircle } from '@ui-library/icons'
 import { useFormItem } from '@ui-library/components/form/src/composables'
@@ -144,8 +144,17 @@ const {
   compositionupdateEvent,
   compositionendEvent,
   isComposition
-} = useEvent()
+} = useEvent({
+  afterBlur: () => formItemProps?.validate && formItemProps.validate('blur')
+})
 const { focusExpose, selectExpose } = useExpose(_inputRef)
+
+watch(
+  () => modelValue.value,
+  () => {
+    formItemProps?.validate && formItemProps.validate('change')
+  }
+)
 
 const styledWidth = uStyle.width(props.width)
 

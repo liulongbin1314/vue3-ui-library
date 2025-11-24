@@ -44,7 +44,14 @@ const { styledWidth, styledTextAlign, labelAlign, labelId, formProps } = useForm
 
 // console.log(`key 是：${props.prop}，Value 是：${formProps?.model.value[props.prop]}`)
 
-provide(FORM_ITEM_PROPS, { labelId })
+// 把此函数，通过 provide 向下提供
+// 在子组件中，可以调用此函数，对自身的数据进行校验
+// 形参中的 trigger 是触发校验的时机
+const validate = (trigger) => {
+  console.log(trigger)
+}
+
+provide(FORM_ITEM_PROPS, { labelId, validate })
 </script>
 
 <style scoped></style>
