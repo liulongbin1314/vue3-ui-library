@@ -23,6 +23,9 @@ importers:
       '@ui-library/utils':
         specifier: workspace:^
         version: link:packages/utils
+      async-validator:
+        specifier: ^4.2.5
+        version: 4.2.5
       vue:
         specifier: ^3.5.21
         version: 3.5.21
@@ -484,6 +487,9 @@ packages:
 
   '@vue/shared@3.5.21':
     resolution: {integrity: sha512-+2k1EQpnYuVuu3N7atWyG3/xoFWIVJZq4Mz8XNOdScFI0etES75fbny/oU4lKWk/577P1zmg0ioYvpGEDZ3DLw==}
+
+  async-validator@4.2.5:
+    resolution: {integrity: sha512-7HhHjtERjqlNbZtqNqy2rckN/SpOOlmDliet+lP7k+eKZEjPk3DgyeU9lIXLdeLz0uBbbVp+9Qdow9wJWgwwfg==}
 
   braces@3.0.3:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
@@ -1085,6 +1091,8 @@ snapshots:
       vue: 3.5.21
 
   '@vue/shared@3.5.21': {}
+
+  async-validator@4.2.5: {}
 
   braces@3.0.3:
     dependencies:
