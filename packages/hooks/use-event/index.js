@@ -1,6 +1,6 @@
 import { ref, getCurrentInstance } from 'vue'
 
-export const useEvent = (options) => {
+export const useEvent = (options = {}) => {
   const isFocus = ref(false)
   const isEnter = ref(false)
   // 是否正在组合文字
@@ -15,7 +15,7 @@ export const useEvent = (options) => {
   const blurEvent = (e) => {
     isFocus.value = false
     emit('blur', e)
-    options?.afterBlur()
+    options.afterBlur?.()
   }
 
   const mouseenterEvent = (e) => {

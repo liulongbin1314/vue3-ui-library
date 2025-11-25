@@ -3,7 +3,7 @@
 
   <!-- model 是表单的数据源 -->
   <a-form :model="formData" label-position="right" width="400px" label-width="100">
-    <a-form-item label="姓名" prop="name">
+    <a-form-item label="姓名" prop="name" :rules="nameRules">
       <a-input></a-input>
     </a-form-item>
 
@@ -17,6 +17,22 @@
 import { ref } from 'vue'
 
 const formData = { name: 'zs', phone: '13800000001' }
+
+// 姓名的校验规则
+// trigger: 'blur'
+// trigger: ['blur', 'change']
+// 省略 trigger
+// const nameRules = {
+//   type: 'string',
+//   required: true,
+//   message: '姓名不能为空！',
+//   trigger: ['blur', 'change']
+// }
+
+const nameRules = [
+  { type: 'string', required: true, message: '姓名不能为空！', trigger: 'blur' },
+  { min: 2, max: 5, message: '姓名的长度必须在2-5个字符之间！', trigger: 'change' }
+]
 </script>
 
 <script>

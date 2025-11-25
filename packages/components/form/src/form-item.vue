@@ -30,7 +30,11 @@ const props = defineProps({
   // prop 有两层含义：
   // 1. 数据的名字
   // 2. 校验规则的名字
-  prop: String
+  prop: String,
+  rules: {
+    type: [Object, Array],
+    default: () => []
+  }
 })
 
 import { useNamespace } from '@ui-library/hooks'
@@ -40,15 +44,17 @@ import { FORM_ITEM_PROPS } from '../constant'
 
 const ns = useNamespace('form-item')
 
-const { styledWidth, styledTextAlign, labelAlign, labelId, formProps } = useFormItem()
+const { styledWidth, styledTextAlign, labelAlign, labelId, filterRules } = useFormItem()
 
 // console.log(`key 是：${props.prop}，Value 是：${formProps?.model.value[props.prop]}`)
 
 // 把此函数，通过 provide 向下提供
 // 在子组件中，可以调用此函数，对自身的数据进行校验
 // 形参中的 trigger 是触发校验的时机
+// blur change
 const validate = (trigger) => {
-  console.log(trigger)
+  const rules = filterRules(trigger)
+  console.log(rules)
 }
 
 provide(FORM_ITEM_PROPS, { labelId, validate })
