@@ -25,6 +25,10 @@ const props = defineProps({
   model: {
     type: Object,
     default: () => ({})
+  },
+  rules: {
+    type: Object,
+    default: () => ({})
   }
 })
 

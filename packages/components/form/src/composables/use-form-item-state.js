@@ -12,11 +12,19 @@ export const useFormItemState = ({ formProps }) => {
   const styledTextAlign = computed(() => uStyle.textAlign(labelAlign.value))
 
   const convertToArray = (rules) => {
+    if (!rules) return []
     if (Array.isArray(rules)) return rules
     return [rules]
   }
 
-  const initRules = computed(() => convertToArray(props.rules))
+  const initRules = computed(() => {
+    // FormItem 自己的校验规则
+    const itemRules = convertToArray(props.rules)
+    // 从 Form 组件上继承的校验规则
+    const formRules = convertToArray(formProps?.rules.value[props.prop])
+    // 对两个校验规则进行合并
+    return [...itemRules, ...formRules]
+  })
 
   const filterRules = (trigger) => {
     return initRules.value.filter((item) => {
