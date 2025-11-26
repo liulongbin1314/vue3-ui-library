@@ -13,7 +13,7 @@
         <slot></slot>
       </div>
       <!-- 错误消息 -->
-      <div :class="[ns.e('message')]">错误消息</div>
+      <div :class="[ns.e('message')]">{{ errorMessage }}</div>
     </div>
   </div>
 </template>
@@ -41,10 +41,12 @@ import { useNamespace } from '@ui-library/hooks'
 import { useFormItem } from './composables'
 import { provide } from 'vue'
 import { FORM_ITEM_PROPS } from '../constant'
+import Schema from 'async-validator'
 
 const ns = useNamespace('form-item')
 
-const { styledWidth, styledTextAlign, labelAlign, labelId, filterRules } = useFormItem()
+const { styledWidth, styledTextAlign, labelAlign, labelId, filterRules, formProps, errorMessage } =
+  useFormItem()
 
 // console.log(`key 是：${props.prop}，Value 是：${formProps?.model.value[props.prop]}`)
 
@@ -53,8 +55,28 @@ const { styledWidth, styledTextAlign, labelAlign, labelId, filterRules } = useFo
 // 形参中的 trigger 是触发校验的时机
 // blur change
 const validate = (trigger) => {
+  // 1. 准备校验规则
   const rules = filterRules(trigger)
-  console.log(rules)
+  const validateRules = { [props.prop]: rules }
+  // 2. 准备要校验的数据
+  const data = formProps?.model.value[props.prop]
+  const validateData = { [props.prop]: data }
+  // 3. 创建校验器
+  const validator = new Schema(validateRules)
+  // 4. 执行校验
+  const asyncResult = validator.validate(validateData, { firstFields: true })
+  asyncResult.then(successHandler).catch(failedHandler)
+}
+
+const successHandler = () => {
+  console.log('校验通过！')
+  errorMessage.value = ''
+}
+
+const failedHandler = ({ errors }) => {
+  console.log('校验失败！')
+  console.log(errors)
+  errorMessage.value = errors?.[0].message
 }
 
 provide(FORM_ITEM_PROPS, { labelId, validate })

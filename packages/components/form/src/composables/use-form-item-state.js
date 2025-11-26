@@ -1,5 +1,5 @@
 import { useStyle } from '@ui-library/hooks'
-import { computed, getCurrentInstance, useId } from 'vue'
+import { computed, getCurrentInstance, useId, ref } from 'vue'
 
 export const useFormItemState = ({ formProps }) => {
   const instance = getCurrentInstance()
@@ -10,6 +10,7 @@ export const useFormItemState = ({ formProps }) => {
   const styledWidth = computed(() => uStyle.width(props.labelWidth || formProps?.labelWidth.value))
   const labelAlign = computed(() => props.labelPosition || formProps?.labelPosition.value)
   const styledTextAlign = computed(() => uStyle.textAlign(labelAlign.value))
+  const errorMessage = ref('')
 
   const convertToArray = (rules) => {
     if (!rules) return []
@@ -41,5 +42,5 @@ export const useFormItemState = ({ formProps }) => {
     })
   }
 
-  return { styledWidth, styledTextAlign, labelAlign, labelId, filterRules }
+  return { styledWidth, styledTextAlign, labelAlign, labelId, filterRules, errorMessage }
 }

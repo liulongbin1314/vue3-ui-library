@@ -10,11 +10,11 @@
     label-width="100"
   >
     <a-form-item label="姓名" prop="name" :rules="nameRules">
-      <a-input></a-input>
+      <a-input v-model="formData.name"></a-input>
     </a-form-item>
 
     <a-form-item label="手机号" prop="phone">
-      <a-input></a-input>
+      <a-input v-model="formData.phone"></a-input>
     </a-form-item>
   </a-form>
 </template>
@@ -22,7 +22,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const formData = { name: 'zs', phone: '13800000001' }
+const formData = ref({ name: 'zs', phone: '13800000001' })
 
 // 姓名的校验规则
 // trigger: 'blur'
