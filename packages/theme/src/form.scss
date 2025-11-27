@@ -53,3 +53,15 @@
     }
   }
 }
+
+// 定义入场和离场期间的过渡效果
+.a-error-fade-enter-active,
+.a-error-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+// 指定入场动画的起始状态和离场动画的终止状态
+.a-error-fade-enter-from,
+.a-error-fade-leave-to {
+  opacity: 0;
+}

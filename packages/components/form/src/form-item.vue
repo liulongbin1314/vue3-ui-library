@@ -13,7 +13,9 @@
         <slot></slot>
       </div>
       <!-- 错误消息 -->
-      <div :class="[ns.e('message')]">{{ errorMessage }}</div>
+      <transition name="a-error-fade">
+        <div :class="[ns.e('message')]" v-if="isInvalid">{{ errorMessage }}</div>
+      </transition>
     </div>
   </div>
 </template>
@@ -45,8 +47,16 @@ import Schema from 'async-validator'
 
 const ns = useNamespace('form-item')
 
-const { styledWidth, styledTextAlign, labelAlign, labelId, filterRules, formProps, errorMessage } =
-  useFormItem()
+const {
+  styledWidth,
+  styledTextAlign,
+  labelAlign,
+  labelId,
+  filterRules,
+  formProps,
+  errorMessage,
+  isInvalid
+} = useFormItem()
 
 // console.log(`key 是：${props.prop}，Value 是：${formProps?.model.value[props.prop]}`)
 

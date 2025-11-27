@@ -10,7 +10,10 @@ export const useFormItemState = ({ formProps }) => {
   const styledWidth = computed(() => uStyle.width(props.labelWidth || formProps?.labelWidth.value))
   const labelAlign = computed(() => props.labelPosition || formProps?.labelPosition.value)
   const styledTextAlign = computed(() => uStyle.textAlign(labelAlign.value))
+  // 校验失败时候的错误消息
   const errorMessage = ref('')
+  // 是否校验失败了
+  const isInvalid = computed(() => errorMessage.value.length !== 0)
 
   const convertToArray = (rules) => {
     if (!rules) return []
@@ -42,5 +45,5 @@ export const useFormItemState = ({ formProps }) => {
     })
   }
 
-  return { styledWidth, styledTextAlign, labelAlign, labelId, filterRules, errorMessage }
+  return { styledWidth, styledTextAlign, labelAlign, labelId, filterRules, errorMessage, isInvalid }
 }
