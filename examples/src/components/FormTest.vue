@@ -5,6 +5,7 @@
   <a-form
     :model="formData"
     :rules="formRules"
+    ref="formRef"
     label-position="right"
     width="400px"
     label-width="100"
@@ -16,24 +17,19 @@
     <a-form-item label="手机号" prop="phone">
       <a-input v-model="formData.phone"></a-input>
     </a-form-item>
+
+    <a-form-item label=" ">
+      <a-button style="margin-right: 15px">重置</a-button>
+      <a-button type="primary" @click="submit">提交</a-button>
+    </a-form-item>
   </a-form>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, shallowRef } from 'vue'
 
 const formData = ref({ name: 'zs', phone: '13800000001' })
-
-// 姓名的校验规则
-// trigger: 'blur'
-// trigger: ['blur', 'change']
-// 省略 trigger
-// const nameRules = {
-//   type: 'string',
-//   required: true,
-//   message: '姓名不能为空！',
-//   trigger: ['blur', 'change']
-// }
+const formRef = shallowRef(null)
 
 const nameRules = [
   { type: 'string', required: true, message: '姓名不能为空！', trigger: 'blur' },
@@ -42,7 +38,18 @@ const nameRules = [
 
 const formRules = {
   name: { pattern: /^[a-z]{2,5}$/, message: '姓名必须是2-5位的小写字母', trigger: 'blur' },
-  phone: { type: 'string', required: true, message: '手机号不能为空！', trigger: 'blur' }
+  phone: [
+    { type: 'string', required: true, message: '手机号不能为空！', trigger: 'blur' },
+    { pattern: /^1[3-9]\d{9}$/, message: '手机号格式不正确！', trigger: 'change' }
+  ]
+}
+
+// 点击提交按钮，触发 submit 函数
+const submit = () => {
+  formRef.value.validate((valid) => {
+    if (!valid) return console.log('整个表单中的数据校验失败了！')
+    console.log('整个表单中的数据校验通过了！', formData.value)
+  })
 }
 </script>
 

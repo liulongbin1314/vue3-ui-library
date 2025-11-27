@@ -41,6 +41,14 @@ const uStyle = useStyle()
 const styledWidth = computed(() => uStyle.width(props.width))
 
 provide(FORM_PROPS, { ...toRefs(props) })
+
+const validate = (cb) => {
+  console.log('触发了 Form 组件的 validate 函数！')
+}
+
+defineExpose({
+  validate
+})
 </script>
 
 <style scoped></style>
