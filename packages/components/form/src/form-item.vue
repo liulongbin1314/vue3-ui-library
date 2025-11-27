@@ -41,7 +41,7 @@ const props = defineProps({
 
 import { useNamespace } from '@ui-library/hooks'
 import { useFormItem } from './composables'
-import { provide } from 'vue'
+import { provide, onMounted } from 'vue'
 import { FORM_ITEM_PROPS } from '../constant'
 import Schema from 'async-validator'
 
@@ -90,6 +90,9 @@ const failedHandler = ({ errors }) => {
 }
 
 provide(FORM_ITEM_PROPS, { labelId, validate })
+
+// { prop: 字段的名字, validate: 校验函数 }
+onMounted(() => props.prop && formProps?.pushField({ prop: props.prop, validate }))
 </script>
 
 <style scoped></style>
