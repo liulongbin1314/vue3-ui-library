@@ -47,9 +47,21 @@ const pushField = (ctx) => modelFields.push(ctx)
 provide(FORM_PROPS, { ...toRefs(props), pushField })
 
 // 此函数，用于对整个表单中的数据进行合法性校验
-const validate = (cb) => {
+const validate = async (cb) => {
   console.log('触发了 Form 组件的 validate 函数！')
-  console.log(modelFields)
+
+  const fieldsError = []
+  for (const item of modelFields) {
+    try {
+      await item.validate()
+    } catch (err) {
+      fieldsError.push(err)
+    }
+  }
+
+  if (cb && typeof cb === 'function') {
+    cb(fieldsError.length === 0, fieldsError)
+  }
 }
 
 defineExpose({

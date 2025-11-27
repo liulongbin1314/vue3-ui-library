@@ -28,7 +28,7 @@
 <script setup>
 import { ref, shallowRef } from 'vue'
 
-const formData = ref({ name: 'zs', phone: '13800000001' })
+const formData = ref({ name: 'z', phone: '1380000000' })
 const formRef = shallowRef(null)
 
 const nameRules = [
@@ -46,7 +46,8 @@ const formRules = {
 
 // 点击提交按钮，触发 submit 函数
 const submit = () => {
-  formRef.value.validate((valid) => {
+  formRef.value.validate((valid, errors) => {
+    console.log(valid, errors)
     if (!valid) return console.log('整个表单中的数据校验失败了！')
     console.log('整个表单中的数据校验通过了！', formData.value)
   })

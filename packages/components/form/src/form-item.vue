@@ -64,7 +64,7 @@ const {
 // 在子组件中，可以调用此函数，对自身的数据进行校验
 // 形参中的 trigger 是触发校验的时机
 // blur change
-const validate = (trigger) => {
+const validate = async (trigger) => {
   // 1. 准备校验规则
   const rules = filterRules(trigger)
   const validateRules = { [props.prop]: rules }
@@ -75,18 +75,20 @@ const validate = (trigger) => {
   const validator = new Schema(validateRules)
   // 4. 执行校验
   const asyncResult = validator.validate(validateData, { firstFields: true })
-  asyncResult.then(successHandler).catch(failedHandler)
+  return asyncResult.then(successHandler).catch(failedHandler)
 }
 
 const successHandler = () => {
   console.log('校验通过！')
   errorMessage.value = ''
+  return Promise.resolve()
 }
 
 const failedHandler = ({ errors }) => {
   console.log('校验失败！')
   console.log(errors)
   errorMessage.value = errors?.[0].message
+  return Promise.reject(errors)
 }
 
 provide(FORM_ITEM_PROPS, { labelId, validate })
