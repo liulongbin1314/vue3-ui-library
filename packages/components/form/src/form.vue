@@ -47,11 +47,11 @@ const pushField = (ctx) => modelFields.push(ctx)
 provide(FORM_PROPS, { ...toRefs(props), pushField })
 
 // 此函数，用于对整个表单中的数据进行合法性校验
-const validate = async (cb) => {
+const _validate = async (fields, cb) => {
   console.log('触发了 Form 组件的 validate 函数！')
 
   const fieldsError = []
-  for (const item of modelFields) {
+  for (const item of fields) {
     try {
       await item.validate()
     } catch (err) {
@@ -62,13 +62,22 @@ const validate = async (cb) => {
   if (cb && typeof cb === 'function') {
     cb(fieldsError.length === 0, fieldsError)
   } else {
-    if (fieldsError.length === 0) return Promise.resolve(true)
+    if (fieldsError.length === 0) return Promise.resolve(props.model)
     return Promise.reject(fieldsError)
   }
 }
 
+// 校验指定的字段，其中，形参中的 fields 是一个字段名字的数组，例如：
+// ['name', 'phone']
+const validateFields = (fields, cb) => {
+  if (!Array.isArray(fields)) return _validate(modelFields, cb)
+  const arr = modelFields.filter((item) => fields.includes(item.prop))
+  return _validate(arr, cb)
+}
+
 defineExpose({
-  validate
+  validate: (cb) => _validate(modelFields, cb),
+  validateFields
 })
 </script>
 

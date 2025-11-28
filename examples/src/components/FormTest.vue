@@ -52,13 +52,29 @@ const submit = () => {
   //   console.log('整个表单中的数据校验通过了！', formData.value)
   // })
 
+  // formRef.value
+  //   .validate()
+  //   .then((data) => {
+  //     console.log('表单校验通过：', data)
+  //   })
+  //   .catch((errors) => {
+  //     console.log('表单校验失败：', errors)
+  //   })
+
+  // formRef.value.validateFields(['name', 'phone'], (valid, errors) => {
+  //   console.log(valid, errors)
+
+  //   if (!valid) return console.log('校验失败！')
+  //   console.log('校验成功！')
+  // })
+
   formRef.value
-    .validate()
-    .then((valid) => {
-      console.log('表单校验通过：', valid)
+    .validateFields(['name', 'phone'])
+    .then((data) => {
+      console.log('成功：', data)
     })
     .catch((errors) => {
-      console.log('表单校验失败：', errors)
+      console.log('失败：', errors)
     })
 }
 </script>
