@@ -75,9 +75,21 @@ const validateFields = (fields, cb) => {
   return _validate(arr, cb)
 }
 
+const reset = (fields) => {
+  if (Array.isArray(fields)) {
+    // 重置指定的表单项
+    const arr = modelFields.filter((item) => fields.includes(item.prop))
+    arr.forEach((item) => item.resetField())
+  } else {
+    // 重置所有表单项
+    modelFields.forEach((item) => item.resetField())
+  }
+}
+
 defineExpose({
   validate: (cb) => _validate(modelFields, cb),
-  validateFields
+  validateFields,
+  reset
 })
 </script>
 

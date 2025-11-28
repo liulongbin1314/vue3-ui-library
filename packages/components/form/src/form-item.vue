@@ -93,8 +93,25 @@ const failedHandler = ({ errors }) => {
 
 provide(FORM_ITEM_PROPS, { labelId, validate })
 
+// 存储当前表单项的初始值
+let initValue = null
+// 重置当前表单项的值和校验的结果
+const resetField = () => {
+  if (props.prop && formProps) {
+    // 给当前表单项重置为初始值
+    formProps.model.value[props.prop] = initValue
+    // 重置错误消息
+    setTimeout(() => (errorMessage.value = ''))
+  }
+}
+
 // { prop: 字段的名字, validate: 校验函数 }
-onMounted(() => props.prop && formProps?.pushField({ prop: props.prop, validate }))
+onMounted(() => props.prop && formProps?.pushField({ prop: props.prop, validate, resetField }))
+onMounted(() => {
+  if (props.prop) {
+    initValue = formProps?.model.value[props.prop]
+  }
+})
 </script>
 
 <style scoped></style>

@@ -19,7 +19,7 @@
     </a-form-item>
 
     <a-form-item label=" ">
-      <a-button style="margin-right: 15px">重置</a-button>
+      <a-button style="margin-right: 15px" @click="formRef.reset()">重置</a-button>
       <a-button type="primary" @click="submit">提交</a-button>
     </a-form-item>
   </a-form>
