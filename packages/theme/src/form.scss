@@ -19,6 +19,20 @@
     align-items: start;
   }
 
+  // 渲染必填项标识
+  @include mixins.s(required) {
+    // 描述文本
+    @include mixins.e(label, false) {
+      &::before {
+        content: '*';
+        color: red;
+        position: relative;
+        top: 2px;
+        right: 2px;
+      }
+    }
+  }
+
   // 左侧 label 的容器
   @include mixins.e(label-wrapper) {
     // width: 100px;

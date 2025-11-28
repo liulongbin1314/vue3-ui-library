@@ -14,6 +14,7 @@ export const useFormItemState = ({ formProps }) => {
   const errorMessage = ref('')
   // 是否校验失败了
   const isInvalid = computed(() => errorMessage.value.length !== 0)
+  const isRequired = computed(() => initRules.value.some((item) => item.required))
 
   const convertToArray = (rules) => {
     if (!rules) return []
@@ -21,6 +22,7 @@ export const useFormItemState = ({ formProps }) => {
     return [rules]
   }
 
+  // 当前表单项的所有的校验规则
   const initRules = computed(() => {
     // FormItem 自己的校验规则
     const itemRules = convertToArray(props.rules)
@@ -45,5 +47,14 @@ export const useFormItemState = ({ formProps }) => {
     })
   }
 
-  return { styledWidth, styledTextAlign, labelAlign, labelId, filterRules, errorMessage, isInvalid }
+  return {
+    styledWidth,
+    styledTextAlign,
+    labelAlign,
+    labelId,
+    filterRules,
+    errorMessage,
+    isInvalid,
+    isRequired
+  }
 }
