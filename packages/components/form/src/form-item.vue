@@ -1,6 +1,13 @@
 <template>
   <!-- 根元素 -->
-  <div :class="[ns.b(), ns.is('label-top', labelAlign === 'top'), ns.is('required', isRequired)]">
+  <div
+    :class="[
+      ns.b(),
+      ns.is('label-top', labelAlign === 'top'),
+      ns.is('required', isRequired),
+      ns.m('size', size)
+    ]"
+  >
     <!-- 左侧 label 的容器 -->
     <div :class="[ns.e('label-wrapper')]" :style="[styledWidth, styledTextAlign]" v-if="label">
       <label :for="labelId" :class="[ns.e('label')]">{{ label }}</label>
@@ -56,7 +63,8 @@ const {
   formProps,
   errorMessage,
   isInvalid,
-  isRequired
+  isRequired,
+  size
 } = useFormItem()
 
 // console.log(`key 是：${props.prop}，Value 是：${formProps?.model.value[props.prop]}`)

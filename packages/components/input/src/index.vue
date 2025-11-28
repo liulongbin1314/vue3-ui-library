@@ -4,7 +4,7 @@
       ns.b(),
       ns.is('focus', isFocus),
       ns.is('disabled', disabled),
-      ns.m('size', size),
+      ns.m('size', _size),
       ns.is('round', round)
     ]"
     :style="[styledWidth]"
@@ -80,10 +80,7 @@ const props = defineProps({
     default: '请输入内容'
   },
   maxLength: [String, Number],
-  size: {
-    type: String,
-    default: 'default'
-  },
+  size: String,
   round: Boolean,
   // 前缀图标
   prefixIcon: [String, Object],
@@ -123,10 +120,11 @@ import { Eye, EyeOff, XCircle } from '@ui-library/icons'
 import { useFormItem } from '@ui-library/components/form/src/composables'
 
 const ns = useNamespace('input')
-const { formItemProps } = useFormItem()
+const { formItemProps, formProps } = useFormItem()
 
 const slots = useSlots()
-provide('groupSize', props.size)
+const _size = computed(() => props.size || formProps?.size.value || 'default')
+provide('groupSize', _size)
 const modelValue = defineModel({ default: '' })
 const _inputRef = shallowRef(null)
 const uStyle = useStyle()

@@ -15,6 +15,7 @@ export const useFormItemState = ({ formProps }) => {
   // 是否校验失败了
   const isInvalid = computed(() => errorMessage.value.length !== 0)
   const isRequired = computed(() => initRules.value.some((item) => item.required))
+  const size = computed(() => formProps?.size.value || 'default')
 
   const convertToArray = (rules) => {
     if (!rules) return []
@@ -55,6 +56,7 @@ export const useFormItemState = ({ formProps }) => {
     filterRules,
     errorMessage,
     isInvalid,
-    isRequired
+    isRequired,
+    size
   }
 }

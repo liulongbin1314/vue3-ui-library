@@ -29,6 +29,10 @@ const props = defineProps({
   rules: {
     type: Object,
     default: () => ({})
+  },
+  size: {
+    type: String,
+    default: 'default'
   }
 })
 

@@ -9,6 +9,7 @@
     label-position="right"
     width="400px"
     label-width="100"
+    size="small"
   >
     <a-form-item label="姓名" prop="name" :rules="nameRules">
       <a-input v-model="formData.name"></a-input>

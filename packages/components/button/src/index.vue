@@ -57,10 +57,7 @@ const props = defineProps({
   border: Boolean,
   dashed: Boolean,
   block: Boolean,
-  size: {
-    type: String,
-    default: 'default'
-  },
+  size: String,
   circle: Boolean,
   // 是普通按钮的前置图标、圆形按钮的图标
   icon: String,
@@ -71,18 +68,21 @@ const props = defineProps({
 })
 
 import { useNamespace } from '@ui-library/hooks'
-import { ref, inject } from 'vue'
+import { ref, inject, computed } from 'vue'
+import { useFormItem } from '@ui-library/components/form/src/composables'
 // 今后在每个组件中，调用 useNamespace 这个 Hook 的时候，
 // 必须传入一个块的名字，否则这个 Hook 无法正常工作
 const ns = useNamespace('button')
+const { formProps } = useFormItem()
 // 内部的 loading 状态
 const _loading = ref(false)
 // 接收父组件传入的 isGroup 数据，来判断当前按钮是否属于按钮组
 const _isGroup = inject('isGroup', false)
 // 接收父组件向下传入的数据
-const _groupSize = inject('groupSize', 'default')
+const _groupSize = inject('groupSize')
 // _size 是计算出来的最终的 size 尺寸
-const _size = props.size === 'default' ? _groupSize : props.size
+// const _size = props.size === 'default' ? _groupSize : props.size
+const _size = computed(() => props.size || _groupSize || formProps?.size.value || 'default')
 
 // console.log('组件的命名空间是：' + ns.namespace)
 // console.log('Button 组件的块类名是：' + ns.b('wrap'))

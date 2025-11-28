@@ -1,6 +1,7 @@
 @use './common/mixins.scss';
 @use './common/componentVar.scss' as comVar;
 @use './common/function.scss' as fn;
+@use './common/var.scss';
 
 // 根元素
 @include mixins.b(form-item) {
@@ -65,6 +66,14 @@
       font-size: 12px;
       color: red;
     }
+  }
+}
+
+// 循环覆盖 size 的变量值
+@each $s in var.$sizes {
+  @include mixins.m(size, $s) {
+    // 变量的覆盖
+    #{fn.getVarName(form-item, font-size)}: var(#{fn.getVarName(font-size, $s)});
   }
 }
 
