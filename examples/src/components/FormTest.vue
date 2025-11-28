@@ -46,11 +46,20 @@ const formRules = {
 
 // 点击提交按钮，触发 submit 函数
 const submit = () => {
-  formRef.value.validate((valid, errors) => {
-    console.log(valid, errors)
-    if (!valid) return console.log('整个表单中的数据校验失败了！')
-    console.log('整个表单中的数据校验通过了！', formData.value)
-  })
+  // formRef.value.validate((valid, errors) => {
+  //   console.log(valid, errors)
+  //   if (!valid) return console.log('整个表单中的数据校验失败了！')
+  //   console.log('整个表单中的数据校验通过了！', formData.value)
+  // })
+
+  formRef.value
+    .validate()
+    .then((valid) => {
+      console.log('表单校验通过：', valid)
+    })
+    .catch((errors) => {
+      console.log('表单校验失败：', errors)
+    })
 }
 </script>
 

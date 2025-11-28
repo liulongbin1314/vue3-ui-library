@@ -61,6 +61,9 @@ const validate = async (cb) => {
 
   if (cb && typeof cb === 'function') {
     cb(fieldsError.length === 0, fieldsError)
+  } else {
+    if (fieldsError.length === 0) return Promise.resolve(true)
+    return Promise.reject(fieldsError)
   }
 }
 
