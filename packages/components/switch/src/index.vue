@@ -4,7 +4,7 @@
     :is="tag"
     :class="[
       ns.b(),
-      ns.m('size', size),
+      ns.m('size', _size),
       ns.is('checked', model),
       ns.m(type),
       ns.is('disabled', disabled || isLoading)
@@ -60,10 +60,7 @@ const props = defineProps({
     type: String,
     default: 'label'
   },
-  size: {
-    type: String,
-    default: 'default'
-  },
+  size: String,
   transition: {
     type: String,
     default: 'scale' // slide
@@ -98,26 +95,40 @@ defineEmits(['change'])
 
 const switchModel = defineModel({ type: [String, Number, Boolean], default: false })
 
+import { useNamespace } from '@ui-library/hooks'
+import { useSwitch } from './composables'
+import { computed, watch, ref } from 'vue'
+import { AIcon } from '@ui-library/components'
+import { Loader } from '@ui-library/icons'
+import { useFormItem } from '@ui-library/components/form/src/composables'
+
+const ns = useNamespace('switch')
+const { formProps, formItemProps } = useFormItem()
+const { model, isLoading, clickEvent } = useSwitch({ switchModel })
+const _size = computed(() => props.size || formProps?.size.value || 'default')
+const isFirst = ref(false)
+
 if (switchModel.value === true && props.activeValue !== false) {
   switchModel.value = props.activeValue
+  isFirst.value = true
 }
 if (switchModel.value === false && props.inactiveValue !== false) {
   switchModel.value = props.inactiveValue
+  isFirst.value = true
 }
-
-import { useNamespace } from '@ui-library/hooks'
-import { useSwitch } from './composables'
-import { computed } from 'vue'
-import { AIcon } from '@ui-library/components'
-import { Loader } from '@ui-library/icons'
-
-const ns = useNamespace('switch')
-const { model, isLoading, clickEvent } = useSwitch({ switchModel })
 
 const transitionMode = computed(() => {
   // transition-slide
   return `transition-${props.transition}`
 })
+
+watch(
+  () => switchModel.value,
+  () => {
+    if (isFirst.value) return (isFirst.value = false)
+    formItemProps?.validate('change')
+  }
+)
 </script>
 
 <style scoped></style>

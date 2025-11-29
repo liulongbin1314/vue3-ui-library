@@ -79,7 +79,7 @@ const _loading = ref(false)
 // 接收父组件传入的 isGroup 数据，来判断当前按钮是否属于按钮组
 const _isGroup = inject('isGroup', false)
 // 接收父组件向下传入的数据
-const _groupSize = inject('groupSize')
+const _groupSize = inject('groupSize', undefined)
 // _size 是计算出来的最终的 size 尺寸
 // const _size = props.size === 'default' ? _groupSize : props.size
 const _size = computed(() => props.size || _groupSize || formProps?.size.value || 'default')
