@@ -100,7 +100,7 @@ const failedHandler = ({ errors }) => {
   return Promise.reject(errors)
 }
 
-provide(FORM_ITEM_PROPS, { labelId, validate })
+provide(FORM_ITEM_PROPS, { labelId, validate, isInvalid })
 
 // 存储当前表单项的初始值
 let initValue = null

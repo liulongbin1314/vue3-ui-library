@@ -5,7 +5,8 @@
       ns.is('focus', isFocus),
       ns.is('disabled', disabled),
       ns.m('size', _size),
-      ns.is('round', round)
+      ns.is('round', round),
+      ns.is('invalid', formItemProps?.isInvalid.value)
     ]"
     :style="[styledWidth]"
     @mouseenter="mouseenterEvent"

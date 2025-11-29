@@ -74,6 +74,7 @@
   @include mixins.m(size, $s) {
     // 变量的覆盖
     #{fn.getVarName(form-item, font-size)}: var(#{fn.getVarName(font-size, $s)});
+    #{fn.getVarName(form-item, size)}: var(#{fn.getVarName(component-size, $s)});
   }
 }
 

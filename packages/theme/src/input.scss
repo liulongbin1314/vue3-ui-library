@@ -21,6 +21,11 @@
     #{fn.getVarName(input, border-color)}: var(#{fn.getVarName(color, primary)});
   }
 
+  // 校验失败
+  @include mixins.s(invalid) {
+    #{fn.getVarName(input, border-color)}: var(#{fn.getVarName(color, error)});
+  }
+
   // disabled 状态
   @include mixins.s(disabled) {
     #{fn.getVarName(input, text-color)}: var(#{fn.getVarName(text-color, disabled)});
