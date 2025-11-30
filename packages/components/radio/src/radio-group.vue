@@ -23,12 +23,15 @@ const groupModel = defineModel({ type: [String, Number, Boolean], default: '' })
 import { useNamespace } from '@ui-library/hooks'
 import { provide, toRefs, ref } from 'vue'
 import { RADIO_GROUP_PROPS } from './constant'
+import { useFormItem } from '@ui-library/components/form/src/composables'
 
 const ns = useNamespace('radio-group')
+const { formItemProps } = useFormItem()
 const disabled = ref(props.disabled)
 
 const changeEvent = (value) => {
   emit('change', value)
+  formItemProps?.validate('change')
 }
 
 // 向下提供数据

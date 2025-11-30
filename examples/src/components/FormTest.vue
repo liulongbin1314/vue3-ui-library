@@ -31,6 +31,14 @@
       </a-checkbox-group>
     </a-form-item>
 
+    <a-form-item label="性别" prop="gender">
+      <a-radio-group v-model="formData.gender">
+        <a-radio value="男">男</a-radio>
+        <a-radio value="女">女</a-radio>
+        <a-radio value="保密">保密</a-radio>
+      </a-radio-group>
+    </a-form-item>
+
     <a-form-item label=" ">
       <a-button style="margin-right: 15px" @click="formRef.reset()">重置</a-button>
       <a-button type="primary" @click="submit">提交</a-button>
@@ -42,7 +50,7 @@
 <script setup>
 import { ref, shallowRef } from 'vue'
 
-const formData = ref({ name: 'z', phone: '1380000000', state: false, hobby: [] })
+const formData = ref({ name: 'z', phone: '1380000000', state: false, hobby: [], gender: '' })
 const formRef = shallowRef(null)
 
 const nameRules = [
@@ -64,6 +72,13 @@ const formRules = {
     enum: ['吃饭', '睡觉', '打豆豆'],
     required: true,
     message: '请选择爱好',
+    trigger: 'change'
+  },
+  gender: {
+    type: 'string',
+    enum: ['男', '女', '保密'],
+    required: true,
+    message: '请选择性别',
     trigger: 'change'
   }
 }
