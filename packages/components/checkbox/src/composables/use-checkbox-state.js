@@ -1,23 +1,26 @@
 import { getCurrentInstance, computed, ref } from 'vue'
+import { useFormItem } from '@ui-library/components/form/src/composables'
 
 // 状态模块
 export const useCheckboxState = ({ groupProps, isGroupMode, model }) => {
   // 获取当前组件的实例对象
   const instance = getCurrentInstance()
   const props = instance.props
+  const { formProps } = useFormItem()
 
   // 获取组件的 size 尺寸
   const cbSize = computed(() => {
-    if (instance.props.size === 'default') {
-      // 进一步判断是否属于复选框组
-      if (isGroupMode.value) {
-        return groupProps.size.value
-      } else {
-        return 'default'
-      }
-    } else {
-      return instance.props.size
-    }
+    return props.size || groupProps?.size.value || formProps?.size.value || 'default'
+    // if (instance.props.size === 'default') {
+    //   // 进一步判断是否属于复选框组
+    //   if (isGroupMode.value) {
+    //     return groupProps.size.value
+    //   } else {
+    //     return 'default'
+    //   }
+    // } else {
+    //   return instance.props.size
+    // }
   })
   // 禁用状态
   const isDisabled = computed(

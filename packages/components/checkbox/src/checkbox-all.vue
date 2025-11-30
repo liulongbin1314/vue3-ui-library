@@ -43,10 +43,7 @@ const props = defineProps({
     // horizontal
     default: 'vertical'
   },
-  size: {
-    type: String,
-    default: 'default'
-  },
+  size: String,
   type: String,
   text: {
     type: String,

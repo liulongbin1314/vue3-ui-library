@@ -23,6 +23,14 @@
       <a-switch v-model="formData.state" active-value="Yes" inactive-value="No"></a-switch>
     </a-form-item>
 
+    <a-form-item label="爱好" prop="hobby">
+      <a-checkbox-group v-model="formData.hobby">
+        <a-checkbox value="吃饭">吃饭</a-checkbox>
+        <a-checkbox value="睡觉">睡觉</a-checkbox>
+        <a-checkbox value="打豆豆">打豆豆</a-checkbox>
+      </a-checkbox-group>
+    </a-form-item>
+
     <a-form-item label=" ">
       <a-button style="margin-right: 15px" @click="formRef.reset()">重置</a-button>
       <a-button type="primary" @click="submit">提交</a-button>
@@ -34,7 +42,7 @@
 <script setup>
 import { ref, shallowRef } from 'vue'
 
-const formData = ref({ name: 'z', phone: '1380000000', state: false })
+const formData = ref({ name: 'z', phone: '1380000000', state: false, hobby: [] })
 const formRef = shallowRef(null)
 
 const nameRules = [
@@ -50,7 +58,14 @@ const formRules = {
   ],
   // type: 'enum' 表示枚举类型的值
   // 只有当 state 的值，包含在 enum 数组中的时候，才表示校验通过
-  state: { type: 'enum', enum: ['Yes'], required: true, message: '请打开开关', trigger: 'change' }
+  state: { type: 'enum', enum: ['Yes'], required: true, message: '请打开开关', trigger: 'change' },
+  hobby: {
+    type: 'array',
+    enum: ['吃饭', '睡觉', '打豆豆'],
+    required: true,
+    message: '请选择爱好',
+    trigger: 'change'
+  }
 }
 
 // 点击提交按钮，触发 submit 函数
