@@ -1,6 +1,11 @@
 <template>
   <div
-    :class="[ns.b(), ns.is('focus', isFocus), ns.is('disabled', disabled)]"
+    :class="[
+      ns.b(),
+      ns.is('focus', isFocus),
+      ns.is('disabled', disabled),
+      ns.is('invalid', formItemProps?.isInvalid.value)
+    ]"
     :style="[styledWidth]"
     @mouseenter="mouseenterEvent"
     @mouseleave="mouseleaveEvent"
@@ -73,8 +78,10 @@ const emit = defineEmits([
 
 import { useNamespace, useStyle, useEvent, useExpose } from '@ui-library/hooks'
 import { computed, shallowRef } from 'vue'
+import { useFormItem } from '@ui-library/components/form/src/composables'
 
 const ns = useNamespace('input')
+const { formItemProps } = useFormItem()
 
 const modelValue = defineModel({ default: '' })
 const _inputRef = shallowRef(null)
@@ -93,7 +100,9 @@ const {
   compositionupdateEvent,
   compositionendEvent,
   isComposition
-} = useEvent()
+} = useEvent({
+  afterBlur: () => formItemProps?.validate('blur')
+})
 const { focusExpose, selectExpose } = useExpose(_inputRef)
 
 const styledWidth = uStyle.width(props.width)
@@ -108,6 +117,7 @@ const inputHandler = (e) => {
   modelValue.value = e.currentTarget.value
   // 触发自定义的 input 事件
   inputEvent(e)
+  formItemProps?.validate('change')
 }
 const clearHandler = () => {
   modelValue.value = ''

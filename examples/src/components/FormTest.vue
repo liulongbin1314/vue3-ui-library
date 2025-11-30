@@ -39,6 +39,10 @@
       </a-radio-group>
     </a-form-item>
 
+    <a-form-item label="简介" prop="intro">
+      <a-textarea v-model="formData.intro"></a-textarea>
+    </a-form-item>
+
     <a-form-item label=" ">
       <a-button style="margin-right: 15px" @click="formRef.reset()">重置</a-button>
       <a-button type="primary" @click="submit">提交</a-button>
@@ -50,7 +54,14 @@
 <script setup>
 import { ref, shallowRef } from 'vue'
 
-const formData = ref({ name: 'z', phone: '1380000000', state: false, hobby: [], gender: '' })
+const formData = ref({
+  name: 'z',
+  phone: '1380000000',
+  state: false,
+  hobby: [],
+  gender: '',
+  intro: ''
+})
 const formRef = shallowRef(null)
 
 const nameRules = [
@@ -80,7 +91,11 @@ const formRules = {
     required: true,
     message: '请选择性别',
     trigger: 'change'
-  }
+  },
+  intro: [
+    { type: 'string', required: true, message: '简介不能为空！', trigger: 'blur' },
+    { min: 2, message: '简介最少2个字符', trigger: 'change' }
+  ]
 }
 
 // 点击提交按钮，触发 submit 函数
