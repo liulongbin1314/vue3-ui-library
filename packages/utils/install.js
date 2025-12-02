@@ -10,3 +10,11 @@ export const componentInstall = (com) => {
 
   return com
 }
+
+// 此工具函数，用于向全局安装函数式组件
+export const functionInstall = (fn, name) => {
+  fn.install = (app) => {
+    app.config.globalProperties[name] = fn
+  }
+  return fn
+}

@@ -7,7 +7,7 @@
     </div>
 
     <!-- 中间的消息内容 -->
-    <div :class="[ns.e('content')]">这是一个消息</div>
+    <div :class="[ns.e('content')]">{{ content }}</div>
 
     <!-- 右侧的关闭 icon -->
     <div :class="[ns.e('close')]">
@@ -26,6 +26,10 @@ defineProps({
   type: {
     type: String,
     default: 'info'
+  },
+  content: {
+    type: String,
+    default: ''
   }
 })
 
