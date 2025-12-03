@@ -1,5 +1,6 @@
 import { ref, computed, getCurrentInstance } from 'vue'
 import { getPrevBottomPosition } from '../instance'
+import { useZIndex } from '@ui-library/hooks'
 
 // 类型和图标的映射关系
 const iconMap = {
@@ -11,6 +12,7 @@ const iconMap = {
 }
 
 export const useMessageState = () => {
+  const { currentZIndex, genNextIndex } = useZIndex()
   const instance = getCurrentInstance()
   const props = instance.props
 
@@ -23,6 +25,10 @@ export const useMessageState = () => {
   const bottomPosition = computed(() => offsetTop.value + height.value)
 
   const styledTop = computed(() => ({ top: offsetTop.value + 'px' }))
+  const styledZIndex = {
+    zIndex: currentZIndex.value
+  }
+  genNextIndex()
 
-  return { iconMap, styledTop, bottomPosition }
+  return { iconMap, styledTop, bottomPosition, styledZIndex }
 }
