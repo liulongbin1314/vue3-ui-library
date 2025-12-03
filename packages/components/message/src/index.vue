@@ -7,7 +7,7 @@
     </div>
 
     <!-- 中间的消息内容 -->
-    <div :class="[ns.e('content')]">{{ content }}</div>
+    <div :class="[ns.e('content')]">{{ content }} --- {{ id }}</div>
 
     <!-- 右侧的关闭 icon -->
     <div :class="[ns.e('close')]">
@@ -21,7 +21,7 @@ defineOptions({
   name: 'a-message'
 })
 
-defineProps({
+const props = defineProps({
   // info/primary/success/warning/error
   type: {
     type: String,
@@ -30,7 +30,8 @@ defineProps({
   content: {
     type: String,
     default: ''
-  }
+  },
+  id: String
 })
 
 import { useNamespace } from '@ui-library/hooks'

@@ -1,8 +1,11 @@
 import Message from './index.vue'
 import { h, render } from 'vue'
+import { instanceArray } from './instance'
 
 // 默认的配置选项
 const defaultOptions = { type: 'info', content: '' }
+// 唯一的 id
+let onlyId = 0
 
 // 这个函数用于对 params 参数进行格式化
 // 格式化的结果，是返回一个对象形式的 options 配置
@@ -25,10 +28,20 @@ const createMessage = (options) => {
   const container = document.createElement('div')
   const target = document.body
 
-  const vnode = h(Message, { ...options })
+  const id = `a-message-${onlyId++}`
+  const instance = { id, vnode: null, vm: null }
+  instanceArray.value.push(instance)
+
+  const vnode = h(Message, { ...options, id })
   render(vnode, container)
 
+  // 在这里对 vnode 和 vm 赋值
+  instance.vnode = vnode
+  instance.vm = vnode.component
+
   target.appendChild(container.firstElementChild)
+
+  console.log(instanceArray.value)
 }
 
 // 调用此函数，即可在页面上展示 Message 组件
