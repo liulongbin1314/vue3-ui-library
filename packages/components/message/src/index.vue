@@ -1,6 +1,6 @@
 <template>
   <!-- 根元素 -->
-  <div :class="[ns.b()]">
+  <div :class="[ns.b()]" :style="[styledTop]">
     <!-- 左侧的 icon -->
     <div :class="[ns.e('icon')]">
       <AIcon :icon="iconMap[type]"></AIcon>
@@ -31,7 +31,11 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  id: String
+  id: String,
+  offset: {
+    type: Number,
+    default: 16
+  }
 })
 
 import { useNamespace } from '@ui-library/hooks'
@@ -39,7 +43,14 @@ import { AIcon } from '@ui-library/components'
 import { useMessage } from './composables'
 
 const ns = useNamespace('message')
-const { iconMap } = useMessage()
+const { iconMap, styledTop, bottomPosition } = useMessage()
+
+// 把当前组件的底边距离页面顶部的位置，向外暴露，
+// 这样在渲染下一个 Message 组件的时候，就可以获取前一个组件通过
+// defineExpose 暴露的 bottomPosition，作为 prevBottomPosition 进行使用
+defineExpose({
+  bottomPosition
+})
 </script>
 
 <style scoped></style>
