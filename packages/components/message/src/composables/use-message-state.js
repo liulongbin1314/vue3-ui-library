@@ -1,4 +1,5 @@
 import { ref, computed, getCurrentInstance } from 'vue'
+import { getPrevBottomPosition } from '../instance'
 
 // 类型和图标的映射关系
 const iconMap = {
@@ -17,7 +18,7 @@ export const useMessageState = () => {
   const height = ref(40)
 
   // 计算属性
-  const prevBottomPosition = computed(() => 0)
+  const prevBottomPosition = computed(() => getPrevBottomPosition(props.id))
   const offsetTop = computed(() => prevBottomPosition.value + props.offset)
   const bottomPosition = computed(() => offsetTop.value + height.value)
 
