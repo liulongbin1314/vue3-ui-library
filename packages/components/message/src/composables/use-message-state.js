@@ -1,6 +1,7 @@
-import { ref, computed, getCurrentInstance } from 'vue'
+import { ref, computed, getCurrentInstance, useTemplateRef } from 'vue'
 import { getPrevBottomPosition } from '../instance'
 import { useZIndex } from '@ui-library/hooks'
+import { useResizeObserver } from '@vueuse/core'
 
 // 类型和图标的映射关系
 const iconMap = {
@@ -16,8 +17,15 @@ export const useMessageState = () => {
   const instance = getCurrentInstance()
   const props = instance.props
 
+  const el = useTemplateRef('el')
+
   // 组件的高度
-  const height = ref(40)
+  const height = ref(0)
+
+  useResizeObserver(el, (entries) => {
+    const entry = entries[0]
+    height.value = entry.contentRect.height
+  })
 
   // 计算属性
   const prevBottomPosition = computed(() => getPrevBottomPosition(props.id))
@@ -30,5 +38,5 @@ export const useMessageState = () => {
   }
   genNextIndex()
 
-  return { iconMap, styledTop, bottomPosition, styledZIndex }
+  return { iconMap, styledTop, bottomPosition, styledZIndex, el }
 }

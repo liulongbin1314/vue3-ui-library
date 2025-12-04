@@ -16,6 +16,7 @@
     "@ui-library/icons": "workspace:^",
     "@ui-library/theme": "workspace:^",
     "@ui-library/utils": "workspace:^",
+    "@vueuse/core": "^14.1.0",
     "async-validator": "^4.2.5",
     "vue": "^3.5.21"
   }
