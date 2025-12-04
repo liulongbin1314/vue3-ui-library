@@ -1,4 +1,4 @@
-import { ref, computed, getCurrentInstance, useTemplateRef } from 'vue'
+import { ref, computed, getCurrentInstance, useTemplateRef, onMounted } from 'vue'
 import { getPrevBottomPosition } from '../instance'
 import { useZIndex } from '@ui-library/hooks'
 import { useResizeObserver } from '@vueuse/core'
@@ -21,6 +21,9 @@ export const useMessageState = () => {
 
   // 组件的高度
   const height = ref(0)
+  const visible = ref(false)
+
+  onMounted(() => (visible.value = true))
 
   useResizeObserver(el, (entries) => {
     const entry = entries[0]
@@ -38,5 +41,5 @@ export const useMessageState = () => {
   }
   genNextIndex()
 
-  return { iconMap, styledTop, bottomPosition, styledZIndex, el }
+  return { iconMap, styledTop, bottomPosition, styledZIndex, el, visible }
 }

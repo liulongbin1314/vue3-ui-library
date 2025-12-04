@@ -1,19 +1,21 @@
 <template>
-  <!-- 根元素 -->
-  <div :class="[ns.b()]" :style="[styledTop, styledZIndex]" ref="el">
-    <!-- 左侧的 icon -->
-    <div :class="[ns.e('icon')]">
-      <AIcon :icon="iconMap[type]"></AIcon>
-    </div>
+  <transition :name="ns.b()">
+    <!-- 根元素 -->
+    <div :class="[ns.b()]" :style="[styledTop, styledZIndex]" ref="el" v-show="visible">
+      <!-- 左侧的 icon -->
+      <div :class="[ns.e('icon')]">
+        <AIcon :icon="iconMap[type]"></AIcon>
+      </div>
 
-    <!-- 中间的消息内容 -->
-    <div :class="[ns.e('content')]">{{ content }}</div>
+      <!-- 中间的消息内容 -->
+      <div :class="[ns.e('content')]">{{ content }}</div>
 
-    <!-- 右侧的关闭 icon -->
-    <div :class="[ns.e('close')]">
-      <AIcon icon="icon-close"></AIcon>
+      <!-- 右侧的关闭 icon -->
+      <div :class="[ns.e('close')]">
+        <AIcon icon="icon-close"></AIcon>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script setup>
@@ -43,7 +45,7 @@ import { AIcon } from '@ui-library/components'
 import { useMessage } from './composables'
 
 const ns = useNamespace('message')
-const { iconMap, styledTop, bottomPosition, styledZIndex, el } = useMessage()
+const { iconMap, styledTop, bottomPosition, styledZIndex, el, visible } = useMessage()
 
 // 把当前组件的底边距离页面顶部的位置，向外暴露，
 // 这样在渲染下一个 Message 组件的时候，就可以获取前一个组件通过

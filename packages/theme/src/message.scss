@@ -19,6 +19,7 @@
   cursor: default;
   user-select: none;
   white-space: nowrap;
+  transition: 0.3s;
 
   // 左侧的 icon
   @include mixins.e(icon) {
@@ -43,4 +44,11 @@
       opacity: 1;
     }
   }
+}
+
+// 动画相关的样式
+.a-message-enter-from,
+.a-message-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -100%);
 }

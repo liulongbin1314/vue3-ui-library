@@ -26,5 +26,6 @@ export const getPrevBottomPosition = (id) => {
   const { prev } = getInstance(id)
   if (!prev) return 0
 
-  return prev.vm.exposed.bottomPosition
+  // 注意：这里的值是一个 ref，需要使用 .value 获取到真正的值
+  return prev.vm.exposed.bottomPosition.value
 }
