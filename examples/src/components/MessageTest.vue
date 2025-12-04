@@ -21,7 +21,8 @@ const show1 = () => {
 
   // $message('这是全局函数式组件的消息')
   $message({
-    content: '这是另一个全局函数式组件的消息'
+    content: '这是另一个全局函数式组件的消息',
+    duration: 1500
   })
 }
 </script>

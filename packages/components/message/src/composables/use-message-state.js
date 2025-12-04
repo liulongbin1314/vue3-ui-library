@@ -43,7 +43,7 @@ export const useMessageState = () => {
 
   const { start, stop } = useTimeoutFn(() => {
     closeMessage(props.id)
-  }, 3000)
+  }, props.duration)
 
   return { iconMap, styledTop, bottomPosition, styledZIndex, el, visible }
 }

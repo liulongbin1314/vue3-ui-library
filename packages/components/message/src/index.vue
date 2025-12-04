@@ -1,5 +1,5 @@
 <template>
-  <transition :name="ns.b()">
+  <transition :name="ns.b()" @after-leave="handleAfterLeave">
     <!-- 根元素 -->
     <div :class="[ns.b()]" :style="[styledTop, styledZIndex]" ref="el" v-show="visible">
       <!-- 左侧的 icon -->
@@ -37,6 +37,10 @@ const props = defineProps({
   offset: {
     type: Number,
     default: 16
+  },
+  duration: {
+    type: Number,
+    default: 3000
   }
 })
 
@@ -45,7 +49,8 @@ import { AIcon } from '@ui-library/components'
 import { useMessage } from './composables'
 
 const ns = useNamespace('message')
-const { iconMap, styledTop, bottomPosition, styledZIndex, el, visible } = useMessage()
+const { iconMap, styledTop, bottomPosition, styledZIndex, el, visible, handleAfterLeave } =
+  useMessage()
 
 // 把当前组件的底边距离页面顶部的位置，向外暴露，
 // 这样在渲染下一个 Message 组件的时候，就可以获取前一个组件通过
