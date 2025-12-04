@@ -18,7 +18,7 @@ export const getInstance = (id) => {
     current = instanceArray.value[index]
   }
 
-  return { current, prev }
+  return { current, prev, index }
 }
 
 // 根据 id 获取前一个 Message 组件的底部位置
@@ -28,4 +28,13 @@ export const getPrevBottomPosition = (id) => {
 
   // 注意：这里的值是一个 ref，需要使用 .value 获取到真正的值
   return prev.vm.exposed.bottomPosition.value
+}
+
+// 根据指定的 id，关闭对应的弹窗
+export const closeMessage = (id) => {
+  const { current, index } = getInstance(id)
+  if (current) {
+    current.vm.setupState.visible = false
+    instanceArray.value.splice(index, 1)
+  }
 }

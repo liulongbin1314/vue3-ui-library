@@ -1,7 +1,7 @@
 import { ref, computed, getCurrentInstance, useTemplateRef, onMounted } from 'vue'
-import { getPrevBottomPosition } from '../instance'
+import { getPrevBottomPosition, closeMessage } from '../instance'
 import { useZIndex } from '@ui-library/hooks'
-import { useResizeObserver } from '@vueuse/core'
+import { useResizeObserver, useTimeoutFn } from '@vueuse/core'
 
 // 类型和图标的映射关系
 const iconMap = {
@@ -40,6 +40,10 @@ export const useMessageState = () => {
     zIndex: currentZIndex.value
   }
   genNextIndex()
+
+  const { start, stop } = useTimeoutFn(() => {
+    closeMessage(props.id)
+  }, 3000)
 
   return { iconMap, styledTop, bottomPosition, styledZIndex, el, visible }
 }
