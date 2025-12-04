@@ -45,5 +45,5 @@ export const useMessageState = () => {
     closeMessage(props.id)
   }, props.duration)
 
-  return { iconMap, styledTop, bottomPosition, styledZIndex, el, visible }
+  return { iconMap, styledTop, bottomPosition, styledZIndex, el, visible, start, stop }
 }

@@ -1,7 +1,19 @@
-export const useMessageEvent = () => {
+import { closeMessage } from '../instance'
+
+export const useMessageEvent = ({ state }) => {
   const handleAfterLeave = (el) => {
     document.body.removeChild(el)
   }
 
-  return { handleAfterLeave }
+  const handleMouseEnter = () => {
+    state.stop()
+  }
+
+  const handleMouseLeave = () => {
+    state.start()
+  }
+
+  const handleIconClick = (id) => closeMessage(id)
+
+  return { handleAfterLeave, handleMouseEnter, handleMouseLeave, handleIconClick }
 }
