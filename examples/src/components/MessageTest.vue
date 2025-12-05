@@ -4,6 +4,16 @@
     <a-button @click="show1">info</a-button>
     <a-button @click="closeAllMessage">全部关闭</a-button>
   </div>
+
+  <p>主题颜色</p>
+  <div>
+    <a-button @click="show2('info')">info</a-button>
+    <a-button @click="show2('primary')">primary</a-button>
+    <a-button @click="show2('success')">success</a-button>
+    <a-button @click="show2('warning')">warning</a-button>
+    <a-button @click="show2('error')">error</a-button>
+    <a-button @click="closeAllMessage">全部关闭</a-button>
+  </div>
 </template>
 
 <script setup>
@@ -24,6 +34,14 @@ const show1 = () => {
   $message({
     content: '这是另一个全局函数式组件的消息',
     duration: 15000
+  })
+}
+
+const show2 = (type) => {
+  $message({
+    type,
+    content: '这是另一个全局函数式组件的消息',
+    duration: 150000
   })
 }
 

@@ -352,19 +352,22 @@
   @return $form-item;
 }
 
-@function getMessageVar() {
+@function getMessageVar($type: '') {
   $message: (
     font-size: (
       default: fn.getVarName(font-size, default)
     ),
     text-color: (
-      default: fn.getVarName(text-color, primary)
+      default: fn.getVarName(text-color, primary),
+      type: fn.getVarName(color, $type)
     ),
     bg-color: (
-      default: fn.getVarName(color, white)
+      default: fn.getVarName(color, white),
+      type: fn.getVarName(color, $type, light-9)
     ),
     icon-color: (
-      default: fn.getVarName(text-color, primary)
+      default: fn.getVarName(text-color, primary),
+      type: fn.getVarName(color, $type)
     ),
     close-icon-color: (
       default: fn.getVarName(text-color, primary)

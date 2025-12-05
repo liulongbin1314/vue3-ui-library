@@ -2,7 +2,7 @@
   <transition :name="ns.b()" @after-leave="handleAfterLeave">
     <!-- 根元素 -->
     <div
-      :class="[ns.b()]"
+      :class="[ns.b(), ns.m(type)]"
       :style="[styledTop, styledZIndex]"
       ref="el"
       v-show="visible"

@@ -1,6 +1,7 @@
 @use './common/mixins.scss';
 @use './common/componentVar.scss' as comVar;
 @use './common/function.scss' as fn;
+@use './common/var.scss';
 
 // 根元素
 @include mixins.b(message) {
@@ -50,6 +51,18 @@
       opacity: 1;
     }
   }
+}
+
+// 循环生成主题颜色
+@each $type in var.$types-base {
+  @include mixins.m($type) {
+    @include mixins.set-component-var(message, comVar.getMessageVar($type), type);
+  }
+}
+
+// 单独处理 info 消息的主题
+@include mixins.m(info) {
+  #{fn.getVarName(message, bg-color)}: var(#{fn.getVarName(color, gray, light-9)});
 }
 
 // 动画相关的样式
