@@ -6,6 +6,7 @@ import { instanceArray } from './instance'
 const defaultOptions = { type: 'info', content: '' }
 // 唯一的 id
 let onlyId = 0
+const themes = ['info', 'primary', 'success', 'warning', 'error']
 
 // 这个函数用于对 params 参数进行格式化
 // 格式化的结果，是返回一个对象形式的 options 配置
@@ -61,5 +62,12 @@ export const message = (params) => {
 }
 
 message.closeAll = closeAll
+
+themes.forEach((theme) => {
+  message[theme] = (params) => {
+    const options = initOptions(params)
+    createMessage({ ...options, type: theme })
+  }
+})
 
 export default message

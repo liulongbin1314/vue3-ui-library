@@ -24,6 +24,16 @@
     <a-button @click="show3('error')">error</a-button>
     <a-button @click="closeAllMessage">全部关闭</a-button>
   </div>
+
+  <p>主题方法</p>
+  <div>
+    <a-button @click="show4('info')">info</a-button>
+    <a-button @click="show4('primary')">primary</a-button>
+    <a-button @click="show4('success')">success</a-button>
+    <a-button @click="show4('warning')">warning</a-button>
+    <a-button @click="show4('error')">error</a-button>
+    <a-button @click="closeAllMessage">全部关闭</a-button>
+  </div>
 </template>
 
 <script setup>
@@ -58,6 +68,14 @@ const show2 = (type) => {
 const show3 = (type) => {
   AMessage({
     type,
+    background: true,
+    content: '这是另一个全局函数式组件的消息',
+    duration: 150000
+  })
+}
+
+const show4 = (type) => {
+  AMessage[type]({
     background: true,
     content: '这是另一个全局函数式组件的消息',
     duration: 150000
