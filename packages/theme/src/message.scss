@@ -57,12 +57,23 @@
 @each $type in var.$types-base {
   @include mixins.m($type) {
     @include mixins.set-component-var(message, comVar.getMessageVar($type), type);
+
+    @include mixins.s(background) {
+      @include mixins.set-component-var(message, comVar.getMessageVar($type), background);
+    }
   }
 }
 
 // 单独处理 info 消息的主题
 @include mixins.m(info) {
   #{fn.getVarName(message, bg-color)}: var(#{fn.getVarName(color, gray, light-9)});
+
+  @include mixins.s(background) {
+    #{fn.getVarName(message, bg-color)}: var(#{fn.getVarName(color, gray)});
+    #{fn.getVarName(message, text-color)}: var(#{fn.getVarName(color, white)});
+    #{fn.getVarName(message, icon-color)}: var(#{fn.getVarName(color, white)});
+    #{fn.getVarName(message, close-icon-color)}: var(#{fn.getVarName(color, white)});
+  }
 }
 
 // 动画相关的样式

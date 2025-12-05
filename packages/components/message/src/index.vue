@@ -2,7 +2,7 @@
   <transition :name="ns.b()" @after-leave="handleAfterLeave">
     <!-- 根元素 -->
     <div
-      :class="[ns.b(), ns.m(type)]"
+      :class="[ns.b(), ns.m(type), ns.is('background', background)]"
       :style="[styledTop, styledZIndex]"
       ref="el"
       v-show="visible"
@@ -48,7 +48,8 @@ const props = defineProps({
   duration: {
     type: Number,
     default: 3000
-  }
+  },
+  background: Boolean
 })
 
 import { useNamespace } from '@ui-library/hooks'

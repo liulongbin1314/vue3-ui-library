@@ -359,18 +359,22 @@
     ),
     text-color: (
       default: fn.getVarName(text-color, primary),
-      type: fn.getVarName(color, $type)
+      type: fn.getVarName(color, $type),
+      background: fn.getVarName(color, white)
     ),
     bg-color: (
       default: fn.getVarName(color, white),
-      type: fn.getVarName(color, $type, light-9)
+      type: fn.getVarName(color, $type, light-9),
+      background: fn.getVarName(color, $type)
     ),
     icon-color: (
       default: fn.getVarName(text-color, primary),
-      type: fn.getVarName(color, $type)
+      type: fn.getVarName(color, $type),
+      background: fn.getVarName(color, white)
     ),
     close-icon-color: (
-      default: fn.getVarName(text-color, primary)
+      default: fn.getVarName(text-color, primary),
+      background: fn.getVarName(color, white)
     )
   );
 
