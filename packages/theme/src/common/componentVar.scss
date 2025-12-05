@@ -351,3 +351,25 @@
 
   @return $form-item;
 }
+
+@function getMessageVar() {
+  $message: (
+    font-size: (
+      default: fn.getVarName(font-size, default)
+    ),
+    text-color: (
+      default: fn.getVarName(text-color, primary)
+    ),
+    bg-color: (
+      default: fn.getVarName(color, white)
+    ),
+    icon-color: (
+      default: fn.getVarName(text-color, primary)
+    ),
+    close-icon-color: (
+      default: fn.getVarName(text-color, primary)
+    )
+  );
+
+  @return $message;
+}

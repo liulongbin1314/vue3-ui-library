@@ -1,11 +1,15 @@
 @use './common/mixins.scss';
+@use './common/componentVar.scss' as comVar;
+@use './common/function.scss' as fn;
 
 // 根元素
 @include mixins.b(message) {
+  @include mixins.set-component-var(message, comVar.getMessageVar());
+
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: cyan;
+  background-color: var(#{fn.getVarName(message, bg-color)});
   position: fixed;
   // top: 16px;
   left: 50%;
@@ -14,8 +18,8 @@
   padding: 0 15px;
   border-radius: 15px;
   box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.15);
-  font-size: 14px;
-  color: #333;
+  font-size: var(#{fn.getVarName(message, font-size)});
+  color: var(#{fn.getVarName(message, text-color)});
   cursor: default;
   user-select: none;
   white-space: nowrap;
@@ -24,13 +28,14 @@
   // 左侧的 icon
   @include mixins.e(icon) {
     margin-right: 10px;
-    color: #333;
+    color: var(#{fn.getVarName(message, icon-color)});
+    font-size: 16px;
   }
 
   // 中间的消息内容
   @include mixins.e(content) {
-    font-size: 14px;
-    color: #333;
+    font-size: var(#{fn.getVarName(message, font-size)});
+    color: var(#{fn.getVarName(message, text-color)});
   }
 
   // 右侧的关闭 icon
@@ -39,6 +44,7 @@
     opacity: 0.5;
     transition: opacity 0.3s;
     cursor: pointer;
+    color: var(#{fn.getVarName(message, close-icon-color)});
 
     &:hover {
       opacity: 1;
