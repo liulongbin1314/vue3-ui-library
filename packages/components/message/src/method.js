@@ -44,10 +44,22 @@ const createMessage = (options) => {
   console.log(instanceArray.value)
 }
 
+// 关闭所有的 Message 消息
+const closeAll = () => {
+  // 循环关闭所有的 Message 组件
+  instanceArray.value.forEach((item) => {
+    item.vm.setupState.visible = false
+  })
+  // 清空列表
+  instanceArray.value = []
+}
+
 // 调用此函数，即可在页面上展示 Message 组件
 export const message = (params) => {
   const options = initOptions(params)
   createMessage(options)
 }
+
+message.closeAll = closeAll
 
 export default message

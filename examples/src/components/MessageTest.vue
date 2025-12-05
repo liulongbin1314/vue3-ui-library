@@ -2,6 +2,7 @@
   <p>基础用法</p>
   <div>
     <a-button @click="show1">info</a-button>
+    <a-button @click="closeAllMessage">全部关闭</a-button>
   </div>
 </template>
 
@@ -22,8 +23,13 @@ const show1 = () => {
   // $message('这是全局函数式组件的消息')
   $message({
     content: '这是另一个全局函数式组件的消息',
-    duration: 1500
+    duration: 15000
   })
+}
+
+const closeAllMessage = () => {
+  // $message.closeAll()
+  AMessage.closeAll()
 }
 </script>
 
