@@ -1,0 +1,31 @@
+@use './common/mixins.scss';
+
+// 根元素
+@include mixins.b(mask) {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+
+  // 状态 - gray
+  @include mixins.s(gray) {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  // 状态 - blur
+  @include mixins.s(blur) {
+    backdrop-filter: blur(2px);
+  }
+
+  // 内层容器
+  @include mixins.e(wrapper) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
