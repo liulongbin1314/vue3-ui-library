@@ -1,5 +1,5 @@
 <template>
-  <MessageTest />
+  <MaskTest />
 </template>
 
 <script setup>
@@ -12,6 +12,7 @@ import SwitchTest from './components/SwitchTest.vue'
 import RadioTest from './components/RadioTest.vue'
 import FormTest from './components/FormTest.vue'
 import MessageTest from './components/MessageTest.vue'
+import MaskTest from './components/MaskTest.vue'
 </script>
 
 <style scoped></style>

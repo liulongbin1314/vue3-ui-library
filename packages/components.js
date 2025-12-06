@@ -12,6 +12,7 @@ import ASwitch from '@ui-library/components/switch'
 import { ARadio, ARadioGroup } from '@ui-library/components/radio'
 import { AForm, AFormItem } from '@ui-library/components/form'
 import { AMessage } from '@ui-library/components/message'
+import { AMask } from '@ui-library/components/mask'
 
 // 默认导出一个数组，
 // 数组中包含封装的所有的组件
@@ -36,5 +37,6 @@ export default [
   ARadioGroup,
   AForm,
   AFormItem,
-  AMessage
+  AMessage,
+  AMask
 ]
