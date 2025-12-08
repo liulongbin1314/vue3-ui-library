@@ -18,6 +18,22 @@
     backdrop-filter: blur(2px);
   }
 
+  // 状态 - 可穿透
+  @include mixins.s(penetrable) {
+    pointer-events: none;
+
+    // 内层容器
+    @include mixins.e(wrapper, false) {
+      // 可穿透
+      pointer-events: none;
+
+      > * {
+        // 不可穿透
+        pointer-events: auto;
+      }
+    }
+  }
+
   // 内层容器
   @include mixins.e(wrapper) {
     position: fixed;
