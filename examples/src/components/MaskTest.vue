@@ -1,11 +1,15 @@
 <template>
   <p>基础用法</p>
-  <a-mask :gray="false" :blur="false" penetrable>
+  <a-mask :gray="false" :blur="false" @close="handleClose">
     <div class="box">Hello world.</div>
   </a-mask>
 </template>
 
-<script setup></script>
+<script setup>
+const handleClose = () => {
+  console.log('触发了遮罩层自定的close事件！')
+}
+</script>
 
 <style scoped>
 .box {

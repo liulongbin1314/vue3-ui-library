@@ -1,4 +1,4 @@
-import { h, defineComponent, computed } from 'vue'
+import { h, defineComponent, computed, withModifiers } from 'vue'
 import { useNamespace, useZIndex } from '@ui-library/hooks'
 
 export default defineComponent({
@@ -18,9 +18,14 @@ export default defineComponent({
     penetrable: {
       type: Boolean,
       default: false
+    },
+    // 是否点击遮罩层可关闭
+    maskClose: {
+      type: Boolean,
+      default: true
     }
   },
-  emits: [],
+  emits: ['close'],
   setup(props, { slots, emit }) {
     const ns = useNamespace('mask')
     const { currentZIndex, genNextIndex } = useZIndex('modal')
@@ -46,10 +51,20 @@ export default defineComponent({
         },
         [
           // 内层容器
-          h('div', { class: [ns.e('wrapper')] }, [
-            // default 插槽
-            slots.default?.()
-          ])
+          h(
+            'div',
+            {
+              class: [ns.e('wrapper')],
+              onClick: withModifiers(
+                () => props.maskClose && !isPenetrable.value && emit('close'),
+                ['self']
+              )
+            },
+            [
+              // default 插槽
+              slots.default?.()
+            ]
+          )
         ]
       )
     }
