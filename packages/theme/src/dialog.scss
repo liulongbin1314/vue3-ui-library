@@ -1,0 +1,62 @@
+@use './common/mixins.scss';
+
+// 根元素
+@include mixins.b(dialog) {
+  position: absolute;
+  left: 50%;
+  top: 15vh;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 15px;
+  transform: translate(-50%, 0);
+  width: 500px;
+
+  // 内层容器
+  @include mixins.e(wrapper) {
+    // 头部
+    @include mixins.e(header) {
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+
+      // 标题
+      @include mixins.e(title) {
+        > span {
+          display: flex;
+          align-items: center;
+          margin-right: 10px;
+        }
+      }
+
+      // 关闭图标
+      @include mixins.e(icon-close) {
+        opacity: 0.5;
+        transition: 0.3s;
+
+        &:hover {
+          opacity: 1;
+          cursor: pointer;
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    // 主体
+    @include mixins.e(body) {
+      @include mixins.e(body-inner) {
+        padding: 24px 0 24px;
+      }
+    }
+
+    // 尾部
+    @include mixins.e(footer) {
+      display: flex;
+      justify-content: flex-end;
+
+      > button {
+        margin-left: 15px;
+      }
+    }
+  }
+}
