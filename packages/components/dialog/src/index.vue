@@ -14,7 +14,7 @@
               <slot name="icon"></slot>
             </span>
             <!-- 标题的文本 -->
-            <span>Title</span>
+            <span>{{ title }}</span>
           </div>
           <!-- 关闭图标 -->
           <AIcon :icon="X" :class="ns.e('icon-close')"></AIcon>
@@ -45,9 +45,12 @@ defineOptions({
   name: 'a-dialog'
 })
 
+const props = defineProps(dialogProps)
+
 import { useNamespace } from '@ui-library/hooks'
 import { AMask, AButton, AIcon } from '@ui-library/components'
 import { X } from '@ui-library/icons'
+import { dialogProps } from './dialog-config'
 
 const ns = useNamespace('dialog')
 </script>

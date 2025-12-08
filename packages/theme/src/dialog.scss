@@ -26,6 +26,7 @@
           display: flex;
           align-items: center;
           margin-right: 10px;
+          white-space: nowrap;
         }
       }
 
@@ -46,6 +47,7 @@
     @include mixins.e(body) {
       @include mixins.e(body-inner) {
         padding: 24px 0 24px;
+        word-break: break-word;
       }
     }
 
