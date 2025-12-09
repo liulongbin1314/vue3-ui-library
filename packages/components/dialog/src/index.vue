@@ -29,11 +29,16 @@
         </div>
 
         <!-- 尾部 -->
-        <div :class="[ns.e('footer')]">
-          <!-- 取消按钮 -->
-          <AButton text>取消</AButton>
-          <!-- 确认按钮 -->
-          <AButton type="primary">确认</AButton>
+        <div :class="[ns.e('footer')]" v-if="footer">
+          <template v-if="$slots.footer">
+            <slot name="footer"></slot>
+          </template>
+          <template v-else>
+            <!-- 取消按钮 -->
+            <AButton text>取消</AButton>
+            <!-- 确认按钮 -->
+            <AButton type="primary">确认</AButton>
+          </template>
         </div>
       </div>
     </div>
