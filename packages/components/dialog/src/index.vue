@@ -36,9 +36,13 @@
             </template>
             <template v-else>
               <!-- 取消按钮 -->
-              <AButton text>取消</AButton>
+              <AButton text :size="buttonSize" v-if="cancelButtonShow">
+                {{ cancelButtonText }}
+              </AButton>
               <!-- 确认按钮 -->
-              <AButton type="primary">确认</AButton>
+              <AButton type="primary" :size="buttonSize" v-if="confirmButtonShow">
+                {{ confirmButtonText }}
+              </AButton>
             </template>
           </div>
         </div>
