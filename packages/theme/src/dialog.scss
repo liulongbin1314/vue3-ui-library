@@ -22,6 +22,9 @@
 
       // 标题
       @include mixins.e(title) {
+        display: flex;
+        align-items: center;
+
         > span {
           display: flex;
           align-items: center;

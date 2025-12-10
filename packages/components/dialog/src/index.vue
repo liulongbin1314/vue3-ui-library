@@ -12,7 +12,8 @@
             <div :class="[ns.e('title')]">
               <!-- 可选的 icon 图标 -->
               <span :class="ns.e('icon-title')">
-                <slot name="icon"></slot>
+                <!-- 作用域插槽 -->
+                <slot name="icon" :colors="colors"></slot>
               </span>
               <!-- 标题的文本 -->
               <span>{{ title }}</span>
@@ -62,8 +63,10 @@ import { useNamespace } from '@ui-library/hooks'
 import { AMask, AButton, AIcon } from '@ui-library/components'
 import { X } from '@ui-library/icons'
 import { dialogProps } from './dialog-config'
+import { useDialog } from './composables'
 
 const ns = useNamespace('dialog')
+const { colors } = useDialog()
 </script>
 
 <style scoped></style>
