@@ -1,48 +1,50 @@
 <template>
-  <!-- 遮罩层 -->
-  <AMask>
-    <!-- Dialog 根元素 -->
-    <div :class="[ns.b()]">
-      <!-- 内层容器 -->
-      <div :class="[ns.e('wrapper')]">
-        <!-- 头部 -->
-        <div :class="[ns.e('header')]">
-          <!-- 标题区域 -->
-          <div :class="[ns.e('title')]">
-            <!-- 可选的 icon 图标 -->
-            <span :class="ns.e('icon-title')">
-              <slot name="icon"></slot>
-            </span>
-            <!-- 标题的文本 -->
-            <span>{{ title }}</span>
+  <teleport to="body">
+    <!-- 遮罩层 -->
+    <AMask>
+      <!-- Dialog 根元素 -->
+      <div :class="[ns.b()]">
+        <!-- 内层容器 -->
+        <div :class="[ns.e('wrapper')]">
+          <!-- 头部 -->
+          <div :class="[ns.e('header')]">
+            <!-- 标题区域 -->
+            <div :class="[ns.e('title')]">
+              <!-- 可选的 icon 图标 -->
+              <span :class="ns.e('icon-title')">
+                <slot name="icon"></slot>
+              </span>
+              <!-- 标题的文本 -->
+              <span>{{ title }}</span>
+            </div>
+            <!-- 关闭图标 -->
+            <AIcon :icon="X" :class="ns.e('icon-close')" v-if="showClose"></AIcon>
           </div>
-          <!-- 关闭图标 -->
-          <AIcon :icon="X" :class="ns.e('icon-close')"></AIcon>
-        </div>
 
-        <!-- 主体 -->
-        <div :class="[ns.e('body')]">
-          <div :class="[ns.e('body-inner')]">
-            <!-- 默认插槽 -->
-            <slot></slot>
+          <!-- 主体 -->
+          <div :class="[ns.e('body')]">
+            <div :class="[ns.e('body-inner')]">
+              <!-- 默认插槽 -->
+              <slot></slot>
+            </div>
           </div>
-        </div>
 
-        <!-- 尾部 -->
-        <div :class="[ns.e('footer')]" v-if="footer">
-          <template v-if="$slots.footer">
-            <slot name="footer"></slot>
-          </template>
-          <template v-else>
-            <!-- 取消按钮 -->
-            <AButton text>取消</AButton>
-            <!-- 确认按钮 -->
-            <AButton type="primary">确认</AButton>
-          </template>
+          <!-- 尾部 -->
+          <div :class="[ns.e('footer')]" v-if="footer">
+            <template v-if="$slots.footer">
+              <slot name="footer"></slot>
+            </template>
+            <template v-else>
+              <!-- 取消按钮 -->
+              <AButton text>取消</AButton>
+              <!-- 确认按钮 -->
+              <AButton type="primary">确认</AButton>
+            </template>
+          </div>
         </div>
       </div>
-    </div>
-  </AMask>
+    </AMask>
+  </teleport>
 </template>
 
 <script setup>
