@@ -7,6 +7,7 @@
   top: 0;
   width: 100vw;
   height: 100vh;
+  transition: 0.3s;
 
   // 状态 - gray
   @include mixins.s(gray) {

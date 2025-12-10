@@ -4,7 +4,7 @@
     <a-button @click="visible1 = true" type="primary">展示 Dialog1</a-button>
   </div>
 
-  <a-dialog title="温馨提示" v-model="visible1">
+  <a-dialog title="温馨提示" v-model="visible1" gray>
     <div>Hello world. 11111111111111111111111111111111111111111111111111111111111</div>
   </a-dialog>
 </template>

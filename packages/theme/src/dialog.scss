@@ -11,6 +11,8 @@
   border-radius: 15px;
   transform: translate(-50%, 0);
   width: 500px;
+  background-color: #fff;
+  transition: 0.3s;
 
   // 内层容器
   @include mixins.e(wrapper) {
@@ -64,5 +66,15 @@
         margin-left: 15px;
       }
     }
+  }
+}
+
+.a-dialog-enter-from,
+.a-dialog-leave-to {
+  opacity: 0;
+
+  .a-dialog {
+    opacity: 0;
+    transform: translate(-50%, -30px);
   }
 }
