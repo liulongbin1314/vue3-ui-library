@@ -1,7 +1,7 @@
 <template>
   <teleport to="body">
     <!-- 遮罩层 -->
-    <AMask>
+    <AMask v-show="visible">
       <!-- Dialog 根元素 -->
       <div :class="[ns.b()]">
         <!-- 内层容器 -->
@@ -19,7 +19,12 @@
               <span>{{ title }}</span>
             </div>
             <!-- 关闭图标 -->
-            <AIcon :icon="X" :class="ns.e('icon-close')" v-if="showClose"></AIcon>
+            <AIcon
+              :icon="X"
+              :class="ns.e('icon-close')"
+              v-if="showClose"
+              @click="handleClose"
+            ></AIcon>
           </div>
 
           <!-- 主体 -->
@@ -59,6 +64,8 @@ defineOptions({
 
 const props = defineProps(dialogProps)
 
+const visible = defineModel({ type: Boolean, default: false })
+
 import { useNamespace } from '@ui-library/hooks'
 import { AMask, AButton, AIcon } from '@ui-library/components'
 import { X } from '@ui-library/icons'
@@ -66,7 +73,7 @@ import { dialogProps } from './dialog-config'
 import { useDialog } from './composables'
 
 const ns = useNamespace('dialog')
-const { colors, styledIconWidth } = useDialog()
+const { colors, styledIconWidth, handleClose } = useDialog({ visible })
 </script>
 
 <style scoped></style>
