@@ -11,7 +11,7 @@
             <!-- 标题区域 -->
             <div :class="[ns.e('title')]">
               <!-- 可选的 icon 图标 -->
-              <span :class="ns.e('icon-title')">
+              <span :class="ns.e('icon-title')" ref="icon">
                 <!-- 作用域插槽 -->
                 <slot name="icon" :colors="colors"></slot>
               </span>
@@ -24,7 +24,7 @@
 
           <!-- 主体 -->
           <div :class="[ns.e('body')]">
-            <div :class="[ns.e('body-inner')]">
+            <div :class="[ns.e('body-inner')]" :style="[styledIconWidth]">
               <!-- 默认插槽 -->
               <slot></slot>
             </div>
@@ -66,7 +66,7 @@ import { dialogProps } from './dialog-config'
 import { useDialog } from './composables'
 
 const ns = useNamespace('dialog')
-const { colors } = useDialog()
+const { colors, styledIconWidth } = useDialog()
 </script>
 
 <style scoped></style>

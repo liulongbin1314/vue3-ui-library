@@ -3,10 +3,6 @@
 
   <a-dialog title="温馨提示">
     <div>Hello world. 11111111111111111111111111111111111111111111111111111111111</div>
-
-    <template #icon="{ colors }">
-      <AIcon :icon="Flag" color="cyan"></AIcon>
-    </template>
   </a-dialog>
 </template>
 
