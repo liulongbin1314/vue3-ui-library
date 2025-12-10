@@ -7,5 +7,6 @@ export const dialogProps = {
   cancelButtonText: { type: String, default: '取消' },
   confirmButtonText: { type: String, default: '确认' },
   cancelButtonShow: { type: Boolean, default: true },
-  confirmButtonShow: { type: Boolean, default: true }
+  confirmButtonShow: { type: Boolean, default: true },
+  escapeClose: { type: Boolean, default: true }
 }

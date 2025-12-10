@@ -2,7 +2,7 @@
   <teleport to="body">
     <transition :name="ns.b()">
       <!-- 遮罩层 -->
-      <AMask v-show="visible" v-bind="$attrs">
+      <AMask v-show="visible" v-bind="$attrs" @close="handleClose">
         <!-- Dialog 根元素 -->
         <div :class="[ns.b()]">
           <!-- 内层容器 -->
