@@ -10,6 +10,7 @@ const colors = {
 }
 
 export const useDialogState = () => {
+  const destroyKey = ref(0)
   const iconWidth = ref(0)
   const el = useTemplateRef('icon')
 
@@ -21,5 +22,5 @@ export const useDialogState = () => {
     paddingLeft: iconWidth.value + 'px'
   }))
 
-  return { colors, styledIconWidth }
+  return { colors, styledIconWidth, destroyKey }
 }

@@ -1,7 +1,7 @@
 import { useEscape } from '@ui-library/hooks'
 import { getCurrentInstance, ref } from 'vue'
 
-export const useDialogEvent = ({ visible }) => {
+export const useDialogEvent = ({ visible, state }) => {
   const instance = getCurrentInstance()
   const props = instance.props
   const closeType = ref('')
@@ -42,6 +42,10 @@ export const useDialogEvent = ({ visible }) => {
   // 触发自定义的 closed 事件
   const handleAfterLeave = () => {
     instance.emit('closed', closeType.value)
+
+    if (props.destroyOnClosed) {
+      state.destroyKey.value++
+    }
   }
 
   return { handleClose, handleBeforeEnter, handleAfterEnter, handleBeforeLeave, handleAfterLeave }

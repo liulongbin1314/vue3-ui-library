@@ -36,7 +36,7 @@
 
             <!-- 主体 -->
             <div :class="[ns.e('body')]">
-              <div :class="[ns.e('body-inner')]" :style="[styledIconWidth]">
+              <div :class="[ns.e('body-inner')]" :style="[styledIconWidth]" :key="destroyKey">
                 <!-- 默认插槽 -->
                 <slot></slot>
               </div>
@@ -104,7 +104,8 @@ const {
   handleBeforeEnter,
   handleAfterEnter,
   handleBeforeLeave,
-  handleAfterLeave
+  handleAfterLeave,
+  destroyKey
 } = useDialog({ visible })
 </script>
 

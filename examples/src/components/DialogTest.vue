@@ -7,6 +7,7 @@
   <a-dialog
     title="温馨提示"
     :distinguishCancelAndClose="true"
+    destroyOnClosed
     v-model="visible1"
     @open="onOpen"
     @opened="onOpened"
@@ -14,6 +15,7 @@
     @closed="onClosed"
   >
     <div>Hello world. 11111111111111111111111111111111111111111111111111111111111</div>
+    <a-input v-model="msg"></a-input>
   </a-dialog>
 </template>
 
@@ -23,6 +25,11 @@ import { ref } from 'vue'
 import { Flag } from '@ui-library/icons'
 
 const visible1 = ref(false)
+const msg = ref('hello')
+
+const reset = () => {
+  msg.value = 'hello'
+}
 
 const onOpen = () => {
   console.log('open')
@@ -38,6 +45,7 @@ const onClose = (action) => {
 
 const onClosed = (action) => {
   console.log('closed', action)
+  reset()
 }
 </script>
 
