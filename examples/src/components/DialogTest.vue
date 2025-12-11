@@ -10,8 +10,9 @@
 </template>
 
 <script setup>
-import { AButton } from '@ui-library/components'
+import { AButton, AIcon } from '@ui-library/components'
 import { ref } from 'vue'
+import { Flag } from '@ui-library/icons'
 
 const visible1 = ref(false)
 </script>

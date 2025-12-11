@@ -12,7 +12,7 @@
               <!-- 标题区域 -->
               <div :class="[ns.e('title')]">
                 <!-- 可选的 icon 图标 -->
-                <span :class="ns.e('icon-title')" ref="icon">
+                <span :class="ns.e('icon-title')" ref="icon" v-if="$slots.icon">
                   <!-- 作用域插槽 -->
                   <slot name="icon" :colors="colors"></slot>
                 </span>

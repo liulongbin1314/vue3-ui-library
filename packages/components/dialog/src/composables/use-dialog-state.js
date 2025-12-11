@@ -10,7 +10,7 @@ const colors = {
 }
 
 export const useDialogState = () => {
-  const iconWidth = ref(30)
+  const iconWidth = ref(0)
   const el = useTemplateRef('icon')
 
   useResizeObserver(el, (entries) => {
