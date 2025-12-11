@@ -1,9 +1,10 @@
 import { useEscape } from '@ui-library/hooks'
-import { getCurrentInstance } from 'vue'
+import { getCurrentInstance, ref } from 'vue'
 
 export const useDialogEvent = ({ visible }) => {
   const instance = getCurrentInstance()
   const props = instance.props
+  const closeType = ref('')
 
   props.escapeClose && useEscape(() => handleClose())
 
@@ -11,7 +12,15 @@ export const useDialogEvent = ({ visible }) => {
     visible.value = false
   }
 
-  const handleClose = () => {
+  const handleClose = (type) => {
+    if (type === 'cancel') {
+    } else if (type === 'confirm') {
+    } else {
+      type = props.distinguishCancelAndClose ? 'close' : 'cancel'
+    }
+
+    closeType.value = type
+
     close()
   }
 
@@ -27,12 +36,12 @@ export const useDialogEvent = ({ visible }) => {
 
   // 触发自定义的 close 事件
   const handleBeforeLeave = () => {
-    instance.emit('close')
+    instance.emit('close', closeType.value)
   }
 
   // 触发自定义的 closed 事件
   const handleAfterLeave = () => {
-    instance.emit('closed')
+    instance.emit('closed', closeType.value)
   }
 
   return { handleClose, handleBeforeEnter, handleAfterEnter, handleBeforeLeave, handleAfterLeave }

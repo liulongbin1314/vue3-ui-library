@@ -6,6 +6,7 @@
 
   <a-dialog
     title="温馨提示"
+    :distinguishCancelAndClose="true"
     v-model="visible1"
     @open="onOpen"
     @opened="onOpened"
@@ -31,12 +32,12 @@ const onOpened = () => {
   console.log('opened')
 }
 
-const onClose = () => {
-  console.log('close')
+const onClose = (action) => {
+  console.log('close', action)
 }
 
-const onClosed = () => {
-  console.log('closed')
+const onClosed = (action) => {
+  console.log('closed', action)
 }
 </script>
 

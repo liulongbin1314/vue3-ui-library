@@ -49,7 +49,12 @@
               </template>
               <template v-else>
                 <!-- 取消按钮 -->
-                <AButton text :size="buttonSize" v-if="cancelButtonShow" @click="handleClose">
+                <AButton
+                  text
+                  :size="buttonSize"
+                  v-if="cancelButtonShow"
+                  @click="handleClose('cancel')"
+                >
                   {{ cancelButtonText }}
                 </AButton>
                 <!-- 确认按钮 -->
@@ -57,7 +62,7 @@
                   type="primary"
                   :size="buttonSize"
                   v-if="confirmButtonShow"
-                  @click="handleClose"
+                  @click="handleClose('confirm')"
                 >
                   {{ confirmButtonText }}
                 </AButton>
