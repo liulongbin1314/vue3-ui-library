@@ -15,5 +15,25 @@ export const useDialogEvent = ({ visible }) => {
     close()
   }
 
-  return { handleClose }
+  // 触发自定义的 open 事件
+  const handleBeforeEnter = () => {
+    instance.emit('open')
+  }
+
+  // 触发自定义的 opened 事件
+  const handleAfterEnter = () => {
+    instance.emit('opened')
+  }
+
+  // 触发自定义的 close 事件
+  const handleBeforeLeave = () => {
+    instance.emit('close')
+  }
+
+  // 触发自定义的 closed 事件
+  const handleAfterLeave = () => {
+    instance.emit('closed')
+  }
+
+  return { handleClose, handleBeforeEnter, handleAfterEnter, handleBeforeLeave, handleAfterLeave }
 }

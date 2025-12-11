@@ -1,6 +1,12 @@
 <template>
   <teleport to="body">
-    <transition :name="ns.b()">
+    <transition
+      :name="ns.b()"
+      @before-enter="handleBeforeEnter"
+      @after-enter="handleAfterEnter"
+      @before-leave="handleBeforeLeave"
+      @after-leave="handleAfterLeave"
+    >
       <!-- 遮罩层 -->
       <AMask v-show="visible" v-bind="$attrs" @close="handleClose">
         <!-- Dialog 根元素 -->
@@ -43,11 +49,16 @@
               </template>
               <template v-else>
                 <!-- 取消按钮 -->
-                <AButton text :size="buttonSize" v-if="cancelButtonShow">
+                <AButton text :size="buttonSize" v-if="cancelButtonShow" @click="handleClose">
                   {{ cancelButtonText }}
                 </AButton>
                 <!-- 确认按钮 -->
-                <AButton type="primary" :size="buttonSize" v-if="confirmButtonShow">
+                <AButton
+                  type="primary"
+                  :size="buttonSize"
+                  v-if="confirmButtonShow"
+                  @click="handleClose"
+                >
                   {{ confirmButtonText }}
                 </AButton>
               </template>
@@ -66,6 +77,11 @@ defineOptions({
 })
 
 const props = defineProps(dialogProps)
+// open 在打开对话框的那一刻触发；
+// opened 在打开的动画效果结束之后触发；
+// close 在关闭对话框的那一刻触发；
+// closed 在关闭动画结束之后触发；
+defineEmits(['open', 'opened', 'close', 'closed'])
 
 const visible = defineModel({ type: Boolean, default: false })
 
@@ -76,7 +92,15 @@ import { dialogProps } from './dialog-config'
 import { useDialog } from './composables'
 
 const ns = useNamespace('dialog')
-const { colors, styledIconWidth, handleClose } = useDialog({ visible })
+const {
+  colors,
+  styledIconWidth,
+  handleClose,
+  handleBeforeEnter,
+  handleAfterEnter,
+  handleBeforeLeave,
+  handleAfterLeave
+} = useDialog({ visible })
 </script>
 
 <style scoped></style>
