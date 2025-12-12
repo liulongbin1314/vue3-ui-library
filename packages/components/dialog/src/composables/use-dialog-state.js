@@ -14,6 +14,9 @@ export const useDialogState = () => {
   const instance = getCurrentInstance()
   const props = instance.props
 
+  const isCancelLoading = ref(false)
+  const isConfirmLoading = ref(false)
+
   const uStyle = useStyle()
   const styledWidth = computed(() => uStyle.width(props.width))
 
@@ -29,5 +32,5 @@ export const useDialogState = () => {
     paddingLeft: iconWidth.value + 'px'
   }))
 
-  return { colors, styledIconWidth, destroyKey, styledWidth }
+  return { colors, styledIconWidth, destroyKey, styledWidth, isCancelLoading, isConfirmLoading }
 }

@@ -52,6 +52,8 @@
                 <AButton
                   text
                   :size="buttonSize"
+                  :disabled="isCancelLoading || isConfirmLoading"
+                  :loading="isCancelLoading"
                   v-if="cancelButtonShow"
                   @click="handleClose('cancel')"
                 >
@@ -61,6 +63,8 @@
                 <AButton
                   type="primary"
                   :size="buttonSize"
+                  :disabled="isCancelLoading || isConfirmLoading"
+                  :loading="isConfirmLoading"
                   v-if="confirmButtonShow"
                   @click="handleClose('confirm')"
                 >
@@ -106,7 +110,9 @@ const {
   handleBeforeLeave,
   handleAfterLeave,
   destroyKey,
-  styledWidth
+  styledWidth,
+  isCancelLoading,
+  isConfirmLoading
 } = useDialog({ visible })
 </script>
 

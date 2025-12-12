@@ -37,6 +37,8 @@
     lock-scroll
     fixed-screen
     :before-close="onBeforeClose"
+    confirm-loading
+    cancel-loading
     v-model="visible1"
     @open="onOpen"
     @opened="onOpened"

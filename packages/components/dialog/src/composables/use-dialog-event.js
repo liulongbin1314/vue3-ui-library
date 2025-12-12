@@ -12,11 +12,19 @@ export const useDialogEvent = ({ visible, state }) => {
 
   const close = () => {
     visible.value = false
+    state.isCancelLoading.value = false
+    state.isConfirmLoading.value = false
   }
 
   const handleClose = (type) => {
     if (type === 'cancel') {
+      if (isBeforeFn.value && props.cancelLoading) {
+        state.isCancelLoading.value = true
+      }
     } else if (type === 'confirm') {
+      if (isBeforeFn.value && props.confirmLoading) {
+        state.isConfirmLoading.value = true
+      }
     } else {
       type = props.distinguishCancelAndClose ? 'close' : 'cancel'
     }

@@ -19,5 +19,7 @@ export const dialogProps = {
   lockScroll: { type: Boolean, default: false },
   // 首尾固定在浏览器可视区域进行展示，内容进行滚动
   fixedScreen: { type: Boolean, default: false },
-  beforeClose: Function
+  beforeClose: Function,
+  cancelLoading: { type: Boolean, default: false },
+  confirmLoading: { type: Boolean, default: false }
 }
