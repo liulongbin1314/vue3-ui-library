@@ -1,5 +1,5 @@
 import { useEscape } from '@ui-library/hooks'
-import { getCurrentInstance, ref } from 'vue'
+import { getCurrentInstance, ref, computed } from 'vue'
 
 export const useDialogEvent = ({ visible, state }) => {
   const instance = getCurrentInstance()
@@ -7,6 +7,8 @@ export const useDialogEvent = ({ visible, state }) => {
   const closeType = ref('')
 
   props.escapeClose && useEscape(() => handleClose())
+
+  const isBeforeFn = computed(() => typeof props.beforeClose === 'function')
 
   const close = () => {
     visible.value = false
@@ -21,6 +23,13 @@ export const useDialogEvent = ({ visible, state }) => {
 
     closeType.value = type
 
+    // 1. 判断是否传入了 beforeClose 函数
+    if (isBeforeFn.value) {
+      props.beforeClose(type, close)
+      return
+    }
+
+    // 2. 如果没有传入，则直接关闭
     close()
   }
 

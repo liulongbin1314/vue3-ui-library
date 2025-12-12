@@ -36,6 +36,7 @@
     destroyOnClosed
     lock-scroll
     fixed-screen
+    :before-close="onBeforeClose"
     v-model="visible1"
     @open="onOpen"
     @opened="onOpened"
@@ -101,6 +102,21 @@ const onClose = (action) => {
 const onClosed = (action) => {
   console.log('closed', action)
   reset()
+}
+
+// 形参中的 done 是一个关闭对话框的函数
+// 形参中的 action 是关闭的类型
+const onBeforeClose = (action, done) => {
+  console.log('action: ', action)
+
+  if (action === 'confirm') {
+    setTimeout(() => {
+      console.log('延时器结束了！')
+      done()
+    }, 2000)
+  } else {
+    done()
+  }
 }
 </script>
 
