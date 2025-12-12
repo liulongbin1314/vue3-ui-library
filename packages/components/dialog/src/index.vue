@@ -10,7 +10,7 @@
       <!-- 遮罩层 -->
       <AMask v-show="visible" v-bind="$attrs" @close="handleClose">
         <!-- Dialog 根元素 -->
-        <div :class="[ns.b()]" :style="[styledWidth]">
+        <div :class="[ns.b(), ns.is('fixed-screen', fixedScreen)]" :style="[styledWidth]">
           <!-- 内层容器 -->
           <div :class="[ns.e('wrapper')]">
             <!-- 头部 -->

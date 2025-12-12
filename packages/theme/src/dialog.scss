@@ -14,6 +14,38 @@
   background-color: #fff;
   transition: 0.3s;
 
+  // 状态类名 - 是否首尾固定
+  @include mixins.s(fixed-screen) {
+    max-height: 80vh;
+    top: 0;
+    margin: 10vh 0;
+    display: flex;
+
+    // 内层容器
+    @include mixins.e(wrapper, false) {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      // 主体
+      @include mixins.e(body, false) {
+        flex: 1;
+        height: 0;
+        display: flex;
+        @include mixins.e(body-inner, false) {
+          width: 100%;
+          overflow-y: auto;
+          // Firefox 隐藏滚动条
+          scrollbar-width: none;
+          // Chrome 隐藏滚动条
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
   // 内层容器
   @include mixins.e(wrapper) {
     // 头部

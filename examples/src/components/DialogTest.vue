@@ -35,6 +35,7 @@
     :distinguishCancelAndClose="true"
     destroyOnClosed
     lock-scroll
+    fixed-screen
     v-model="visible1"
     @open="onOpen"
     @opened="onOpened"
@@ -42,6 +43,33 @@
     @closed="onClosed"
   >
     <div>Hello world. 11111111111111111111111111111111111111111111111111111111111</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
+    <div>Hello 刘老师！</div>
     <a-input v-model="msg"></a-input>
   </a-dialog>
 </template>

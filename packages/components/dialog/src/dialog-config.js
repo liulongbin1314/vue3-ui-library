@@ -16,5 +16,7 @@ export const dialogProps = {
   destroyOnClosed: { type: Boolean, default: false },
   width: { type: [Number, String], default: '' },
   // 是否禁用背景滚动
-  lockScroll: { type: Boolean, default: false }
+  lockScroll: { type: Boolean, default: false },
+  // 首尾固定在浏览器可视区域进行展示，内容进行滚动
+  fixedScreen: { type: Boolean, default: false }
 }
