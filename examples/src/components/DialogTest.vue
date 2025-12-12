@@ -4,10 +4,37 @@
     <a-button @click="visible1 = true" type="primary">展示 Dialog1</a-button>
   </div>
 
+  <div>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+    <h1>Hello liulongbin.</h1>
+  </div>
+
   <a-dialog
     title="温馨提示"
     :distinguishCancelAndClose="true"
     destroyOnClosed
+    lock-scroll
     v-model="visible1"
     @open="onOpen"
     @opened="onOpened"

@@ -14,5 +14,7 @@ export const dialogProps = {
   // 如果值为 true，则需要区分 cancel 和 close
   distinguishCancelAndClose: { type: Boolean, default: false },
   destroyOnClosed: { type: Boolean, default: false },
-  width: { type: [Number, String], default: '' }
+  width: { type: [Number, String], default: '' },
+  // 是否禁用背景滚动
+  lockScroll: { type: Boolean, default: false }
 }

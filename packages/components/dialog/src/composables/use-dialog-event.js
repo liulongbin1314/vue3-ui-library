@@ -27,6 +27,10 @@ export const useDialogEvent = ({ visible, state }) => {
   // 触发自定义的 open 事件
   const handleBeforeEnter = () => {
     instance.emit('open')
+
+    if (props.lockScroll) {
+      document.documentElement.style.overflow = 'hidden'
+    }
   }
 
   // 触发自定义的 opened 事件
@@ -37,6 +41,10 @@ export const useDialogEvent = ({ visible, state }) => {
   // 触发自定义的 close 事件
   const handleBeforeLeave = () => {
     instance.emit('close', closeType.value)
+
+    if (props.lockScroll) {
+      document.documentElement.style.overflow = ''
+    }
   }
 
   // 触发自定义的 closed 事件
