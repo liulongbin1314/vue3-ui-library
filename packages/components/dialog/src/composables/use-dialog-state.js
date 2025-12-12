@@ -1,5 +1,6 @@
-import { computed, ref, useTemplateRef } from 'vue'
+import { computed, ref, useTemplateRef, getCurrentInstance } from 'vue'
 import { useResizeObserver } from '@vueuse/core'
+import { useStyle } from '@ui-library/hooks'
 
 const colors = {
   info: 'var(--a-color-black-light-5)',
@@ -10,6 +11,12 @@ const colors = {
 }
 
 export const useDialogState = () => {
+  const instance = getCurrentInstance()
+  const props = instance.props
+
+  const uStyle = useStyle()
+  const styledWidth = computed(() => uStyle.width(props.width))
+
   const destroyKey = ref(0)
   const iconWidth = ref(0)
   const el = useTemplateRef('icon')
@@ -22,5 +29,5 @@ export const useDialogState = () => {
     paddingLeft: iconWidth.value + 'px'
   }))
 
-  return { colors, styledIconWidth, destroyKey }
+  return { colors, styledIconWidth, destroyKey, styledWidth }
 }
