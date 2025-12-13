@@ -15,7 +15,10 @@ const $msgbox = instance.appContext.config.globalProperties.$msgbox
 const show1 = () => {
   // $msgbox()
   AMessageBox({
-    title: '警告'
+    title: '警告',
+    gray: false,
+    blur: false,
+    penetrable: true
   })
 }
 </script>
