@@ -65,8 +65,8 @@ export const useDialogEvent = ({ visible, state }) => {
   }
 
   // 触发自定义的 closed 事件
-  const handleAfterLeave = () => {
-    instance.emit('closed', closeType.value)
+  const handleAfterLeave = (el) => {
+    instance.emit('closed', closeType.value, el)
 
     if (props.destroyOnClosed) {
       state.destroyKey.value++
