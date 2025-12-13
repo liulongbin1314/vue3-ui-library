@@ -7,12 +7,16 @@
 
 <script setup>
 import { getCurrentInstance } from 'vue'
+import { AMessageBox } from '@ui-library/components'
 
 const instance = getCurrentInstance()
 const $msgbox = instance.appContext.config.globalProperties.$msgbox
 
 const show1 = () => {
-  $msgbox()
+  // $msgbox()
+  AMessageBox({
+    title: '警告'
+  })
 }
 </script>
 
