@@ -16,6 +16,8 @@ const show1 = () => {
   // $msgbox()
   AMessageBox({
     title: '警告',
+    message: '您确认删除此数据吗？',
+    type: 'warning',
     gray: false,
     blur: false,
     penetrable: true

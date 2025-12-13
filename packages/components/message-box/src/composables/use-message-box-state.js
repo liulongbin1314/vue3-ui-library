@@ -1,5 +1,13 @@
 import { onMounted, ref } from 'vue'
 
+const typeToIcon = {
+  info: 'icon-info-fill',
+  primary: 'icon-info-fill',
+  success: 'icon-success-fill',
+  warning: 'icon-warning-fill',
+  error: 'icon-error-fill'
+}
+
 export const useMessageBoxState = () => {
   const visible = ref(false)
 
@@ -9,5 +17,5 @@ export const useMessageBoxState = () => {
     visible.value = true
   })
 
-  return { visible }
+  return { visible, typeToIcon }
 }
