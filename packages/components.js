@@ -14,6 +14,7 @@ import { AForm, AFormItem } from '@ui-library/components/form'
 import { AMessage } from '@ui-library/components/message'
 import { AMask } from '@ui-library/components/mask'
 import { ADialog } from '@ui-library/components/dialog'
+import { AMessageBox } from '@ui-library/components/message-box'
 
 // 默认导出一个数组，
 // 数组中包含封装的所有的组件
@@ -40,5 +41,6 @@ export default [
   AFormItem,
   AMessage,
   AMask,
-  ADialog
+  ADialog,
+  AMessageBox
 ]
