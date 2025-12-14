@@ -12,9 +12,15 @@ export const componentInstall = (com) => {
 }
 
 // 此工具函数，用于向全局安装函数式组件
-export const functionInstall = (fn, name) => {
+export const functionInstall = (fn, name, obj) => {
   fn.install = (app) => {
     app.config.globalProperties[name] = fn
+
+    if (Object.prototype.toString.call(obj) === '[object Object]' && typeof obj !== 'function') {
+      for (const key in obj) {
+        app.config.globalProperties[key] = obj[key]
+      }
+    }
   }
   return fn
 }

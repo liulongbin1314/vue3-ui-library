@@ -13,6 +13,8 @@ import { AMessageBox, AMessage } from '@ui-library/components'
 
 const instance = getCurrentInstance()
 const $msgbox = instance.appContext.config.globalProperties.$msgbox
+const $alert = instance.appContext.config.globalProperties.$alert
+const $confirm = instance.appContext.config.globalProperties.$confirm
 
 const show1 = () => {
   // $msgbox()
@@ -26,7 +28,7 @@ const show1 = () => {
   //   }
   // })
 
-  AMessageBox({
+  $msgbox({
     title: '警告',
     message: '您确认删除此数据吗？',
     type: 'warning',
