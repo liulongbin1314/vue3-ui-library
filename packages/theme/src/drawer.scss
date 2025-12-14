@@ -1,0 +1,112 @@
+@use './common/mixins.scss';
+
+// 根元素
+@include mixins.b(drawer) {
+  position: absolute;
+  left: 50%;
+  top: 15vh;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 15px;
+  transform: translate(-50%, 0);
+  width: 500px;
+  background-color: #fff;
+  transition: 0.3s;
+
+  // 状态类名 - 是否首尾固定
+  @include mixins.s(fixed-screen) {
+    max-height: 80vh;
+    top: 0;
+    margin: 10vh 0;
+    display: flex;
+
+    // 内层容器
+    @include mixins.e(wrapper, false) {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      // 主体
+      @include mixins.e(body, false) {
+        flex: 1;
+        height: 0;
+        display: flex;
+        @include mixins.e(body-inner, false) {
+          width: 100%;
+          overflow-y: auto;
+          // Firefox 隐藏滚动条
+          scrollbar-width: none;
+          // Chrome 隐藏滚动条
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  // 内层容器
+  @include mixins.e(wrapper) {
+    // 头部
+    @include mixins.e(header) {
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+
+      // 标题
+      @include mixins.e(title) {
+        display: flex;
+        align-items: center;
+
+        > span {
+          display: flex;
+          align-items: center;
+          // margin-right: 10px;
+          padding-right: 10px;
+          white-space: nowrap;
+        }
+      }
+
+      // 关闭图标
+      @include mixins.e(icon-close) {
+        opacity: 0.5;
+        transition: 0.3s;
+
+        &:hover {
+          opacity: 1;
+          cursor: pointer;
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    // 主体
+    @include mixins.e(body) {
+      @include mixins.e(body-inner) {
+        padding: 24px 0 24px;
+        word-break: break-word;
+      }
+    }
+
+    // 尾部
+    @include mixins.e(footer) {
+      display: flex;
+      justify-content: flex-end;
+
+      > button {
+        margin-left: 15px;
+      }
+    }
+  }
+}
+
+.a-drawer-enter-from,
+.a-drawer-leave-to {
+  opacity: 0;
+
+  .a-drawer {
+    opacity: 0;
+    transform: translate(-50%, -30px);
+  }
+}

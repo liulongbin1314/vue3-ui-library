@@ -1,0 +1,25 @@
+// Dialog 组件的 props 配置
+export const drawerProps = {
+  title: { type: String, default: '' },
+  footer: { type: Boolean, default: true },
+  showClose: { type: Boolean, default: true },
+  buttonSize: { type: String, default: 'default' },
+  cancelButtonText: { type: String, default: '取消' },
+  confirmButtonText: { type: String, default: '确认' },
+  cancelButtonShow: { type: Boolean, default: true },
+  confirmButtonShow: { type: Boolean, default: true },
+  escapeClose: { type: Boolean, default: true },
+  // 是否将取消（点击取消按钮）与关闭（点击关闭按钮或遮罩层、按下 Esc 键）进行区分
+  // 如果值为 false，则点击遮罩层、ESC、关闭按钮，都返回 cancel
+  // 如果值为 true，则需要区分 cancel 和 close
+  distinguishCancelAndClose: { type: Boolean, default: false },
+  destroyOnClosed: { type: Boolean, default: false },
+  width: { type: [Number, String], default: '' },
+  // 是否禁用背景滚动
+  lockScroll: { type: Boolean, default: false },
+  // 首尾固定在浏览器可视区域进行展示，内容进行滚动
+  fixedScreen: { type: Boolean, default: false },
+  beforeClose: Function,
+  cancelLoading: { type: Boolean, default: false },
+  confirmLoading: { type: Boolean, default: false }
+}
