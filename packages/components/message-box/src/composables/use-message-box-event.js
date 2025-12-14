@@ -10,6 +10,12 @@ export const useMessageBoxEvent = () => {
 
     if (typeof props.callback === 'function') {
       props.callback(action)
+    } else {
+      if (action === 'confirm') {
+        instance._resolve(action)
+      } else {
+        instance._reject(action)
+      }
     }
   }
 

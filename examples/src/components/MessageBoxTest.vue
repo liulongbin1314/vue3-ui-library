@@ -14,15 +14,31 @@ const $msgbox = instance.appContext.config.globalProperties.$msgbox
 
 const show1 = () => {
   // $msgbox()
+  // AMessageBox({
+  //   title: '警告',
+  //   message: '您确认删除此数据吗？',
+  //   type: 'warning',
+  //   distinguishCancelAndClose: true,
+  //   callback: (action) => {
+  //     AMessage.info(action)
+  //   }
+  // })
+
   AMessageBox({
     title: '警告',
     message: '您确认删除此数据吗？',
     type: 'warning',
-    distinguishCancelAndClose: true,
-    callback: (action) => {
-      AMessage.info(action)
-    }
+    distinguishCancelAndClose: true
   })
+    .then((action) => {
+      AMessage.success(action)
+    })
+    .catch((action) => {
+      AMessage.error({
+        content: action,
+        background: true
+      })
+    })
 }
 </script>
 
