@@ -2,6 +2,8 @@
   <p>基础用法</p>
   <div class="row-gap">
     <a-button @click="show1">展示第1个 MessageBox</a-button>
+    <a-button @click="show2">Alert MessageBox</a-button>
+    <a-button @click="show3">Confirm MessageBox</a-button>
   </div>
 </template>
 
@@ -39,6 +41,33 @@ const show1 = () => {
         background: true
       })
     })
+}
+
+const show2 = () => {
+  $msgbox
+    .alert('警告', '这是一个警告的 alert 消息！', {
+      type: 'warning',
+      distinguishCancelAndClose: true
+    })
+    .then((action) => {
+      AMessage.success(action)
+    })
+    .catch((action) => {
+      AMessage.error({
+        content: action,
+        background: true
+      })
+    })
+}
+
+const show3 = () => {
+  $msgbox.confirm('温馨提示', '这是一个温馨提示的消息！', {
+    type: 'info',
+    distinguishCancelAndClose: true,
+    callback: (action) => {
+      AMessage(action)
+    }
+  })
 }
 </script>
 

@@ -32,4 +32,28 @@ export const messageBox = (params) => {
     vm._reject = reject
   })
 }
+
+// 便捷方法 alert
+messageBox.alert = (title = '', message = '', params) => {
+  const options = initOptions(params)
+  const alertOptions = {
+    title,
+    message,
+    maskClose: false,
+    escapeClose: false,
+    cancelButtonShow: false
+  }
+  return messageBox({ ...options, ...alertOptions })
+}
+
+// 便捷方法 confirm
+messageBox.confirm = (title = '', message = '', params) => {
+  const options = initOptions(params)
+  const alertOptions = {
+    title,
+    message
+  }
+  return messageBox({ ...options, ...alertOptions })
+}
+
 export default messageBox
