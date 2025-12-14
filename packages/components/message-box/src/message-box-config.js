@@ -6,5 +6,6 @@ export const messageBoxProps = {
   type: { type: String, default: '' },
   icon: { type: [String, Object], default: '' },
   iconSize: { type: Number, default: 24 },
-  iconColor: { type: String, default: '' }
+  iconColor: { type: String, default: '' },
+  callback: Function
 }

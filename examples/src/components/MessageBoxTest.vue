@@ -7,7 +7,7 @@
 
 <script setup>
 import { getCurrentInstance } from 'vue'
-import { AMessageBox } from '@ui-library/components'
+import { AMessageBox, AMessage } from '@ui-library/components'
 
 const instance = getCurrentInstance()
 const $msgbox = instance.appContext.config.globalProperties.$msgbox
@@ -18,9 +18,10 @@ const show1 = () => {
     title: '警告',
     message: '您确认删除此数据吗？',
     type: 'warning',
-    gray: false,
-    blur: false,
-    penetrable: true
+    distinguishCancelAndClose: true,
+    callback: (action) => {
+      AMessage.info(action)
+    }
   })
 }
 </script>
