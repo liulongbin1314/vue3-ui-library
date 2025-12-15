@@ -11,7 +11,7 @@
       <AMask v-show="visible" v-bind="$attrs" @close="handleClose">
         <!-- Drawer 根元素 -->
         <div
-          :class="[ns.b(), ns.is('fixed-screen', fixedScreen), ns.m('placement', placement)]"
+          :class="[ns.b(), ns.m('placement', placement), ns.is('round', round)]"
           :style="[styledWidth]"
         >
           <!-- 内层容器 -->

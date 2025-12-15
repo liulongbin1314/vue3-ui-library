@@ -4,7 +4,7 @@ $placements: (left, right, top, bottom);
 
 // 根元素
 @include mixins.b(drawer) {
-  position: absolute;
+  position: fixed;
   // left: 50%;
   // top: 15vh;
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.15);
@@ -16,40 +16,12 @@ $placements: (left, right, top, bottom);
   background-color: #fff;
   transition: 0.3s;
 
-  // 状态类名 - 是否首尾固定
-  @include mixins.s(fixed-screen) {
-    max-height: 80vh;
-    top: 0;
-    margin: 10vh 0;
-    display: flex;
-
-    // 内层容器
-    @include mixins.e(wrapper, false) {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-
-      // 主体
-      @include mixins.e(body, false) {
-        flex: 1;
-        height: 0;
-        display: flex;
-        @include mixins.e(body-inner, false) {
-          width: 100%;
-          overflow-y: auto;
-          // Firefox 隐藏滚动条
-          scrollbar-width: none;
-          // Chrome 隐藏滚动条
-          &::-webkit-scrollbar {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-
   // 内层容器
   @include mixins.e(wrapper) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
     // 头部
     @include mixins.e(header) {
       display: flex;
@@ -85,6 +57,14 @@ $placements: (left, right, top, bottom);
 
     // 主体
     @include mixins.e(body) {
+      flex: 1;
+      height: 0;
+      overflow-y: auto;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+
       @include mixins.e(body-inner) {
         padding: 24px 0 24px;
         word-break: break-word;
@@ -114,6 +94,17 @@ $placements: (left, right, top, bottom);
     @if $place == top or $place == bottom {
       left: 0;
       right: 0;
+    }
+
+    @include mixins.s(round) {
+      @if $place == bottom {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+      @if $place == top {
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
     }
   }
 }

@@ -7,8 +7,38 @@
     <a-button type="primary" @click="show('bottom')">Bottom Drawer</a-button>
   </div>
 
-  <a-drawer v-model="visible" title="标题" :placement>
-    <span>这是内容</span>
+  <a-drawer v-model="visible" title="标题" :placement round gray>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
+    <div>这是内容</div>
   </a-drawer>
 </template>
 

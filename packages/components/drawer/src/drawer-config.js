@@ -17,10 +17,10 @@ export const drawerProps = {
   width: { type: [Number, String], default: '' },
   // 是否禁用背景滚动
   lockScroll: { type: Boolean, default: false },
-  // 首尾固定在浏览器可视区域进行展示，内容进行滚动
-  fixedScreen: { type: Boolean, default: false },
   beforeClose: Function,
   cancelLoading: { type: Boolean, default: false },
   confirmLoading: { type: Boolean, default: false },
-  placement: { type: String, default: 'right' }
+  placement: { type: String, default: 'right' },
+  // 仅在 top 和 bottom 中生效
+  round: { type: Boolean, default: false }
 }
