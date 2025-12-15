@@ -18,7 +18,13 @@ export const useDrawerState = () => {
   const isConfirmLoading = ref(false)
 
   const uStyle = useStyle()
-  const styledWidth = computed(() => uStyle.width(props.width))
+  const styledSize = computed(() => {
+    if (props.placement === 'top' || props.placement === 'bottom') {
+      return uStyle.height(props.size)
+    } else {
+      return uStyle.width(props.size)
+    }
+  })
 
   const destroyKey = ref(0)
   const iconWidth = ref(0)
@@ -32,5 +38,12 @@ export const useDrawerState = () => {
     paddingLeft: iconWidth.value + 'px'
   }))
 
-  return { colors, styledIconWidth, destroyKey, styledWidth, isCancelLoading, isConfirmLoading }
+  return {
+    colors,
+    styledIconWidth,
+    destroyKey,
+    styledWidth: styledSize,
+    isCancelLoading,
+    isConfirmLoading
+  }
 }
