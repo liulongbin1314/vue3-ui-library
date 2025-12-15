@@ -21,5 +21,6 @@ export const drawerProps = {
   fixedScreen: { type: Boolean, default: false },
   beforeClose: Function,
   cancelLoading: { type: Boolean, default: false },
-  confirmLoading: { type: Boolean, default: false }
+  confirmLoading: { type: Boolean, default: false },
+  placement: { type: String, default: 'right' }
 }

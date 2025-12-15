@@ -1,10 +1,13 @@
 <template>
   <p>基础用法</p>
   <div class="row-gap">
-    <a-button type="primary" @click="show">Right Drawer</a-button>
+    <a-button type="primary" @click="show('right')">Right Drawer</a-button>
+    <a-button type="primary" @click="show('left')">Left Drawer</a-button>
+    <a-button type="primary" @click="show('top')">Top Drawer</a-button>
+    <a-button type="primary" @click="show('bottom')">Bottom Drawer</a-button>
   </div>
 
-  <a-drawer v-model="visible" title="标题">
+  <a-drawer v-model="visible" title="标题" :placement>
     <span>这是内容</span>
   </a-drawer>
 </template>
@@ -13,9 +16,11 @@
 import { ref } from 'vue'
 
 const visible = ref(false)
+const placement = ref('right')
 
-const show = () => {
+const show = (place) => {
   visible.value = true
+  placement.value = place
 }
 </script>
 

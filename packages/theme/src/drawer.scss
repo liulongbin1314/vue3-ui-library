@@ -1,16 +1,18 @@
 @use './common/mixins.scss';
 
+$placements: (left, right, top, bottom);
+
 // 根元素
 @include mixins.b(drawer) {
   position: absolute;
-  left: 50%;
-  top: 15vh;
+  // left: 50%;
+  // top: 15vh;
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
   padding: 20px;
-  border-radius: 15px;
-  transform: translate(-50%, 0);
-  width: 500px;
+  // border-radius: 15px;
+  transform: translate(0, 0);
+  // width: 500px;
   background-color: #fff;
   transition: 0.3s;
 
@@ -101,12 +103,39 @@
   }
 }
 
+@each $place in $placements {
+  @include mixins.m(placement, $place) {
+    #{$place}: 0;
+
+    @if $place == left or $place == right {
+      top: 0;
+      bottom: 0;
+    }
+    @if $place == top or $place == bottom {
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
 .a-drawer-enter-from,
 .a-drawer-leave-to {
   opacity: 0;
 
   .a-drawer {
     opacity: 0;
-    transform: translate(-50%, -30px);
+
+    &.a-drawer--placement_left {
+      transform: translateX(-100%);
+    }
+    &.a-drawer--placement_right {
+      transform: translateX(100%);
+    }
+    &.a-drawer--placement_top {
+      transform: translateY(-100%);
+    }
+    &.a-drawer--placement_bottom {
+      transform: translateY(100%);
+    }
   }
 }
