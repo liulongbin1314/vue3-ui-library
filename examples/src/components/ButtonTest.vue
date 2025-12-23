@@ -205,7 +205,8 @@
 
 <script setup>
 // 按需导入 Button 组件
-// import { AButton } from '../../../packages'
+import { AButton, AButtonGroup } from '@ui-library/components'
+import '@ui-library/theme/src/button.scss'
 import { ref } from 'vue'
 const loading = ref(false)
 
