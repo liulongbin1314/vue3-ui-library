@@ -2,7 +2,7 @@
 export * from './components/index.js'
 
 // 一次性导入所有的 iconfont 图标
-import './utils/icon-fonts/iconfont.css'
+// import './utils/icon-fonts/iconfont.css'
 
 // 实现所有组件的全局安装
 import components from './components.js'

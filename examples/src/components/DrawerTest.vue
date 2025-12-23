@@ -1,7 +1,10 @@
 <template>
   <p>基础用法</p>
   <div class="row-gap">
-    <a-button type="primary" @click="show('right')">Right Drawer</a-button>
+    <a-button type="primary" @click="show('right')">
+      <a-icon icon="icon-move"></a-icon>
+      <span>Right Drawer</span>
+    </a-button>
     <a-button type="primary" @click="show('left')">Left Drawer</a-button>
     <a-button type="primary" @click="show('top')">Top Drawer</a-button>
     <a-button type="primary" @click="show('bottom')">Bottom Drawer</a-button>
