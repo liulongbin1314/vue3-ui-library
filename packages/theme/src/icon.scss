@@ -1,6 +1,8 @@
 @use './common/mixins.scss';
 // 一次性导入 iconfont 字体图标
 @use '../icon-fonts/iconfont.css';
+@use './initRoot.scss';
+@use './loading.scss';
 
 @include mixins.b(icon) {
   width: 1em;

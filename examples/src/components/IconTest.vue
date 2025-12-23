@@ -51,6 +51,9 @@
 </template>
 
 <script setup>
+import { AButton, AIcon } from '@ui-library/components'
+import '@ui-library/theme/src/icon.scss'
+import '@ui-library/theme/src/button.scss'
 import { ref } from 'vue'
 import { Activity, Airplay, Bookmark, PlusCircle } from '@ui-library/icons'
 
