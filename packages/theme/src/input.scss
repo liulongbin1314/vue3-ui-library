@@ -1,6 +1,9 @@
 @use './common/mixins.scss';
 @use './common/componentVar.scss' as comVar;
 @use './common/function.scss' as fn;
+@use './icon.scss';
+@use './initRoot.scss';
+@use './loading.scss';
 
 // 根元素
 @include mixins.b(input) {

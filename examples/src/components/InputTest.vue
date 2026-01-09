@@ -55,11 +55,11 @@
       <!-- 具名插槽 -->
       <!-- 前置内容 -->
       <template #prepend>
-        <a-button type="primary">姓名</a-button>
+        <a-button type="primary" size="large">姓名</a-button>
       </template>
       <!-- 后置内容 -->
       <template #append>
-        <a-button type="primary">提交</a-button>
+        <a-button type="primary" size="large">提交</a-button>
       </template>
     </a-input>
 
@@ -152,7 +152,11 @@
 
 <script setup>
 import { Calendar, PlusCircle } from '@ui-library/icons'
-import { ref, shallowRef } from 'vue'
+import { ref } from 'vue'
+import { AInput, AIcon, AButton, ATextarea } from '@ui-library/components'
+import '@ui-library/theme/src/input.scss'
+import '@ui-library/theme/src/icon.scss'
+import '@ui-library/theme/src/button.scss'
 
 const info = ref('Hello Escook')
 const inputRef = ref(null)
