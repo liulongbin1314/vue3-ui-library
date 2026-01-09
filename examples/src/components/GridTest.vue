@@ -58,7 +58,16 @@
   </a-row>
 </template>
 
-<script setup></script>
+<script setup>
+import { ARow, ACol, AContainer, AHeader, AFooter, AMain, AAside } from '@ui-library/components'
+import '@ui-library/theme/src/row.scss'
+import '@ui-library/theme/src/col.scss'
+import '@ui-library/theme/src/container.scss'
+import '@ui-library/theme/src/header.scss'
+import '@ui-library/theme/src/footer.scss'
+import '@ui-library/theme/src/main.scss'
+import '@ui-library/theme/src/aside.scss'
+</script>
 
 <style scoped>
 .a-row {
