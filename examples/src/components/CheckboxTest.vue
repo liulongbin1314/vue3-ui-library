@@ -104,6 +104,9 @@
 
 <script setup>
 import { ref } from 'vue'
+import { ACheckbox, ACheckboxAll, ACheckboxGroup } from '@ui-library/components'
+import '@ui-library/theme/src/checkbox.scss'
+import '@ui-library/theme/src/checkbox-all.scss'
 
 const value1 = ref(false)
 const value2 = ref(['beijing', 'shanghai'])
