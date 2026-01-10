@@ -1,11 +1,14 @@
 <template>
   <p>基础用法</p>
-  <a-mask :gray="false" :blur="false" @close="handleClose">
+  <a-mask :gray="true" :blur="true" @close="handleClose">
     <div class="box">Hello world.</div>
   </a-mask>
 </template>
 
 <script setup>
+import { AMask } from '@ui-library/components'
+import '@ui-library/theme/src/mask.scss'
+
 const handleClose = () => {
   console.log('触发了遮罩层自定的close事件！')
 }

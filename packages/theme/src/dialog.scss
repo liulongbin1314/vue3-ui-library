@@ -1,4 +1,9 @@
 @use './common/mixins.scss';
+@use './mask.scss';
+@use './button.scss';
+@use './icon.scss';
+@use './initRoot.scss';
+@use './loading.scss';
 
 // 根元素
 @include mixins.b(dialog) {
