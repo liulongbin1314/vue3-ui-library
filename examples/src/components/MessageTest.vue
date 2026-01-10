@@ -38,11 +38,14 @@
 
 <script setup>
 // 按需导入
-import { AMessage } from '@ui-library/components'
-import { getCurrentInstance } from 'vue'
+import { AMessage, AButton } from '@ui-library/components'
+// import { getCurrentInstance } from 'vue'
+import '@ui-library/theme/src/message.scss'
+import '@ui-library/theme/src/button.scss'
 
-const instance = getCurrentInstance()
-const $message = instance.appContext.config.globalProperties.$message
+// const instance = getCurrentInstance()
+// const $message = instance.appContext.config.globalProperties.$message
+const $message = AMessage
 
 const show1 = () => {
   // AMessage('这是一个info消息')
@@ -53,7 +56,7 @@ const show1 = () => {
   // $message('这是全局函数式组件的消息')
   $message({
     content: '这是另一个全局函数式组件的消息',
-    duration: 15000
+    duration: 1500
   })
 }
 
@@ -61,7 +64,7 @@ const show2 = (type) => {
   $message({
     type,
     content: '这是另一个全局函数式组件的消息',
-    duration: 150000
+    duration: 1500
   })
 }
 
@@ -70,7 +73,7 @@ const show3 = (type) => {
     type,
     background: true,
     content: '这是另一个全局函数式组件的消息',
-    duration: 150000
+    duration: 1500
   })
 }
 
@@ -78,7 +81,7 @@ const show4 = (type) => {
   AMessage[type]({
     background: true,
     content: '这是另一个全局函数式组件的消息',
-    duration: 150000
+    duration: 1500
   })
 }
 
