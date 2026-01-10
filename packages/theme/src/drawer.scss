@@ -1,4 +1,9 @@
 @use './common/mixins.scss';
+@use './mask.scss';
+@use './button.scss';
+@use './icon.scss';
+@use './initRoot.scss';
+@use './loading.scss';
 
 $placements: (left, right, top, bottom);
 
