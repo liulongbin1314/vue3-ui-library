@@ -9,12 +9,20 @@
 
 <script setup>
 import { getCurrentInstance } from 'vue'
-import { AMessageBox, AMessage } from '@ui-library/components'
+import { AMessageBox, AMessage, AButton } from '@ui-library/components'
 
-const instance = getCurrentInstance()
-const $msgbox = instance.appContext.config.globalProperties.$msgbox
-const $alert = instance.appContext.config.globalProperties.$alert
-const $confirm = instance.appContext.config.globalProperties.$confirm
+import '@ui-library/theme/src/dialog.scss'
+import '@ui-library/theme/src/message.scss'
+import '@ui-library/theme/src/button.scss'
+
+// const instance = getCurrentInstance()
+// const $msgbox = instance.appContext.config.globalProperties.$msgbox
+// const $alert = instance.appContext.config.globalProperties.$alert
+// const $confirm = instance.appContext.config.globalProperties.$confirm
+
+const $msgbox = AMessageBox
+const $alert = AMessageBox.alert
+const $confirm = AMessageBox.confirm
 
 const show1 = () => {
   // $msgbox()
