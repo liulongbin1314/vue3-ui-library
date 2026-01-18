@@ -1,0 +1,20 @@
+{
+  "name": "build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "16.0.3",
+    "@vitejs/plugin-vue": "6.0.1",
+    "rollup": "4.53.4",
+    "rollup-plugin-esbuild": "6.2.1",
+    "rollup-plugin-postcss": "4.0.2"
+  }
+}
