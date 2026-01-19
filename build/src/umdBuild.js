@@ -4,6 +4,8 @@ import vue from '@vitejs/plugin-vue'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import esbuild from 'rollup-plugin-esbuild'
 import postcss from 'rollup-plugin-postcss'
+import { join } from 'node:path'
+import { inputDir, outputUmd } from './common.js'
 
 // umd 全量打包的入口函数
 const umdBuildEntry = async (isMinify = false) => {
@@ -11,7 +13,7 @@ const umdBuildEntry = async (isMinify = false) => {
   const writeBundles = await rollup({
     // 入口相关的配置
     // 打包的入口模块
-    input: '',
+    input: join(inputDir, 'index.js'),
     plugins: [vue(), nodeResolve(), esbuild({ minify: isMinify, sourceMap: true }), postcss()],
     external: ['vue']
   })
@@ -22,7 +24,7 @@ const umdBuildEntry = async (isMinify = false) => {
     // 打包的格式
     format: 'umd',
     // 输出的文件路径（需要包含文件名）
-    file: '',
+    file: join(outputUmd, `index.full${isMinify ? '.min' : ''}.js`),
     // 组件库的全局变量名称
     name: 'EscookUI',
     // 只使用具名导出
@@ -31,3 +33,10 @@ const umdBuildEntry = async (isMinify = false) => {
     globals: { vue: 'Vue' }
   })
 }
+
+export const buildUmd = () => {
+  Promise.all([umdBuildEntry(), umdBuildEntry(true)])
+}
+
+// 测试 umd 打包
+buildUmd()
