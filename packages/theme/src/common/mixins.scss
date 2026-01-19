@@ -126,8 +126,13 @@
 @mixin s($attrs, $and: true) {
   $selector: '';
 
+  $pre: '.';
+  @if $and {
+    $pre: '&.';
+  }
+
   @each $attr in $attrs {
-    $selector: $selector + if($and, '&.', '.') + config.$is-prefix + $attr + ',';
+    $selector: $selector + $pre + config.$is-prefix + $attr + ',';
   }
 
   #{$selector} {
