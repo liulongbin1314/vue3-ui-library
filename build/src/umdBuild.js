@@ -34,9 +34,9 @@ const umdBuildEntry = async (isMinify = false) => {
   })
 }
 
-export const buildUmd = () => {
+export const buildUmd = async () => {
   Promise.all([umdBuildEntry(), umdBuildEntry(true)])
 }
 
 // 测试 umd 打包
-buildUmd()
+// buildUmd()
