@@ -1,4 +1,5 @@
 import gulp from 'gulp'
-import { buildUmd } from './src/index.js'
+import { buildUmd, fileTask } from './src/index.js'
 
-export default gulp.series(buildUmd)
+// 任务序列，任务从前到后依次执行
+export default gulp.series(fileTask, buildUmd)

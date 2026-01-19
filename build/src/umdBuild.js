@@ -34,8 +34,9 @@ const umdBuildEntry = async (isMinify = false) => {
   })
 }
 
+// 今后，凡是需要放到 gulp.series 中的任务，必须是 async 异步函数，且必须 return Promise 对象
 export const buildUmd = async () => {
-  Promise.all([umdBuildEntry(), umdBuildEntry(true)])
+  return Promise.all([umdBuildEntry(), umdBuildEntry(true)])
 }
 
 // 测试 umd 打包
