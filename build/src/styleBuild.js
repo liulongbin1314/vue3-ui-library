@@ -5,6 +5,7 @@ import autoPrefixer from 'gulp-autoprefixer'
 import cleanCSS from 'gulp-clean-css'
 import gulpConcat from 'gulp-concat'
 import { join } from 'node:path'
+import gulpReplace from 'gulp-replace'
 import { inputDir, outputUmd } from './common.js'
 
 // umd 全量打包 .scss 样式
@@ -17,6 +18,7 @@ const fullStyleBuildEntry = () => {
       .src(join(inputDir, 'theme/src/index.scss'))
       .pipe(sass.sync())
       .pipe(autoPrefixer())
+      .pipe(gulpReplace(/iconfont\.(ttf|woff|woff2)/g, 'fonts/iconfont.$1'))
       .pipe(cleanCSS())
       .pipe(gulpConcat('index.min.css'))
       .pipe(gulp.dest(outputUmd))
