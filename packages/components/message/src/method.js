@@ -49,7 +49,8 @@ const createMessage = (options) => {
 const closeAll = () => {
   // 循环关闭所有的 Message 组件
   instanceArray.value.forEach((item) => {
-    item.vm.setupState.visible = false
+    // item.vm.setupState.visible = false
+    item.vm.exposed.visible.value = false
   })
   // 清空列表
   instanceArray.value = []

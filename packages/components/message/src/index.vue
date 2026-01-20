@@ -62,7 +62,6 @@ const {
   styledTop,
   bottomPosition,
   styledZIndex,
-  el,
   visible,
   handleAfterLeave,
   handleMouseEnter,
@@ -74,7 +73,8 @@ const {
 // 这样在渲染下一个 Message 组件的时候，就可以获取前一个组件通过
 // defineExpose 暴露的 bottomPosition，作为 prevBottomPosition 进行使用
 defineExpose({
-  bottomPosition
+  bottomPosition,
+  visible
 })
 </script>
 

@@ -34,7 +34,8 @@ export const getPrevBottomPosition = (id) => {
 export const closeMessage = (id) => {
   const { current, index } = getInstance(id)
   if (current) {
-    current.vm.setupState.visible = false
+    // current.vm.setupState.visible = false
+    current.vm.exposed.visible.value = false
     instanceArray.value.splice(index, 1)
   }
 }

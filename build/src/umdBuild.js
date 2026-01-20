@@ -53,7 +53,7 @@ const umdSvgBuildEntry = async (isMinify = false) => {
     // 输出的文件路径（需要包含文件名）
     file: join(outputUmd, `icon.full${isMinify ? '.min' : ''}.js`),
     // 组件库的全局变量名称
-    name: 'EscookIcon',
+    name: 'EscookIcons',
     // 只使用具名导出
     exports: 'named',
     // 外部依赖
