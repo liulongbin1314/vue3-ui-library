@@ -3,7 +3,7 @@ import { join } from 'node:path'
 // 当前模块所处的路径
 const _dirname = import.meta.dirname
 // UI 组件库的名称
-const uiLibraryName = 'escook-ui'
+export const uiLibraryName = 'escook-ui'
 
 // 项目根目录
 export const monorepoDir = join(_dirname, '../../')
