@@ -35,6 +35,7 @@ const moduleStyleBuildEntry = () => {
       .src([`${inputDir}/theme/src/*.scss`, `!${inputDir}/theme/src/{index,initRoot,loading}.scss`])
       .pipe(sass.sync())
       .pipe(autoPrefixer())
+      .pipe(gulpReplace(/iconfont\.(ttf|woff|woff2)/g, 'fonts/iconfont.$1'))
       .pipe(cleanCSS())
       .pipe(gulp.dest(`${outputTheme}/src`))
       .on('end', resolve)
