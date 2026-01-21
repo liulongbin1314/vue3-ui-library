@@ -6,7 +6,7 @@ import cleanCSS from 'gulp-clean-css'
 import gulpConcat from 'gulp-concat'
 import { join } from 'node:path'
 import gulpReplace from 'gulp-replace'
-import { inputDir, outputUmd } from './common.js'
+import { inputDir, outputUmd, outputTheme } from './common.js'
 
 // umd 全量打包 .scss 样式
 const fullStyleBuildEntry = () => {
@@ -26,7 +26,22 @@ const fullStyleBuildEntry = () => {
   })
 }
 
+// 模块化打包 .scss 样式
+const moduleStyleBuildEntry = () => {
+  const sass = gulpSass(dartSass)
+
+  return new Promise((resolve) => {
+    gulp
+      .src([`${inputDir}/theme/src/*.scss`, `!${inputDir}/theme/src/{index,initRoot,loading}.scss`])
+      .pipe(sass.sync())
+      .pipe(autoPrefixer())
+      .pipe(cleanCSS())
+      .pipe(gulp.dest(`${outputTheme}/src`))
+      .on('end', resolve)
+  })
+}
+
 // 编译样式的 gulp 任务
 export const buildStyleTask = async () => {
-  return Promise.all([fullStyleBuildEntry()])
+  return Promise.all([fullStyleBuildEntry(), moduleStyleBuildEntry()])
 }
