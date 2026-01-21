@@ -44,6 +44,9 @@ importers:
       del:
         specifier: 8.0.1
         version: 8.0.1
+      fast-glob:
+        specifier: 3.3.3
+        version: 3.3.3
       gulp:
         specifier: 5.0.1
         version: 5.0.1

@@ -4,6 +4,8 @@
 @use './function.scss' as fn;
 @use './config.scss';
 
+$b: null;
+
 // 用于给 :root 动态生成基础颜色的 css 变量
 @mixin set-base-color() {
   @each $type in var.$types {
@@ -79,7 +81,8 @@
 
 // 生成 Block 块类名
 @mixin b($block) {
-  $b: '.' + config.$namespace + config.$connect + $block !global;
+  // $b: '.' + config.$namespace + config.$connect + $block !global;
+  $b: '.' + config.$namespace + config.$connect + $block;
 
   #{$b} {
     // 占位符
