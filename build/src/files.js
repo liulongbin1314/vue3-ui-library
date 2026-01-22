@@ -28,9 +28,19 @@ const copyModuleFonts = () => {
   })
 }
 
+// 拷贝 README 和 package.json
+const copyPackageInfo = () => {
+  return new Promise((resolve) => {
+    gulp
+      .src([join(inputDir, 'README.md'), join(inputDir, 'package.json')], { encoding: false })
+      .pipe(gulp.dest(outputDir))
+      .on('end', resolve)
+  })
+}
+
 // 文件相关的任务
 // export const fileTask = async () => {
 //   return Promise.all([deleteUIPackage(), copyUmdFonts()])
 // }
 
-export const fileTask = gulp.series(deleteUIPackage, copyUmdFonts, copyModuleFonts)
+export const fileTask = gulp.series(deleteUIPackage, copyUmdFonts, copyModuleFonts, copyPackageInfo)

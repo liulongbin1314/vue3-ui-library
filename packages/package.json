@@ -1,0 +1,28 @@
+{
+  "name": "escook-ui",
+  "version": "1.0.0-alpha.1",
+  "description": "地表最强系列·前端视频教程 - 零基础开发 Vue3 组件库",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Vue3",
+    "组件库",
+    "escook"
+  ],
+  "author": {
+    "name": "liulongbin",
+    "email": "liulongbin1314@outlook.com",
+    "url": "https://www.bilibili.com/cheese/play/ss568518843"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@vueuse/core": "^14.1.0",
+    "async-validator": "^4.2.5"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.21"
+  }
+}
