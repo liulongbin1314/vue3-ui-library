@@ -2,7 +2,7 @@
   <h1>App2</h1>
 
   <div>
-    <AButton>默认按钮</AButton>
+    <a-button>默认按钮</a-button>
     <AButton type="primary">主要按钮</AButton>
     <AButton type="success">成功按钮</AButton>
     <AButton type="warning" @click="showMsg">警告按钮</AButton>
@@ -25,12 +25,12 @@
 <script setup>
 import { ref } from 'vue'
 // 按需导入组件
-import { AButton, AIcon, AMessage, ADialog } from 'escook-ui'
+// import { AButton, AIcon, AMessage, ADialog } from 'escook-ui'
 import { Flag } from 'escook-ui/icons'
 // 按需导入组件配套的样式
-import 'escook-ui/theme/src/button.css'
-import 'escook-ui/theme/src/message.css'
-import 'escook-ui/theme/src/dialog.css'
+// import 'escook-ui/theme/src/button.css'
+// import 'escook-ui/theme/src/message.css'
+// import 'escook-ui/theme/src/dialog.css'
 
 const visible = ref(false)
 
