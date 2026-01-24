@@ -12,6 +12,19 @@ const toKebabCase = (name) => {
     .toLowerCase()
 }
 
+const name2dir = {
+  // 组件名: 文件夹名字
+  'checkbox-all': 'checkbox',
+  'checkbox-group': 'checkbox',
+  'radio-group': 'radio',
+  'radio-group': 'radio',
+  'form-item': 'form',
+  aside: 'container',
+  footer: 'container',
+  header: 'container',
+  main: 'container'
+}
+
 // 实现 EscookUI 组件的自动导入
 // 形参中的 name 是组件的名字 AButton  ACheckboxGroup
 const EscookUIResolver = (mtype = 'es') => {
@@ -20,8 +33,8 @@ const EscookUIResolver = (mtype = 'es') => {
 
     // 如果组件的 name 名称以字母 A 开头，则从 escook-ui 中自动加载组件及样式
     if (name.startsWith('A')) {
-      const componentName = toKebabCase(name)
-      const dirname = componentName.slice(2)
+      const componentName = toKebabCase(name).slice(2)
+      const dirname = name2dir[componentName] || componentName
 
       return {
         // 需要自动导入的组件的名字

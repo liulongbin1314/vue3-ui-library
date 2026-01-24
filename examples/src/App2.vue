@@ -13,6 +13,14 @@
     </AButton>
   </div>
 
+  <div>
+    <a-checkbox-all v-model="cities">
+      <a-checkbox value="beijing">北京市</a-checkbox>
+      <a-checkbox value="shanghai">上海市</a-checkbox>
+      <a-checkbox value="shenzhen">深圳市</a-checkbox>
+    </a-checkbox-all>
+  </div>
+
   <ADialog v-model="visible" title="温馨提示" gray>
     <div>展示 Dialog 的消息内容</div>
 
@@ -33,6 +41,7 @@ import { Flag } from 'escook-ui/icons'
 // import 'escook-ui/theme/src/dialog.css'
 
 const visible = ref(false)
+const cities = ref([])
 
 const showMsg = () => {
   AMessage({
