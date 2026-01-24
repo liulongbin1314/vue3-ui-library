@@ -28,8 +28,6 @@
       </ACheckboxGroup>
     </div>
   </div>
-  <p>{{ allOptions }}</p>
-  <p>{{ allModel }}</p>
 </template>
 
 <script setup>
