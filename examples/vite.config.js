@@ -12,8 +12,6 @@ const toKebabCase = (name) => {
     .toLowerCase()
 }
 
-console.log(toKebabCase('AButton'))
-
 // 实现 EscookUI 组件的自动导入
 // 形参中的 name 是组件的名字 AButton  ACheckboxGroup
 const EscookUIResolver = (mtype = 'es') => {
