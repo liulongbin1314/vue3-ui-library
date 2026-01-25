@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import './style.css'
-import App from './App2.vue'
+import App from './App.vue'
 // 导入组件库
 // import AUi from '../../packages'
 // 全量导入主题包

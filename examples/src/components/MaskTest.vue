@@ -6,8 +6,8 @@
 </template>
 
 <script setup>
-import { AMask } from '@ui-library/components'
-import '@ui-library/theme/src/mask.scss'
+// import { AMask } from '@ui-library/components'
+// import '@ui-library/theme/src/mask.scss'
 
 const handleClose = () => {
   console.log('触发了遮罩层自定的close事件！')

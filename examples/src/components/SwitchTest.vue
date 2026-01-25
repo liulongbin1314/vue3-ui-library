@@ -87,9 +87,9 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Sun, Moon, Eye, EyeOff } from '@ui-library/icons'
-import { ASwitch } from '@ui-library/components'
-import '@ui-library/theme/src/switch.scss'
+import { Sun, Moon, Eye, EyeOff } from 'escook-ui/icons'
+// import { ASwitch } from '@ui-library/components'
+// import '@ui-library/theme/src/switch.scss'
 
 const value1 = ref(false)
 const value2 = ref(true)

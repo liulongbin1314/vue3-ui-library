@@ -151,12 +151,12 @@
 </template>
 
 <script setup>
-import { Calendar, PlusCircle } from '@ui-library/icons'
+import { Calendar, PlusCircle } from 'escook-ui/icons'
 import { ref } from 'vue'
-import { AInput, AIcon, AButton, ATextarea } from '@ui-library/components'
-import '@ui-library/theme/src/input.scss'
-import '@ui-library/theme/src/icon.scss'
-import '@ui-library/theme/src/button.scss'
+// import { AInput, AIcon, AButton, ATextarea } from '@ui-library/components'
+// import '@ui-library/theme/src/input.scss'
+// import '@ui-library/theme/src/icon.scss'
+// import '@ui-library/theme/src/button.scss'
 
 const info = ref('Hello Escook')
 const inputRef = ref(null)

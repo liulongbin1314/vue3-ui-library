@@ -47,10 +47,10 @@
 
 <script setup>
 import { ref } from 'vue'
-import { AIcon, AButton, ADrawer } from '@ui-library/components'
-import '@ui-library/theme/src/icon.scss'
-import '@ui-library/theme/src/button.scss'
-import '@ui-library/theme/src/drawer.scss'
+// import { AIcon, AButton, ADrawer } from '@ui-library/components'
+// import '@ui-library/theme/src/icon.scss'
+// import '@ui-library/theme/src/button.scss'
+// import '@ui-library/theme/src/drawer.scss'
 
 const visible = ref(false)
 const placement = ref('right')

@@ -38,10 +38,10 @@
 
 <script setup>
 // 按需导入
-import { AMessage, AButton } from '@ui-library/components'
+// import { AMessage, AButton } from '@ui-library/components'
 // import { getCurrentInstance } from 'vue'
-import '@ui-library/theme/src/message.scss'
-import '@ui-library/theme/src/button.scss'
+// import '@ui-library/theme/src/message.scss'
+// import '@ui-library/theme/src/button.scss'
 
 // const instance = getCurrentInstance()
 // const $message = instance.appContext.config.globalProperties.$message

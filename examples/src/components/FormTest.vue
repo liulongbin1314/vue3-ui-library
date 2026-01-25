@@ -53,24 +53,24 @@
 
 <script setup>
 import { ref, shallowRef } from 'vue'
-import {
-  AForm,
-  AFormItem,
-  ACheckbox,
-  ACheckboxGroup,
-  ARadio,
-  ARadioGroup,
-  ATextarea,
-  AInput,
-  AButton,
-  ASwitch
-} from '@ui-library/components'
-import '@ui-library/theme/src/form.scss'
-import '@ui-library/theme/src/checkbox.scss'
-import '@ui-library/theme/src/radio.scss'
-import '@ui-library/theme/src/input.scss'
-import '@ui-library/theme/src/button.scss'
-import '@ui-library/theme/src/switch.scss'
+// import {
+//   AForm,
+//   AFormItem,
+//   ACheckbox,
+//   ACheckboxGroup,
+//   ARadio,
+//   ARadioGroup,
+//   ATextarea,
+//   AInput,
+//   AButton,
+//   ASwitch
+// } from '@ui-library/components'
+// import '@ui-library/theme/src/form.scss'
+// import '@ui-library/theme/src/checkbox.scss'
+// import '@ui-library/theme/src/radio.scss'
+// import '@ui-library/theme/src/input.scss'
+// import '@ui-library/theme/src/button.scss'
+// import '@ui-library/theme/src/switch.scss'
 
 const formData = ref({
   name: 'z',

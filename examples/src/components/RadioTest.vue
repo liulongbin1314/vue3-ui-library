@@ -78,8 +78,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import { ARadio, ARadioGroup } from '@ui-library/components'
-import '@ui-library/theme/src/radio.scss'
+// import { ARadio, ARadioGroup } from '@ui-library/components'
+// import '@ui-library/theme/src/radio.scss'
 
 const value1 = ref('man')
 const value2 = ref('man')

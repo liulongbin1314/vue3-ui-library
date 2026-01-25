@@ -78,14 +78,14 @@
 </template>
 
 <script setup>
-import { AButton, AIcon, AInput, ADialog } from '@ui-library/components'
+// import { AButton, AIcon, AInput, ADialog } from '@ui-library/components'
 import { ref } from 'vue'
-import { Flag } from '@ui-library/icons'
+import { Flag } from 'escook-ui/icons'
 
-import '@ui-library/theme/src/button.scss'
-import '@ui-library/theme/src/icon.scss'
-import '@ui-library/theme/src/input.scss'
-import '@ui-library/theme/src/dialog.scss'
+// import '@ui-library/theme/src/button.scss'
+// import '@ui-library/theme/src/icon.scss'
+// import '@ui-library/theme/src/input.scss'
+// import '@ui-library/theme/src/dialog.scss'
 
 const visible1 = ref(false)
 const msg = ref('hello')

@@ -8,12 +8,12 @@
 </template>
 
 <script setup>
-import { getCurrentInstance } from 'vue'
-import { AMessageBox, AMessage, AButton } from '@ui-library/components'
+// import { getCurrentInstance } from 'vue'
+// import { AMessageBox, AMessage, AButton } from '@ui-library/components'
 
-import '@ui-library/theme/src/dialog.scss'
-import '@ui-library/theme/src/message.scss'
-import '@ui-library/theme/src/button.scss'
+// import '@ui-library/theme/src/dialog.scss'
+// import '@ui-library/theme/src/message.scss'
+// import '@ui-library/theme/src/button.scss'
 
 // const instance = getCurrentInstance()
 // const $msgbox = instance.appContext.config.globalProperties.$msgbox
@@ -54,11 +54,10 @@ const show1 = () => {
 }
 
 const show2 = () => {
-  $msgbox
-    .alert('警告', '这是一个警告的 alert 消息！', {
-      type: 'warning',
-      distinguishCancelAndClose: true
-    })
+  $alert('警告', '这是一个警告的 alert 消息！', {
+    type: 'warning',
+    distinguishCancelAndClose: true
+  })
     .then((action) => {
       AMessage.success(action)
     })
@@ -71,7 +70,7 @@ const show2 = () => {
 }
 
 const show3 = () => {
-  $msgbox.confirm('温馨提示', '这是一个温馨提示的消息！', {
+  $confirm('温馨提示', '这是一个温馨提示的消息！', {
     type: 'info',
     distinguishCancelAndClose: true,
     callback: (action) => {
