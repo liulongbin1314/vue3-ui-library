@@ -27,10 +27,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/账号/仓库名.git"
+    "url": "git+https://github.com/liulongbin1314/vue3-ui-library.git"
   },
-  "homepage": "https://github.com/账号/仓库名#README",
+  "homepage": "https://github.com/liulongbin1314/vue3-ui-library#README",
   "bugs": {
-    "url": "https://github.com/账号/仓库名/issues"
+    "url": "https://github.com/liulongbin1314/vue3-ui-library/issues"
   }
 }
