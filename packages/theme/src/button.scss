@@ -32,7 +32,7 @@
   transition: 0.3s;
   outline: none;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 8px;
   user-select: none;
   vertical-align: middle;
 
@@ -132,11 +132,13 @@
     #{fn.getVarName(button, size)}: var(#{fn.getVarName(component-size, small)});
     #{fn.getVarName(button, font-size)}: var(#{fn.getVarName(font-size, small)});
     padding: 0 10px;
+    border-radius: 6px;
   }
 
   @include mixins.m(size, large) {
     #{fn.getVarName(button, size)}: var(#{fn.getVarName(component-size, large)});
     #{fn.getVarName(button, font-size)}: var(#{fn.getVarName(font-size, large)});
+    border-radius: 10px;
   }
 
   .iconfont {
