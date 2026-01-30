@@ -7,6 +7,8 @@
     <a-icon icon="icon-settings"></a-icon>
   </div>
 
+  <hr />
+
   <p>svg 图标</p>
   <div class="container">
     <a-icon :icon="Flag"></a-icon>

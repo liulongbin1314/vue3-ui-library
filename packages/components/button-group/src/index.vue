@@ -13,18 +13,24 @@ defineOptions({
 const props = defineProps({
   size: {
     type: String,
-    default: 'default'
+    default: ''
+  },
+  type: {
+    type: String,
+    default: 'primary'
   }
 })
 
 import { useNamespace } from '@ui-library/hooks'
-import { provide } from 'vue'
+import { provide, toRefs } from 'vue'
 
 const ns = useNamespace('button-group')
 // 向子组件提供数据
 provide('isGroup', true)
 // 向子组件提供尺寸
-provide('groupSize', props.size)
+// provide('groupSize', props.size)
+// provide('groupType', toRef(props.type))
+provide('groupProps', toRefs(props))
 </script>
 
 <style scoped></style>

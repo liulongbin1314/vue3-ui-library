@@ -153,6 +153,17 @@ $checkbox-size: map.deep-merge(
   $checkbox-size
 );
 
+// 按钮-圆角
+$button-radius: () !default;
+$button-radius: map.deep-merge(
+  (
+    small: 8px,
+    default: 10px,
+    large: 12px
+  ),
+  $button-radius
+);
+
 // 全局通用的样式
 $global: (
   'text-color': $text-color,
@@ -161,5 +172,6 @@ $global: (
   'component-size': $component-size,
   'component-round': $component-round,
   'checkbox-icon-size': $checkbox-icon-size,
-  'checkbox-size': $checkbox-size
+  'checkbox-size': $checkbox-size,
+  'button-radius': $button-radius
 );

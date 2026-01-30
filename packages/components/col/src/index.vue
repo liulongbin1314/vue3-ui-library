@@ -28,15 +28,19 @@ import { useNamespace } from '@ui-library/hooks'
 import { computed, inject } from 'vue'
 
 const ns = useNamespace('col')
-const gutter = inject('gutter', 0)
+const rowProps = inject('rowProps', null)
+const gutter = computed(() => {
+  if (!rowProps) return 0
+  return rowProps?.gutter.value || 0
+})
 
 const spanClass = computed(() => {
   return props.span ? `${ns.namespace}-col-${props.span}` : ''
 })
 
 const styledGutter = computed(() => {
-  if (!gutter) return {}
-  const gutterVal = gutter / 2 + 'px'
+  if (!gutter.value) return {}
+  const gutterVal = gutter.value / 2 + 'px'
   return { paddingLeft: gutterVal, paddingRight: gutterVal }
 })
 

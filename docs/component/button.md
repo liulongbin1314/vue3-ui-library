@@ -74,7 +74,7 @@ button/block.vue
 
 :::
 
-## 按钮尺寸
+## 尺寸
 
 通过 `size` 属性设置按钮的尺寸。
 
@@ -110,7 +110,7 @@ button/icon.vue
 
 :::
 
-## 加载按钮
+## loading 加载按钮
 
 加载按钮用于展示按钮的 loading 加载中的状态。分为**手动模式**和**自动模式**。
 
@@ -143,7 +143,13 @@ button/loading-auto.vue
 
 使用 `<a-button-group>` 组件，可以把多个 button 按分组进行展示。
 
-`<a-button-group>` 组件支持传入 `size` 属性统一控制内部按钮的尺寸，`size` 属性的可选值为 `small`、`default`、`large`。
+`<a-button-group>` 组件支持传入 `size` 属性统一控制内部按钮的尺寸，可选值为 `small`、`default`、`large`。
+
+`<a-button-group>` 组件支持传入 `type` 属性统一控制内部按钮的主题颜色，可选值为 `primary`、`success`、`warning`、`error`，默认值为 `primary`。
+
+:::tip 温馨提示
+当 `<a-button-group>` 组件和内部的 `<a-button>` 组件同时提供了 `type` 属性，按照就近原则，内部按钮的 `type` 属性优先级更高。
+:::
 
 :::demo
 
@@ -153,7 +159,9 @@ button/group.vue
 
 :::
 
-## Button 属性
+## Button API
+
+### Button 属性
 
 | 属性         | 说明                              | 类型                                              | 默认值  |
 | :----------- | :-------------------------------- | :------------------------------------------------ | :------ |
@@ -171,14 +179,17 @@ button/group.vue
 | loading      | 是否展示加载中的动画图标          | `boolean`                                         | false   |
 | beforeChange | 异步操作，必须返回 `Promise` 实例 | `function`                                        | -       |
 
-## Button 事件
+### Button 事件
 
-| 事件  | 说明     | 类型     | 默认值 |
-| :---- | :------- | :------- | :----- |
-| click | 点击事件 | function | -      |
+| 事件  | 说明     | 类型                     | 默认值 |
+| :---- | :------- | :----------------------- | :----- |
+| click | 点击事件 | `function`: `() => void` | -      |
 
-## ButtonGroup 属性
+## ButtonGroup API
 
-| 属性 | 说明       | 类型                          | 默认值  |
-| :--- | :--------- | :---------------------------- | :------ |
-| size | 按钮组尺寸 | `enum`：default、small、large | default |
+### ButtonGroup 属性
+
+| 属性 | 说明             | 类型                                     | 默认值  |
+| :--- | :--------------- | :--------------------------------------- | :------ |
+| size | 按钮组的尺寸     | `enum`：default、small、large            | default |
+| type | 按钮组的主题颜色 | `enum`：primary、success、warning、error | primary |

@@ -4,7 +4,7 @@
     :disabled="disabled || loading || _loading"
     :class="[
       ns.b(),
-      ns.m(type),
+      ns.m(_type),
       ns.is('round', round),
       ns.is('disabled', disabled),
       ns.is('text', text),
@@ -46,10 +46,7 @@ defineOptions({
 })
 
 const props = defineProps({
-  type: {
-    type: String,
-    default: 'default'
-  },
+  type: String,
   round: Boolean,
   disabled: Boolean,
   text: Boolean,
@@ -78,11 +75,20 @@ const { formProps } = useFormItem()
 const _loading = ref(false)
 // 接收父组件传入的 isGroup 数据，来判断当前按钮是否属于按钮组
 const _isGroup = inject('isGroup', false)
+const _groupProps = inject('groupProps', undefined)
+
 // 接收父组件向下传入的数据
-const _groupSize = inject('groupSize', undefined)
+// const _groupSize = inject('groupSize', undefined)
+// const _groupType = inject('groupType', undefined)
+// const _groupSize = computed(() => _groupProps && _groupProps.size.value)
+// const _groupType = computed(() => _groupProps && _groupProps.type.value)
+
 // _size 是计算出来的最终的 size 尺寸
 // const _size = props.size === 'default' ? _groupSize : props.size
-const _size = computed(() => props.size || _groupSize || formProps?.size.value || 'default')
+const _size = computed(() => {
+  return props.size || _groupProps?.size.value || formProps?.size.value || 'default'
+})
+const _type = computed(() => props.type || _groupProps?.type.value || 'default')
 
 // console.log('组件的命名空间是：' + ns.namespace)
 // console.log('Button 组件的块类名是：' + ns.b('wrap'))

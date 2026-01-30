@@ -53,11 +53,17 @@ const render: ContainerOpts['render'] = (tokens, idx) => {
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'Escook 组件库123',
+  title: 'escook-ui 组件库',
   description: '零基础开发 Vue3 组件库',
+  // 标签页站点图标
+  head: [['link', { rel: 'icon', href: '/images/favicon.ico' }]],
   themeConfig: {
     siteTitle: false,
     logo: { light: '/images/white.png', dark: '/images/black.png' },
+    // 大纲中显示的标题级别
+    outline: {
+      level: [2, 3]
+    },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '指南', link: '/guide/install' },
@@ -87,14 +93,15 @@ export default defineConfig({
         {
           text: '布局',
           items: [
-            { text: 'Grid 栅格布局', link: '/component/grid' },
-            { text: 'Container 容器布局', link: '/component/container' }
+            { text: 'Container 容器布局', link: '/component/container' },
+            { text: 'Grid 栅格布局', link: '/component/grid' }
           ]
         },
         {
           text: '表单组件',
           items: [
             { text: 'Checkbox 复选框', link: '/component/checkbox' },
+            { text: 'Radio 单选', link: '/component/radio' },
             { text: 'Switch 开关', link: '/component/switch' }
           ]
         },

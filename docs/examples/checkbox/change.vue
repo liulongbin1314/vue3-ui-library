@@ -2,6 +2,8 @@
   <p>单个复选框的 change 事件：</p>
   <a-checkbox label="同意许可协议" @change="handleChange"></a-checkbox>
 
+  <hr />
+
   <p>复选框组的 change 事件：</p>
   <a-checkbox-group v-model="hobby" @change="handleChange">
     <!-- 使用 value 属性指定选中项的值 -->

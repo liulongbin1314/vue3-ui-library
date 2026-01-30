@@ -63,6 +63,18 @@
       </template>
     </a-input>
 
+    <a-input size="small">
+      <!-- 具名插槽 -->
+      <!-- 前置内容 -->
+      <template #prepend>
+        <a-button type="primary" size="small">姓名</a-button>
+      </template>
+      <!-- 后置内容 -->
+      <template #append>
+        <a-button type="primary" size="small">提交</a-button>
+      </template>
+    </a-input>
+
     <a-input>
       <!-- 具名插槽 -->
       <!-- 前置内容 -->
@@ -153,10 +165,10 @@
 <script setup>
 import { Calendar, PlusCircle } from 'escook-ui/icons'
 import { ref } from 'vue'
-// import { AInput, AIcon, AButton, ATextarea } from '@ui-library/components'
-// import '@ui-library/theme/src/input.scss'
-// import '@ui-library/theme/src/icon.scss'
-// import '@ui-library/theme/src/button.scss'
+import { AInput, AIcon, AButton, ATextarea } from '@ui-library/components'
+import '@ui-library/theme/src/input.scss'
+import '@ui-library/theme/src/icon.scss'
+import '@ui-library/theme/src/button.scss'
 
 const info = ref('Hello Escook')
 const inputRef = ref(null)

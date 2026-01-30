@@ -201,12 +201,21 @@
     <a-button type="warning">警告</a-button>
     <a-button type="error">错误</a-button>
   </a-button-group>
+
+  <p>子组件继承父组件的属性</p>
+  <a-button-group size="large" type="primary">
+    <a-button>默认</a-button>
+    <a-button>主要</a-button>
+    <a-button>成功</a-button>
+    <a-button>警告</a-button>
+    <a-button>错误</a-button>
+  </a-button-group>
 </template>
 
 <script setup>
 // 按需导入 Button 组件
-// import { AButton, AButtonGroup } from '@ui-library/components'
-// import '@ui-library/theme/src/button.scss'
+import { AButton, AButtonGroup } from '@ui-library/components'
+import '@ui-library/theme/src/button.scss'
 import { ref } from 'vue'
 const loading = ref(false)
 

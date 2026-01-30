@@ -11,9 +11,12 @@ hero:
     - theme: brand
       text: 使用指南
       link: /guide/install
-    - theme: alt
+    - theme: brand
       text: 组件
       link: /component/button
+    - theme: alt
+      text: 视频教程
+      link: https://www.bilibili.com/cheese/play/ss568518843
 
 features:
   - title: Feature AA

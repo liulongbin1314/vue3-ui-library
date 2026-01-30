@@ -37,15 +37,15 @@
 
   <div style="overflow-x: hidden">
     <a-row :gutter="20" :gap="15">
-      <a-col :span="4" :offset="4">4</a-col>
-      <a-col :span="4">4</a-col>
-      <a-col :span="4">4</a-col>
-      <a-col :span="4">4</a-col>
-      <a-col :span="4">4</a-col>
-      <a-col :span="4">4</a-col>
-      <a-col :span="4">4</a-col>
-      <a-col :span="4">4</a-col>
-      <a-col :span="4">4</a-col>
+      <a-col :span="4" :offset="4"><div class="item"></div></a-col>
+      <a-col :span="4"><div class="item"></div></a-col>
+      <a-col :span="4"><div class="item"></div></a-col>
+      <a-col :span="4"><div class="item"></div></a-col>
+      <a-col :span="4"><div class="item"></div></a-col>
+      <a-col :span="4"><div class="item"></div></a-col>
+      <a-col :span="4"><div class="item"></div></a-col>
+      <a-col :span="4"><div class="item"></div></a-col>
+      <a-col :span="4"><div class="item"></div></a-col>
     </a-row>
   </div>
 
@@ -59,14 +59,14 @@
 </template>
 
 <script setup>
-// import { ARow, ACol, AContainer, AHeader, AFooter, AMain, AAside } from '@ui-library/components'
-// import '@ui-library/theme/src/row.scss'
-// import '@ui-library/theme/src/col.scss'
-// import '@ui-library/theme/src/container.scss'
-// import '@ui-library/theme/src/header.scss'
-// import '@ui-library/theme/src/footer.scss'
-// import '@ui-library/theme/src/main.scss'
-// import '@ui-library/theme/src/aside.scss'
+import { ARow, ACol, AContainer, AHeader, AFooter, AMain, AAside } from '@ui-library/components'
+import '@ui-library/theme/src/row.scss'
+import '@ui-library/theme/src/col.scss'
+import '@ui-library/theme/src/container.scss'
+import '@ui-library/theme/src/header.scss'
+import '@ui-library/theme/src/footer.scss'
+import '@ui-library/theme/src/main.scss'
+import '@ui-library/theme/src/aside.scss'
 </script>
 
 <style scoped>
@@ -76,9 +76,17 @@
 
 .a-col {
   background-color: #ccc;
+  height: 30px;
 
   &:nth-child(odd) {
     background-color: #eee;
   }
+}
+
+.item {
+  background-color: rgb(75, 0, 128);
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
 }
 </style>

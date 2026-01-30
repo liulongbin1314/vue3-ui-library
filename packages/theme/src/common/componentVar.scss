@@ -4,8 +4,7 @@
 @function getButtonVar($type: '') {
   $button: (
     // 按钮的默认状态（边框色、背景色、文字色）
-    border-color:
-      (
+    border-color: (
         // 如果要获取默认按钮的颜色变量，取 default 属性的值
         default: fn.getVarName(border-color, default),
         // 如果要获取其它按钮的颜色变量，取 type 属性的值
@@ -20,8 +19,7 @@
       type: fn.getVarName(color, white)
     ),
     // 按钮的 hover 状态
-    hover-border-color:
-      (
+    hover-border-color: (
         default: fn.getVarName(color, primary, light-5),
         type: fn.getVarName(color, $type, light-3)
       ),
@@ -34,8 +32,7 @@
       type: fn.getVarName(color, white)
     ),
     // 按钮 disabled 时候的状态
-    disabled-border-color:
-      (
+    disabled-border-color: (
         default: fn.getVarName(border-color, disabled),
         type: fn.getVarName(color, $type, light-6)
       ),
@@ -48,34 +45,29 @@
       type: fn.getVarName(color, white)
     ),
     // 按钮的尺寸变量 --a-button-size
-    size:
-      (
+    size: (
         default: fn.getVarName(component-size, default)
       ),
     font-size: (
       default: fn.getVarName(font-size, default)
     ),
     // 链接按钮 - 默认状态
-    is-link-color:
-      (
+    is-link-color: (
         default: fn.getVarName(text-color, primary),
         type: fn.getVarName(color, $type)
       ),
     // 链接按钮 - hover 状态
-    hover-is-link-color:
-      (
+    hover-is-link-color: (
         default: fn.getVarName(text-color, secondary),
         type: fn.getVarName(color, $type, light-3)
       ),
     // 链接按钮 - disabled 状态
-    disabled-is-link-color:
-      (
+    disabled-is-link-color: (
         default: fn.getVarName(text-color, disabled),
         type: fn.getVarName(color, $type, light-6)
       ),
     // 文字按钮 - 默认状态
-    is-text-color:
-      (
+    is-text-color: (
         default: fn.getVarName(text-color, primary),
         type: fn.getVarName(color, $type)
       ),
@@ -84,8 +76,7 @@
       type: fn.getVarName(color, white)
     ),
     // 文字按钮 - hover 状态
-    hover-is-text-color:
-      (
+    hover-is-text-color: (
         default: fn.getVarName(text-color, primary),
         type: fn.getVarName(color, $type)
       ),
@@ -94,8 +85,7 @@
       type: fn.getVarName(color, $type, light-9)
     ),
     // 文字按钮 - disabled 状态
-    disabled-is-text-color:
-      (
+    disabled-is-text-color: (
         default: fn.getVarName(text-color, disabled),
         type: fn.getVarName(color, $type, light-5)
       ),
@@ -104,8 +94,7 @@
       type: fn.getVarName(color, white)
     ),
     // 边框按钮 - 默认状态
-    is-border-text-color:
-      (
+    is-border-text-color: (
         default: fn.getVarName(text-color, primary),
         type: fn.getVarName(color, $type)
       ),
@@ -114,8 +103,7 @@
       type: fn.getVarName(color, $type)
     ),
     // 边框按钮 - hover 状态
-    hover-is-border-text-color:
-      (
+    hover-is-border-text-color: (
         default: fn.getVarName(text-color, secondary),
         type: fn.getVarName(color, $type, light-3)
       ),
@@ -124,8 +112,7 @@
       type: fn.getVarName(color, $type, light-3)
     ),
     // 边框按钮 - disabled 状态
-    disabled-is-border-text-color:
-      (
+    disabled-is-border-text-color: (
         default: fn.getVarName(text-color, disabled),
         type: fn.getVarName(color, $type, light-6)
       ),
@@ -156,7 +143,7 @@
       default: fn.getVarName(font-size, default)
     ),
     round: (
-      default: fn.getVarName(component-round, default)
+      default: fn.getVarName(button-radius, default)
     ),
     padding: (
       default: '10px'
@@ -169,8 +156,7 @@
 @function getCheckboxVar($type: '') {
   $checkbox: (
     // 基础状态
-    border-color:
-      (
+    border-color: (
         default: fn.getVarName(border-color, default)
       ),
     bg-color: (
@@ -183,8 +169,7 @@
       default: fn.getVarName(color, white)
     ),
     // 禁用状态
-    disabled-border-color:
-      (
+    disabled-border-color: (
         default: fn.getVarName(border-color, disabled),
         type: fn.getVarName(color, $type, light-5)
       ),
@@ -201,8 +186,7 @@
       type: fn.getVarName(color, white)
     ),
     // 勾选状态
-    checked-border-color:
-      (
+    checked-border-color: (
         default: fn.getVarName(color, primary),
         type: fn.getVarName(color, $type)
       ),
@@ -219,16 +203,14 @@
       type: fn.getVarName(color, white)
     ),
     // 其它的私有变量（尺寸）
-    size:
-      (
+    size: (
         default: fn.getVarName(component-size, default)
       ),
     font-size: (
       default: fn.getVarName(font-size, default)
     ),
     // 复选框矩形的尺寸
-    check-size:
-      (
+    check-size: (
         default: fn.getVarName(checkbox-size, default)
       ),
     check-round: (

@@ -7,6 +7,8 @@
     <a-icon icon="icon-settings" size="30px" color="#F25769"></a-icon>
   </div>
 
+  <hr />
+
   <p>svg 图标</p>
   <div class="container">
     <a-icon :icon="Flag" size="30px" color="#40CD98"></a-icon>

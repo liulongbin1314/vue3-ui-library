@@ -1,6 +1,7 @@
 @use './common/mixins.scss';
 @use './common/componentVar.scss' as comVar;
 @use './common/function.scss' as fn;
+@use './common/var.scss';
 @use './icon.scss';
 @use './initRoot.scss';
 @use './loading.scss';
@@ -40,7 +41,7 @@
   @include mixins.m(size, small) {
     // 尺寸、圆角、文字
     #{fn.getVarName(input, size)}: var(#{fn.getVarName(component-size, small)});
-    #{fn.getVarName(input, round)}: var(#{fn.getVarName(component-round, small)});
+    #{fn.getVarName(input, round)}: var(#{fn.getVarName(button-radius, small)});
     #{fn.getVarName(input, font-size)}: var(#{fn.getVarName(font-size, small)});
   }
 
@@ -48,7 +49,7 @@
   @include mixins.m(size, large) {
     // 尺寸、圆角、文字
     #{fn.getVarName(input, size)}: var(#{fn.getVarName(component-size, large)});
-    #{fn.getVarName(input, round)}: var(#{fn.getVarName(component-round, large)});
+    #{fn.getVarName(input, round)}: var(#{fn.getVarName(button-radius, large)});
     #{fn.getVarName(input, font-size)}: var(#{fn.getVarName(font-size, large)});
   }
 
@@ -165,6 +166,12 @@
     }
   }
 
+  @each $s in var.$sizes {
+    @include mixins.e(aside-wrapper) {
+      border-radius: var(#{fn.getVarName(button-radius, $s)});
+    }
+  }
+
   // 前置后置区域的容器
   @include mixins.e(aside-wrapper) {
     // border: 2px solid red;
@@ -173,7 +180,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: var(#{fn.getVarName(input, round)});
+    // border-radius: var(#{fn.getVarName(input, round)});
     box-sizing: border-box;
     // box-shadow: 0 0 0 2px var(#{fn.getVarName(input, border-color)}) inset;
     box-shadow: 0 0 0 2px var(#{fn.getVarName(border-color, default)}) inset;

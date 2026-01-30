@@ -33,10 +33,10 @@ const props = defineProps({
 })
 
 import { useNamespace } from '@ui-library/hooks'
-import { provide, computed } from 'vue'
+import { provide, computed, toRefs } from 'vue'
 
 const ns = useNamespace('row')
-provide('gutter', props.gutter)
+provide('rowProps', toRefs(props))
 
 const styledMargin = computed(() => {
   if (!props.gutter) return {}

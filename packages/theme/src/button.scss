@@ -62,8 +62,10 @@
   // 文字按钮的类名
   @include mixins.s(text) {
     color: var(#{fn.getVarName(button, is-text-color)});
-    background-color: var(#{fn.getVarName(button, is-text-bg-color)});
-    border-color: var(#{fn.getVarName(button, is-text-bg-color)});
+    // background-color: var(#{fn.getVarName(button, is-text-bg-color)});
+    // border-color: var(#{fn.getVarName(button, is-text-bg-color)});
+    background-color: transparent;
+    border-color: transparent;
     &:hover {
       color: var(#{fn.getVarName(button, hover-is-text-color)});
       background-color: var(#{fn.getVarName(button, hover-is-text-bg-color)});
@@ -71,8 +73,8 @@
     }
     @include mixins.s((disabled, loading)) {
       color: var(#{fn.getVarName(button, disabled-is-text-color)});
-      background-color: var(#{fn.getVarName(button, disabled-is-text-bg-color)});
-      border-color: var(#{fn.getVarName(button, disabled-is-text-bg-color)});
+      // background-color: var(#{fn.getVarName(button, disabled-is-text-bg-color)});
+      // border-color: var(#{fn.getVarName(button, disabled-is-text-bg-color)});
     }
   }
 
@@ -127,18 +129,28 @@
     width: 100%;
   }
 
-  @include mixins.m(size, small) {
-    // 私有变量的名字: var(root变量的名字);
-    #{fn.getVarName(button, size)}: var(#{fn.getVarName(component-size, small)});
-    #{fn.getVarName(button, font-size)}: var(#{fn.getVarName(font-size, small)});
-    padding: 0 10px;
-    border-radius: 8px;
-  }
+  @each $s in var.$sizes {
+    @include mixins.m(size, $s) {
+      $border-radius: var(#{fn.getVarName(button-radius, $s)});
+      // 私有变量的名字: var(root变量的名字);
+      #{fn.getVarName(button, size)}: var(#{fn.getVarName(component-size, $s)});
+      #{fn.getVarName(button, font-size)}: var(#{fn.getVarName(font-size, $s)});
+      border-radius: $border-radius;
 
-  @include mixins.m(size, large) {
-    #{fn.getVarName(button, size)}: var(#{fn.getVarName(component-size, large)});
-    #{fn.getVarName(button, font-size)}: var(#{fn.getVarName(font-size, large)});
-    border-radius: 12px;
+      @include mixins.s(button-group) {
+        border-radius: 0;
+        &:first-child {
+          border-radius: $border-radius 0 0 $border-radius;
+        }
+        &:last-child {
+          border-radius: 0 $border-radius $border-radius 0;
+        }
+        & + .is-button-group {
+          margin-left: -2px;
+          border-left: 1px solid var(#{fn.getVarName(button, hover-bg-color)});
+        }
+      }
+    }
   }
 
   .iconfont {
@@ -151,19 +163,6 @@
     min-width: auto;
     border-radius: 50%;
     padding: 0;
-  }
-
-  @include mixins.s(button-group) {
-    border-radius: 0;
-    &:first-child {
-      border-radius: 6px 0 0 6px;
-    }
-    &:last-child {
-      border-radius: 0 6px 6px 0;
-    }
-    & + .is-button-group {
-      margin-left: -2px;
-    }
   }
 
   @include mixins.e(inner) {
