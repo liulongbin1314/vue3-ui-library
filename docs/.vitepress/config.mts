@@ -101,14 +101,23 @@ export default defineConfig({
           text: '表单组件',
           items: [
             { text: 'Checkbox 复选框', link: '/component/checkbox' },
+            { text: 'Form 表单', link: '/component/form' },
             { text: 'Input 输入框', link: '/component/input' },
             { text: 'Radio 单选', link: '/component/radio' },
-            { text: 'Switch 开关', link: '/component/switch' }
+            { text: 'Switch 开关', link: '/component/switch' },
+            { text: 'Textarea 文本域', link: '/component/textarea' }
           ]
         },
         {
           text: '反馈组件',
-          items: []
+          items: [
+            { text: 'Dialog 对话框', link: '/component/dialog' },
+            { text: 'Drawer 抽屉', link: '/component/drawer' },
+            { text: 'form 表单', link: '/component/form' },
+            { text: 'mask 遮罩', link: '/component/mask' },
+            { text: 'Message 消息提示', link: '/component/message' },
+            { text: 'Message Box 消息弹出框', link: '/component/message-box' }
+          ]
         }
       ]
     },
