@@ -101,6 +101,7 @@ export default defineConfig({
           text: '表单组件',
           items: [
             { text: 'Checkbox 复选框', link: '/component/checkbox' },
+            { text: 'Input 输入框', link: '/component/input' },
             { text: 'Radio 单选', link: '/component/radio' },
             { text: 'Switch 开关', link: '/component/switch' }
           ]

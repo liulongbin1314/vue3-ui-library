@@ -26,7 +26,7 @@
 
       <!-- 源码 -->
       <transition>
-        <div class="source-inner" v-if="showCode">
+        <div class="source-inner" v-show="showCode">
           <slot name="source"></slot>
           <div class="source-inner-hide" @click="showCode = false">
             <span class="iconfont icon-left-double-arrow"></span>
@@ -132,15 +132,18 @@ const demo = computed(() => {
   color: #333;
 }
 
+.source-inner {
+  overflow: hidden;
+}
+
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
-  height: 0;
 }
 
 .v-enter-active,
 .v-leave-active {
-  transition: all 0.3s;
+  transition: opacity 0.2s ease;
 }
 
 .dark .source-box {
@@ -168,7 +171,7 @@ const demo = computed(() => {
   height: 40px;
 }
 .source-inner-hide:hover {
-  color: #3069ff;
+  color: #4277ff;
 }
 .source-inner-hide .icon-left-double-arrow {
   transform: rotate(90deg) !important;
