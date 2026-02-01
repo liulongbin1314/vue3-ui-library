@@ -113,8 +113,6 @@ export default defineConfig({
           items: [
             { text: 'Dialog 对话框', link: '/component/dialog' },
             { text: 'Drawer 抽屉', link: '/component/drawer' },
-            { text: 'Form 表单', link: '/component/form' },
-            { text: 'Mask 遮罩', link: '/component/mask' },
             { text: 'Message 消息提示', link: '/component/message' },
             { text: 'Message Box 消息弹出框', link: '/component/message-box' }
           ]

@@ -40,15 +40,31 @@ npm config set registry https://registry.npmmirror.com
 
 ```html
 <head>
-  <!-- 导入样式 -->
+  <!-- 引入样式 -->
   <link rel="stylesheet" href="https://unpkg.com/escook-ui@latest/dist/index.min.css" />
-  <!-- 导入 vue3 -->
+  <!-- 引入 vue3 -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <!-- 导入组件库 -->
+  <!-- 引入组件库 -->
   <script src="https://unpkg.com/escook-ui@latest/dist/index.full.min.js"></script>
-  <!-- 导入 Svg 图标 -->
+  <!-- 引入 Svg 图标 -->
   <script src="https://unpkg.com/escook-ui@latest/dist/icon.full.min.js"></script>
 </head>
+```
+
+1. 在浏览器中直接引入组件库后，需要通过全局变量 `EscookUI` 调用 `AMessage` 和 `AMessageBox` 函数式组件。例如：
+
+```js
+EscookUI.AMessage({
+  content: '你好，刘龙宾老师！',
+  type: 'success',
+  background: true
+})
+```
+
+2. 在浏览器中直接引入 Svg 图标后，需要从全局变量 `EscookIcons` 中解构出需要的 Svg 图标进行使用。例如：
+
+```js
+const { Flag } = EscookIcons
 ```
 
 ### jsDelivr
