@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "pnpm -C build start",
+    "docs:dev": "pnpm -C docs docs:dev",
+    "docs:build": "pnpm -C docs docs:build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
