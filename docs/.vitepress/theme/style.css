@@ -50,6 +50,10 @@
   font-style: normal; /* 字体样式，如斜体 */
 }
 
+.a-dialog {
+  color: #333;
+}
+
 :root {
   --vp-c-default-1: var(--vp-c-gray-1);
   --vp-c-default-2: var(--vp-c-gray-2);

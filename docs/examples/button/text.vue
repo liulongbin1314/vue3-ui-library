@@ -12,5 +12,6 @@
 .container {
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
 }
 </style>

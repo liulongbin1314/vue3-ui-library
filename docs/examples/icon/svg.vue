@@ -49,16 +49,20 @@ onUnmounted(() => {
 <style scoped>
 .svg-list {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+
   border: 1px solid #efefef;
   border-radius: 10px;
 }
 .svg-list .svg-item {
+  width: 110px;
+  height: 110px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px 10px;
+  padding: 10px;
   box-sizing: border-box;
   cursor: pointer;
   transition: all 0.3s;
@@ -74,7 +78,7 @@ onUnmounted(() => {
   transform: scale(1.5);
 }
 .svg-list .svg-item .icon-name {
-  font-size: 12px;
+  font-size: 10px;
   margin-top: 10px;
 }
 

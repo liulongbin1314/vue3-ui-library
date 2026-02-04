@@ -48,16 +48,20 @@ onUnmounted(() => {
 <style scoped>
 .iconfont-list {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+
   border: 1px solid #efefef;
   border-radius: 10px;
 }
 .iconfont-list .iconfont-item {
+  width: 110px;
+  height: 110px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px 10px;
+  /* padding: 40px 10px; */
   box-sizing: border-box;
   cursor: pointer;
   transition: all 0.3s;
@@ -73,7 +77,7 @@ onUnmounted(() => {
   transform: scale(1.5);
 }
 .iconfont-list .iconfont-item .icon-name {
-  font-size: 12px;
+  font-size: 10px;
   margin-top: 10px;
   width: 110px;
   text-align: center;
@@ -81,6 +85,7 @@ onUnmounted(() => {
   height: 2em;
   line-height: 1.5em;
   word-break: break-all;
+  padding: 0 5px;
 }
 
 .active {

@@ -20,6 +20,7 @@
 .container {
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
 
   & + .container {
     margin-top: 15px;

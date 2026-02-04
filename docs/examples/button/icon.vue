@@ -41,5 +41,6 @@ import { UploadCloud, DownloadCloud, CheckCircle, AlertCircle, XCircle } from 'e
 .container {
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
 }
 </style>
