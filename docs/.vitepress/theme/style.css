@@ -50,7 +50,8 @@
   font-style: normal; /* 字体样式，如斜体 */
 }
 
-.a-dialog {
+.a-dialog,
+.a-drawer {
   color: #333;
 }
 
@@ -237,6 +238,14 @@ td {
 }
 
 .dark {
+  .a-radio,
+  .a-checkbox {
+    --a-text-color-primary: #dfdfdf;
+  }
+
+  .a-form-item__label {
+    color: #dfdfdf;
+  }
   thead {
     border-top: 6px solid #355334;
   }

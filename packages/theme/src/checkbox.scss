@@ -64,6 +64,7 @@
     @include mixins.m(size, $s) {
       #{fn.getVarName(checkbox, font-size)}: var(#{fn.getVarName(font-size, $s)});
       #{fn.getVarName(checkbox, check-size)}: var(#{fn.getVarName(checkbox-size, $s)});
+      #{fn.getVarName(checkbox, size)}: var(#{fn.getVarName(component-size, $s)});
       #{fn.getVarName(checkbox, check-round)}: var(#{fn.getVarName(component-round, $s)});
       #{fn.getVarName(checkbox, check-icon-size)}: var(#{fn.getVarName(checkbox-icon-size, $s)});
     }

@@ -34,6 +34,11 @@ $dot-size: map.deep-merge(
   @include mixins.set-private-var(radio-dot-size, $dot-size);
 }
 
+@include mixins.b(radio-group) {
+  display: flex;
+  align-items: center;
+}
+
 // 根元素
 @include mixins.b(radio) {
   @include mixins.set-component-var(radio, comVar.getRadioVar());

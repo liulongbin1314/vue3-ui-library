@@ -1,6 +1,14 @@
 <template>
   <p>基础用法</p>
 
+  <a-button-group size="small">
+    <a-button @click="size = 'small'">small</a-button>
+    <a-button @click="size = 'default'">default</a-button>
+    <a-button @click="size = 'large'">large</a-button>
+  </a-button-group>
+
+  <hr />
+
   <!-- model 是表单的数据源 -->
   <a-form
     :model="formData"
@@ -9,7 +17,7 @@
     label-position="right"
     width="400px"
     label-width="100"
-    size="small"
+    :size
   >
     <a-form-item label="姓名" prop="name" :rules="nameRules">
       <a-input v-model="formData.name"></a-input>
@@ -53,24 +61,25 @@
 
 <script setup>
 import { ref, shallowRef } from 'vue'
-// import {
-//   AForm,
-//   AFormItem,
-//   ACheckbox,
-//   ACheckboxGroup,
-//   ARadio,
-//   ARadioGroup,
-//   ATextarea,
-//   AInput,
-//   AButton,
-//   ASwitch
-// } from '@ui-library/components'
-// import '@ui-library/theme/src/form.scss'
-// import '@ui-library/theme/src/checkbox.scss'
-// import '@ui-library/theme/src/radio.scss'
-// import '@ui-library/theme/src/input.scss'
-// import '@ui-library/theme/src/button.scss'
-// import '@ui-library/theme/src/switch.scss'
+import {
+  AForm,
+  AFormItem,
+  ACheckbox,
+  ACheckboxGroup,
+  ARadio,
+  ARadioGroup,
+  ATextarea,
+  AInput,
+  AButton,
+  ASwitch,
+  AButtonGroup
+} from '@ui-library/components'
+import '@ui-library/theme/src/form.scss'
+import '@ui-library/theme/src/checkbox.scss'
+import '@ui-library/theme/src/radio.scss'
+import '@ui-library/theme/src/input.scss'
+import '@ui-library/theme/src/button.scss'
+import '@ui-library/theme/src/switch.scss'
 
 const formData = ref({
   name: 'z',
@@ -81,6 +90,7 @@ const formData = ref({
   intro: ''
 })
 const formRef = shallowRef(null)
+const size = ref('small')
 
 const nameRules = [
   { type: 'string', required: true, message: '姓名不能为空！', trigger: 'blur' },
