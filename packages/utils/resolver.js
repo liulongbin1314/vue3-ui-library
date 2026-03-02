@@ -17,7 +17,8 @@ const name2dir = {
   aside: 'container',
   footer: 'container',
   header: 'container',
-  main: 'container'
+  main: 'container',
+  'collapse-item': 'collapse'
 }
 
 // 实现 EscookUI 组件的自动导入

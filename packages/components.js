@@ -16,6 +16,7 @@ import { AMask } from '@ui-library/components/mask'
 import { ADialog } from '@ui-library/components/dialog'
 import { AMessageBox } from '@ui-library/components/message-box'
 import { ADrawer } from '@ui-library/components/drawer'
+import { ACollapse, ACollapseItem } from '@ui-library/components/collapse'
 
 // 默认导出一个数组，
 // 数组中包含封装的所有的组件
@@ -44,5 +45,7 @@ export default [
   AMask,
   ADialog,
   AMessageBox,
-  ADrawer
+  ADrawer,
+  ACollapse,
+  ACollapseItem
 ]

@@ -1,0 +1,68 @@
+@use './common/mixins.scss';
+
+// 声明边框的颜色变量
+$border-color: var(--a-color-gray-light-8);
+
+// 父组件的样式
+@include mixins.b('collapse') {
+  border-top: 1px solid $border-color;
+  font-size: 14px;
+}
+
+// 子组件的样式
+@include mixins.b('collapse-item') {
+  // 禁用状态
+  @include mixins.s('disabled') {
+    background-color: #fafafa;
+
+    @include mixins.e('header', false) {
+      background-color: #f5f5f5;
+      cursor: not-allowed;
+    }
+  }
+
+  // Header
+  @include mixins.e('header') {
+    border-bottom: 1px solid $border-color;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s;
+
+    @include mixins.e('header-wrapper') {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    // 底边框的动画
+    @include mixins.s('active') {
+      border-bottom-color: transparent;
+    }
+
+    // 图标
+    @include mixins.e('header-icon') {
+      transition: transform 0.3s;
+      @include mixins.s('icon-rotate') {
+        transform: rotateZ(90deg);
+      }
+    }
+  }
+
+  // Content
+  @include mixins.e('content') {
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 25px;
+  }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: height 0.3s linear;
+  overflow: hidden;
+  border-bottom: 1px solid $border-color;
+}
