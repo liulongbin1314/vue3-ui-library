@@ -1,5 +1,5 @@
 <template>
-  <CollapseTest />
+  <TooltipTest />
 </template>
 
 <script setup>
@@ -16,7 +16,8 @@
 // import DialogTest from './components/DialogTest.vue'
 // import MessageBoxTest from './components/MessageBoxTest.vue'
 // import DrawerTest from './components/DrawerTest.vue'
-import CollapseTest from './components/CollapseTest.vue'
+// import CollapseTest from './components/CollapseTest.vue'
+import TooltipTest from './components/TooltipTest.vue'
 </script>
 
 <style scoped></style>

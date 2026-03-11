@@ -1,0 +1,61 @@
+@use './common/mixins.scss';
+
+// 根元素
+@include mixins.b('tooltip') {
+  // 默认主题颜色的变量：dark
+  --text-color: #fff;
+  --bg-color: #222;
+  --border-color: #222;
+  display: inline-block;
+
+  // 亮色的主题颜色：light
+  @include mixins.s('light') {
+    --text-color: #222;
+    --bg-color: #fff;
+    --border-color: #e4e7ed;
+  }
+
+  // 触发区域
+  @include mixins.e('trigger') {
+    width: max-content;
+  }
+
+  // 浮层区域
+  @include mixins.e('floating') {
+    width: max-content;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    font-weight: normal;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 12px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
+    // 箭头
+    @include mixins.e('arrow') {
+      width: 8px;
+      height: 8px;
+      background-color: var(--bg-color);
+      border: 0px solid var(--border-color);
+      box-sizing: border-box;
+      transform: rotateZ(45deg);
+    }
+  }
+}
+
+.tooltip-fade-enter-from,
+.tooltip-fade-leave-to {
+  opacity: 0;
+}
+
+.tooltip-fade-enter-to,
+.tooltip-fade-leave-from {
+  opacity: 1;
+}
+
+.tooltip-fade-enter-active,
+.tooltip-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
